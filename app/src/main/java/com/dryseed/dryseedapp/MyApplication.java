@@ -2,6 +2,7 @@ package com.dryseed.dryseedapp;
 
 import android.app.Application;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.squareup.leakcanary.LeakCanary;
 
 /**
@@ -25,9 +26,9 @@ public class MyApplication extends Application {
         super.onCreate();
         sInstance = this;
 
-        LeakCanary.install(this);
+        Fresco.initialize(sInstance);
+        LeakCanary.install(sInstance);
     }
-
 
 
 }
