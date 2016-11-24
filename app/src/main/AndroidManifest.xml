@@ -38,6 +38,15 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".leakcanary.TestLeakCanaryActivity"
+            android:label="LeakCanary">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
     </application>
 
 

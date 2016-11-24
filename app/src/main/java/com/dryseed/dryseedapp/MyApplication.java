@@ -2,6 +2,8 @@ package com.dryseed.dryseedapp;
 
 import android.app.Application;
 
+import com.squareup.leakcanary.LeakCanary;
+
 /**
  * Created by caiminming on 2016/11/23.
  */
@@ -22,6 +24,8 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         sInstance = this;
+
+        LeakCanary.install(this);
     }
 
 
