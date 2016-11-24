@@ -22,7 +22,7 @@
         </activity>
 
         <activity
-            android:name=".TestVolleyActivity"
+            android:name=".volley.TestVolleyActivity"
             android:label="TestVolleyActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

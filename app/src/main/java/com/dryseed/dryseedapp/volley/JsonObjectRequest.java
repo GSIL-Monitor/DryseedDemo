@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.utils;
+package com.dryseed.dryseedapp.volley;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;

@@ -1,22 +1,20 @@
-package com.dryseed.dryseedapp;
+package com.dryseed.dryseedapp.volley;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.android.volley.Request;
 import com.android.volley.VolleyError;
 import com.dryseed.dryseedapp.fastjson.bean.Person;
-import com.dryseed.dryseedapp.utils.JsonObjectRequest;
+import com.dryseed.dryseedapp.utils.VolleyUtils;
 import com.orhanobut.logger.Logger;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -82,7 +80,7 @@ public class TestVolleyActivity extends Activity {
                     }
                 }
         );
-        MyApplication.getInstance().addToRequestQueue(jsonObjectRequest);
+        VolleyUtils.addToRequestQueue(jsonObjectRequest);
     }
 
 

@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.utils;
+package com.dryseed.dryseedapp.volley;
 
 import android.content.Context;
 import android.graphics.Bitmap;
