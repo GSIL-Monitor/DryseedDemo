@@ -23,7 +23,16 @@
 
         <activity
             android:name=".TestVolleyActivity"
-            android:label="PhotoPicker">
+            android:label="TestVolleyActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".fastjson.TestFastJsonActivity"
+            android:label="FastJson">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
