@@ -23,7 +23,7 @@
 
         <activity
             android:name=".volley.TestVolleyActivity"
-            android:label="TestVolleyActivity">
+            android:label="Volley">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
