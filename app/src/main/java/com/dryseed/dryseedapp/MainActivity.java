@@ -84,7 +84,6 @@ public class MainActivity extends ListActivity {
                     : info.activityInfo.name;
 
             if (prefixWithSlash.length() == 0 || label.startsWith(prefixWithSlash)) {
-
                 String[] labelPath = label.split("/");
 
                 String nextLabel = prefixPath == null ? labelPath[0] : labelPath[prefixPath.length];
