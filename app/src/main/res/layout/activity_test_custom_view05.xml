@@ -1,0 +1,42 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res/com.dryseed.dryseedapp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:src="@drawable/icon" />
+
+        <com.dryseed.dryseedapp.customView.customView05.CustomImageView2
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            custom:src="@drawable/icon"
+            custom:type="circle" />
+
+        <com.dryseed.dryseedapp.customView.customView05.CustomImageView2
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            custom:borderRadius="10dp"
+            custom:src="@drawable/icon"
+            custom:type="round" />
+
+        <com.dryseed.dryseedapp.customView.customView05.CustomImageView2
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            custom:borderRadius="20dp"
+            custom:src="@drawable/icon"
+            custom:type="round" />
+    </LinearLayout>
+
+</ScrollView>

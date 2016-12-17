@@ -109,6 +109,29 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".customView.customView05.TestCustomView05Activity"
+            android:label="CustomView/CustomView05(圆形圆角控件)">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".customView.bounceScrollView.TestBounceScrollViewActivity"
+            android:label="CustomView/BounceScrollView 反弹效果 仿小米私密短信效果">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".customView.bounceScrollView.BounceScrollViewSecondActivity">
+        </activity>
+
+
     </application>
 
 
