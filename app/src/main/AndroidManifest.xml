@@ -131,7 +131,41 @@
             android:name=".customView.bounceScrollView.BounceScrollViewSecondActivity">
         </activity>
 
+        <activity
+            android:name=".customView.gestureLock.TestGestureLockActivity"
+            android:label="CustomView/GestureLock 手势锁">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
 
+        <activity
+            android:name=".customView.arcMenu.TestArcMenuActivity"
+            android:label="CustomView/ArcMenu">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".customView.customViewGroup01.TestCustomViewGroup01Activity"
+            android:label="CustomView/CustomViewGroup01 自定义ViewGroup">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".customView.customViewGroup02.TestCustomViewGroup02Activity"
+            android:label="CustomView/CustomViewGroup02 FlowLayout">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
     </application>
 
 
