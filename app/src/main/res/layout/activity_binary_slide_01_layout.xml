@@ -1,0 +1,34 @@
+<com.dryseed.dryseedapp.widget.slideMenu.BinarySlideMenu01.BinarySlidingMenu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:custom="http://schemas.android.com/apk/res/com.dryseed.dryseedapp"
+    android:id="@+id/id_menu"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:scrollbars="none"
+    custom:rightPadding="100dp" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal" >
+
+        <include layout="@layout/activity_binary_slide_01_menu" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/eee"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <ListView
+                android:id="@android:id/list"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+            </ListView>
+        </LinearLayout>
+
+        <include layout="@layout/activity_binary_slide_01_menu2" />
+    </LinearLayout>
+
+</com.dryseed.dryseedapp.widget.slideMenu.BinarySlideMenu01.BinarySlidingMenu>

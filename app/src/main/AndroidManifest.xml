@@ -217,8 +217,40 @@
         </activity>
 
         <activity
-            android:name=".widget.slideMenu.slideMenu01.SlideMenu01Activity"
-            android:label="Widget/SlideMenu/自定义侧滑控件">
+            android:name=".widget.slideMenu.SlideMenu01.SlideMenu01Activity"
+            android:label="Widget/SlideMenu/01.自定义侧滑控件">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.slideMenu.SlideMenu02.SlideMenu02Activity"
+            android:label="Widget/SlideMenu/02.自定义侧滑控件(框架)">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.slideMenu.SlideMenu03.SlideMenu03Activity"
+            android:label="Widget/SlideMenu/03.自定义侧滑控件(HorizontalScrollView)">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.slideMenu.SlideMenu04.SlideMenu04Activity"
+            android:label="Widget/SlideMenu/04.自定义侧滑控件(HorizontalScrollView Advanced)">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.slideMenu.BinarySlideMenu01.BinarySlide01Activity"
+            android:label="Widget/SlideMenu/05.BinarySlideMenu01">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
