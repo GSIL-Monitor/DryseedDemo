@@ -166,6 +166,55 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".animation.basicPropertyAnimation.ObjectAnimatorActivity"
+            android:label="Animation/PropertyAnimation/ObjectAnimator">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".animation.basicPropertyAnimation.ValueAnimatorActivity"
+            android:label="Animation/PropertyAnimation/ValueAnimator">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".animation.basicPropertyAnimation.AnimatorSetActivity"
+            android:label="Animation/PropertyAnimation/AnimatorSet">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".animation.basicPropertyAnimation.Xml4AnimActivity"
+            android:label="Animation/PropertyAnimation/XML4Anim">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".animation.basicPropertyAnimation.LayoutAnimatorActivity"
+            android:label="Animation/PropertyAnimation/LayoutAnimator">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".animation.basicPropertyAnimation.ViewAnimatorActivity"
+            android:label="Animation/PropertyAnimation/ViewAnimator">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
     </application>
 
 
