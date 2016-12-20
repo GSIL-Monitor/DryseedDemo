@@ -11,13 +11,9 @@ import android.widget.LinearLayout;
 
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.utils.DPIUtil;
+import com.nineoldandroids.view.ViewHelper;
 
 
-/**
- * http://blog.csdn.net/lmj623565791
- *
- * @author zhy
- */
 public class BinarySlidingMenu extends HorizontalScrollView {
     /**
      * 菜单的宽度
@@ -191,7 +187,6 @@ public class BinarySlidingMenu extends HorizontalScrollView {
         } else {
             isOperateRight = false;
             isOperateLeft = true;
-
         }
     }
 

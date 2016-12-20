@@ -256,6 +256,22 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".widget.slideMenu.BinarySlideMenu02.BinarySlide02Activity"
+            android:label="Widget/SlideMenu/06.BinarySlideMenu02 抽屉式 ">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.slideMenu.DrawerLayout.DrawerLayoutActivity"
+            android:label="Widget/SlideMenu/07.DrawerLayout ">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
     </application>
 
 
