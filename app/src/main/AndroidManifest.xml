@@ -217,7 +217,7 @@
         </activity>
 
         <activity
-            android:name=".widget.slideMenu.SlideMenu01.SlideMenu01Activity"
+            android:name=".widget.slideMenu.slideMenu01.SlideMenu01Activity"
             android:label="Widget/SlideMenu/01.自定义侧滑控件">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -267,6 +267,15 @@
         <activity
             android:name=".widget.slideMenu.DrawerLayout.DrawerLayoutActivity"
             android:label="Widget/SlideMenu/07.DrawerLayout ">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".customView.zoomImage.ZoomImageActivity"
+            android:label="CustomView/ZoomImageView ">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />

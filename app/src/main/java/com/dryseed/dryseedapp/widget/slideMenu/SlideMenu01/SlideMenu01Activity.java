@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.widget.slideMenu.SlideMenu01;
+package com.dryseed.dryseedapp.widget.slideMenu.slideMenu01;
 
 import android.app.Activity;
 import android.content.Context;
