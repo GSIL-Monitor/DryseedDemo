@@ -3,10 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <com.dryseed.dryseedapp.widget.zoomImage.ZoomImageView
+    <android.support.v4.view.ViewPager
+        android:id="@+id/id_viewpager"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:scaleType="matrix"
-        android:src="@drawable/tbug" />
+        android:layout_height="fill_parent" >
+    </android.support.v4.view.ViewPager>
 
 </RelativeLayout>

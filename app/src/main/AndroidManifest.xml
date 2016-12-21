@@ -274,8 +274,8 @@
         </activity>
 
         <activity
-            android:name=".customView.zoomImage.ZoomImageActivity"
-            android:label="CustomView/ZoomImageView ">
+            android:name=".widget.zoomImage.ZoomImageActivity"
+            android:label="Widget/ZoomImageView 缩放版 ">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
