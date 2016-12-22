@@ -275,11 +275,50 @@
 
         <activity
             android:name=".widget.zoomImage.ZoomImageActivity"
-            android:label="Widget/ZoomImageView 缩放版 ">
+            android:label="Widget/ZoomImageView">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".widget.clipZoomImage.ClipZoomImageActivity"
+            android:label="Widget/ClipZoomImageView">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.clipZoomImage.ShowImageActivity">
+        </activity>
+
+        <activity
+            android:name=".customView.foldingLayout.sample.TestFoldingLayoutActivity"
+            android:label="CustomView/FoldingLayoutActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".customView.foldingLayout.sample.MatrixPolyToPolyActivity">
+        </activity>
+        <activity
+            android:name=".customView.foldingLayout.sample.MatrixPolyToPolyWithShadowActivity">
+        </activity>
+        <activity
+            android:name=".customView.foldingLayout.sample.SimpleUseActivity">
+        </activity>
+        <activity
+            android:name=".customView.foldingLayout.sample.FoldLayoutActivity">
+        </activity>
+        <activity
+            android:name=".customView.foldingLayout.sample.DrawerLayoutSampleActivity">
+        </activity>
+        <activity
+            android:name=".customView.foldingLayout.sample.SlidingPanelLayoutSampleActivity">
         </activity>
     </application>
 

@@ -23,7 +23,7 @@ import com.dryseed.dryseedapp.R;
 
 public class ValueAnimatorActivity extends Activity
 {
-	protected static final String TAG = "MainActivity";
+	protected static final String TAG = "TestFoldingLayoutActivity";
 
 	private ImageView mBlueBall;
 
