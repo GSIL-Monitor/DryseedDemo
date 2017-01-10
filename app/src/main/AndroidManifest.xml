@@ -320,6 +320,15 @@
         <activity
             android:name=".customView.foldingLayout.sample.SlidingPanelLayoutSampleActivity">
         </activity>
+
+        <activity
+            android:name=".image.TestImageActivity"
+            android:label="Image/TestImageActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
     </application>
 
 
