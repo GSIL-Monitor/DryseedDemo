@@ -329,6 +329,31 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".tab.viewpager.TraditionalViewPagerAcvitity"
+            android:label="Tab/TraditionalViewPagerAcvitity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".tab.fragment.FragmentMainActivity"
+            android:label="Tab/FragmentMainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".tab.viewPagerPlusFragment.ViewPagerFragmentActivity"
+            android:label="Tab/ViewPagerFragmentActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
     </application>
 
 

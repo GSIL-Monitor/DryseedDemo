@@ -151,7 +151,7 @@ public class TestImageActivity extends Activity implements OnScrollListener {
         public View getView(int position, View convertView, ViewGroup parent) {
             ViewHolder holder = null;
             if (convertView == null) {
-                convertView = mInflater.inflate(R.layout.activity_image_list_item,parent, false);
+                convertView = mInflater.inflate(R.layout.activity_image_list_item, parent, false);
                 holder = new ViewHolder();
                 holder.imageView = (ImageView) convertView.findViewById(R.id.image);
                 convertView.setTag(holder);
@@ -159,7 +159,7 @@ public class TestImageActivity extends Activity implements OnScrollListener {
                 holder = (ViewHolder) convertView.getTag();
             }
             ImageView imageView = holder.imageView;
-            final String tag = (String)imageView.getTag();
+            final String tag = (String) imageView.getTag();
             final String uri = getItem(position);
             if (!uri.equals(tag)) {
                 imageView.setImageDrawable(mDefaultBitmapDrawable);
@@ -173,7 +173,7 @@ public class TestImageActivity extends Activity implements OnScrollListener {
 
     }
 
-    private static class ViewHolder {
+    private class ViewHolder {
         public ImageView imageView;
     }
 
@@ -189,8 +189,8 @@ public class TestImageActivity extends Activity implements OnScrollListener {
 
     @Override
     public void onScroll(AbsListView view, int firstVisibleItem,
-            int visibleItemCount, int totalItemCount) {
+                         int visibleItemCount, int totalItemCount) {
         // ignored
-        
+
     }
 }
