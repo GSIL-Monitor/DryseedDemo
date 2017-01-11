@@ -293,6 +293,14 @@
         <activity
             android:name=".widget.clipZoomImage.ShowImageActivity">
         </activity>
+        <activity
+            android:name=".widget.banner.ViewPagerActivity"
+            android:label="Widget/ViewPagerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".customView.foldingLayout.sample.TestFoldingLayoutActivity"
@@ -320,6 +328,17 @@
         <activity
             android:name=".customView.foldingLayout.sample.SlidingPanelLayoutSampleActivity">
         </activity>
+
+        <activity
+            android:name=".customView.guaguaka.GuaGuaKaActivity"
+            android:label="CustomView/GuaGuaKaActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+
 
         <activity
             android:name=".image.TestImageActivity"
@@ -353,6 +372,19 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name=".canvas.TestCanvasActivity"
+            android:label="Canvas/TestCanvasActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".canvas.CanvasActivity">
         </activity>
     </application>
 
