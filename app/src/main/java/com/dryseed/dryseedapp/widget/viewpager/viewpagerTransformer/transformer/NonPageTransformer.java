@@ -1,6 +1,5 @@
-package com.dryseed.dryseedapp.widget.banner.transformer;
+package com.dryseed.dryseedapp.widget.viewpager.viewpagerTransformer.transformer;
 
-import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 

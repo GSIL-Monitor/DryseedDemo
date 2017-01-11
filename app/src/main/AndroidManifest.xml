@@ -294,8 +294,24 @@
             android:name=".widget.clipZoomImage.ShowImageActivity">
         </activity>
         <activity
-            android:name=".widget.banner.ViewPagerActivity"
-            android:label="Widget/ViewPagerActivity">
+            android:name=".widget.viewpager.viewpagerTransformer.ViewPagerTransformerActivity"
+            android:label="Widget/Viewpager/ViewPagerTransformerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.viewpager.pagerSlidingTabStrip.TestPagerSlidingTabStripActivity"
+            android:label="Widget/Viewpager/PagerSlidingTabStrip">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.viewpager.customizedPagerSlidingTabStrip.TestCustomizedPagerSlidingTabStripActivity"
+            android:label="Widget/Viewpager/CustomizedPagerSlidingTabStrip">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />

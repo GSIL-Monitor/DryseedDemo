@@ -1,0 +1,21 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#ffffffff"
+              android:orientation="vertical" >
+
+    <com.dryseed.dryseedapp.widget.viewpager.customizedPagerSlidingTabStrip.CustomizedPagerSlidingTabStrip
+        android:id="@+id/id_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/title_bar_bg_one_row"
+        android:orientation="horizontal" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/id_vp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>

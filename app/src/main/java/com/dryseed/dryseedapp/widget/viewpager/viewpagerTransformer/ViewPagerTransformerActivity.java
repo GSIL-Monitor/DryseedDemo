@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.widget.banner;
+package com.dryseed.dryseedapp.widget.viewpager.viewpagerTransformer;
 
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
@@ -11,18 +11,18 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.widget.banner.transformer.AlphaPageTransformer;
-import com.dryseed.dryseedapp.widget.banner.transformer.NonPageTransformer;
-import com.dryseed.dryseedapp.widget.banner.transformer.RotateDownPageTransformer;
-import com.dryseed.dryseedapp.widget.banner.transformer.RotateUpPageTransformer;
-import com.dryseed.dryseedapp.widget.banner.transformer.RotateYTransformer;
-import com.dryseed.dryseedapp.widget.banner.transformer.ScaleInTransformer;
+import com.dryseed.dryseedapp.widget.viewpager.viewpagerTransformer.transformer.AlphaPageTransformer;
+import com.dryseed.dryseedapp.widget.viewpager.viewpagerTransformer.transformer.NonPageTransformer;
+import com.dryseed.dryseedapp.widget.viewpager.viewpagerTransformer.transformer.RotateDownPageTransformer;
+import com.dryseed.dryseedapp.widget.viewpager.viewpagerTransformer.transformer.RotateUpPageTransformer;
+import com.dryseed.dryseedapp.widget.viewpager.viewpagerTransformer.transformer.RotateYTransformer;
+import com.dryseed.dryseedapp.widget.viewpager.viewpagerTransformer.transformer.ScaleInTransformer;
 
 /*
     android:clipChildren="false"  该属性的意思就是在子View进行绘制时不要去裁切它们的显示范围
     viewPager.setPageTransformer
  */
-public class ViewPagerActivity extends AppCompatActivity
+public class ViewPagerTransformerActivity extends AppCompatActivity
 {
 
     private ViewPager mViewPager;
@@ -46,7 +46,7 @@ public class ViewPagerActivity extends AppCompatActivity
             @Override
             public Object instantiateItem(ViewGroup container, int position)
             {
-                ImageView view = new ImageView(ViewPagerActivity.this);
+                ImageView view = new ImageView(ViewPagerTransformerActivity.this);
 //                ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 //                view.setLayoutParams(lp);
 //                view.setText(position + ":" + view);
