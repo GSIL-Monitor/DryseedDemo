@@ -392,7 +392,7 @@
 
 
         <activity
-            android:name=".canvas.TestCanvasActivity"
+            android:name=".canvas.canvas.TestCanvasActivity"
             android:label="Canvas/TestCanvasActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -400,7 +400,31 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".canvas.CanvasActivity">
+            android:name=".canvas.canvas.CanvasActivity">
+        </activity>
+        <activity
+            android:name=".canvas.bitmapShaderRoundImage.TestBitmapShaderActivity"
+            android:label="Canvas/TestBitmapShaderActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".canvas.bitmapShaderTitanic.TestBitmapShaderTitanicActivity"
+            android:label="Canvas/TestBitmapShaderTitanicActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".canvas.pathMeasure.AlipayConfirmViewActivity"
+            android:label="Canvas/AlipayConfirmViewActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
         </activity>
     </application>
 

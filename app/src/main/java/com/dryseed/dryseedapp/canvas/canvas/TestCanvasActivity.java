@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.canvas;
+package com.dryseed.dryseedapp.canvas.canvas;
 
 import android.app.Activity;
 import android.content.Intent;
