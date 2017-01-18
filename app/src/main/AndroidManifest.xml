@@ -300,6 +300,15 @@
         </activity>
 
         <activity
+            android:name=".widget.viewFlipper.TestViewFlipperActivity"
+            android:label="Widget/ViewFlipper">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".widget.clipZoomImage.ClipZoomImageActivity"
             android:label="Widget/ClipZoomImageView">
             <intent-filter>
@@ -311,24 +320,32 @@
             android:name=".widget.clipZoomImage.ShowImageActivity">
         </activity>
         <activity
-            android:name=".widget.viewpager.viewpagerTransformer.ViewPagerTransformerActivity"
-            android:label="Widget/Viewpager/ViewPagerTransformerActivity">
+            android:name=".widget.viewPager.viewpagerTransformer.ViewPagerTransformerActivity"
+            android:label="Widget/viewPager/ViewPagerTransformerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".widget.viewpager.pagerSlidingTabStrip.TestPagerSlidingTabStripActivity"
-            android:label="Widget/Viewpager/PagerSlidingTabStrip">
+            android:name=".widget.viewPager.pagerSlidingTabStrip.TestPagerSlidingTabStripActivity"
+            android:label="Widget/viewPager/PagerSlidingTabStrip">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".widget.viewpager.customizedPagerSlidingTabStrip.TestCustomizedPagerSlidingTabStripActivity"
-            android:label="Widget/Viewpager/CustomizedPagerSlidingTabStrip">
+            android:name=".widget.viewPager.customizedPagerSlidingTabStrip.TestCustomizedPagerSlidingTabStripActivity"
+            android:label="Widget/viewPager/CustomizedPagerSlidingTabStrip">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.viewPager.tabLayout.TestTabLayoutActivity"
+            android:label="Widget/viewPager/TabLayout">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />

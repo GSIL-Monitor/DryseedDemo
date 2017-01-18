@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.widget.viewpager.viewpagerTransformer;
+package com.dryseed.dryseedapp.widget.viewPager.viewpagerTransformer;
 
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
@@ -11,12 +11,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.widget.viewpager.viewpagerTransformer.transformer.AlphaPageTransformer;
-import com.dryseed.dryseedapp.widget.viewpager.viewpagerTransformer.transformer.NonPageTransformer;
-import com.dryseed.dryseedapp.widget.viewpager.viewpagerTransformer.transformer.RotateDownPageTransformer;
-import com.dryseed.dryseedapp.widget.viewpager.viewpagerTransformer.transformer.RotateUpPageTransformer;
-import com.dryseed.dryseedapp.widget.viewpager.viewpagerTransformer.transformer.RotateYTransformer;
-import com.dryseed.dryseedapp.widget.viewpager.viewpagerTransformer.transformer.ScaleInTransformer;
+import com.dryseed.dryseedapp.widget.viewPager.viewpagerTransformer.transformer.AlphaPageTransformer;
+import com.dryseed.dryseedapp.widget.viewPager.viewpagerTransformer.transformer.NonPageTransformer;
+import com.dryseed.dryseedapp.widget.viewPager.viewpagerTransformer.transformer.RotateDownPageTransformer;
+import com.dryseed.dryseedapp.widget.viewPager.viewpagerTransformer.transformer.RotateUpPageTransformer;
+import com.dryseed.dryseedapp.widget.viewPager.viewpagerTransformer.transformer.RotateYTransformer;
+import com.dryseed.dryseedapp.widget.viewPager.viewpagerTransformer.transformer.ScaleInTransformer;
 
 /*
     android:clipChildren="false"  该属性的意思就是在子View进行绘制时不要去裁切它们的显示范围

@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.widget.viewpager.viewpagerTransformer.transformer;
+package com.dryseed.dryseedapp.widget.viewPager.viewpagerTransformer.transformer;
 
 import android.annotation.TargetApi;
 import android.os.Build;

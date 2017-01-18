@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.widget.viewpager.customizedPagerSlidingTabStrip;
+package com.dryseed.dryseedapp.widget.viewPager.customizedPagerSlidingTabStrip;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
