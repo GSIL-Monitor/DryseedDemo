@@ -232,6 +232,17 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".animation.transitionAnimator.TestTransitionAnimatorActivity"
+            android:label="Animation/TransitionAnimator/TestTransitionAnimatorActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".animation.transitionAnimator.MessageActivity">
+        </activity>
 
         <activity
             android:name=".widget.slideMenu.slideMenu01.SlideMenu01Activity"
