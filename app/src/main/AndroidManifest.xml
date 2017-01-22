@@ -362,6 +362,14 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".widget.graphicDetailsLayout.layout.MainActivity"
+            android:label="Widget/GraphicDetailsLayout 模仿淘宝商品详情拖动查看图文详情效果">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".customView.foldingLayout.sample.TestFoldingLayoutActivity"
