@@ -6,8 +6,6 @@ import com.dryseed.dryseedapp.designPattern.facade.device.Player;
 import com.dryseed.dryseedapp.designPattern.facade.device.PopcornPopper;
 import com.dryseed.dryseedapp.designPattern.facade.device.Projector;
 import com.dryseed.dryseedapp.designPattern.facade.theater.HomeTheaterFacade;
-import com.dryseed.dryseedapp.designPattern.factory.abstractFactory.XianRoujiaMoTeSeStore;
-import com.dryseed.dryseedapp.designPattern.factory.abstractFactory.XianSimpleRoujiaMoTeSeFactory;
 
 /**
  * Created by User on 2016/12/14.

@@ -1,7 +1,5 @@
 package com.dryseed.dryseedapp.designPattern.observer.javautil;
 
-import android.util.Log;
-
 import java.util.Observable;
 import java.util.Observer;
 

@@ -20,6 +20,6 @@ public class ObserverUser1 implements Observer {
     @Override
     public void update(String msg) {
         System.out.println("ObserverUser1 得到 3D 号码:" + msg + ", 我要记下来。 ");
-//        Toast.makeText(PatternApplication.getInstance(), "-----ObserverUser1 得到 3D 号码:" + msg, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(PatternApplication.getInstance(), "-----ObserverUserByComputer 得到 3D 号码:" + msg, Toast.LENGTH_SHORT).show();
     }
 }

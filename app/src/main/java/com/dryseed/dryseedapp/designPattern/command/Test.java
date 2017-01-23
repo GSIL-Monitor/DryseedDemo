@@ -1,11 +1,9 @@
 package com.dryseed.dryseedapp.designPattern.command;
 
-import com.dryseed.dryseedapp.designPattern.factory.simpleFactory.RoujiaMoStore;
-import com.dryseed.dryseedapp.designPattern.factory.simpleFactory.SimpleRoujiaMoFactory;
-
 /**
  * Created by User on 2016/12/14.
  */
+
 /**
  * 命令模式:
  * 定义：将"请求"封装成对象，以便使用不同的请求、队列或者日志来参数化其他对象。命令模式也支持可撤销的操作。
@@ -16,8 +14,7 @@ import com.dryseed.dryseedapp.designPattern.factory.simpleFactory.SimpleRoujiaMo
  * 要求做到每个按钮对应的功能供用户个性化，对于新买入家电要有非常强的扩展性。
  */
 public class Test {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         ControlPanel controlPanel;
 
         /**
