@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.designPattern.command;
+package com.dryseed.dryseedapp.designPattern.command.eg;
 
 /**
  * Created by User on 2016/12/14.

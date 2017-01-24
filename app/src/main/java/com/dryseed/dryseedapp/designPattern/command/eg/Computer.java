@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.designPattern.command;
+package com.dryseed.dryseedapp.designPattern.command.eg;
 
 import android.util.Log;
 

@@ -1,18 +1,5 @@
 package com.dryseed.dryseedapp.designPattern.adapter;
 
-import com.dryseed.dryseedapp.designPattern.command.Command;
-import com.dryseed.dryseedapp.designPattern.command.Computer;
-import com.dryseed.dryseedapp.designPattern.command.ComputerOffCommand;
-import com.dryseed.dryseedapp.designPattern.command.ComputerOnCommand;
-import com.dryseed.dryseedapp.designPattern.command.ControlPanel;
-import com.dryseed.dryseedapp.designPattern.command.Door;
-import com.dryseed.dryseedapp.designPattern.command.DoorCloseCommand;
-import com.dryseed.dryseedapp.designPattern.command.DoorOpenCommand;
-import com.dryseed.dryseedapp.designPattern.command.Light;
-import com.dryseed.dryseedapp.designPattern.command.LightOffCommand;
-import com.dryseed.dryseedapp.designPattern.command.LightOnCommand;
-import com.dryseed.dryseedapp.designPattern.command.QuickCommand;
-
 /**
  * Created by User on 2016/12/14.
  */

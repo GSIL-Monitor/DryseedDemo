@@ -1,10 +1,11 @@
 package com.dryseed.dryseedapp.designPattern.command;
 
 /**
- * Created by jingbin on 2016/10/31.
+ * Created by caiminming on 2017/1/24.
  */
-
 public interface Command {
-
-    public void execute();
+    /**
+     * 执行方法
+     */
+    void execute();
 }
