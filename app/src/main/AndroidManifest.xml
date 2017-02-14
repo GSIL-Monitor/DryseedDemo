@@ -391,6 +391,23 @@
         </activity>
 
         <activity
+            android:name=".widget.nestedScrolling.myNestScroll.MyNestedScrollActivity"
+            android:label="Widget/NestedScrolling/MyNestedScrolling">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.nestedScrolling.recyclerviewNestScroll.RecyclerViewNestScrollActivity"
+            android:label="Widget/NestedScrolling/RecyclerView NestedScrolling">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".customView.foldingLayout.sample.TestFoldingLayoutActivity"
             android:label="CustomView/FoldingLayoutActivity">
             <intent-filter>
@@ -493,6 +510,16 @@
         <activity
             android:name=".canvas.pathMeasure.AlipayConfirmViewActivity"
             android:label="Canvas/AlipayConfirmViewActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name=".frameStructure.mvp.UserLoginActivity"
+            android:label="FrameStructure/Mvp/UserLoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />

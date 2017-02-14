@@ -18,13 +18,28 @@ public class Test
 			System.out.println(f);
 		}*/
 
-		String x = new String("dryseed");
+		/*String x = new String("dryseed");
 		change(x);
-		System.out.println(x);
+		System.out.println(x);*/
+
+		System.out.println( formatFollowNums("2222") );
 	}
 
 	public static void change(String x) {
 		x = "cai";
 	}
+
+
+	private static String formatFollowNums(String num){
+		int n = Integer.parseInt(num);
+		if(n < 10000){
+			return n + "";
+		} else if(n > 9999999){
+			return "999.9万+";
+		} else {
+			return String.format("%.1f", n / 10000f) + "万";
+		}
+	}
+
 
 }
