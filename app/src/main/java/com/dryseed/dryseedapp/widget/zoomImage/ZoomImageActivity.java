@@ -13,7 +13,7 @@ import com.dryseed.dryseedapp.R;
 public class ZoomImageActivity extends Activity {
 
     private ViewPager mViewPager;
-    private int[] mImgs = new int[]{R.drawable.tbug, R.drawable.a, R.drawable.xx};
+    private int[] mImgs = new int[]{R.drawable.tbug, R.drawable.mv, R.drawable.xx};
     private ImageView[] mImageViews = new ImageView[mImgs.length];
 
     @Override

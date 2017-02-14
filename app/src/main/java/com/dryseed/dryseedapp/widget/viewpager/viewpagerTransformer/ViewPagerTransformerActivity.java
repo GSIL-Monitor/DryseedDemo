@@ -28,8 +28,8 @@ public class ViewPagerTransformerActivity extends AppCompatActivity
     private ViewPager mViewPager;
     private PagerAdapter mAdapter;
 
-    int[] imgRes = {R.drawable.a, R.drawable.b, R.drawable.c, R.drawable.d,
-            R.drawable.e, R.drawable.f, R.drawable.g, R.drawable.h, R.drawable.i};
+    int[] imgRes = {R.drawable.t0, R.drawable.t1, R.drawable.t2, R.drawable.t3,
+            R.drawable.t4, R.drawable.t5, R.drawable.t6, R.drawable.t7, R.drawable.t8};
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
