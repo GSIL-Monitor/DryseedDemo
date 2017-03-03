@@ -22,7 +22,7 @@ public class Test
 		change(x);
 		System.out.println(x);*/
 
-		System.out.println( formatFollowNums("2222") );
+		System.out.println( 365.5f % 360 );
 	}
 
 	public static void change(String x) {

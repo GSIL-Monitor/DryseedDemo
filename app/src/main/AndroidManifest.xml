@@ -491,6 +491,16 @@
         <activity
             android:name=".canvas.canvas.CanvasActivity">
         </activity>
+
+        <activity
+            android:name=".canvas.xfermode.XfermodeActivity"
+            android:label="Canvas/XfermodeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".canvas.bitmapShaderRoundImage.TestBitmapShaderActivity"
             android:label="Canvas/TestBitmapShaderActivity">
@@ -516,10 +526,18 @@
             </intent-filter>
         </activity>
 
-
         <activity
             android:name=".frameStructure.mvp.UserLoginActivity"
             android:label="FrameStructure/Mvp/UserLoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".tools.sensor.SensorActivity"
+            android:label="Tool/Sensor/SensorActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />

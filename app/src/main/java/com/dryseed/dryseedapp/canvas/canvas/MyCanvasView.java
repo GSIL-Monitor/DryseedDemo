@@ -7,6 +7,8 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.text.TextPaint;
@@ -28,7 +30,7 @@ public class MyCanvasView extends View {
     private float density = getResources().getDisplayMetrics().density;
     private Bitmap bitmap;
 
-    public static enum DrawMode{
+    public static enum DrawMode {
         UNKNOWN(0),
         AXIS(1),
         ARGB(2),
@@ -40,20 +42,21 @@ public class MyCanvasView extends View {
         OVAL(8),
         ARC(9),
         PATH(10),
-        BITMAP(11);
+        BITMAP(11),
+        XFERMODE(12);
 
         private int value = 0;
 
-        private DrawMode(int value){
+        private DrawMode(int value) {
             this.value = value;
         }
 
-        public int value(){
+        public int value() {
             return value;
         }
 
-        public static DrawMode valueOf(int value){
-            switch (value){
+        public static DrawMode valueOf(int value) {
+            switch (value) {
                 case 0:
                     return UNKNOWN;
                 case 1:
@@ -78,6 +81,8 @@ public class MyCanvasView extends View {
                     return PATH;
                 case 11:
                     return BITMAP;
+                case 12:
+                    return XFERMODE;
                 default:
                     return UNKNOWN;
             }
@@ -131,7 +136,7 @@ public class MyCanvasView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        switch (drawMode){
+        switch (drawMode) {
             case AXIS:
                 drawAxis(canvas);
                 break;
@@ -168,13 +173,13 @@ public class MyCanvasView extends View {
         }
     }
 
-    public void setDrawMode(DrawMode mode){
+    public void setDrawMode(DrawMode mode) {
         this.drawMode = mode;
         postInvalidate();
     }
 
     //绘制坐标系
-    private void drawAxis(Canvas canvas){
+    private void drawAxis(Canvas canvas) {
         int canvasWidth = canvas.getWidth();
         int canvasHeight = canvas.getHeight();
         paint.setStyle(Paint.Style.STROKE);
@@ -190,7 +195,7 @@ public class MyCanvasView extends View {
         canvas.drawLine(0, 0, 0, canvasHeight, paint);//绘制y轴
 
         //对坐标系平移后，第二次绘制坐标轴
-        canvas.translate(canvasWidth / 4, canvasWidth /4);//把坐标系向右下角平移
+        canvas.translate(canvasWidth / 4, canvasWidth / 4);//把坐标系向右下角平移
         paint.setColor(0xff00ff00);//绿色
         canvas.drawLine(0, 0, canvasWidth, 0, paint);//绘制x轴
         paint.setColor(0xff0000ff);//蓝色
@@ -205,11 +210,11 @@ public class MyCanvasView extends View {
         canvas.drawLine(0, 0, 0, canvasHeight, paint);//绘制y轴
     }
 
-    private void drawARGB(Canvas canvas){
+    private void drawARGB(Canvas canvas) {
         canvas.drawARGB(255, 139, 197, 186);
     }
 
-    private void drawText(Canvas canvas){
+    private void drawText(Canvas canvas) {
         int canvasWidth = canvas.getWidth();
         int halfCanvasWidth = canvasWidth / 2;
         float translateY = textHeight;
@@ -281,7 +286,7 @@ public class MyCanvasView extends View {
         canvas.restore();
     }
 
-    private void drawPoint(Canvas canvas){
+    private void drawPoint(Canvas canvas) {
         int canvasWidth = canvas.getWidth();
         int canvasHeight = canvas.getHeight();
         int x = canvasWidth / 2;
@@ -305,19 +310,19 @@ public class MyCanvasView extends View {
         canvas.drawPoint(x, y, paint);
     }
 
-    private void drawLine(Canvas canvas){
+    private void drawLine(Canvas canvas) {
         paint.setStyle(Paint.Style.STROKE);
         int canvasWidth = canvas.getWidth();
         int halfWidth = canvasWidth / 2;
         int deltaY = canvas.getHeight() / 5;
         int halfDeltaY = deltaY / 2;
         float[] pts = {
-                50,0,halfWidth,halfDeltaY,
-                halfWidth,halfDeltaY,canvasWidth-50,0
+                50, 0, halfWidth, halfDeltaY,
+                halfWidth, halfDeltaY, canvasWidth - 50, 0
         };
 
         //绘制一条线段
-        canvas.drawLine(5, 0, canvasWidth - 50, deltaY /2, paint);
+        canvas.drawLine(5, 0, canvasWidth - 50, deltaY / 2, paint);
 
         //绘制折线
         canvas.save();
@@ -357,7 +362,7 @@ public class MyCanvasView extends View {
         paint.setStrokeCap(defaultCap);
     }
 
-    private void drawRect(Canvas canvas){
+    private void drawRect(Canvas canvas) {
         int canvasWidth = canvas.getWidth();
         int canvasHeight = canvas.getHeight();
 
@@ -365,7 +370,7 @@ public class MyCanvasView extends View {
         int left1 = 10;
         int top1 = 10;
         int right1 = canvasWidth / 3;
-        int bottom1 = canvasHeight /3;
+        int bottom1 = canvasHeight / 3;
         canvas.drawRect(left1, top1, right1, bottom1, paint);
 
         //修改画笔颜色
@@ -377,10 +382,10 @@ public class MyCanvasView extends View {
         canvas.drawRect(left2, top2, right2, bottom2, paint);
     }
 
-    private void drawCircle(Canvas canvas){
+    private void drawCircle(Canvas canvas) {
         paint.setColor(0xff8bc5ba);//设置颜色
         paint.setStyle(Paint.Style.FILL);//默认绘图为填充模式
-        
+
         int canvasWidth = canvas.getWidth();
         int canvasHeight = canvas.getHeight();
         int halfCanvasWidth = canvasWidth / 2;
@@ -397,7 +402,7 @@ public class MyCanvasView extends View {
         canvas.translate(0, D + D / (count + 1));
         canvas.drawCircle(halfCanvasWidth, R, R, paint);
         //2. 然后绘制小圆，让小圆覆盖大圆，形成圆环效果
-        int r = (int)(R * 0.75);
+        int r = (int) (R * 0.75);
         paint.setColor(0xffffffff);//将画笔设置为白色，画小圆
         canvas.drawCircle(halfCanvasWidth, R, r, paint);
 
@@ -405,19 +410,19 @@ public class MyCanvasView extends View {
         canvas.translate(0, D + D / (count + 1));
         paint.setColor(0xff8bc5ba);//设置颜色
         paint.setStyle(Paint.Style.STROKE);//绘图为线条模式
-        float strokeWidth = (float)(R * 0.25);
+        float strokeWidth = (float) (R * 0.25);
         paint.setStrokeWidth(strokeWidth);
         canvas.drawCircle(halfCanvasWidth, R, R, paint);
     }
 
-    private void drawOval(Canvas canvas){
+    private void drawOval(Canvas canvas) {
         int canvasWidth = canvas.getWidth();
         int canvasHeight = canvas.getHeight();
         float quarter = canvasHeight / 4;
         float left = 10 * density;
         float top = 0;
         float right = canvasWidth - left;
-        float bottom= quarter;
+        float bottom = quarter;
         RectF rectF = new RectF(left, top, right, bottom);
 
         //绘制椭圆形轮廓线
@@ -443,7 +448,7 @@ public class MyCanvasView extends View {
         canvas.drawOval(rectF, paint);//设置椭圆的轮廓线
     }
 
-    private void drawArc(Canvas canvas){
+    private void drawArc(Canvas canvas) {
         int canvasWidth = canvas.getWidth();
         int canvasHeight = canvas.getHeight();
         int count = 5;
@@ -451,7 +456,7 @@ public class MyCanvasView extends View {
         float left = 10 * density;
         float top = 0;
         float right = canvasWidth - left;
-        float bottom= ovalHeight;
+        float bottom = ovalHeight;
         RectF rectF = new RectF(left, top, right, bottom);
 
         paint.setStrokeWidth(2 * density);//设置线宽
@@ -486,10 +491,10 @@ public class MyCanvasView extends View {
         canvas.drawArc(rectF, 0, 90, true, paint);
     }
 
-    private void drawPath(Canvas canvas){
+    private void drawPath(Canvas canvas) {
         int canvasWidth = canvas.getWidth();
         int deltaX = canvasWidth / 4;
-        int deltaY = (int)(deltaX * 0.75);
+        int deltaY = (int) (deltaX * 0.75);
 
         paint.setColor(0xff8bc5ba);//设置画笔颜色
         paint.setStrokeWidth(4);//设置线宽
@@ -504,7 +509,7 @@ public class MyCanvasView extends View {
         RectF ovalRecF = new RectF(deltaX, 0, deltaX * 2, deltaY);
         path.addOval(ovalRecF, Path.Direction.CCW);
         //向Path中添加Circle
-        path.addCircle((float)(deltaX * 2.5), deltaY / 2, deltaY / 2, Path.Direction.CCW);
+        path.addCircle((float) (deltaX * 2.5), deltaY / 2, deltaY / 2, Path.Direction.CCW);
         //向Path中添加Rect
         RectF rectF = new RectF(deltaX * 3, 0, deltaX * 4, deltaY);
         path.addRect(rectF, Path.Direction.CCW);
@@ -536,14 +541,14 @@ public class MyCanvasView extends View {
         path3.moveTo(deltaX * 1.5f, deltaY);
         RectF arcRecF2 = new RectF(deltaX, 0, deltaX * 2, deltaY);
         path3.arcTo(arcRecF2, 90, 90);//绘制圆弧
-        pointList.add(new Point((int)(deltaX * 1.5), deltaY));
+        pointList.add(new Point((int) (deltaX * 1.5), deltaY));
         //4. 第四部分，绘制二阶贝塞尔曲线
         //二阶贝塞尔曲线的起点就是当前画笔的位置，然后需要添加一个控制点，以及一个终点
         //再次通过调用path的moveTo方法，移动画笔
         path3.moveTo(deltaX * 1.5f, deltaY);
         //绘制二阶贝塞尔曲线
         path3.quadTo(deltaX * 2, 0, deltaX * 2.5f, deltaY / 2);
-        pointList.add(new Point((int)(deltaX * 2.5), deltaY / 2));
+        pointList.add(new Point((int) (deltaX * 2.5), deltaY / 2));
         //5. 第五部分，绘制三阶贝塞尔曲线，三阶贝塞尔曲线的起点也是当前画笔的位置
         //其需要两个控制点，即比二阶贝赛尔曲线多一个控制点，最后也需要一个终点
         //再次通过调用path的moveTo方法，移动画笔
@@ -559,15 +564,15 @@ public class MyCanvasView extends View {
         paint.setStrokeWidth(10);//将点的strokeWidth要设置的比画path时要大
         paint.setStrokeCap(Paint.Cap.ROUND);//将点设置为圆点状
         paint.setColor(0xff0000ff);//设置圆点为蓝色
-        for(Point p : pointList){
+        for (Point p : pointList) {
             //遍历pointList，绘制连接点
             canvas.drawPoint(p.x, p.y, paint);
         }
     }
 
-    private void drawBitmap(Canvas canvas){
+    private void drawBitmap(Canvas canvas) {
         //如果bitmap不存在，那么就不执行下面的绘制代码
-        if(bitmap == null){
+        if (bitmap == null) {
             return;
         }
 
@@ -580,8 +585,8 @@ public class MyCanvasView extends View {
         srcRect.left = 0;
         srcRect.right = bitmap.getWidth();
         srcRect.top = 0;
-        srcRect.bottom = (int)(0.33 * bitmap.getHeight());
-        float radio = (float)(srcRect.bottom - srcRect.top)  / bitmap.getWidth();
+        srcRect.bottom = (int) (0.33 * bitmap.getHeight());
+        float radio = (float) (srcRect.bottom - srcRect.top) / bitmap.getWidth();
         //dstRecF定义了要将绘制的Bitmap拉伸到哪里
         RectF dstRecF = new RectF();
         dstRecF.left = 0;
@@ -592,19 +597,20 @@ public class MyCanvasView extends View {
         canvas.drawBitmap(bitmap, srcRect, dstRecF, paint);
     }
 
-    public void setBitmap(Bitmap bm){
+
+    public void setBitmap(Bitmap bm) {
         releaseBitmap();
         bitmap = bm;
     }
 
-    private void releaseBitmap(){
-        if(bitmap != null && !bitmap.isRecycled()){
+    private void releaseBitmap() {
+        if (bitmap != null && !bitmap.isRecycled()) {
             bitmap.recycle();
         }
         bitmap = null;
     }
 
-    public void destroy(){
+    public void destroy() {
         releaseBitmap();
     }
 }

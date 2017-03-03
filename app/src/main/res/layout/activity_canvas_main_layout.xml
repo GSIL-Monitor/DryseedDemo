@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:text="drawARGB"
         android:onClick="onClick"
-        android:layout_marginTop="6dp" />
+        android:layout_marginTop="3dp" />
 
     <Button
         android:id="@+id/btnDrawText"
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:text="drawText"
         android:onClick="onClick"
-        android:layout_marginTop="6dp" />
+        android:layout_marginTop="3dp" />
 
     <Button
         android:id="@+id/btnDrawPoint"
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:text="drawPoint"
         android:onClick="onClick"
-        android:layout_marginTop="6dp" />
+        android:layout_marginTop="3dp" />
 
     <Button
         android:id="@+id/btnDrawLine"
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:text="drawLine"
         android:onClick="onClick"
-        android:layout_marginTop="6dp" />
+        android:layout_marginTop="3dp" />
 
     <Button
         android:id="@+id/btnDrawRect"
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:text="drawRect"
         android:onClick="onClick"
-        android:layout_marginTop="6dp" />
+        android:layout_marginTop="3dp" />
 
     <Button
         android:id="@+id/btnDrawCircle"
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:text="drawCircle"
         android:onClick="onClick"
-        android:layout_marginTop="6dp" />
+        android:layout_marginTop="3dp" />
 
     <Button
         android:id="@+id/btnDrawOval"
@@ -66,7 +66,7 @@
         android:layout_height="wrap_content"
         android:text="drawOval"
         android:onClick="onClick"
-        android:layout_marginTop="6dp" />
+        android:layout_marginTop="3dp" />
 
     <Button
         android:id="@+id/btnDrawArc"
@@ -74,7 +74,7 @@
         android:layout_height="wrap_content"
         android:text="drawArc"
         android:onClick="onClick"
-        android:layout_marginTop="6dp" />
+        android:layout_marginTop="3dp" />
 
     <Button
         android:id="@+id/btnDrawPath"
@@ -82,7 +82,7 @@
         android:layout_height="wrap_content"
         android:text="drawPath"
         android:onClick="onClick"
-        android:layout_marginTop="6dp" />
+        android:layout_marginTop="3dp" />
 
     <Button
         android:id="@+id/btnDrawBitmap"
@@ -90,6 +90,6 @@
         android:layout_height="wrap_content"
         android:text="drawBitmap"
         android:onClick="onClick"
-        android:layout_marginTop="6dp" />
+        android:layout_marginTop="3dp" />
 
 </LinearLayout>
