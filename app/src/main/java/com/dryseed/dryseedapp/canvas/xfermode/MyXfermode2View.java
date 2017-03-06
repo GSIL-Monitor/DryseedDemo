@@ -6,9 +6,12 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
 import android.graphics.RectF;
+import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -26,11 +29,12 @@ import java.lang.ref.WeakReference;
 public class MyXfermode2View extends View {
     private Bitmap mBitmap;
     private Canvas mCanvas;
-    private Paint mDstPaint, mSrcPaint, mInnerCirclePaint, mOuterCirclePaint, mRedPaint;
+    private Paint mDstPaint, mSrcPaint, mInnerCirclePaint, mTextPaint, mRedPaint;
     int width;
     int height;
     private RectF mInnerOval;
     private RectF mOuterOval;
+    private RectF mLadderOval;
     private int mCenterX; //圆心x坐标
     private int mCenterY; //圆心y坐标
     private int mInnerRadius; //内部白色旋转圈半径
@@ -48,10 +52,18 @@ public class MyXfermode2View extends View {
     private float mOuterCircleAngle; //外部红色椭圆线转过的角度
     private final float INNER_CIRCLE_SWEEP_ANGLE = 60;
     private final float OUTER_CIRCLE_SWEEP_ANGLE = 40;
-    private final long INNER_CIRCLE_ANIMATION_DURATION = 1000L;
-    private final long OUTER_CIRCLE_ANIMATION_DURATION = 2000L;
+    private final long INNER_CIRCLE_ANIMATION_DURATION = 1500L;
+    private final long OUTER_CIRCLE_ANIMATION_DURATION = 1000L;
     private final int STROKEN_WIDTH = 10;
     private final int BOLD_STROKEN_WIDTH = 30;
+    private Rect mTextBound, mTextBound2;
+    private String mRecognizeText = "正在识别...";
+    private String mRecognizeText2 = "识别中...";
+
+    private int mLadderHeight = 30;
+    private int mLadderWidth = 30;
+    private int mLadderLongWidth = 60;
+    private float mLadderA = 30 / 360;
 
     public MyXfermode2View(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -85,6 +97,14 @@ public class MyXfermode2View extends View {
         mRedPaint.setStrokeWidth(BOLD_STROKEN_WIDTH);
         mRedPaint.setStrokeCap(Paint.Cap.SQUARE);
 
+        mTextPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
+        mTextPaint.setColor(0x66EE1111);
+        mTextPaint.setTextSize(45);
+        mTextBound = new Rect();
+        mTextPaint.getTextBounds(mRecognizeText, 0, mRecognizeText.length(), mTextBound);
+        mTextBound2 = new Rect();
+        mTextPaint.getTextBounds(mRecognizeText2, 0, mRecognizeText2.length(), mTextBound2);
+
         mBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         mCanvas = new Canvas(mBitmap);
         mCanvas.drawRect(0, 0, width, height, mDstPaint);
@@ -100,6 +120,12 @@ public class MyXfermode2View extends View {
         mOuterOval.top = mCenterY - mOuterRadius;
         mOuterOval.right = mCenterX + mOuterRadius;
         mOuterOval.bottom = mCenterY + mOuterRadius;
+
+        mLadderOval = new RectF();
+        mLadderOval.left = mCenterX - mRedCicleRadius - BOLD_STROKEN_WIDTH / 2;
+        mLadderOval.top = mCenterY - mRedCicleRadius - BOLD_STROKEN_WIDTH / 2;
+        mLadderOval.right = mCenterX + mRedCicleRadius + BOLD_STROKEN_WIDTH / 2;
+        mLadderOval.bottom = mCenterY + mRedCicleRadius + BOLD_STROKEN_WIDTH / 2;
     }
 
     @Override
@@ -134,6 +160,8 @@ public class MyXfermode2View extends View {
 
         canvas.drawCircle(mCenterX, mCenterY, mRedCicleRadius, mRedPaint);
 
+        drawLadder(canvas);
+
         switch (mCurrentState) {
             case Scaning:
                 drawInnerCircle(canvas);
@@ -143,7 +171,47 @@ public class MyXfermode2View extends View {
                 drawInnerCircle(canvas);
                 drawOuterCircle(canvas);
                 break;
+            case Recognize:
+                drawInnerCircle(canvas);
+                drawOuterCircle(canvas);
+                drawRecognizeText(canvas);
+                break;
         }
+    }
+
+    private void drawLadder(Canvas canvas) {
+        /*Path path1 = new Path();
+        path1.moveTo(mCenterX - mLadderWidth / 2, mCenterY - mRedCicleRadius - BOLD_STROKEN_WIDTH / 2 - mLadderHeight);
+        path1.lineTo(mCenterX + mLadderWidth / 2, mCenterY - mRedCicleRadius - BOLD_STROKEN_WIDTH / 2 - mLadderHeight);
+        path1.lineTo(mCenterX + mLadderLongWidth / 2, mCenterY - mRedCicleRadius - BOLD_STROKEN_WIDTH / 2);
+        path1.arcTo(mLadderOval, 274, -8);
+        //path1.lineTo(mCenterX - mLadderLongWidth / 2, mCenterY - mRedCicleRadius - BOLD_STROKEN_WIDTH / 2 + 2);
+        path1.close();
+        mRedPaint.setStyle(Paint.Style.FILL);
+        canvas.drawPath(path1, mRedPaint);
+        mRedPaint.setStyle(Paint.Style.STROKE);*/
+        double a = 30 * Math.PI / 180;
+        float mLadderAngle = 30f / mRedCicleRadius;
+        float mHalfLadderAngle = mLadderAngle / 2;
+        float mLongRadius = mRedCicleRadius + mLadderHeight;
+        Log.d("MMM", "mLadderAngle : " + mLadderAngle + "mHalfLadderAngle : " + mHalfLadderAngle);
+        float leftTopY = (float)(Math.sin(a + mHalfLadderAngle) * mLongRadius);
+        float leftTopX = (float)(Math.cos(a + mHalfLadderAngle) * mLongRadius);
+
+        float rightTopY = (float) (Math.sin(a - mHalfLadderAngle) * mLongRadius);
+        float rightTopX = (float) (Math.cos(a - mHalfLadderAngle) * mLongRadius);
+
+
+        Log.d("MMM", "leftTopX : " + leftTopX + " leftTopY : " + leftTopY);
+        Log.d("MMM", "rightTopX : " + rightTopX + " rightTopY : " + rightTopY);
+        mRedPaint.setStrokeWidth(5);
+        canvas.drawPoint(mCenterX+leftTopX, mCenterY+leftTopY, mRedPaint);
+        canvas.drawPoint(mCenterX+rightTopX, mCenterY+rightTopY, mRedPaint);
+    }
+
+    private void drawRecognizeText(Canvas canvas) {
+        canvas.drawText(mRecognizeText, mCenterX - mTextBound.width() * 1.0f / 2, mCenterY, mTextPaint);
+        canvas.drawText(mRecognizeText2, mCenterX - mTextBound2.width() * 1.0f / 2, mCenterY + mOuterRadius + 70, mTextPaint);
     }
 
     private void drawInnerCircle(Canvas canvas) {
@@ -153,7 +221,7 @@ public class MyXfermode2View extends View {
         }
     }
 
-    private void drawOuterCircle(Canvas canvas){
+    private void drawOuterCircle(Canvas canvas) {
         for (int i = 0; i < mOuterArcStartAngles.length; i++) {
             mOuterArcAngles[i] = getRealAngle(mOuterArcStartAngles[i] + mOuterCircleAngle * 360);
             canvas.drawArc(mOuterOval, mOuterArcAngles[i], OUTER_CIRCLE_SWEEP_ANGLE, false, mRedPaint);
@@ -175,6 +243,9 @@ public class MyXfermode2View extends View {
                 case Stop:
                     stopInnerCicleAnimation();
                     stopOuterCicleAnimation();
+                    break;
+                case Recognize:
+                    invalidate();
                     break;
             }
         }
@@ -224,6 +295,7 @@ public class MyXfermode2View extends View {
         mInnerCircleAnimator.setRepeatCount(-1);
         mInnerCircleAnimator.setRepeatMode(ValueAnimator.REVERSE);
     }
+
     private void initOuterCircleAnimation() {
         mOuterCircleAnimator = ValueAnimator.ofFloat(0.0F, 1.0F);
         mOuterCircleAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -251,12 +323,13 @@ public class MyXfermode2View extends View {
         this.mInnerCircleAngle = value;
         invalidate();
     }
+
     private void setOuterStartAngle(float value) {
         this.mOuterCircleAngle = value;
         invalidate();
     }
 
     public enum State {
-        Scaning, Stop
+        Scaning, Stop, Recognize
     }
 }

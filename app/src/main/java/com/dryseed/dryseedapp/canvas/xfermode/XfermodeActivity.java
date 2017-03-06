@@ -32,9 +32,25 @@ public class XfermodeActivity extends Activity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                myXfermodeView.animatedWithState(MyXfermode2View.State.Recognize);
+//                myXfermodeView.animatedWithState(MyXfermode2View.State.Stop);
+            }
+        }, 4000L);
+
+        /*handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                myXfermodeView.animatedWithState(MyXfermode2View.State.Scaning);
+//                myXfermodeView.animatedWithState(MyXfermode2View.State.Stop);
+            }
+        }, 6000L);
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
                 myXfermodeView.animatedWithState(MyXfermode2View.State.Stop);
             }
-        }, 10000L);
+        }, 8000L);*/
     }
 
 }
