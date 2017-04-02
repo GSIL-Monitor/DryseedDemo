@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import com.dryseed.dryseedapp.customView.comboClickTextView.TestComboClickTextViewActivity;
 import com.orhanobut.logger.Logger;
 
 
@@ -36,6 +37,9 @@ public class MainActivity extends ListActivity {
         super.onCreate(savedInstanceState);
 
         Logger.init().setMethodCount(0).hideThreadInfo();
+
+        //test
+        //startActivity(new Intent(this, TestComboClickTextViewActivity.class));
 
         Intent intent = getIntent();
         String path = intent.getStringExtra("com.dryseed.dryseedapp.Path");

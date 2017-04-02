@@ -120,6 +120,15 @@
         </activity>
 
         <activity
+            android:name=".customView.comboClickTextView.TestComboClickTextViewActivity"
+            android:label="CustomView/ThumbsUpTextView">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".customView.dispatchEvent.DispatchEventDemoActivity1"
             android:label="CustomView/DispatchEventDemo 外部拦截法">
             <intent-filter>
