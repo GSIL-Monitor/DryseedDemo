@@ -39,7 +39,7 @@ public class MainActivity extends ListActivity {
         Logger.init().setMethodCount(0).hideThreadInfo();
 
         //test
-        //startActivity(new Intent(this, TestComboClickTextViewActivity.class));
+        startActivity(new Intent(this, TestComboClickTextViewActivity.class));
 
         Intent intent = getIntent();
         String path = intent.getStringExtra("com.dryseed.dryseedapp.Path");

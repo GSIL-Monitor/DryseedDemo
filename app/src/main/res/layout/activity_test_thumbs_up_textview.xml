@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:myveiw="http://schemas.android.com/apk/res/com.dryseed.dryseedapp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -20,5 +21,7 @@
         android:layout_alignParentBottom="true"
         android:text="click me"
         android:textSize="50dp"
-        android:textColor="#a31b1e"/>
+        android:textColor="#a31b1e"
+        myveiw:strokeWidth="2dp"
+        myveiw:strokeColor="#eeeeee"/>
 </RelativeLayout>

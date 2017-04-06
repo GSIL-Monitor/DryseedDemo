@@ -114,6 +114,13 @@
     </declare-styleable>
     <!-- 自定义BinarySlidingMenu end -->
 
+    <!-- ComboClickTextView begin -->
+    <declare-styleable name="ComboClickTextView">
+        <attr name="strokeWidth" format="dimension"/>
+        <attr name="strokeColor" format="color"/>
+    </declare-styleable>
+    <!-- ComboClickTextView end -->
+
     <declare-styleable name="PagerSlidingTabStrip">
         <attr name="pstsIndicatorColor" format="color" />
         <attr name="pstsUnderlineColor" format="color" />

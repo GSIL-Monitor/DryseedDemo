@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    xmlns:myveiw="http://schemas.android.com/apk/res/com.dryseed.dryseedapp"
+    android:layout_width="300dp"
     android:layout_height="wrap_content"
     android:layout_centerInParent="true"
     android:orientation="horizontal">
@@ -17,8 +18,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="2dp"
-        android:text="821"
+        android:includeFontPadding="false"
+        android:text="777"
         android:textSize="100dp"
-        android:textStyle="bold|italic" />
+        android:textStyle="bold|italic"
+        myveiw:strokeColor="#a31b1e"
+        myveiw:strokeWidth="2dp" />
 </LinearLayout>
 

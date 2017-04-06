@@ -121,7 +121,7 @@
 
         <activity
             android:name=".customView.comboClickTextView.TestComboClickTextViewActivity"
-            android:label="CustomView/ThumbsUpTextView">
+            android:label="CustomView/ComboClickTextView">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
