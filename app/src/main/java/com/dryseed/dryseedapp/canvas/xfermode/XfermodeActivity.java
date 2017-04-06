@@ -22,7 +22,7 @@ public class XfermodeActivity extends Activity {
         setContentView(R.layout.activity_xfermode_layout);
         myXfermodeView = (MyXfermode2View) findViewById(R.id.myView);
 
-        handler.postDelayed(new Runnable() {
+        /*handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 myXfermodeView.animatedWithState(MyXfermode2View.State.Scaning);
@@ -33,9 +33,8 @@ public class XfermodeActivity extends Activity {
             @Override
             public void run() {
                 myXfermodeView.animatedWithState(MyXfermode2View.State.Recognize);
-//                myXfermodeView.animatedWithState(MyXfermode2View.State.Stop);
             }
-        }, 4000L);
+        }, 8000L);*/
 
         /*handler.postDelayed(new Runnable() {
             @Override

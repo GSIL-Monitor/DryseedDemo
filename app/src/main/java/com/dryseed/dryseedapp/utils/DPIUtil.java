@@ -100,8 +100,8 @@ public class DPIUtil {
 	 * @return 转换后的sp
 	 */
 	public static int px2sp(Context context, float pxValue) {
-        final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;  
-        return (int) (pxValue / fontScale + 0.5f);  
+        final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
+        return (int) (pxValue / fontScale + 0.5f);
     }
 
 	/**
