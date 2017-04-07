@@ -5,7 +5,7 @@
     android:background="#ffffff"
     android:orientation="vertical" >
 
-    <com.dryseed.dryseedapp.customView.dispatchEvent.ui.HorizontalScrollViewEx
+    <com.dryseed.dryseedapp.dispatchEvent.ui.HorizontalScrollViewEx
         android:id="@+id/container"
         android:layout_width="wrap_content"
         android:layout_height="match_parent" />

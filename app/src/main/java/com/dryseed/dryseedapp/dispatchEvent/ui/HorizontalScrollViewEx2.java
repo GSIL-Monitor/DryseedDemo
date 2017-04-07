@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.customView.dispatchEvent.ui;
+package com.dryseed.dryseedapp.dispatchEvent.ui;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -12,7 +12,7 @@
         android:layout_marginBottom="5dp"
         android:text="TextView" />
 
-    <com.dryseed.dryseedapp.customView.dispatchEvent.ui.ListViewEx
+    <com.dryseed.dryseedapp.dispatchEvent.ui.ListViewEx
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

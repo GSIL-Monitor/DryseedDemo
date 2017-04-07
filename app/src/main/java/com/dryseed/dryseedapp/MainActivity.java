@@ -18,6 +18,8 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import com.dryseed.dryseedapp.customView.comboClickTextView.TestComboClickTextViewActivity;
+import com.dryseed.dryseedapp.dispatchEvent.testDemo.DispatchEventDemoActivity3;
+import com.dryseed.dryseedapp.widget.recyclerView.TestRecyclerViewActivity;
 import com.orhanobut.logger.Logger;
 
 
@@ -39,7 +41,7 @@ public class MainActivity extends ListActivity {
         Logger.init().setMethodCount(0).hideThreadInfo();
 
         //test
-        startActivity(new Intent(this, TestComboClickTextViewActivity.class));
+        //startActivity(new Intent(this, DispatchEventDemoActivity3.class));
 
         Intent intent = getIntent();
         String path = intent.getStringExtra("com.dryseed.dryseedapp.Path");

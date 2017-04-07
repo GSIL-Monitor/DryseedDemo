@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.customView.dispatchEvent;
+package com.dryseed.dryseedapp.dispatchEvent;
 
 import java.util.ArrayList;
 
@@ -18,8 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.customView.dispatchEvent.ui.HorizontalScrollViewEx2;
-import com.dryseed.dryseedapp.customView.dispatchEvent.ui.ListViewEx;
+import com.dryseed.dryseedapp.dispatchEvent.ui.HorizontalScrollViewEx2;
+import com.dryseed.dryseedapp.dispatchEvent.ui.ListViewEx;
 import com.dryseed.dryseedapp.utils.DPIUtil;
 
 /**

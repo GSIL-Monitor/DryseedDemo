@@ -129,16 +129,24 @@
         </activity>
 
         <activity
-            android:name=".customView.dispatchEvent.DispatchEventDemoActivity1"
-            android:label="CustomView/DispatchEventDemo 外部拦截法">
+            android:name=".dispatchEvent.DispatchEventDemoActivity1"
+            android:label="DispatchEvent/DispatchEventDemo 外部拦截法">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".customView.dispatchEvent.DispatchEventDemoActivity2"
-            android:label="CustomView/DispatchEventDemo 内部拦截法">
+            android:name=".dispatchEvent.DispatchEventDemoActivity2"
+            android:label="DispatchEvent/DispatchEventDemo 内部拦截法">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".dispatchEvent.testDemo.DispatchEventDemoActivity3"
+            android:label="DispatchEvent/DispatchEventDemo 事件传递">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -415,6 +423,14 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".widget.recyclerView.TestRecyclerViewActivity"
+            android:label="Widget/RecyclerView">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".customView.foldingLayout.sample.TestFoldingLayoutActivity"
@@ -482,6 +498,14 @@
         <activity
             android:name=".tab.viewPagerPlusFragment.ViewPagerFragmentActivity"
             android:label="Tab/ViewPagerFragmentActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".tab.lazyViewPagerPlusFragment.TestLazyFragmentPagerAdapterActivity"
+            android:label="Tab/LazyViewPagerFragmentActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />

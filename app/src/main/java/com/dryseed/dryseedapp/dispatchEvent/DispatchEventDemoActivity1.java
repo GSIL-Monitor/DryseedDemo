@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.customView.dispatchEvent;
+package com.dryseed.dryseedapp.dispatchEvent;
 
 import java.util.ArrayList;
 
@@ -17,12 +17,15 @@ import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.customView.dispatchEvent.ui.HorizontalScrollViewEx;
+import com.dryseed.dryseedapp.dispatchEvent.ui.HorizontalScrollViewEx;
 import com.dryseed.dryseedapp.utils.DPIUtil;
 
 /**
  * 外部拦截法：
  * 重写父容器的onInterceptTouchEvent方法 -- 详见HorizontalScrollViewEx
+ *
+ * 父容器：HorizontalScrollViewEx
+ * 子容器：ListView
  */
 public class DispatchEventDemoActivity1 extends Activity {
     private static final String TAG = "DemoActivity_1";
@@ -39,10 +42,12 @@ public class DispatchEventDemoActivity1 extends Activity {
 
     private void initView() {
         LayoutInflater inflater = getLayoutInflater();
+        //父容器
         mListContainer = (HorizontalScrollViewEx) findViewById(R.id.container);
         final int screenWidth = DPIUtil.getWidth();
         final int screenHeight = DPIUtil.getHeight();
         for (int i = 0; i < 3; i++) {
+            //子容器
             ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.activity_dispatch_event_content_layout, mListContainer, false);
             layout.getLayoutParams().width = screenWidth;
             TextView textView = (TextView) layout.findViewById(R.id.title);
