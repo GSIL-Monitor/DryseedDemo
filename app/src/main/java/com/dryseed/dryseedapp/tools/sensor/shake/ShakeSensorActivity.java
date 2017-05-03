@@ -1,19 +1,13 @@
-package com.dryseed.dryseedapp.tools.sensor;
+package com.dryseed.dryseedapp.tools.sensor.shake;
 
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.app.Activity;
-import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.dryseed.dryseedapp.R;
 
-public class SensorActivity extends Activity {
+public class ShakeSensorActivity extends Activity {
 
     private TextView startTV = null;
     private TextView stopTV = null;
@@ -27,7 +21,7 @@ public class SensorActivity extends Activity {
         startTV = (TextView) findViewById(R.id.start);
         stopTV = (TextView) findViewById(R.id.stop);
 
-        shakeDetector = new ShakeDetector(SensorActivity.this);
+        shakeDetector = new ShakeDetector(ShakeSensorActivity.this);
         startTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

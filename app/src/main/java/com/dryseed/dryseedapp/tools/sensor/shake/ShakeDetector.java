@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.tools.sensor;
+package com.dryseed.dryseedapp.tools.sensor.shake;
 
 /**
  * Created by caiminming on 2017/2/20.

@@ -571,8 +571,16 @@
         </activity>
 
         <activity
-            android:name=".tools.sensor.SensorActivity"
-            android:label="Tool/Sensor/SensorActivity">
+            android:name=".tools.sensor.shake.ShakeSensorActivity"
+            android:label="Tool/Sensor/ShakeSensorActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".tools.sensor.orientation.OrientationSensorActivity"
+            android:label="Tool/Sensor/OrientationSensorActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
