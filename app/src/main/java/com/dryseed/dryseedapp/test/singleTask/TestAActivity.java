@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.test;
+package com.dryseed.dryseedapp.test.singleTask;
 
 import android.app.Activity;
 import android.content.Intent;

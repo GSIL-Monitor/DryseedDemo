@@ -3,8 +3,15 @@ package com.dryseed.dryseedapp;
 
 import com.dryseed.dryseedapp.designPattern.state.better.VendingMachineBetter;
 import com.dryseed.dryseedapp.designPattern.state.old.VendingMachine;
+import com.dryseed.dryseedapp.fastjson.bean.Person;
 
 import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.ListIterator;
+import java.util.Map;
 
 public class Test {
     public static void main(String[] args) {
@@ -22,7 +29,28 @@ public class Test {
 
         //System.out.println( 365.5f % 360 );
 
-        System.out.println(formatTimeToLaunch("000000"));
+        //System.out.println(formatTimeToLaunch("000000"));
+
+        LinkedHashMap<Long, String> map = new LinkedHashMap<>();
+        map.put(100l, "100");
+        map.put(50l, "50");
+        map.put(200l, "200");
+        map.put(400l, "400");
+        map.put(38l, "38");
+        map.put(5l, "5");
+        map.put(160l, "160");
+
+        //遍历集合
+        for (Iterator<Long> it = map.keySet().iterator(); it.hasNext(); ) {
+            String s = map.get(it.next());
+            System.out.println(s);
+        }
+
+        ListIterator<Map.Entry<Long, String>> i = new ArrayList(map.entrySet()).listIterator(map.size());
+        while (i.hasPrevious()) {
+            Map.Entry<Long, String> entry = i.previous();
+            System.out.println(entry.getKey() + ":" + entry.getValue());
+        }
     }
 
     private static String formatTimeToLaunch(String time) {
