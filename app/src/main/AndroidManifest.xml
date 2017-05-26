@@ -611,6 +611,25 @@
         </activity>
         <activity android:name=".test.parcelable.TestParcelableBActivity" />
 
+        <activity
+            android:name=".test.viewTreeObserver.TestViewTreeObserverActivity"
+            android:label="Test/ViewTreeObserver">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".test.transition.TestTransitionActivity"
+            android:label="Test/Transition">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".test.transition.DetailActivity" />
+
     </application>
 
 
