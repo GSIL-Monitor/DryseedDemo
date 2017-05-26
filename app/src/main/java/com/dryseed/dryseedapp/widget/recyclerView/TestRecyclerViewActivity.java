@@ -5,7 +5,10 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.dryseed.dryseedapp.R;
@@ -34,13 +37,14 @@ public class TestRecyclerViewActivity extends Activity {
         initData();
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        //mRecyclerView.setAdapter(mAdapter = new HomeAdapter());
         mRecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
                 super.getItemOffsets(outRect, view, parent, state);
                 outRect.top = 2;
             }
+
+
         });
 
         mAdapter = new CommonAdapter<String>(this, R.layout.activity_recycler_view_item, mDatas) {
@@ -52,7 +56,8 @@ public class TestRecyclerViewActivity extends Activity {
 
         initHeaderAndFooter();
 
-        mRecyclerView.setAdapter(mHeaderAndFooterWrapper);
+        //mRecyclerView.setAdapter(mHeaderAndFooterWrapper);
+        mRecyclerView.setAdapter(new HomeAdapter());
 
     }
 
@@ -74,7 +79,7 @@ public class TestRecyclerViewActivity extends Activity {
         }
     }
 
-    /*class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
+    class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
 
         @Override
         public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -103,5 +108,5 @@ public class TestRecyclerViewActivity extends Activity {
                 tv = (TextView) view.findViewById(R.id.id_num);
             }
         }
-    }*/
+    }
 }

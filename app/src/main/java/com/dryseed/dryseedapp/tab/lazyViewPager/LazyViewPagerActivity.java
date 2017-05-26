@@ -1,13 +1,9 @@
-package com.dryseed.dryseedapp.tab.viewpager;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.dryseed.dryseedapp.tab.lazyViewPager;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,15 +13,18 @@ import android.widget.LinearLayout;
 
 import com.dryseed.dryseedapp.R;
 
-/**
- * 评价：所有的代码都集中在一个Activity中，显得代码比较乱。
- */
-public class TraditionalViewPagerAcvitity extends Activity {
+import java.util.ArrayList;
+import java.util.List;
 
+/**
+ * Created by caiminming on 2017/5/26.
+ */
+
+public class LazyViewPagerActivity extends Activity {
     /**
      * ViewPager
      */
-    private ViewPager mViewPager;
+    private LazyViewPager mViewPager;
     /**
      * ViewPager的适配器
      */
@@ -46,9 +45,9 @@ public class TraditionalViewPagerAcvitity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tab_viewpager_layout);
+        setContentView(R.layout.activity_tab_lazy_viewpager_layout);
         mInflater = LayoutInflater.from(this);
-        mViewPager = (ViewPager) findViewById(R.id.id_viewpager);
+        mViewPager = (LazyViewPager) findViewById(R.id.id_viewpager);
 
         /**
          * 初始化View
@@ -57,7 +56,7 @@ public class TraditionalViewPagerAcvitity extends Activity {
 
         mViewPager.setAdapter(mAdapter);
 
-        mViewPager.setOnPageChangeListener(new OnPageChangeListener() {
+        mViewPager.setOnPageChangeListener(new LazyViewPager.OnPageChangeListener() {
 
             @Override
             public void onPageSelected(int position) {

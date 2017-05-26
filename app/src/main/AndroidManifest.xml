@@ -420,7 +420,15 @@
         </activity>
         <activity
             android:name=".widget.recyclerView.TestRecyclerViewActivity"
-            android:label="Widget/RecyclerView">
+            android:label="Widget/RecyclerView/TestRecyclerViewActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.recyclerView.itemDecoration.TestItemDecorationActivity"
+            android:label="Widget/RecyclerView/TestItemDecorationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -464,6 +472,14 @@
         <activity
             android:name=".tab.viewpager.TraditionalViewPagerAcvitity"
             android:label="Tab/TraditionalViewPagerAcvitity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".tab.lazyViewPager.LazyViewPagerActivity"
+            android:label="Tab/LazyViewPagerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -583,12 +599,7 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
-        <activity android:name=".test.singleTask.TestBActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".test.singleTask.TestBActivity" />
 
         <activity
             android:name=".test.parcelable.TestParcelableAActivity"
@@ -598,12 +609,7 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
-        <activity android:name=".test.parcelable.TestParcelableBActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".test.parcelable.TestParcelableBActivity" />
 
     </application>
 
