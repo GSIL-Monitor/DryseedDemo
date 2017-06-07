@@ -630,6 +630,14 @@
         </activity>
         <activity android:name=".test.transition.DetailActivity" />
 
+        <activity
+            android:name=".test.webView.TestWebViewActivity"
+            android:label="Test/WebView">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
     </application>
 
 
