@@ -1,6 +1,8 @@
 package com.dryseed.dryseedapp;
 
 
+import android.util.SparseArray;
+
 import com.dryseed.dryseedapp.designPattern.state.better.VendingMachineBetter;
 import com.dryseed.dryseedapp.designPattern.state.old.VendingMachine;
 import com.dryseed.dryseedapp.fastjson.bean.Person;
@@ -10,13 +12,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
+import java.util.Vector;
 
 public class Test {
     public static void main(String[] args) {
         /*// -0.5 ~ -0.7
-		for(int i=0; i<15; i++){
+        for(int i=0; i<15; i++){
 			NumberFormat n = NumberFormat.getInstance();
 			n.setMaximumFractionDigits(1);
 			float f = Float.parseFloat(n.format(Math.random())) * 0.2f + 0.5f;
@@ -31,6 +35,38 @@ public class Test {
 
         //System.out.println(formatTimeToLaunch("000000"));
 
+    }
+
+    private static void test3(){
+        SparseArray<String> sparseArray = new SparseArray<>();
+        sparseArray.put(0, "1");
+        sparseArray.put(1, "2");
+        sparseArray.put(2, "3");
+        int key = 0;
+        for(int i=0; i<sparseArray.size(); i++){
+            key = sparseArray.keyAt(i);
+            System.out.println(sparseArray.valueAt(key));
+        }
+    }
+
+    private static void test2() {
+        List<Integer> arrayList = new ArrayList<>();
+        //List<Integer> arrayList = new Vector<>();
+        for (int i = 0; i < 10; i++) {
+            arrayList.add(i);
+        }
+        Iterator<Integer> iterator = arrayList.iterator();
+        while (iterator.hasNext()) {
+            int i = iterator.next();
+            if (i < 5) {
+                iterator.remove();
+            } else {
+                System.out.println(i + "");
+            }
+        }
+    }
+
+    private static void test1() {
         LinkedHashMap<Long, String> map = new LinkedHashMap<>();
         map.put(100l, "100");
         map.put(50l, "50");
