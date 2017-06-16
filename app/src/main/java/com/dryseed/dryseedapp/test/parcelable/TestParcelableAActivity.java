@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.dryseed.dryseedapp.R;
+import com.dryseed.dryseedapp.customView.comboClickTextView.CountDownTimer;
 import com.dryseed.dryseedapp.test.singleTask.TestBActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -17,7 +18,9 @@ import com.facebook.drawee.view.SimpleDraweeView;
 
 public class TestParcelableAActivity extends Activity {
     public final static String SER_KEY = "com.dryseed.dryseedapp.serkey";
-    public final static String PAR_KEY  = "com.dryseed.dryseedapp.parkey";
+    public final static String PAR_KEY = "com.dryseed.dryseedapp.parkey";
+
+    TimerUtils timerUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,8 @@ public class TestParcelableAActivity extends Activity {
             }
         });
 
+
+        timerUtils = new TimerUtils(this);
     }
 
 
@@ -53,5 +58,32 @@ public class TestParcelableAActivity extends Activity {
         mIntent.putExtras(mBundle);
 
         startActivity(mIntent);
+    }
+
+    @Override
+    protected void onStop() {
+        Log.d("MMM", "onStop");
+        if (null != timerUtils) {
+            timerUtils.pauseTimer();
+        }
+        super.onStop();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("MMM", "onStart");
+        if (null != timerUtils) {
+            timerUtils.startTimer();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        if(null != timerUtils){
+            timerUtils.pauseTimer();
+            timerUtils = null;
+        }
+        super.onDestroy();
     }
 }
