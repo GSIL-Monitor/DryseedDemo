@@ -35,6 +35,16 @@ public class Test {
 
         //System.out.println(formatTimeToLaunch("000000"));
 
+        test4();
+
+    }
+
+    private static void test4(){
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("1");
+        arrayList.add("2");
+        arrayList.add("3");
+        System.out.print(arrayList.contains("1"));
     }
 
     private static void test3(){
