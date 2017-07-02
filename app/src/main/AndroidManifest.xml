@@ -278,7 +278,7 @@
         <activity android:name=".animation.transitionAnimator.MessageActivity"></activity>
 
         <activity
-            android:name=".widget.slideMenu.slideMenu01.SlideMenu01Activity"
+            android:name=".widget.slideMenu.SlideMenu01.SlideMenu01Activity"
             android:label="Widget/SlideMenu/01.自定义侧滑控件">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -656,6 +656,33 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".listui.demo.TestListUIActivity"
+            android:label="ListUI/TestListUIActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".widget.multiTypeAdapter.demo.BilibiliActivity"
+            android:label="Widget/MultiTypeAdapterDemo">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.pullToRefresh.TestPullToRefreshRecyclerViewActivity"
+            android:label="Widget/PullToRefresh">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
         <service
             android:name=".service.intentService.UploadImgService"
             android:exported="false">

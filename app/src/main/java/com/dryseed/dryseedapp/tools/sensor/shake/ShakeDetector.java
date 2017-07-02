@@ -124,7 +124,7 @@ public class ShakeDetector implements SensorEventListener {
         mLastX = x;
         mLastY = y;
         mLastZ = z;
-        float delta = FloatMath.sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ
+        double delta = Math.sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ
                 * deltaZ)
                 / diffTime * 10000;
         Log.d("MMM", "delta : " + delta);
