@@ -230,6 +230,7 @@ public class MultiTypeAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     @Override @SuppressWarnings("unchecked")
     public final void onBindViewHolder(ViewHolder holder, int position, List<Object> payloads) {
+        Log.d("MMM", "MultiTypeAdapter onBindViewHolder");
         Object item = items.get(position);
         ItemViewBinder binder = typePool.getItemViewBinders().get(holder.getItemViewType());
         binder.onBindViewHolder(holder, item, payloads);

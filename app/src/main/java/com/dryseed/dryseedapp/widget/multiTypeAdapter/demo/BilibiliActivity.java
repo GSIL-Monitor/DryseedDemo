@@ -78,7 +78,6 @@ public class BilibiliActivity extends Activity {
 
         adapter = new MultiTypeAdapter();
         adapter.register(Category.class, new CategoryItemViewBinder());
-
         adapter.register(Post.class, new PostViewBinder());
         adapter.register(PostList.class, new HorizontalPostsViewBinder());
 
