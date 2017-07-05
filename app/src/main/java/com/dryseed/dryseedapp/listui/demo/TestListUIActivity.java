@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.listui.BaseUIRecyleView;
 import com.dryseed.dryseedapp.listui.ILoadMore;
+import com.dryseed.dryseedapp.listui.IRefresh;
 import com.dryseed.dryseedapp.listui.Observable;
 import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo.Category;
 import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo.CategoryItemViewBinder;
@@ -31,7 +32,7 @@ import java.util.List;
 /**
  * Created by User on 2017/6/28.
  */
-public class TestListUIActivity extends Activity implements ILoadMore {
+public class TestListUIActivity extends Activity implements ILoadMore, IRefresh {
 
     Context mContext;
     Observable mObservable;
@@ -59,6 +60,7 @@ public class TestListUIActivity extends Activity implements ILoadMore {
         mBaseUIRecyleView = new BaseUIRecyleView(mContext, rootView, multiTypeAdapter);
         mBaseUIRecyleView.setILoadMore(this);
         mBaseUIRecyleView.setLoadMoreView(mLoadView = getLoadMoreView(mContext));
+        mBaseUIRecyleView.setIRefresh(this);
 
         //插入12条数据
         items = new ArrayList<>();
@@ -99,10 +101,23 @@ public class TestListUIActivity extends Activity implements ILoadMore {
                 items.add(data.postArray[1]);
                 items.add(data.postArray[2]);
                 items.add(data.postArray[3]);
-                Log.d("MMM", "items size : " + items.size());
-                //mBaseUIRecyleView.removeFootView(mLoadView);
                 mBaseUIRecyleView.setList(items);
                 mBaseUIRecyleView.notifyDataSetChanged();
+            }
+        }, 2000);
+    }
+
+    @Override
+    public void refresh() {
+        Log.d("MMM", "refresh");
+        Toast.makeText(mContext, "refresh...", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                items.add(0, data.postArray[0]);
+                mBaseUIRecyleView.setList(items);
+                mBaseUIRecyleView.notifyDataSetChanged();
+                mBaseUIRecyleView.onRefreshComplete();
             }
         }, 2000);
     }

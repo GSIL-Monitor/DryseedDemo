@@ -3,11 +3,13 @@ package com.dryseed.dryseedapp.listui;
 import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.dryseed.dryseedapp.widget.multiTypeAdapter.lib.MultiTypeAdapter;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
 
 import java.util.List;
 
@@ -21,6 +23,7 @@ public class BaseUIRecyleView {
     private PullToRefreshRecyclerView mPullToRefreshRecyclerView;
     private WrapRecyclerView mRecyclerView;
     private ILoadMore mILoadMore;
+    private IRefresh mIRefresh;
     private MultiTypeAdapter mMutiTypeAdapter;
     private LoadMoreRecyclerOnScrollListener mLoadMoreRecyclerOnScrollListener;
     private View mLoadMoreView;
@@ -29,6 +32,17 @@ public class BaseUIRecyleView {
         mPullToRefreshRecyclerView = new PullToRefreshRecyclerView(context);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT);
         viewGroup.addView(mPullToRefreshRecyclerView, layoutParams);
+
+        mPullToRefreshRecyclerView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<WrapRecyclerView>() {
+            @Override
+            public void onRefresh(PullToRefreshBase<WrapRecyclerView> refreshView) {
+                Log.d("MMM", "onRefresh");
+                if (mIRefresh != null) {
+                    isPullRefresh = true;
+                    mIRefresh.refresh();
+                }
+            }
+        });
 
         mRecyclerView = mPullToRefreshRecyclerView.getRefreshableView();
         if (mRecyclerView == null) return;
@@ -105,6 +119,10 @@ public class BaseUIRecyleView {
         }
     }
 
+    public void setIRefresh(IRefresh IRefresh) {
+        mIRefresh = IRefresh;
+    }
+
     public void setILoadMore(ILoadMore ILoadMore) {
         mILoadMore = ILoadMore;
     }
@@ -122,5 +140,15 @@ public class BaseUIRecyleView {
             return 0;
         }
         return mRecyclerView.getWrapAdapter().getItemCount();
+    }
+
+    public void onRefreshComplete() {
+        if (mPullToRefreshRecyclerView != null) {
+            mPullToRefreshRecyclerView.onRefreshComplete();
+        }
+    }
+
+    public boolean isPullRefresh() {
+        return isPullRefresh;
     }
 }
