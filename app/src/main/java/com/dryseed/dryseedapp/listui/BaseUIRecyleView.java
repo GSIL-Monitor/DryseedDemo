@@ -24,11 +24,11 @@ public class BaseUIRecyleView {
     private WrapRecyclerView mRecyclerView;
     private ILoadMore mILoadMore;
     private IRefresh mIRefresh;
-    private MultiTypeAdapter mMutiTypeAdapter;
+    private MultiTypeAdapter mMultiTypeAdapter;
     private LoadMoreRecyclerOnScrollListener mLoadMoreRecyclerOnScrollListener;
     private View mLoadMoreView;
 
-    public BaseUIRecyleView(Context context, ViewGroup viewGroup, MultiTypeAdapter mutiTypeAdapter){
+    public BaseUIRecyleView(Context context, ViewGroup viewGroup, MultiTypeAdapter mutiTypeAdapter) {
         mPullToRefreshRecyclerView = new PullToRefreshRecyclerView(context);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT);
         viewGroup.addView(mPullToRefreshRecyclerView, layoutParams);
@@ -50,8 +50,8 @@ public class BaseUIRecyleView {
         mRecyclerView.setLayoutManager(linearLayoutManager);
         mRecyclerView.setPersistentDrawingCache(ViewGroup.PERSISTENT_NO_CACHE);
         mRecyclerView.setNestedScrollingEnabled(true);
-        mMutiTypeAdapter = mutiTypeAdapter;
-        mRecyclerView.setAdapter(mMutiTypeAdapter);
+        mMultiTypeAdapter = mutiTypeAdapter;
+        mRecyclerView.setAdapter(mMultiTypeAdapter);
         initLoadMore(linearLayoutManager);
     }
 
@@ -98,9 +98,27 @@ public class BaseUIRecyleView {
         }
     }
 
-    public void setList(List<Object> list) {
-        if (mMutiTypeAdapter != null) {
-            mMutiTypeAdapter.setItems(list);
+    public void addList(int pos, List list) {
+        if (list == null) return;
+        if (mMultiTypeAdapter != null) {
+            List items = mMultiTypeAdapter.getItems();
+            items.addAll(pos, list);
+            mMultiTypeAdapter.setItems(items);
+        }
+    }
+
+    public void addList(List list) {
+        if (list == null) return;
+        if (mMultiTypeAdapter != null) {
+            List items = mMultiTypeAdapter.getItems();
+            items.addAll(list);
+            mMultiTypeAdapter.setItems(items);
+        }
+    }
+
+    public void setList(List list) {
+        if (mMultiTypeAdapter != null) {
+            mMultiTypeAdapter.setItems(list);
         }
         if (mLoadMoreRecyclerOnScrollListener != null) {
             mLoadMoreRecyclerOnScrollListener.updateLoadingState(false);
@@ -150,5 +168,13 @@ public class BaseUIRecyleView {
 
     public boolean isPullRefresh() {
         return isPullRefresh;
+    }
+
+    public MultiTypeAdapter getMultiTypeAdapter() {
+        return mMultiTypeAdapter;
+    }
+
+    public WrapRecyclerView getRecyclerView() {
+        return mRecyclerView;
     }
 }

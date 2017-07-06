@@ -39,7 +39,6 @@ public class TestListUIActivity extends Activity implements ILoadMore, IRefresh 
     ListUIPresenter mListUIPresenter;
     List<Object> items;
     BaseUIRecyleView mBaseUIRecyleView;
-    JsonData data = new JsonData();
     View mLoadView;
 
     @Override
@@ -47,8 +46,6 @@ public class TestListUIActivity extends Activity implements ILoadMore, IRefresh 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listui_layout);
         mContext = this;
-        mListUIPresenter = new ListUIPresenter();
-        mListUIPresenter.getData(getObservable());
 
         ViewGroup rootView = (ViewGroup) (((ViewGroup) findViewById(android.R.id.content)).getChildAt(0));
 
@@ -65,12 +62,12 @@ public class TestListUIActivity extends Activity implements ILoadMore, IRefresh 
         //插入12条数据
         items = new ArrayList<>();
         for (int i = 0; i < 2; i++) {
-            items.add(data.category0);
-            items.add(data.postArray[0]);
-            items.add(data.postArray[1]);
-            items.add(data.postArray[2]);
-            items.add(data.postArray[3]);
-            items.add(new PostList(data.postList));
+            items.add(getPresenter().getData().category0);
+            items.add(getPresenter().getData().postArray[0]);
+            items.add(getPresenter().getData().postArray[1]);
+            items.add(getPresenter().getData().postArray[2]);
+            items.add(getPresenter().getData().postArray[3]);
+            items.add(new PostList(getPresenter().getData().postList));
         }
         mBaseUIRecyleView.setList(items);
         mBaseUIRecyleView.notifyDataSetChanged();
@@ -79,10 +76,21 @@ public class TestListUIActivity extends Activity implements ILoadMore, IRefresh 
     private Observable getObservable() {
         if (mObservable != null) return mObservable;
         mObservable = new Observable()
-                .subscribe("refresh", new Observable.Action<Integer>() {
+                .subscribe("refresh", new Observable.Action<List<Object>>() {
                     @Override
-                    public void call(Integer integer) {
-                        Toast.makeText(TestListUIActivity.this, integer + "", Toast.LENGTH_SHORT).show();
+                    public void call(List<Object> items) {
+                        mBaseUIRecyleView.setList(items);
+                        mBaseUIRecyleView.notifyDataSetChanged();
+                        mBaseUIRecyleView.onRefreshComplete();
+                        mBaseUIRecyleView.removeFootView(mLoadView);
+                    }
+
+                })
+                .subscribe("loadMore", new Observable.Action<List<Object>>() {
+                    @Override
+                    public void call(List<Object> items) {
+                        mBaseUIRecyleView.addList(0, items);
+                        mBaseUIRecyleView.notifyDataSetChanged();
                     }
 
                 });
@@ -92,65 +100,28 @@ public class TestListUIActivity extends Activity implements ILoadMore, IRefresh 
     @Override
     public void loadMore() {
         Log.d("MMM", "loadMore");
-        Toast.makeText(mContext, "request...", Toast.LENGTH_SHORT).show();
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                items.add(data.category0);
-                items.add(data.postArray[0]);
-                items.add(data.postArray[1]);
-                items.add(data.postArray[2]);
-                items.add(data.postArray[3]);
-                mBaseUIRecyleView.setList(items);
-                mBaseUIRecyleView.notifyDataSetChanged();
-            }
-        }, 2000);
+        getPresenter().request(getObservable(), false);
     }
 
     @Override
     public void refresh() {
         Log.d("MMM", "refresh");
-        Toast.makeText(mContext, "refresh...", Toast.LENGTH_SHORT).show();
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                items.add(0, data.postArray[0]);
-                mBaseUIRecyleView.setList(items);
-                mBaseUIRecyleView.notifyDataSetChanged();
-                mBaseUIRecyleView.onRefreshComplete();
-            }
-        }, 2000);
+        getPresenter().request(getObservable(), true);
     }
 
-    private View getLoadMoreView(Context context){
+    private View getLoadMoreView(Context context) {
         TextView textView = new TextView(context);
         textView.setText("Loading...");
         textView.setGravity(Gravity.CENTER);
         return textView;
     }
 
-    private static class JsonData {
-
-        private static final String PREFIX = "这是一条长长的达到两行的标题文字";
-
-        private Post post00 = new Post(R.drawable.img_00, PREFIX + "post00");
-        private Post post01 = new Post(R.drawable.img_01, PREFIX + "post01");
-        private Post post10 = new Post(R.drawable.img_10, PREFIX + "post10");
-        private Post post11 = new Post(R.drawable.img_11, PREFIX + "post11");
-
-        Category category0 = new Category("title0");
-        Post[] postArray = {post00, post01, post10, post11};
-
-        List<Post> postList = new ArrayList<>();
-
-
-        {
-            postList.add(post00);
-            postList.add(post00);
-            postList.add(post00);
-            postList.add(post00);
-            postList.add(post00);
-            postList.add(post00);
+    private ListUIPresenter getPresenter() {
+        if (mListUIPresenter == null) {
+            mListUIPresenter = new ListUIPresenter();
         }
+        return mListUIPresenter;
     }
+
+
 }

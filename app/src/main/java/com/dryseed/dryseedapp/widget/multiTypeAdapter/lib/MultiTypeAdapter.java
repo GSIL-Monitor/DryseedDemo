@@ -191,6 +191,7 @@ public class MultiTypeAdapter extends RecyclerView.Adapter<ViewHolder> {
     @Override
     public final int getItemViewType(int position) {
         Object item = items.get(position);
+        Log.d("MMM", position + "");
         return indexInTypesOf(item);
     }
 
@@ -313,6 +314,7 @@ public class MultiTypeAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     int indexInTypesOf(@NonNull Object item) throws BinderNotFoundException {
         int index = typePool.firstIndexOf(item.getClass());
+        Log.d("MMM", item.getClass() + "");
         if (index != -1) {
             @SuppressWarnings("unchecked")
             Linker<Object> linker = (Linker<Object>) typePool.getLinkers().get(index);
