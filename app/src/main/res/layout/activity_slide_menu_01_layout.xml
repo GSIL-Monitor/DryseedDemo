@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="horizontal"
-    tools:context=".widget.slideMenu.slideMenu01.SlideMenu01Activity">
+    tools:context=".widget.slideMenu.SlideMenu01.SlideMenu01Activity">
 
     <LinearLayout
         android:id="@+id/menu"

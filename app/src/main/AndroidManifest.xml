@@ -682,6 +682,17 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".widget.stickyRecyclerView.TestStickyRecyclerViewActivity"
+            android:label="Widget/StickyRecyclerView">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".widget.stickyRecyclerView.StickyRecyclerViewActivity" />
+        <activity android:name=".widget.stickyRecyclerView.BeautifulRecyclerViewActivity" />
+        <activity android:name=".widget.stickyRecyclerView.PowerfulStickyRecyclerViewActivity" />
 
         <service
             android:name=".service.intentService.UploadImgService"
