@@ -694,6 +694,15 @@
         <activity android:name=".widget.stickyRecyclerView.BeautifulRecyclerViewActivity" />
         <activity android:name=".widget.stickyRecyclerView.PowerfulStickyRecyclerViewActivity" />
 
+        <activity
+            android:name=".rxJava.TestRxJavaActivity"
+            android:label="RxJava/RxJavaActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
         <service
             android:name=".service.intentService.UploadImgService"
             android:exported="false">
