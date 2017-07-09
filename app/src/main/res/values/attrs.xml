@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- 自定义日间夜间背景色 -->
+    <attr name="clockBackground" format="color" />
+    <attr name="clockTextColor" format="color" />
+
     <!--string,color,dimension,integer,enum,reference,float,boolean,fraction,flag-->
     <attr name="titleText" format="string" />
     <attr name="titleTextColor" format="color" />

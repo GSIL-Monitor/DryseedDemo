@@ -35,9 +35,20 @@ public class Test {
 
         //System.out.println(formatTimeToLaunch("000000"));
 
-        test4();
+        System.out.println( test5("123456789") );
 
     }
+
+    private static String test5(String s){
+        int length = s.length();
+        String reverse = "";
+        for (int i = 0; i < length; i++){
+            reverse = s.charAt(i) + reverse;
+            System.out.println( s.charAt(i) + " " + reverse );
+        }
+        return reverse;
+    }
+
 
     private static void test4(){
         ArrayList<String> arrayList = new ArrayList<>();

@@ -703,6 +703,15 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".practice.daynight.DayNightActivity"
+            android:label="Practice/DayNightActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
         <service
             android:name=".service.intentService.UploadImgService"
             android:exported="false">
