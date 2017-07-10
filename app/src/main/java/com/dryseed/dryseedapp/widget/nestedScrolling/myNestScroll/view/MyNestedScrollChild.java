@@ -51,7 +51,7 @@ public class MyNestedScrollChild extends LinearLayout implements NestedScrolling
                 int dy = y - lastY;
                 lastY = y;
 
-                if (startNestedScroll(ViewCompat.SCROLL_AXIS_HORIZONTAL) //如果找到了支持嵌套滚动的父类
+                if (startNestedScroll(ViewCompat.SCROLL_AXIS_VERTICAL) //如果找到了支持嵌套滚动的父类
                         && dispatchNestedPreScroll(0, dy, consumed, offset)) {//父类进行了一部分滚动
 
                     int remain = dy - consumed[1];//获取滚动的剩余距离
@@ -74,6 +74,7 @@ public class MyNestedScrollChild extends LinearLayout implements NestedScrolling
     @Override
     public void scrollTo(int x, int y) {
         int MaxY = getMeasuredHeight() - showHeight;
+        Log.d("MMM", "getMeasuredHeight() : " + getMeasuredHeight());
         if (y > MaxY) {
             y = MaxY;
         }
