@@ -695,22 +695,17 @@
         <activity android:name=".widget.stickyRecyclerView.PowerfulStickyRecyclerViewActivity" />
 
         <activity
-            android:name=".rxJava.TestRxJavaActivity"
-            android:label="RxJava/RxJavaActivity">
+            android:name=".widget.coordinatorLayout.TestCoodinatorLayoutActivity"
+            android:label="Widget/CoordinatorLayout">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".practice.daynight.DayNightActivity"
-            android:label="Practice/DayNightActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".widget.coordinatorLayout.WithFloatingActionButton" />
+        <activity android:name=".widget.coordinatorLayout.WithAppBarLayout" />
+        <activity android:name=".widget.coordinatorLayout.WithCollapsingToolbar" />
+        <activity android:name=".widget.coordinatorLayout.WithViewPager" />
 
         <service
             android:name=".service.intentService.UploadImgService"
