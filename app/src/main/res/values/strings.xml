@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">DryseedApp</string>
-
+    <string name="behavior_footer">com.dryseed.dryseedapp.widget.coordinatorLayout.FooterBehavior</string>
     <string-array name="magic_effect">
         <item>RotateDown</item>
         <item>RotateUp</item>

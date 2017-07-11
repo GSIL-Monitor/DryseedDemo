@@ -32,9 +32,9 @@ public class TestCoodinatorLayoutActivity extends Activity {
             case R.id.btn4:
                 startActivity(new Intent(this, WithViewPager.class));
                 break;
-            /*case R.id.btn5:
-                startActivity(new Intent(this, WithCustomBehavior.class));
-                break;*/
+            case R.id.btn5:
+                startActivity(new Intent(this, WithZhiHu.class));
+                break;
         }
     }
 }

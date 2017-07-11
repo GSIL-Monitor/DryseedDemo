@@ -51,6 +51,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:onClick="intentTo"
-        android:text="Custom Behavior"
+        android:text="ZhiHu"
         android:textAllCaps="false" />
 </LinearLayout>

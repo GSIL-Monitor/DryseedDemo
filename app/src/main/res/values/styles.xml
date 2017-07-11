@@ -14,6 +14,8 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
 
     <!--白天主题，此处直接和AppTheme一样-->
     <style name="DayTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -39,5 +41,16 @@
         <item name="android:layout_margin">4dp</item>
         <item name="android:background">@drawable/flag_01</item>
         <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <style name="bottom_tab">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:text">0dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@drawable/sel_bottom_tab_text</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:button">@null</item>
     </style>
 </resources>
