@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.sortAlgorithm;
+package com.dryseed.dryseedapp.LeetCode.sortAlgorithm;
 
 /**
  * Created by caiminming on 2017/1/3.
@@ -38,7 +38,7 @@ public class TestQuickSort {
         for (int i = 0; i < a.length; i++) {
             sb.append(a[i] + " ");
         }
-        System.out.println(sb);
+        System.out.println(sb); //1 3 5 6 8 9
     }
 
     public static int dividerAndChange(int[] args, int start, int end) {
@@ -51,14 +51,14 @@ public class TestQuickSort {
             while (start < end && args[end] >= pivot)
                 end--;
             if (start < end) {
-                swap(args, start, end);
+                swap(args, start, end); // end 换到 start
                 start++;
             }
             // 从左向右寻找，一直找到比参照值还大的数组，进行替换
             while (start < end && args[start] < pivot)
                 start++;
             if (start < end) {
-                swap(args, end, start);
+                swap(args, end, start); // start 换到 end
                 end--;
             }
         }

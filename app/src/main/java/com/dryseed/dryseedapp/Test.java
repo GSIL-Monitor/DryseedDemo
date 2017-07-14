@@ -1,6 +1,7 @@
 package com.dryseed.dryseedapp;
 
 
+import android.util.Log;
 import android.util.SparseArray;
 
 import com.dryseed.dryseedapp.designPattern.state.better.VendingMachineBetter;
@@ -9,6 +10,7 @@ import com.dryseed.dryseedapp.fastjson.bean.Person;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -18,6 +20,7 @@ import java.util.Map;
 import java.util.Vector;
 
 public class Test {
+
     public static void main(String[] args) {
         /*// -0.5 ~ -0.7
         for(int i=0; i<15; i++){
@@ -28,29 +31,110 @@ public class Test {
 		}*/
 
 		/*String x = new String("dryseed");
-		change(x);
+        change(x);
 		System.out.println(x);*/
 
         //System.out.println( 365.5f % 360 );
 
         //System.out.println(formatTimeToLaunch("000000"));
 
-        System.out.println( test5("123456789") );
+        //System.out.println( test5("123456789") );
 
+        //sortInts();
+
+        //bubbleSort();
+
+        quickSort();
     }
 
-    private static String test5(String s){
+    private static void quickSort() {
+        int[] ints = {7, 6, 4, 5, 9, 1, 1};
+        sort(ints, 0, ints.length - 1);
+        for (int i : ints) {
+            System.out.println(i);
+        }
+    }
+
+    private static void sort(int[] args, int start, int end) {
+        if (end - start > 1) {
+            int mid = 0;
+            mid = divideAndChange(args, start, end);
+            sort(args, 0, mid);
+            sort(args, mid + 1, end);
+        }
+    }
+
+    private static int divideAndChange(int[] args, int start, int end) {
+        int piovt = args[start];
+
+        while (start < end) {
+            while (start < end && piovt <= args[end]) {
+                end--;
+            }
+            if (start < end) {
+                swap(args, end, start);
+                start++;
+            }
+            while (start < end && piovt > args[start]) {
+                start++;
+            }
+            if (start < end) {
+                swap(args, start, end);
+                end--;
+            }
+        }
+        args[start] = piovt;
+
+        return start;
+    }
+
+    private static void swap(int[] args, int source, int target) {
+        args[target] = args[source];
+    }
+
+
+    private static void bubbleSort() {
+        //冒泡排序
+        int[] ints = {7, 6, 4, 5, 9, 1, 1};
+        for (int i = ints.length - 1; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+                if (ints[j] > ints[j + 1]) {
+                    int temp = ints[j];
+                    ints[j] = ints[j + 1];
+                    ints[j + 1] = temp;
+                }
+            }
+        }
+        for (int i : ints) {
+            System.out.println(i);
+        }
+    }
+
+    private static void sortInts() {
+        int[] ints = {1, 6, 7, 3, 8};
+
+        if (null == ints || ints.length == 0) {
+            return;
+        }
+        Arrays.sort(ints);
+
+        for (int i : ints) {
+            System.out.println(i);
+        }
+    }
+
+    private static String test5(String s) {
         int length = s.length();
         String reverse = "";
-        for (int i = 0; i < length; i++){
+        for (int i = 0; i < length; i++) {
             reverse = s.charAt(i) + reverse;
-            System.out.println( s.charAt(i) + " " + reverse );
+            System.out.println(s.charAt(i) + " " + reverse);
         }
         return reverse;
     }
 
 
-    private static void test4(){
+    private static void test4() {
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("1");
         arrayList.add("2");
@@ -58,13 +142,13 @@ public class Test {
         System.out.print(arrayList.contains("1"));
     }
 
-    private static void test3(){
+    private static void test3() {
         SparseArray<String> sparseArray = new SparseArray<>();
         sparseArray.put(0, "1");
         sparseArray.put(1, "2");
         sparseArray.put(2, "3");
         int key = 0;
-        for(int i=0; i<sparseArray.size(); i++){
+        for (int i = 0; i < sparseArray.size(); i++) {
             key = sparseArray.keyAt(i);
             System.out.println(sparseArray.valueAt(key));
         }

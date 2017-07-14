@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.sortAlgorithm;
+package com.dryseed.dryseedapp.LeetCode.sortAlgorithm;
 
 /**
  * Created by caiminming on 2017/1/3.
