@@ -1,36 +1,43 @@
 package com.dryseed.dryseedapp.canvas.xfermode;
 
 import android.animation.ValueAnimator;
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.Surface;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
+
+import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.utils.DPIUtil;
 
 import java.lang.ref.WeakReference;
 
 /**
  * Created by caiminming on 2017/3/3.
- * 参考：http://blog.csdn.net/u010335298/article/details/51983420
  */
 
-public class MyXfermode2View extends View {
+public class ScanFrameView extends View implements SensorEventListener {
+    private Context mContext;
     private Bitmap mBitmap;
     private Canvas mCanvas;
-    private Paint mDstPaint, mSrcPaint, mInnerCirclePaint, mOuterCirclePaint, mTextPaint, mBlueCirclePaint, mBluePaint, mPinkPaint;
+    private Paint mDstPaint, mSrcPaint, mInnerCirclePaint, mOuterCirclePaint, mOuterDotPaint, mTextPaint, mBlueCirclePaint, mBluePaint, mPinkPaint, mHelpPaint;
     int width;
     int height;
     private RectF mInnerOval, mOuterOval, mLadderOval, mHelpOval;
@@ -43,7 +50,7 @@ public class MyXfermode2View extends View {
     private int mOuterRadius; //外部蓝色旋转圈半径
     private int mHelpRadius; //最外部辅助椭圆线半径
     private int mPinkCircleRadius; //粉色光晕半径
-    private State mCurrentState = State.Stop;
+    public State mCurrentState = State.Stop;
     private float[] mInnerArcStartAngles = new float[]{60, 180, 300}; //内部白色椭圆线初始角度
     private float[] mInnerArcAngles = new float[3]; //内部白色椭圆线实时角度
     private float[] mOuterArcStartAngles = new float[]{150, 330}; //外部蓝色椭圆线初始角度
@@ -56,38 +63,53 @@ public class MyXfermode2View extends View {
     private float mInnerCircleAngle; //内部白色椭圆线转过的角度
     private float mOuterCircleAngle; //外部蓝色椭圆线转过的角度
     private float mLadderCircleAngle; //梯形转过的角度
-    private final float INNER_CIRCLE_SWEEP_ANGLE = 68;
+    private final float INNER_CIRCLE_SWEEP_ANGLE = 56;
     private final float OUTER_CIRCLE_SWEEP_ANGLE = 20;
-    private final float HELP_CIRCLE_SWEEP_ANGLE = 46;
+    private final float HELP_CIRCLE_SWEEP_ANGLE = 36;
     private final long INNER_CIRCLE_ANIMATION_DURATION = 1500L;
-    private final long OUTER_CIRCLE_ANIMATION_DURATION = 3000L;
-    private final long LADDER_ANIMATION_DURATION = 1000L;
+    private final long OUTER_CIRCLE_ANIMATION_DURATION = 2000L;
+    private final long LADDER_ANIMATION_DURATION = 2000L;
     private final int STROKEN_WIDTH = DPIUtil.dip2px(2);
-    private final int BOLD_STROKEN_WIDTH = DPIUtil.dip2px(5);
-    private final int PINK_CIRCLE_STROKEN_WIDTH = DPIUtil.dip2px(10);
-    private Rect mTextBound, mTextBound2;
-    private String mRecognizeText = "正在识别...";
-    private String mRecognizeText2 = "识别中...";
+    private final int BOLD_STROKEN_WIDTH = DPIUtil.dip2px(9);
+    private final int HELP_STROKEN_WIDTH = DPIUtil.dip2px(6);
+    private final int PINK_CIRCLE_STROKEN_WIDTH = DPIUtil.dip2px(12);
+    private Rect mRecognizeTextBound, mRecognizeTextBound2, mScaningTextBound;
+    private String mRecognizeText = getResources().getString(R.string.ar_recognize_text);
+    private String mRecognizeText2 = getResources().getString(R.string.ar_recognize_text2);
+    private String mScaningText = getResources().getString(R.string.ar_scan_text);
     private int mLadderHeight = DPIUtil.dip2px(6); //梯形高度
+    private int mLadderWidth = DPIUtil.dip2px(10); //梯形宽度
     private boolean mShowHelpArc = true;
-    private int mPinkCircleColor = 0x335BA0FF;
+    private int mPinkCircleColor = 0x332572ff;
     private int mMaskColor = 0x7F000000;
     private int mBlueCircleColor = 0xB2215EE9;
     private int mInnerCircleColor = 0xFFFFFFFF;
-    private int mOuterCircleColor = 0xFF5BA0FF;
+    private int mOuterCircleColor = 0xB2215EE9;
+    private int mOuterDotColor = 0xFFFFFFFF;
     private int mTextColor = 0xFFFFFFFF;
 
-    public MyXfermode2View(Context context, AttributeSet attrs) {
+    private SensorManager mSensorManager;
+    private Sensor mSensor;
+    private float mSensorX; //x轴偏移量：0-10
+    private float mSensorY; //y轴偏移量：0-10
+
+    public ScanFrameView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        mContext = context;
+        mSensorManager = (SensorManager) context.getApplicationContext().getSystemService(Context.SENSOR_SERVICE);
+        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_UI);
 
         width = DPIUtil.getWidth();
-        Log.d("MMM", "width : " + width + " 2dp : " + DPIUtil.dip2px(2));
         height = DPIUtil.getHeight();
 
+        initPaint();
+
         mCenterX = width / 2;
-        mCenterY = height / 2 - DPIUtil.dip2px(28);
-        mCameraRadius = (int) (mCenterX * 0.53f);
-        mInnerRadius = mCameraRadius - DPIUtil.dip2px(4);
+        mCenterY = height / 2 - DPIUtil.dip2px(48);
+        //mCameraRadius = (int) (mCenterX * 0.53f);
+        mCameraRadius = (int) (mCenterX * 0.7f);
+        mInnerRadius = mCameraRadius - DPIUtil.dip2px(6);
         mBlueCicleRadius = mCameraRadius + BOLD_STROKEN_WIDTH / 2;
         mRealBlueCicleRadius = mBlueCicleRadius + BOLD_STROKEN_WIDTH / 2;
         mOuterRadius = mRealBlueCicleRadius + PINK_CIRCLE_STROKEN_WIDTH / 2;
@@ -97,48 +119,17 @@ public class MyXfermode2View extends View {
             mShowHelpArc = false;
         }
 
-        mDstPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mDstPaint.setColor(mMaskColor);
+        float position1 = 1f * (mCenterX - mCameraRadius) / width;
+        float position2 = 1f * (mCenterY - mCameraRadius) / height;
+        float position3 = mCameraRadius * 2f / width;
+        float position4 = mCameraRadius * 2f / height;
 
-        mSrcPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-
-        mInnerCirclePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mInnerCirclePaint.setStyle(Paint.Style.STROKE);
-        mInnerCirclePaint.setColor(mInnerCircleColor);
-        mInnerCirclePaint.setStrokeWidth(STROKEN_WIDTH);
-        mInnerCirclePaint.setStrokeCap(Paint.Cap.ROUND);
-
-        mOuterCirclePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mOuterCirclePaint.setStyle(Paint.Style.STROKE);
-        mOuterCirclePaint.setColor(mOuterCircleColor);
-        mOuterCirclePaint.setStrokeWidth(STROKEN_WIDTH);
-        mOuterCirclePaint.setStrokeCap(Paint.Cap.ROUND);
-
-        mBlueCirclePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mBlueCirclePaint.setStyle(Paint.Style.STROKE);
-        mBlueCirclePaint.setColor(mBlueCircleColor);
-        mBlueCirclePaint.setStrokeWidth(BOLD_STROKEN_WIDTH);
-        mBlueCirclePaint.setStrokeCap(Paint.Cap.SQUARE);
-
-        mBluePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mBluePaint.setStyle(Paint.Style.FILL);
-        mBluePaint.setColor(mBlueCircleColor);
-        mBluePaint.setStrokeCap(Paint.Cap.ROUND);
-
-        mTextPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
-        mTextPaint.setColor(mTextColor);
-        int pixel = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 14, getResources().getDisplayMetrics());
-        mTextPaint.setTextSize(pixel);
-        mTextBound = new Rect();
-        mTextPaint.getTextBounds(mRecognizeText, 0, mRecognizeText.length(), mTextBound);
-        mTextBound2 = new Rect();
-        mTextPaint.getTextBounds(mRecognizeText2, 0, mRecognizeText2.length(), mTextBound2);
-
-        mPinkPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mPinkPaint.setStyle(Paint.Style.STROKE);
-        mPinkPaint.setColor(mPinkCircleColor);
-        mPinkPaint.setStrokeWidth(PINK_CIRCLE_STROKEN_WIDTH);
-        mPinkPaint.setStrokeCap(Paint.Cap.ROUND);
+        mRecognizeTextBound = new Rect();
+        mTextPaint.getTextBounds(mRecognizeText, 0, mRecognizeText.length(), mRecognizeTextBound);
+        mRecognizeTextBound2 = new Rect();
+        mTextPaint.getTextBounds(mRecognizeText2, 0, mRecognizeText2.length(), mRecognizeTextBound2);
+        mScaningTextBound = new Rect();
+        mTextPaint.getTextBounds(mScaningText, 0, mScaningText.length(), mScaningTextBound);
 
         mBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         mCanvas = new Canvas(mBitmap);
@@ -167,6 +158,59 @@ public class MyXfermode2View extends View {
         mHelpOval.top = mCenterY - mHelpRadius;
         mHelpOval.right = mCenterX + mHelpRadius;
         mHelpOval.bottom = mCenterY + mHelpRadius;
+    }
+
+    private void initPaint() {
+        mDstPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mDstPaint.setColor(mMaskColor);
+
+        mSrcPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+
+        mInnerCirclePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mInnerCirclePaint.setStyle(Paint.Style.STROKE);
+        mInnerCirclePaint.setColor(mInnerCircleColor);
+        mInnerCirclePaint.setStrokeWidth(STROKEN_WIDTH);
+        mInnerCirclePaint.setStrokeCap(Paint.Cap.ROUND);
+
+        mOuterCirclePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mOuterCirclePaint.setStyle(Paint.Style.STROKE);
+        mOuterCirclePaint.setColor(mOuterCircleColor);
+        mOuterCirclePaint.setStrokeWidth(STROKEN_WIDTH);
+        mOuterCirclePaint.setStrokeCap(Paint.Cap.ROUND);
+
+        mOuterDotPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mOuterDotPaint.setStyle(Paint.Style.STROKE);
+        mOuterDotPaint.setColor(mOuterDotColor);
+        mOuterDotPaint.setStrokeWidth(DPIUtil.dip2px(1));
+        mOuterDotPaint.setStrokeCap(Paint.Cap.ROUND);
+
+        mBlueCirclePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mBlueCirclePaint.setStyle(Paint.Style.STROKE);
+        mBlueCirclePaint.setColor(mBlueCircleColor);
+        mBlueCirclePaint.setStrokeWidth(BOLD_STROKEN_WIDTH);
+        mBlueCirclePaint.setStrokeCap(Paint.Cap.SQUARE);
+
+        mHelpPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mHelpPaint.setStyle(Paint.Style.STROKE);
+        mHelpPaint.setColor(mBlueCircleColor);
+        mHelpPaint.setStrokeWidth(HELP_STROKEN_WIDTH);
+        mHelpPaint.setStrokeCap(Paint.Cap.SQUARE);
+
+        mBluePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mBluePaint.setStyle(Paint.Style.FILL);
+        mBluePaint.setColor(mBlueCircleColor);
+        mBluePaint.setStrokeCap(Paint.Cap.ROUND);
+
+        mTextPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
+        mTextPaint.setColor(mTextColor);
+        int pixel = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 14, getResources().getDisplayMetrics());
+        mTextPaint.setTextSize(pixel);
+
+        mPinkPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mPinkPaint.setStyle(Paint.Style.STROKE);
+        mPinkPaint.setColor(mPinkCircleColor);
+        mPinkPaint.setStrokeWidth(PINK_CIRCLE_STROKEN_WIDTH);
+        mPinkPaint.setStrokeCap(Paint.Cap.ROUND);
     }
 
     @Override
@@ -200,16 +244,20 @@ public class MyXfermode2View extends View {
 
         canvas.drawCircle(mCenterX, mCenterY, mBlueCicleRadius, mBlueCirclePaint);
         if (mShowHelpArc) {
-            canvas.drawArc(mHelpOval, 360 - HELP_CIRCLE_SWEEP_ANGLE / 2, HELP_CIRCLE_SWEEP_ANGLE, false, mBlueCirclePaint);
-            canvas.drawArc(mHelpOval, 180 - HELP_CIRCLE_SWEEP_ANGLE / 2, HELP_CIRCLE_SWEEP_ANGLE, false, mBlueCirclePaint);
+            //V6.2 隐藏最外部“耳朵”
+            //canvas.drawArc(mHelpOval, 360 - HELP_CIRCLE_SWEEP_ANGLE / 2, HELP_CIRCLE_SWEEP_ANGLE, false, mHelpPaint);
+            //canvas.drawArc(mHelpOval, 180 - HELP_CIRCLE_SWEEP_ANGLE / 2, HELP_CIRCLE_SWEEP_ANGLE, false, mHelpPaint);
         }
         canvas.drawCircle(mCenterX, mCenterY, mPinkCircleRadius, mPinkPaint);
+
+        drawOuterDot(canvas);
 
         switch (mCurrentState) {
             case Scaning:
                 drawInnerCircle(canvas);
                 drawLadders(canvas);
                 drawOuterCircle(canvas);
+                drawScaningText(canvas);
                 break;
             case Stop:
                 drawInnerCircle(canvas);
@@ -217,9 +265,16 @@ public class MyXfermode2View extends View {
                 break;
             case Recognize:
                 drawInnerCircle(canvas);
+                drawLadders(canvas);
                 drawOuterCircle(canvas);
                 drawRecognizeText(canvas);
                 break;
+        }
+    }
+
+    private void drawOuterDot(Canvas canvas) {
+        for (int i = 0; i <= 360; i = i + 5) {
+            canvas.drawArc(mOuterOval, i, 0.3f, false, mOuterDotPaint);
         }
     }
 
@@ -227,7 +282,7 @@ public class MyXfermode2View extends View {
         for (int i = 0; i < mLadderStartAngles.length; i++) {
             mLadderAngles[i] = getRealAngle(mLadderStartAngles[i] + mLadderCircleAngle * 360);
             double a = mLadderAngles[i] * Math.PI / 180;
-            float mLadderAngle = DPIUtil.dip2px(10) * 1f / mRealBlueCicleRadius;
+            float mLadderAngle = mLadderWidth * 1f / mRealBlueCicleRadius;
             float mHalfLadderAngle = mLadderAngle / 2;
             float mLongRadius = mRealBlueCicleRadius + mLadderHeight;
 
@@ -250,9 +305,13 @@ public class MyXfermode2View extends View {
         }
     }
 
+    private void drawScaningText(Canvas canvas) {
+        canvas.drawText(mScaningText, mCenterX - mScaningTextBound.width() * 1.0f / 2, mCenterY + mPinkCircleRadius + DPIUtil.dip2px(30), mTextPaint);
+    }
+
     private void drawRecognizeText(Canvas canvas) {
-        canvas.drawText(mRecognizeText, mCenterX - mTextBound.width() * 1.0f / 2, mCenterY, mTextPaint);
-        canvas.drawText(mRecognizeText2, mCenterX - mTextBound2.width() * 1.0f / 2, mCenterY + mOuterRadius + 70, mTextPaint);
+        //canvas.drawText(mRecognizeText, mCenterX - mRecognizeTextBound.width() * 1.0f / 2, mCenterY, mTextPaint);
+        canvas.drawText(mRecognizeText2, mCenterX - mRecognizeTextBound2.width() * 1.0f / 2, mCenterY + mPinkCircleRadius + DPIUtil.dip2px(30), mTextPaint);
     }
 
     private void drawInnerCircle(Canvas canvas) {
@@ -288,10 +347,10 @@ public class MyXfermode2View extends View {
                     stopLadderAnimation();
                     break;
                 case Recognize:
-                    stopInnerCicleAnimation();
+                    /*stopInnerCicleAnimation();
                     stopOuterCicleAnimation();
                     stopLadderAnimation();
-                    invalidate();
+                    invalidate();*/
                     break;
             }
         }
@@ -388,28 +447,109 @@ public class MyXfermode2View extends View {
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        Log.d("MMM", "onDetachedFromWindow");
-        if (null != mInnerCircleAnimator && mInnerCircleAnimator.isRunning()) {
+        /*if (null != mInnerCircleAnimator && mInnerCircleAnimator.isRunning()) {
             mInnerCircleAnimator.end();
-        }
+        }*/
     }
 
     private void setLadderStartAngle(float value) {
-        this.mLadderCircleAngle = value;
+        if (mCurrentState == State.Recognize) {
+            this.mLadderCircleAngle = value * 2;
+        } else {
+            this.mLadderCircleAngle = value;
+        }
         invalidate();
     }
 
     private void setInnerStartAngle(float value) {
-        this.mInnerCircleAngle = value;
+        if (mCurrentState == State.Recognize) {
+            this.mInnerCircleAngle = value * 2;
+        } else {
+            this.mInnerCircleAngle = value;
+        }
         invalidate();
     }
 
     private void setOuterStartAngle(float value) {
-        this.mOuterCircleAngle = value;
+        if (mCurrentState == State.Recognize) {
+            this.mOuterCircleAngle = value * 2;
+        } else {
+            this.mOuterCircleAngle = value;
+        }
         invalidate();
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        if (event.sensor.getType() != Sensor.TYPE_ACCELEROMETER)
+            return;
+        // event 的参照系是手机【手机左侧、右侧、头部、尾部】
+        //Log.d("MMM", String.format("X:%f | Y:%f | Z:%f", event.values[0], event.values[1], event.values[2]));
+        int rt = ((Activity) mContext).getWindowManager().getDefaultDisplay().getRotation();
+        switch (rt) {
+            case Surface.ROTATION_0:
+                mSensorX = event.values[0];
+                mSensorY = event.values[1];
+                break;
+            case Surface.ROTATION_90:
+                mSensorX = -event.values[1];
+                mSensorY = event.values[0];
+                break;
+            case Surface.ROTATION_180:
+                mSensorX = -event.values[0];
+                mSensorY = -event.values[1];
+                break;
+            case Surface.ROTATION_270:
+                mSensorX = event.values[1];
+                mSensorY = -event.values[0];
+                break;
+        }
+        Log.d("MMM", String.format("X:%f | Y:%f", mSensorX, mSensorY));
+        /*
+            转换成相对参照系中的 左侧、右侧、前方、后方
+            值的变化范围 ： [0-10]
+            手机左边往下倾 ：  X:6.818686 | Y:0.507571
+            手机右边往下倾 ：  X:-6.818686 | Y:0.507571
+            手机头部往下倾 ：  X:0.335188 | Y:-4.544195
+            手机尾部往下倾 ：  X:0.335188 | Y:4.544195
+         */
+
+        resetLocation(mSensorX, mSensorY);
+    }
+
+    private void resetLocation(float mSensorX, float mSensorY) {
+        mInnerOval = new RectF();
+        mInnerOval.left = mCenterX - DPIUtil.dip2px(mSensorX * 2) - mInnerRadius;
+        mInnerOval.top = mCenterY + DPIUtil.dip2px(mSensorY * 2) - mInnerRadius;
+        mInnerOval.right = mCenterX - DPIUtil.dip2px(mSensorX * 2) + mInnerRadius;
+        mInnerOval.bottom = mCenterY + DPIUtil.dip2px(mSensorY * 2) + mInnerRadius;
+    }
+
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int i) {
+
     }
 
     public enum State {
         Scaning, Stop, Recognize
+    }
+
+    public void destroy() {
+        if (null != mSensorManager) {
+            mSensorManager.unregisterListener(this);
+        }
+        if (null != mInnerCircleAnimator) {
+            mInnerCircleAnimator.end();
+            mInnerCircleAnimator = null;
+        }
+        if (null != mOuterCircleAnimator) {
+            mOuterCircleAnimator.end();
+            mOuterCircleAnimator = null;
+        }
+        if (null != mLadderAnimator) {
+            mLadderAnimator.end();
+            mLadderAnimator = null;
+        }
     }
 }

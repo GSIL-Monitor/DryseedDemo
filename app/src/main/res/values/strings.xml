@@ -40,4 +40,8 @@
 别君去兮何时还？且放白鹿青崖间。须行即骑访名山。\r\n
 安能摧眉折腰事权贵，使我不得开心颜!\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n</string>
     <string name="topStr">哈哈哈，我上面的图片会被隐藏，而我不会哦.</string>
+
+    <string name="ar_recognize_text">正在识别...</string>
+    <string name="ar_recognize_text2">识别中...</string>
+    <string name="ar_scan_text">请将识别主题放入框内</string>
 </resources>

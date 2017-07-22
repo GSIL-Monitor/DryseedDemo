@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="#000000">
 
-    <com.dryseed.dryseedapp.canvas.xfermode.MyXfermode2View
+    <com.dryseed.dryseedapp.canvas.xfermode.ScanFrameView
         android:id="@+id/myView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
