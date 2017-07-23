@@ -88,6 +88,15 @@
         </activity>
 
         <activity
+            android:name=".framework.glide.TestGlideActivity"
+            android:label="Framework/Glide">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".customView.customView01.TestCustomView01Activity"
             android:label="CustomView/CustomView01">
             <intent-filter>
