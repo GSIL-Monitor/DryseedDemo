@@ -25,8 +25,8 @@
         </activity>
 
         <activity
-            android:name=".volley.TestVolleyActivity"
-            android:label="Volley">
+            android:name=".framework.volley.TestVolleyActivity"
+            android:label="Framework/Volley">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -34,8 +34,8 @@
         </activity>
 
         <activity
-            android:name=".fastjson.TestFastJsonActivity"
-            android:label="FastJson">
+            android:name=".framework.fastjson.TestFastJsonActivity"
+            android:label="Framework/FastJson">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -43,8 +43,8 @@
         </activity>
 
         <activity
-            android:name=".leakcanary.TestLeakCanaryActivity"
-            android:label="LeakCanary">
+            android:name=".framework.leakcanary.TestLeakCanaryActivity"
+            android:label="Framework/LeakCanary">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -52,8 +52,8 @@
         </activity>
 
         <activity
-            android:name=".fresco.TestFrescoActivity"
-            android:label="Fresco">
+            android:name=".framework.fresco.TestFrescoActivity"
+            android:label="Framework/Fresco">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -61,8 +61,8 @@
         </activity>
 
         <activity
-            android:name=".eventbus.TestEventBusActivity"
-            android:label="EventBus">
+            android:name=".framework.eventbus.TestEventBusActivity"
+            android:label="Framework/EventBus">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -70,8 +70,17 @@
         </activity>
 
         <activity
-            android:name=".butterknife.TestButterKnifeActivity"
-            android:label="ButterKnife">
+            android:name=".framework.butterknife.TestButterKnifeActivity"
+            android:label="Framework/ButterKnife">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".framework.rxJava.TestRxJavaActivity"
+            android:label="Framework/RxJava">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />

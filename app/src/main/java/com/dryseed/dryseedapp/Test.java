@@ -1,23 +1,15 @@
 package com.dryseed.dryseedapp;
 
 
-import android.util.Log;
 import android.util.SparseArray;
 
-import com.dryseed.dryseedapp.designPattern.state.better.VendingMachineBetter;
-import com.dryseed.dryseedapp.designPattern.state.old.VendingMachine;
-import com.dryseed.dryseedapp.fastjson.bean.Person;
-
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
-import java.util.Vector;
 
 public class Test {
 
