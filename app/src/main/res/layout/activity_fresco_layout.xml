@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/fresco_eg2"
@@ -13,10 +12,17 @@
         fresco:actualImageScaleType="centerCrop"/>
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/fresco_eg1"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@color/primary_dark_material_dark"
-        fresco:actualImageScaleType="centerCrop"
-        fresco:roundAsCircle="true"
-        fresco:roundedCornerRadius="2dp" />
-</LinearLayout>
+        android:layout_width="360dp"
+        android:layout_height="360dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:scaleType="centerCrop"/>
+    <!--<com.facebook.drawee.view.SimpleDraweeView-->
+        <!--android:id="@+id/fresco_eg1"-->
+        <!--android:layout_width="50dp"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:background="@color/primary_dark_material_dark"-->
+        <!--fresco:actualImageScaleType="centerCrop"-->
+        <!--fresco:roundAsCircle="true"-->
+        <!--fresco:roundedCornerRadius="2dp" />-->
+</RelativeLayout>

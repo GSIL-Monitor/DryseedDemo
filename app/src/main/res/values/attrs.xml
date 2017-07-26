@@ -101,7 +101,7 @@
     <attr name="radius" format="dimension"></attr>
     <declare-styleable name="ArcMenu">
         <attr name="position" />
-        <attr name="radius"/>
+        <attr name="radius" />
     </declare-styleable>
     <!-- 自定义ArcMenu end -->
 
@@ -120,8 +120,8 @@
 
     <!-- ComboClickTextView begin -->
     <declare-styleable name="ComboClickTextView">
-        <attr name="strokeWidth" format="dimension"/>
-        <attr name="strokeColor" format="color"/>
+        <attr name="strokeWidth" format="dimension" />
+        <attr name="strokeColor" format="color" />
     </declare-styleable>
     <!-- ComboClickTextView end -->
 
@@ -140,7 +140,7 @@
         <attr name="selectedTabTextColor" format="color" />
     </declare-styleable>
     <declare-styleable name="CustomizedPagerSlidingTabStrip">
-        <attr name="itemCount" format="integer"/>
+        <attr name="itemCount" format="integer" />
     </declare-styleable>
 
     <declare-styleable name="ViewPager">
@@ -180,7 +180,7 @@
         <!--<flag name="pullDownFromTop" value="0x1" />-->
         <!--<flag name="pullUpFromBottom" value="0x2" />-->
         <!--</attr>-->
-        <attr name="ptrMode" format="string"/>
+        <attr name="ptrMode" format="string" />
 
         <!-- Whether the Indicator overlay(s) should be used -->
         <attr name="ptrShowIndicator" format="reference|boolean" />
@@ -232,4 +232,11 @@
         <attr name="ptrDrawableTop" format="reference" />
         <attr name="ptrDrawableBottom" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="BlurredView">
+        <attr name="src"/>
+        <attr name="move" format="boolean" />
+        <attr name="disableBlurred" format="boolean" />
+    </declare-styleable>
+
 </resources>

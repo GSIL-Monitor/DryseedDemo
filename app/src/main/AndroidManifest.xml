@@ -754,6 +754,16 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".widget.BlurredView.TestBlurredViewActivity"
+            android:label="Widget/BlurredView">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".widget.BlurredView.TestDynamicBlurredViewActivity" />
+
         <service
             android:name=".service.intentService.UploadImgService"
             android:exported="false">
