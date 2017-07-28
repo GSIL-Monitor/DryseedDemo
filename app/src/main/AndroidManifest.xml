@@ -26,7 +26,7 @@
 
         <activity
             android:name=".framework.volley.TestVolleyActivity"
-            android:label="Framework/Volley">
+            android:label="FrameWork/Volley">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -35,7 +35,7 @@
 
         <activity
             android:name=".framework.fastjson.TestFastJsonActivity"
-            android:label="Framework/FastJson">
+            android:label="FrameWork/FastJson">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -44,7 +44,7 @@
 
         <activity
             android:name=".framework.leakcanary.TestLeakCanaryActivity"
-            android:label="Framework/LeakCanary">
+            android:label="FrameWork/LeakCanary">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -53,7 +53,7 @@
 
         <activity
             android:name=".framework.fresco.TestFrescoActivity"
-            android:label="Framework/Fresco">
+            android:label="FrameWork/Fresco">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -62,7 +62,7 @@
 
         <activity
             android:name=".framework.eventbus.TestEventBusActivity"
-            android:label="Framework/EventBus">
+            android:label="FrameWork/EventBus">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -71,7 +71,7 @@
 
         <activity
             android:name=".framework.butterknife.TestButterKnifeActivity"
-            android:label="Framework/ButterKnife">
+            android:label="FrameWork/ButterKnife">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -80,7 +80,7 @@
 
         <activity
             android:name=".framework.rxJava.TestRxJavaActivity"
-            android:label="Framework/RxJava">
+            android:label="FrameWork/RxJava">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -89,7 +89,16 @@
 
         <activity
             android:name=".framework.glide.TestGlideActivity"
-            android:label="Framework/Glide">
+            android:label="FrameWork/Glide">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".framework.lottie.TestLottieActivity"
+            android:label="FrameWork/Lottie">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
