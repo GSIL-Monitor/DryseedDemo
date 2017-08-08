@@ -686,6 +686,16 @@
         </activity>
 
         <activity
+            android:name=".test.localBroadcast.TestLocalBroadcastActivity"
+            android:label="Test/LocalBroadcast">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".test.localBroadcast.SendLocalBroadcastActivity" />
+
+        <activity
             android:name=".service.intentService.IntentServiceActivity"
             android:label="Service/IntentService">
             <intent-filter>
