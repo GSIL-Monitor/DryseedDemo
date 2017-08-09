@@ -1,0 +1,59 @@
+package com.dryseed.dryseedapp.practice.anrWatchDog.lib;
+
+import android.content.Context;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+import android.view.Choreographer;
+import android.view.Display;
+import android.view.WindowManager;
+
+import static com.dryseed.dryseedapp.practice.anrWatchDog.lib.Config.log;
+
+
+/**
+ * Created by seek on 2017/6/20.
+ */
+
+@RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+public class FPSFrameCallBack implements Choreographer.FrameCallback {
+    private static final String TAG = "FPSFrameCallBack";
+    private static long SKIPPED_FRAME_ANR_TRIGGER = 0;
+    private static long SKIPPED_FRAME_WARNING_LIMIT = 0;
+    private long mLastFrameTimeNanos;
+    private long mFrameIntervalNanos;
+    private BlockHandler mBlockHandler;
+
+    public FPSFrameCallBack(Context context, BlockHandler blockHandler) {
+        float mRefreshRate = getRefreshRate(context);
+        mFrameIntervalNanos = (long) (1000000000l / mRefreshRate);
+        SKIPPED_FRAME_WARNING_LIMIT = Config.THRESHOLD_TIME * 1000l * 1000l / mFrameIntervalNanos;
+        SKIPPED_FRAME_ANR_TRIGGER = 5000000000l / mFrameIntervalNanos;
+        log(TAG, "SKIPPED_FRAME_WARNING_LIMIT : " + SKIPPED_FRAME_WARNING_LIMIT + " ,SKIPPED_FRAME_ANR_TRIGGER : " + SKIPPED_FRAME_ANR_TRIGGER);
+        mBlockHandler = blockHandler;
+    }
+
+    private float getRefreshRate(Context context) {
+        Display display = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+        return display.getRefreshRate();
+    }
+
+    @Override
+    public void doFrame(long frameTimeNanos) {
+        if (mLastFrameTimeNanos == 0) {
+            mLastFrameTimeNanos = frameTimeNanos;
+            Choreographer.getInstance().postFrameCallback(this);
+            return;
+        }
+        final long jitterNanos = frameTimeNanos - mLastFrameTimeNanos;
+        if (jitterNanos >= mFrameIntervalNanos) {
+            final long skippedFrames = jitterNanos / mFrameIntervalNanos;
+            if (skippedFrames >= SKIPPED_FRAME_WARNING_LIMIT) {
+                log(TAG, "Skipped " + skippedFrames + " frames!  "
+                        + "The application may be doing too much work on its main thread.");
+                mBlockHandler.notifyBlockOccurs(skippedFrames >= SKIPPED_FRAME_ANR_TRIGGER, skippedFrames);
+            }
+        }
+        mLastFrameTimeNanos = frameTimeNanos;
+        Choreographer.getInstance().postFrameCallback(this);
+    }
+}

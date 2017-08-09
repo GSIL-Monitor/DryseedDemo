@@ -1,5 +1,6 @@
 package com.dryseed.dryseedapp.utils;
 
+import java.net.URLDecoder;
 import java.security.SecureRandom;
 
 import javax.crypto.Cipher;
@@ -20,7 +21,6 @@ public class DesUtil {
     //             private final static Log log = LogFactory.getLog(DesUtil.class);
     private final static String DES = "DES";
     private final static String PADDING = "DES/ECB/PKCS5Padding";
-
 
     /**
      * 加密
@@ -179,8 +179,10 @@ public class DesUtil {
     }
 
     public static void main(String[] args) {
-        System.out.println(DesUtil.encrypt("mGsAmeU/lQA=", "LJc4ZEnVXvtuese1RWsIs1Tml55wDvJU"));
-        System.out.println(decrypt(DesUtil.encrypt("mGsAmeU/lQA=", "LJc4ZEnVXvtuese1RWsIs1Tml55wDvJU"), "LJc4ZEnVXvtuese1RWsIs1Tml55wDvJU", "utf-8"));
+        //System.out.println(DesUtil.encrypt("mGsAmeU/lQA=", "LJc4ZEnVXvtuese1RWsIs1Tml55wDvJU"));
+        //System.out.println(decrypt(DesUtil.encrypt("mGsAmeU/lQA=", "LJc4ZEnVXvtuese1RWsIs1Tml55wDvJU"), "LJc4ZEnVXvtuese1RWsIs1Tml55wDvJU", "utf-8"));
+        System.out.println(decrypt(URLDecoder.decode("VqvO0loVuKpvfMLdncmtSGMcm274sJu8"), "jd_live_group_message20170628", "utf-8"));
+
     }
 
     /**
