@@ -4,7 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 
 import com.dryseed.dryseedapp.R;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -17,10 +20,10 @@ import butterknife.OnClick;
 /**
  * Created by caiminming on 2016/11/24.
  */
-public class TestFrescoActivity extends Activity {
+public class TestFresco2Activity extends Activity {
 
-//    @Bind(R.id.fresco_eg1)
-//    SimpleDraweeView img1;
+    @Bind(R.id.fresco_eg1)
+    SimpleDraweeView img1;
 
     @Bind(R.id.fresco_btn)
     Button btn;
@@ -33,8 +36,9 @@ public class TestFrescoActivity extends Activity {
 
         ButterKnife.bind(this);
 
-        SimpleDraweeView img1 = (SimpleDraweeView) findViewById(R.id.fresco_eg1);
-        Uri uri = Uri.parse("https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1177005900,1815516380&fm=26&gp=0.jpg");
+        img1 = (SimpleDraweeView) findViewById(R.id.fresco_eg1);
+        img1.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        Uri uri = Uri.parse("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1503309332&di=ceaee4e6be074d73b731b31a60f7f595&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201603%2F17%2F20160317123417_u5Ewc.jpeg");
         img1.setImageURI(uri);
 
         /*SimpleDraweeView drawview = (SimpleDraweeView) findViewById(R.id.fresco_eg2);
@@ -45,6 +49,8 @@ public class TestFrescoActivity extends Activity {
                 .build();
         //设置Controller
         drawview.setController(mDraweeController);*/
+
+        btn.setVisibility(View.GONE);
     }
 
     @OnClick(R.id.fresco_btn)

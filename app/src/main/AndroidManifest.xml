@@ -59,6 +59,7 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <activity android:name=".framework.fresco.TestFresco2Activity" />
 
         <activity
             android:name=".framework.eventbus.TestEventBusActivity"
@@ -465,8 +466,8 @@
         </activity>
         <activity
             android:name=".widget.gridview.TestGridViewActivity"
-            android:label="Widget/GridView"
-            android:configChanges="keyboard|screenSize|orientation|layoutDirection|fontScale">
+            android:configChanges="keyboard|screenSize|orientation|layoutDirection|fontScale"
+            android:label="Widget/GridView">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -802,8 +803,7 @@
 
         <service
             android:name=".service.intentService.UploadImgService"
-            android:exported="false">
-        </service>
+            android:exported="false"></service>
     </application>
 
 
