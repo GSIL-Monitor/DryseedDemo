@@ -38,7 +38,7 @@ public class TestFresco2Activity extends Activity {
 
         img1 = (SimpleDraweeView) findViewById(R.id.fresco_eg1);
         img1.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        Uri uri = Uri.parse("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1503309332&di=ceaee4e6be074d73b731b31a60f7f595&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201603%2F17%2F20160317123417_u5Ewc.jpeg");
+        Uri uri = Uri.parse(TestFrescoActivity.picUrl);
         img1.setImageURI(uri);
 
         /*SimpleDraweeView drawview = (SimpleDraweeView) findViewById(R.id.fresco_eg2);
