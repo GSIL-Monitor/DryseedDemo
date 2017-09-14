@@ -35,11 +35,6 @@ public class MyApplication extends Application {
 
         Fresco.initialize(sInstance);
         LeakCanary.install(sInstance);
-        try {
-            DPIUtil.setDensity(sInstance.getResources().getDisplayMetrics().density);
-        } catch (Throwable e) {
-            e.printStackTrace();
-        }
 
     }
 

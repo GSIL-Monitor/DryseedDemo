@@ -637,6 +637,15 @@
         </activity>
 
         <activity
+            android:name=".tools.xml.TestXmlPullParserActivity"
+            android:label="Tool/XML/XmlPullParser">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".lib.zxing.client.android.CaptureActivity"
             android:label="CaptureActivity">
             <intent-filter>
@@ -707,6 +716,14 @@
         <activity
             android:name=".service.intentService.IntentServiceActivity"
             android:label="Service/IntentService">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".service.service.TestServiceActivity"
+            android:label="Service/Service">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -811,7 +828,10 @@
 
         <service
             android:name=".service.intentService.UploadImgService"
-            android:exported="false"></service>
+            android:exported="false" />
+        <service
+            android:name=".service.service.MyService"
+            android:exported="false" />
     </application>
 
 

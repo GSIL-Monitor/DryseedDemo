@@ -4,8 +4,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.dryseed.dryseedapp.ui.VerticalViewPager
+    <com.dryseed.dryseedapp.widget.verticalViewPagerLiveRoom.LiveVerticalViewPager
         android:id="@+id/liveroom_vertical_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
 </LinearLayout>

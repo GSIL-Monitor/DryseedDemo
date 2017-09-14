@@ -3,7 +3,9 @@ package com.dryseed.dryseedapp.widget.verticalViewPagerLiveRoom;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,9 +25,10 @@ import butterknife.ButterKnife;
 public class TestVerticalViewPagerLiveRoomActivity extends Activity {
 
     @Bind(R.id.liveroom_vertical_viewpager)
-    VerticalViewPager mVerticalViewPager;
+    LiveVerticalViewPager mVerticalViewPager;
 
     ViewPager mContentViewPager;
+    Handler mHandler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,7 @@ public class TestVerticalViewPagerLiveRoomActivity extends Activity {
 
             @Override
             public Object instantiateItem(ViewGroup container, int position) {
+                //Log.d("MMM", "instantiateItem " + position);
                 View view = null;
                 if (position == 0 || position == 2) {
                     view = new View(TestVerticalViewPagerLiveRoomActivity.this);
@@ -109,5 +113,30 @@ public class TestVerticalViewPagerLiveRoomActivity extends Activity {
             }
         });
         mVerticalViewPager.setCurrentItem(1);
+        mVerticalViewPager.setCanScroll(false);
+        mVerticalViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                Log.d("MMM", "onPageSelected " + position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+        // viewpager的instantiateItem，visible后才会调用
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mVerticalViewPager.setVisibility(View.VISIBLE);
+            }
+        }, 1000);
     }
 }
