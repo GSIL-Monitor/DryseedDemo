@@ -393,7 +393,7 @@
         <activity android:name=".widget.clipZoomImage.ShowImageActivity"></activity>
         <activity
             android:name=".widget.viewPager.viewpagerTransformer.ViewPagerTransformerActivity"
-            android:label="Widget/viewPager/ViewPagerTransformerActivity">
+            android:label="Widget/ViewPager/ViewPagerTransformerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -401,7 +401,7 @@
         </activity>
         <activity
             android:name=".widget.viewPager.pagerSlidingTabStrip.TestPagerSlidingTabStripActivity"
-            android:label="Widget/viewPager/PagerSlidingTabStrip">
+            android:label="Widget/ViewPager/PagerSlidingTabStrip">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -409,7 +409,7 @@
         </activity>
         <activity
             android:name=".widget.viewPager.customizedPagerSlidingTabStrip.TestCustomizedPagerSlidingTabStripActivity"
-            android:label="Widget/viewPager/CustomizedPagerSlidingTabStrip">
+            android:label="Widget/ViewPager/CustomizedPagerSlidingTabStrip">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -417,7 +417,7 @@
         </activity>
         <activity
             android:name=".widget.viewPager.tabLayout.TestTabLayoutActivity"
-            android:label="Widget/viewPager/TabLayout">
+            android:label="Widget/ViewPager/TabLayout">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -780,6 +780,15 @@
         <activity android:name=".widget.coordinatorLayout.WithCollapsingToolbar" />
         <activity android:name=".widget.coordinatorLayout.WithViewPager" />
         <activity android:name=".widget.coordinatorLayout.WithZhiHu" />
+
+        <activity
+            android:name=".widget.fragment.fragmentLifeCycle.TestFragmentLifeCycle"
+            android:label="Widget/FragmentLifeCycle">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".annotation.viewInject.TestViewInjectActivity"
