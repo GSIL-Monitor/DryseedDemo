@@ -506,7 +506,6 @@
             </intent-filter>
         </activity>
 
-
         <activity
             android:name=".image.TestImageActivity"
             android:label="Image/TestImageActivity">
@@ -780,6 +779,15 @@
         <activity android:name=".widget.coordinatorLayout.WithCollapsingToolbar" />
         <activity android:name=".widget.coordinatorLayout.WithViewPager" />
         <activity android:name=".widget.coordinatorLayout.WithZhiHu" />
+        <activity
+            android:name=".widget.rotate3dAnimation.TestRotate3dAnimationActivity"
+            android:label="Widget/Rotate3dAnimation">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
 
         <activity
             android:name=".widget.fragment.fragmentLifeCycle.TestFragmentLifeCycle"
