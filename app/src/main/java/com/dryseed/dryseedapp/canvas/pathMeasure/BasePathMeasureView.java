@@ -38,6 +38,7 @@ public class BasePathMeasureView extends View {
     private Paint mPaint;
     private Path mPath;
     private float[] mCurrentPosition = new float[2];
+    private ValueAnimator mAnimator;
 
     public BasePathMeasureView(Context context) {
         super(context);
@@ -76,13 +77,12 @@ public class BasePathMeasureView extends View {
     // 开启路径动画
     public void startPathAnim(long duration) {
         // 0 － getLength()
-        ValueAnimator valueAnimator = ValueAnimator.ofFloat(0, mPathMeasure.getLength());
+        mAnimator = ValueAnimator.ofFloat(0, mPathMeasure.getLength());
         Log.i(TAG, "measure length = " + mPathMeasure.getLength());
-        valueAnimator.setDuration(duration);
-        valueAnimator.setRepeatCount(ValueAnimator.INFINITE);
-        // 减速插值器
-        valueAnimator.setInterpolator(new DecelerateInterpolator());
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+        mAnimator.setDuration(duration);
+        mAnimator.setRepeatCount(ValueAnimator.INFINITE);
+        mAnimator.setInterpolator(new DecelerateInterpolator());
+        mAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
 
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
@@ -92,7 +92,12 @@ public class BasePathMeasureView extends View {
                 postInvalidate();
             }
         });
-        valueAnimator.start();
+        mAnimator.start();
+    }
 
+    public void stop() {
+        if(null != mAnimator){
+            mAnimator.cancel();
+        }
     }
 }

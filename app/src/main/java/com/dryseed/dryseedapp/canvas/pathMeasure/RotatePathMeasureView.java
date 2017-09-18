@@ -38,6 +38,7 @@ public class RotatePathMeasureView extends View {
     private float[] mPoint;
     private float[] mTan;
     private float mDdegrees;
+    private ValueAnimator mAnimator;
 
     public RotatePathMeasureView(Context context) {
         this(context, null);
@@ -88,11 +89,11 @@ public class RotatePathMeasureView extends View {
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public void startAnim() {
-        ValueAnimator animator = ValueAnimator.ofFloat(0, mPathMeasure.getLength());
-        animator.setDuration(2000);
-        animator.setInterpolator(new LinearInterpolator()); //插值器
-        animator.setRepeatCount(ValueAnimator.INFINITE);
-        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+        mAnimator = ValueAnimator.ofFloat(0, mPathMeasure.getLength());
+        mAnimator.setDuration(2000);
+        mAnimator.setInterpolator(new LinearInterpolator()); //插值器
+        mAnimator.setRepeatCount(ValueAnimator.INFINITE);
+        mAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 float distance = (float) animation.getAnimatedValue();
@@ -100,6 +101,12 @@ public class RotatePathMeasureView extends View {
                 invalidate();
             }
         });
-        animator.start();
+        mAnimator.start();
+    }
+
+    public void stop() {
+        if(null != mAnimator){
+            mAnimator.cancel();
+        }
     }
 }
