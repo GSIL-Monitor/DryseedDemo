@@ -729,6 +729,15 @@
         <activity android:name=".test.localBroadcast.SendLocalBroadcastActivity" />
 
         <activity
+            android:name=".test.AIDL.TestAIDLActivity"
+            android:label="Test/AIDL">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".service.intentService.IntentServiceActivity"
             android:label="Service/IntentService">
             <intent-filter>
@@ -865,6 +874,11 @@
         <service
             android:name=".service.service.MyService"
             android:exported="false" />
+        <service
+            android:name=".test.AIDL.TestAIDLRemoteService"
+            android:process=":remote"
+            android:enabled="true"
+            android:exported="true"/>
     </application>
 
 
