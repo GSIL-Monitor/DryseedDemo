@@ -11,10 +11,6 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.tab.fragment.MainTab01;
-import com.dryseed.dryseedapp.tab.fragment.MainTab02;
-import com.dryseed.dryseedapp.tab.fragment.MainTab03;
-import com.dryseed.dryseedapp.tab.fragment.MainTab04;
 
 /**
  * 评价：每个Fragment中的控件的处理，都是独立到各自的类中，相对来说主Activity简化了不少，可惜没有左右滑动的效果了。

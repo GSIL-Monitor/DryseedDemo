@@ -13,69 +13,83 @@ import com.dryseed.dryseedapp.R;
 
 public class MainTab02 extends Fragment {
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.d("MMM", "MainTab02 onCreateView");
-        View messageLayout = inflater.inflate(R.layout.activity_tab_viewpager_main_tab_02, container, false);
-        return messageLayout;
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Log.d("MMM", "MainTab02 onCreate");
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        Log.d("MMM", "MainTab02 onStart");
-    }
+    private static final String TAG = "MMM";
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        Log.d("MMM", "MainTab02 onAttach");
+        Log.i(TAG, "MainTab02 onAttach");
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        Log.d("MMM", "MainTab02 onResume");
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Log.i(TAG, "MainTab02 onCreate");
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
-        Log.d("MMM", "MainTab02 onPause");
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        Log.i(TAG, "MainTab02 onCreateView");
+        return inflater.inflate(R.layout.activity_tab_viewpager_main_tab_02, container, false);
     }
 
     @Override
-    public void onStop() {
-        super.onStop();
-        Log.d("MMM", "MainTab02 onStop");
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        Log.i(TAG, "MainTab02 onViewCreated");
+        super.onViewCreated(view, savedInstanceState);
     }
 
     @Override
     public void onDestroy() {
+        Log.i(TAG, "MainTab02 onDestroy");
         super.onDestroy();
-        Log.d("MMM", "MainTab02 onDestroy");
     }
 
     @Override
     public void onDetach() {
+        Log.i(TAG, "MainTab02 onDetach");
         super.onDetach();
-        Log.d("MMM", "MainTab02 onDetach");
     }
 
     @Override
-    public void onHiddenChanged(boolean hidden) {
-        super.onHiddenChanged(hidden);
-        Log.d("MMM", "MainTab02 onHiddenChanged : " + hidden);
+    public void onDestroyView() {
+        Log.i(TAG, "MainTab02 onDestroyView");
+        super.onDestroyView();
+    }
+
+    @Override
+    public void onStart() {
+        Log.i(TAG, "MainTab02 onStart");
+        super.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        Log.i(TAG, "MainTab02 onStop");
+        super.onStop();
+    }
+
+    @Override
+    public void onResume() {
+        Log.i(TAG, "MainTab02 onResume");
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        Log.i(TAG, "MainTab02 onPause");
+        super.onPause();
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        Log.i(TAG, "MainTab02 onActivityCreated");
+        super.onActivityCreated(savedInstanceState);
     }
 
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
+        Log.i(TAG, "MainTab02 setUserVisibleHint : " + isVisibleToUser);
         super.setUserVisibleHint(isVisibleToUser);
-        Log.d("MMM", "MainTab02 setUserVisibleHint : " + isVisibleToUser);
     }
 }

@@ -89,4 +89,9 @@ public class MainTab02 extends Fragment {
         super.onActivityCreated(savedInstanceState);
     }
 
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        Log.i(TAG, "MainTab02 setUserVisibleHint : " + isVisibleToUser);
+        super.setUserVisibleHint(isVisibleToUser);
+    }
 }
