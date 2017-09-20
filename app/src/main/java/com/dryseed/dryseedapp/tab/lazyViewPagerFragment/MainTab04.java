@@ -104,7 +104,7 @@ public class MainTab04 extends LazyFragment {
     }
 
     @Override
-    public void  (boolean isVisibleToUser) {
+    public void setUserVisibleHint(boolean isVisibleToUser) {
         Log.i(TAG, "MainTab04 setUserVisibleHint : " + isVisibleToUser);
         super.setUserVisibleHint(isVisibleToUser);
     }
