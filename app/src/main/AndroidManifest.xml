@@ -532,6 +532,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".tab.lazyViewPagerFragment.LazyViewPagerFragmentActivity"
+            android:label="Tab/LazyViewPagerFragment(setUserVisibleHint)">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".tab.fragment.FragmentMainActivity"
             android:label="Tab/FragmentMainActivity">
             <intent-filter>
