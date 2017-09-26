@@ -121,8 +121,8 @@ public class ViewInjectUtils {
         Class<? extends Activity> clazz = activity.getClass();
         // 查询类上是否存在ContentView注解
         ContentView contentView = clazz.getAnnotation(ContentView.class);
-        if (contentView != null)// 存在
-        {
+        if (contentView != null) {
+            // 存在
             int contentViewLayoutId = contentView.value();
             try {
                 Method method = clazz.getMethod(METHOD_SET_CONTENTVIEW, int.class);

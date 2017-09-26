@@ -7,10 +7,64 @@ import java.lang.annotation.Target;
 
 import android.view.View;
 
+
+//	public enum ElementType {
+//		/**
+//		 * Class, interface or enum declaration.
+//		 */
+//		TYPE,
+//		/**
+//		 * Field declaration.
+//		 */
+//		FIELD,
+//		/**
+//		 * Method declaration.
+//		 */
+//		METHOD,
+//		/**
+//		 * Parameter declaration.
+//		 */
+//		PARAMETER,
+//		/**
+//		 * Constructor declaration.
+//		 */
+//		CONSTRUCTOR,
+//		/**
+//		 * Local variable declaration.
+//		 */
+//		LOCAL_VARIABLE,
+//		/**
+//		 * Annotation type declaration.
+//		 */
+//		ANNOTATION_TYPE,
+//		/**
+//		 * Package declaration.
+//		 */
+//		PACKAGE
+//	}
+
+
+//	public enum RetentionPolicy {
+//		/**
+//		 * Annotation is only available in the source code.
+//		 */
+//		SOURCE,
+//		/**
+//		 * Annotation is available in the source code and in the class file, but not
+//		 * at runtime. This is the default policy.
+//		 */
+//		CLASS,
+//		/**
+//		 * Annotation is available in the source code, the class file and is
+//		 * available at runtime.
+//		 */
+//		RUNTIME
+//	}
+
+
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 @EventBase(listenerType = View.OnClickListener.class, listenerSetter = "setOnClickListener", methodName = "onClick")
-public @interface OnClick
-{
-	int[] value();
+public @interface OnClick {
+    int[] value();
 }

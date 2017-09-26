@@ -18,21 +18,21 @@ package com.dryseed.dryseedapp.LeetCode.sortAlgorithm;
  * 1.分：设定一个分割值，并根据它将数据分为两部分
  * 2.治：分别在两部分用递归的方式，继续使用快速排序法
  * 3.合：对分割的部分排序直到完成
- *
- *
-        最差时间分析	平均时间复杂度	稳定度	空间复杂度
- 冒泡排序	O(n2)	O(n2)	         稳定	O(1)
- 快速排序	O(n2)	O(n*log2n)	    不稳定	O(log2n)~O(n)
- 选择排序	O(n2)	O(n2)	         稳定	O(1)
- 二叉树排序	O(n2)	O(n*log2n)	    不一定	O(n)
- 插入排序    O(n2)	O(n2)	         稳定	O(1)
- 堆排序	O(n*log2n)	O(n*log2n)	    不稳定	O(1)
- 希尔排序	O	    O	            不稳定	O(1)
+ * <p>
+ * <p>
+ * 最差时间分析	平均时间复杂度	稳定度	空间复杂度
+ * 冒泡排序	O(n2)	O(n2)	         稳定	O(1)
+ * 快速排序	O(n2)	O(n*log2n)	    不稳定	O(log2n)~O(n)
+ * 选择排序	O(n2)	O(n2)	         稳定	O(1)
+ * 二叉树排序	O(n2)	O(n*log2n)	    不一定	O(n)
+ * 插入排序    O(n2)	O(n2)	         稳定	O(1)
+ * 堆排序	O(n*log2n)	O(n*log2n)	    不稳定	O(1)
+ * 希尔排序	O	    O	            不稳定	O(1)
  */
 public class TestQuickSort {
 
     public static void main(String[] args) {
-        int[] a = {5, 6, 9, 3, 1, 8};
+        int[] a = {3, 2, 9, 2, 6, 7, 1, 5};
         sort(a, 0, a.length - 1);
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < a.length; i++) {
@@ -41,7 +41,66 @@ public class TestQuickSort {
         System.out.println(sb); //1 3 5 6 8 9
     }
 
+    public static void sort(int[] args, int start, int end) {
+        if (end - start > 1) {
+            int mid = dividerAndChange(args, start, end);
+            sort(args, start, mid);
+            sort(args, mid + 1, end);
+        }
+    }
+
     public static int dividerAndChange(int[] args, int start, int end) {
+        int piovt = args[start];
+        while (start < end) {
+            while (start < end && args[end] > piovt) {
+                end--;
+            }
+            if (start < end) {
+                args[start] = args[end];
+                start++;
+            }
+
+            while (start < end && args[start] <= piovt) {
+                start++;
+            }
+            if (start < end) {
+                args[end] = args[start];
+                end--;
+            }
+        }
+        args[start] = piovt;
+        return start;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*public static int dividerAndChange(int[] args, int start, int end) {
         //标准值
         int pivot = args[start];
         while (start < end) {
@@ -71,6 +130,14 @@ public class TestQuickSort {
         if (end - start > 1) {
             int mid = 0;
             mid = dividerAndChange(args, start, end);
+
+            StringBuffer sb = new StringBuffer();
+            for (int i = 0; i < args.length; i++) {
+                sb.append(args[i] + " ");
+            }
+            System.out.println(args[mid]);
+            System.out.println(sb);
+
             // 对左部分排序
             sort(args, start, mid);
             // 对右部分排序
@@ -80,5 +147,5 @@ public class TestQuickSort {
 
     private static void swap(int[] args, int fromIndex, int toIndex) {
         args[fromIndex] = args[toIndex];
-    }
+    }*/
 }

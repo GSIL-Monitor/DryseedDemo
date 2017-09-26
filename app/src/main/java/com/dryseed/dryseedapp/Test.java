@@ -36,7 +36,8 @@ public class Test {
 
         //bubbleSort();
 
-        quickSort();
+        //quickSort();
+
     }
 
     private static void quickSort() {
@@ -222,5 +223,15 @@ public class Test {
         }
     }
 
-
+    private static Test mInstance;
+    private static Test getInstance(){
+        if(null == mInstance){
+            synchronized (Test.class){
+                if(null == mInstance){
+                    mInstance = new Test();
+                }
+            }
+        }
+        return mInstance;
+    }
 }
