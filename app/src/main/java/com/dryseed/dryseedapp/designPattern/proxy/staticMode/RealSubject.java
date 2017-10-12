@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.designPattern.proxy;
+package com.dryseed.dryseedapp.designPattern.proxy.staticMode;
 
 /**
  * Created by caiminming on 2017/1/23.
