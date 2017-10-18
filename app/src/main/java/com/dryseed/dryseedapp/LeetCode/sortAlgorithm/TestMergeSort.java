@@ -1,38 +1,38 @@
 package com.dryseed.dryseedapp.LeetCode.sortAlgorithm;
 
-import java.util.Arrays;
-
 /**
- * Created by User on 2017/10/13.
+ * Created by caiminming on 2017/10/18.
  * <p>
- * 归并排序（Merge）是将两个（或两个以上）有序表合并成一个新的有序表，即把待排序序列分为若干个子序列，每个子序列是有序的。然后再把有序子序列合并为整体有序序列。
+ * 归并排序
+ * 简介:将两个（或两个以上）有序表合并成一个新的有序表 即把待排序序列分为若干个子序列，每个子序列是有序的。然后再把有序子序列合并为整体有序序列
+ * 一趟归并需要将数组 a[]中相邻的长度为h的有序序列进行两两归并.并将结果放到temp[]中，这需要将待排序列中的所有记录扫描一遍，因此耗费O(n)，而又完全二叉树的深度可知，整个归并排序需要进行（这里写图片描述）次，因此总的时间复杂度为O(nlogn)，而且这是归并排序算法中最好、最坏、平均的时间性能。
+ * 由于归并排序在归并过程中需要与原始序列同样数量的存储空间存放归并结果以及递归时深度为这里写图片描述的栈空间，因此空间复杂度为O(n+logn).
+ * 另外，对代码进行仔细研究，发现merge函数中有if (a[i] < a[j]) 的语句，说明它需要两两比较，不存在跳跃，因此归并排序是一种稳定的排序算法。
+ * 也就是说，归并排序是一种比较占内存，但却效率高且稳定的算法。
  * <p>
- * 归并排序是建立在归并操作上的一种有效的排序算法。该算法是采用分治法（Divide and Conquer）的一个非常典型的应用。 将已有序的子序列合并，得到完全有序的序列；即先使每个子序列有序，再使子序列段间有序。若将两个有序表合并成一个有序表，称为2-路归并。
  * <p>
- * 归并排序算法稳定，数组需要O(n)的额外空间，链表需要O(log(n))的额外空间，时间复杂度为O(nlog(n))，算法不是自适应的，不需要对数据的随机读取。
- * <p>
- * 工作原理：
- * <p>
- * 1、申请空间，使其大小为两个已经排序序列之和，该空间用来存放合并后的序列
- * <p>
- * 2、设定两个指针，最初位置分别为两个已经排序序列的起始位置
- * <p>
- * 3、比较两个指针所指向的元素，选择相对小的元素放入到合并空间，并移动指针到下一位置
- * <p>
- * 4、重复步骤3直到某一指针达到序列尾
- * <p>
- * 5、将另一序列剩下的所有元素直接复制到合并序列尾
+ * 最差时间分析	平均时间复杂度	稳定度	空间复杂度
+ * 冒泡排序	O(n2)	O(n2)	         稳定	O(1)
+ * 快速排序	O(n2)	O(n*log2n)	    不稳定	O(log2n)~O(n)
+ * 选择排序	O(n2)	O(n2)	         稳定	O(1)
+ * 二叉树排序	O(n2)	O(n*log2n)	    不一定	O(n)
+ * 插入排序    O(n2)	O(n2)	         稳定	O(1)
+ * 堆排序	O(n*log2n)	O(n*log2n)	    不稳定	O(1)
+ * 希尔排序	O	    O	            不稳定	O(1)
+ * 归并排序  O(n*log2n)	O(n*log2n)	  稳定	O(n+logn)
  */
+
 public class TestMergeSort {
-    /**
-     * 归并排序
-     * 简介:将两个（或两个以上）有序表合并成一个新的有序表 即把待排序序列分为若干个子序列，每个子序列是有序的。然后再把有序子序列合并为整体有序序列
-     * 时间复杂度为O(nlogn)
-     * 稳定排序方式
-     *
-     * @param nums 待排序数组
-     * @return 输出有序数组
-     */
+    public static void main(String[] args) {
+        int[] a = {3, 2, 9, 2, 6, 7, 1, 5};
+        sort(a, 0, a.length - 1);
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < a.length; i++) {
+            sb.append(a[i] + " ");
+        }
+        System.out.println(sb);
+    }
+
     public static int[] sort(int[] nums, int low, int high) {
         int mid = (low + high) / 2;
         if (low < high) {
@@ -76,15 +76,4 @@ public class TestMergeSort {
             nums[k2 + low] = temp[k2];
         }
     }
-
-
-    // 归并排序的实现
-    public static void main(String[] args) {
-
-        int[] nums = {2, 7, 8, 3, 1, 6, 9, 0, 5, 4};
-
-        TestMergeSort.sort(nums, 0, nums.length - 1);
-        System.out.println(Arrays.toString(nums));
-    }
-
 }

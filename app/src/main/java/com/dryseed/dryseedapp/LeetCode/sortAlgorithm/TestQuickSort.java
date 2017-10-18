@@ -38,13 +38,13 @@ public class TestQuickSort {
         for (int i = 0; i < a.length; i++) {
             sb.append(a[i] + " ");
         }
-        System.out.println(sb); //1 3 5 6 8 9
+        System.out.println(sb);
     }
 
     public static void sort(int[] args, int start, int end) {
-        if (end - start > 1) {
+        if (end - start > 0) {
             int mid = dividerAndChange(args, start, end);
-            sort(args, start, mid);
+            sort(args, start, mid - 1);
             sort(args, mid + 1, end);
         }
     }
@@ -73,79 +73,4 @@ public class TestQuickSort {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*public static int dividerAndChange(int[] args, int start, int end) {
-        //标准值
-        int pivot = args[start];
-        while (start < end) {
-            // 从右向左寻找，一直找到比参照值还小的数值，进行替换
-            // 这里要注意，循环条件必须是 当后面的数 小于 参照值的时候
-            // 我们才跳出这一层循环
-            while (start < end && args[end] >= pivot)
-                end--;
-            if (start < end) {
-                swap(args, start, end); // end 换到 start
-                start++;
-            }
-            // 从左向右寻找，一直找到比参照值还大的数组，进行替换
-            while (start < end && args[start] < pivot)
-                start++;
-            if (start < end) {
-                swap(args, end, start); // start 换到 end
-                end--;
-            }
-        }
-        args[start] = pivot;
-        return start;
-    }
-
-    public static void sort(int[] args, int start, int end) {
-        //当分治的元素大于1个的时候，才有意义
-        if (end - start > 1) {
-            int mid = 0;
-            mid = dividerAndChange(args, start, end);
-
-            StringBuffer sb = new StringBuffer();
-            for (int i = 0; i < args.length; i++) {
-                sb.append(args[i] + " ");
-            }
-            System.out.println(args[mid]);
-            System.out.println(sb);
-
-            // 对左部分排序
-            sort(args, start, mid);
-            // 对右部分排序
-            sort(args, mid + 1, end);
-        }
-    }
-
-    private static void swap(int[] args, int fromIndex, int toIndex) {
-        args[fromIndex] = args[toIndex];
-    }*/
 }

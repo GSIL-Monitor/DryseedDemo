@@ -27,7 +27,7 @@ package com.dryseed.dryseedapp.LeetCode.sortAlgorithm;
  */
 public class TestBubbleSort {
     public static void main(String[] args) {
-        int[] a = {5, 6, 9, 3, 1, 8};
+        int[] a = {3, 2, 9, 2, 6, 7, 1, 5};
         bubbleSort(a);
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < a.length; i++) {
