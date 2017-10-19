@@ -1,6 +1,7 @@
 package com.dryseed.dryseedapp.LeetCode.tree;
 
 import java.util.ArrayDeque;
+import java.util.LinkedList;
 
 /**
  * Created by User on 2017/10/18.
@@ -40,6 +41,7 @@ public class BinaryTreeTraversal {
         while (stack.isEmpty() == false) {
             TreeNode node = stack.pop();
             System.out.print(node.value + "  ");
+            //注意：先推右子节点，先进后出
             if (node.right != null) {
                 stack.push(node.right);
             }

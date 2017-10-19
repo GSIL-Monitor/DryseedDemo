@@ -1,5 +1,6 @@
 package com.dryseed.dryseedapp.LeetCode.sortAlgorithm;
 
+
 /**
  * Created by caiminming on 2017/10/18.
  * <p>
@@ -69,7 +70,7 @@ public class TestHeapSort {
     }
 
     public static void sort(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 0; i <= nums.length - 1; i++) {
             createMaxdHeap(nums, nums.length - 1 - i);
             swap(nums, 0, nums.length - 1 - i);
         }
