@@ -40,7 +40,7 @@ package com.dryseed.dryseedapp.LeetCode.sortAlgorithm;
  * <p>
  * 堆排序算法的性能分析：
  * <p>
- * 　　空间复杂度:o(1)；
+ * 　　空间复杂度:o(1)；( 因为堆排序是就地排序，空间复杂度为常数：O(1))
  * <p>
  * 　　时间复杂度:建堆：o(n)，每次调整o(log n)，故最好、最坏、平均情况下：o(n*logn);
  * <p>

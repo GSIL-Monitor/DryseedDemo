@@ -24,12 +24,12 @@ public class Consumer implements Runnable {
         try {
             while (true) {
                 synchronized (entities) {
-                    if (entities.size() == 0) {
+                    while (entities.size() == 0) {
                         entities.wait();
-                        entities.notifyAll();
                     }
                     Entity entity = entities.remove();
                     System.out.println(String.format("Consumer %d : %d", this.id, entity.id));
+                    entities.notifyAll();
                 }
                 Thread.sleep(1000);
             }

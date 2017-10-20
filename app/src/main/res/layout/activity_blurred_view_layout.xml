@@ -17,4 +17,5 @@
         android:text="dynamic"
         android:gravity="center"
         android:layout_below="@id/blurred_view_image"/>
+
 </RelativeLayout>

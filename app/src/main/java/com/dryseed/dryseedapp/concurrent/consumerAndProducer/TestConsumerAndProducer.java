@@ -21,6 +21,5 @@ public class TestConsumerAndProducer {
             producerThread.start();
         }
 
-
     }
 }

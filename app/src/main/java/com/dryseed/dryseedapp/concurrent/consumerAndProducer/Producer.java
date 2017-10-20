@@ -25,15 +25,14 @@ public class Producer implements Runnable {
     public void run() {
         try {
             while (true) {
-                synchronized (entities){
-                    if(entities.size() >= maxLength){
-                        entities.notifyAll();
+                synchronized (entities) {
+                    while (entities.size() >= maxLength) {
                         entities.wait();
-                    } else {
-                        Entity entity = new Entity(count.getAndIncrement());
-                        entities.add(entity);
-                        System.out.println(String.format("Producer %d : %d", this.id, entity.id));
                     }
+                    Entity entity = new Entity(count.getAndIncrement());
+                    entities.add(entity);
+                    System.out.println(String.format("Producer %d : %d", this.id, entity.id));
+                    entities.notifyAll();
                 }
                 Thread.sleep(1000);
             }
