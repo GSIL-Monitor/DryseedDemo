@@ -44,4 +44,9 @@
     <string name="ar_recognize_text">正在识别...</string>
     <string name="ar_recognize_text2">识别中...</string>
     <string name="ar_scan_text">请将识别主题放入框内</string>
+    <string name="record_speaking">正在说话...</string>
+    <string name="record_speak">按住说话</string>
+    <string name="record_fail">录音失败</string>
+    <string name="play_fail">播放失败</string>
+    <string name="record_play">播放</string>
 </resources>
