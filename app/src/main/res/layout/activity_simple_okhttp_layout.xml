@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/simple_okhttp_get_request_btn"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal"
+        android:text="get request" />
+
+    <Button
+        android:id="@+id/simple_okhttp_post_request_btn"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="post request" />
+
+    <Button
+        android:id="@+id/simple_okhttp_download_request_btn"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="download request" />
+
+</LinearLayout>

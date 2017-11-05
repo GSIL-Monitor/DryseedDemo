@@ -109,6 +109,24 @@
         </activity>
 
         <activity
+            android:name=".framework.okhttp.SimpleOkHttpActivity"
+            android:label="FrameWork/OkHttp/SimpleDemo">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".framework.okhttp.TestOkHttpActivity"
+            android:label="FrameWork/OkHttp/PackageDemo">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".customView.customView01.TestCustomView01Activity"
             android:label="CustomView/CustomView01">
             <intent-filter>
