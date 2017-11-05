@@ -8,6 +8,7 @@ import org.json.JSONObject;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 
 import com.dryseed.dryseedapp.framework.okhttp.exception.OkHttpException;
 import com.dryseed.dryseedapp.framework.okhttp.listener.DisposeDataHandle;

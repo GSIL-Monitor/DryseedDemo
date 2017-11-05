@@ -1,5 +1,9 @@
 package com.dryseed.dryseedapp.framework.okhttp;
 
+import android.util.Log;
+
+import com.dryseed.dryseedapp.MyApplication;
+import com.dryseed.dryseedapp.framework.okhttp.cookie.PersistentCookieStore;
 import com.dryseed.dryseedapp.framework.okhttp.cookie.SimpleCookieJar;
 import com.dryseed.dryseedapp.framework.okhttp.listener.DisposeDataHandle;
 import com.dryseed.dryseedapp.framework.okhttp.response.CommonFileCallback;
@@ -7,6 +11,8 @@ import com.dryseed.dryseedapp.framework.okhttp.response.CommonJsonCallback;
 import com.dryseed.dryseedapp.framework.okhttp.ssl.HttpsUtils;
 
 import java.io.InputStream;
+import java.net.CookieManager;
+import java.net.CookiePolicy;
 import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.HostnameVerifier;
@@ -43,7 +49,6 @@ public class CommonOkHttpClient {
          * trust all the https point
          */
         //okHttpClientBuilder.sslSocketFactory(HttpsUtils.getSslSocketFactory());
-
         mOkHttpClient = okHttpClientBuilder.build();
     }
 

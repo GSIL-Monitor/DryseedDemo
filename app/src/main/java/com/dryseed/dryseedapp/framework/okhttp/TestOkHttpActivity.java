@@ -2,6 +2,7 @@ package com.dryseed.dryseedapp.framework.okhttp;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.dryseed.dryseedapp.MyApplication;
@@ -12,6 +13,8 @@ import com.dryseed.dryseedapp.framework.okhttp.listener.DisposeDownloadListener;
 import com.dryseed.dryseedapp.framework.okhttp.request.CommonRequest;
 import com.dryseed.dryseedapp.framework.okhttp.request.RequestParams;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import butterknife.ButterKnife;
@@ -42,6 +45,7 @@ public class TestOkHttpActivity extends Activity {
             @Override
             public void onSuccess(Object responseObj) {
                 Toast.makeText(TestOkHttpActivity.this, responseObj.toString(), Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
@@ -93,5 +97,26 @@ public class TestOkHttpActivity extends Activity {
                         MyApplication.getInstance().getExternalCacheDir().getAbsolutePath() + "/download/1.jpg"
                 )
         );
+    }
+
+    void onClickUploadFile() {
+        RequestParams params = new RequestParams();
+        try {
+            params.put("file", new File(MyApplication.getInstance().getExternalCacheDir().getAbsolutePath() + "/download/1.jpg"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        Request request = CommonRequest.createMultiPostRequest("upload url", params);
+        CommonOkHttpClient.post(request, new DisposeDataHandle(new DisposeDataListener() {
+            @Override
+            public void onSuccess(Object responseObj) {
+                Toast.makeText(TestOkHttpActivity.this, responseObj.toString(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Object reasonObj) {
+                Toast.makeText(TestOkHttpActivity.this, reasonObj.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }));
     }
 }
