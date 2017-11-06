@@ -8,6 +8,9 @@ public interface IRecorder {
     public final static int STOP_SUCCESS = 0x01;
     public final static int RECORD_FAIL = 0x02;
     public final static int PLAY_FAIL = 0x03;
+    public final static int REFRESH_VOLUMN = 0x04;
+    public final static int GET_VOLUMN = 0x05;
+    public final static int[] SUPPORTED_SAMPLE_RATE = {11025, 22050, 44100};
 
     /**
      * 启动录音逻辑
@@ -52,4 +55,18 @@ public interface IRecorder {
      * 删除录音文件
      */
     void deleteAudioFiles();
+
+    /**
+     * 获取音量大小
+     *
+     * @return
+     */
+    void getVolumn();
+
+    /**
+     * 变速播放
+     *
+     * @param sampleRate
+     */
+    void playWithSampleRate(int sampleRate);
 }

@@ -54,7 +54,7 @@ public class StreamRecorder implements IRecorder {
 
             //配置AudioRecord
             int audioSource = android.media.MediaRecorder.AudioSource.MIC;
-            int sampleRate = 44100;
+            int sampleRate = SUPPORTED_SAMPLE_RATE[1]; //默认为22050
             int channelConfig = AudioFormat.CHANNEL_IN_MONO; //单声道输入
             int audioFormat = AudioFormat.ENCODING_PCM_16BIT; //PCM16是所有安卓系统都支持的编码格式(每个采样点的数据大小)
             int minBufferSize = AudioRecord.getMinBufferSize(sampleRate, channelConfig, audioFormat); //计算AudioRecord内部buffer最小值
@@ -166,61 +166,7 @@ public class StreamRecorder implements IRecorder {
 
     @Override
     public void play() {
-        if (mAudioFile != null && !mIsPlaying) {
-            mIsPlaying = true;
-        } else {
-            return;
-        }
-
-        //配置播放器
-        int streamType = AudioManager.STREAM_MUSIC; //音乐类型（使用扬声器播放）
-        int sampleRate = 44100; //采样频率（播放时同录音时的）
-        int channelConfig = AudioFormat.CHANNEL_OUT_MONO; //单声道输出
-        int audioFormat = AudioFormat.ENCODING_PCM_16BIT; //每个采样点的数据大小(同录音时)
-        int mode = AudioTrack.MODE_STREAM;
-        int minBufferSize = AudioTrack.getMinBufferSize(sampleRate, channelConfig, audioFormat); //计算最小buffer大小
-
-        //构造AudioTrack
-        mAudioTrack = new AudioTrack(
-                streamType,
-                sampleRate,
-                channelConfig,
-                audioFormat,
-                Math.max(minBufferSize, BUFFER_SIZE), //buffer不能小于AudioTrack最低要求，也不能小于我们每次读取的大小
-                mode
-        );
-
-        mAudioTrack.play();
-
-        //从文件流读取数据
-        FileInputStream fileInputStream = null;
-        try {
-            fileInputStream = new FileInputStream(mAudioFile);
-
-            //循环读数据，写到播放器去播放
-            int read;
-            while ((read = fileInputStream.read(mBuffer)) > 0) {
-                int ret = mAudioTrack.write(mBuffer, 0, read);
-                switch (ret) {
-                    case AudioTrack.ERROR_INVALID_OPERATION:
-                    case AudioTrack.ERROR_BAD_VALUE:
-                    case AudioTrack.ERROR_DEAD_OBJECT:
-                        playFail();
-                        return;
-                    default:
-                        break;
-                }
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            playFail();
-        } finally {
-            if (fileInputStream != null) {
-                closeQuietly(fileInputStream);
-            }
-            stopPlay();
-        }
+        playWithSampleRate(SUPPORTED_SAMPLE_RATE[1]); //默认为22050
     }
 
     private void closeQuietly(FileInputStream fileInputStream) {
@@ -269,6 +215,70 @@ public class StreamRecorder implements IRecorder {
                     }
                 }
             }
+        }
+    }
+
+    @Override
+    public void getVolumn() {
+
+    }
+
+    @Override
+    public void playWithSampleRate(int mySampleRate) {
+        if (mAudioFile != null && !mIsPlaying) {
+            mIsPlaying = true;
+        } else {
+            return;
+        }
+
+        //配置播放器
+        int streamType = AudioManager.STREAM_MUSIC; //音乐类型（使用扬声器播放）
+        int sampleRate = mySampleRate; //采样频率（播放时同录音时的）
+        int channelConfig = AudioFormat.CHANNEL_OUT_MONO; //单声道输出
+        int audioFormat = AudioFormat.ENCODING_PCM_16BIT; //每个采样点的数据大小(同录音时)
+        int mode = AudioTrack.MODE_STREAM;
+        int minBufferSize = AudioTrack.getMinBufferSize(sampleRate, channelConfig, audioFormat); //计算最小buffer大小
+
+        //构造AudioTrack
+        mAudioTrack = new AudioTrack(
+                streamType,
+                sampleRate,
+                channelConfig,
+                audioFormat,
+                Math.max(minBufferSize, BUFFER_SIZE), //buffer不能小于AudioTrack最低要求，也不能小于我们每次读取的大小
+                mode
+        );
+
+        mAudioTrack.play();
+
+        //从文件流读取数据
+        FileInputStream fileInputStream = null;
+        try {
+            fileInputStream = new FileInputStream(mAudioFile);
+
+            //循环读数据，写到播放器去播放
+            int read;
+            while ((read = fileInputStream.read(mBuffer)) > 0) {
+                int ret = mAudioTrack.write(mBuffer, 0, read);
+                switch (ret) {
+                    case AudioTrack.ERROR_INVALID_OPERATION:
+                    case AudioTrack.ERROR_BAD_VALUE:
+                    case AudioTrack.ERROR_DEAD_OBJECT:
+                        playFail();
+                        return;
+                    default:
+                        break;
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            playFail();
+        } finally {
+            if (fileInputStream != null) {
+                closeQuietly(fileInputStream);
+            }
+            stopPlay();
         }
     }
 }

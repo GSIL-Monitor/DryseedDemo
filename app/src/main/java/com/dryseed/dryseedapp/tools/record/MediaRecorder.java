@@ -19,6 +19,8 @@ import java.io.IOException;
 public class MediaRecorder implements IRecorder {
 
     private static final String DIR = MyApplication.getInstance().getExternalCacheDir().getAbsolutePath() + "/record/";
+    private final int MAX_VOLUMN = 32767;
+    private final int MAX_LEVEL = 7;
 
     private Context mContext;
     private Handler mHandler;
@@ -26,6 +28,7 @@ public class MediaRecorder implements IRecorder {
     private File mAudioFile;
     private long mStartRecordTime;
     private long mStopRecordTime;
+    private volatile boolean mIsRecording;
     private volatile boolean mIsPlaying;
     private MediaPlayer mMediaPlayer;
 
@@ -60,6 +63,7 @@ public class MediaRecorder implements IRecorder {
             mMediaRecorder.start();
 
             //记录开始录音的时间，用于统计时长
+            mIsRecording = true;
             mStartRecordTime = System.currentTimeMillis();
 
         } catch (IOException | IllegalStateException e) {
@@ -79,6 +83,7 @@ public class MediaRecorder implements IRecorder {
             mMediaRecorder.stop();
 
             //记录停止时间，统计时长
+            mIsRecording = false;
             mStopRecordTime = System.currentTimeMillis();
 
             //只接受超过3秒的录音，在ui上显示出来
@@ -200,4 +205,38 @@ public class MediaRecorder implements IRecorder {
             }
         }
     }
+
+    @Override
+    public void getVolumn() {
+        if (mMediaRecorder == null) return;
+
+        int maxVolum;
+        try {
+            //获取音量大小
+            maxVolum = mMediaRecorder.getMaxAmplitude();
+
+            //把音量归一化到7个等级
+            int level = maxVolum / (MAX_VOLUMN / MAX_LEVEL);
+
+            //把等级显示在ui上
+            Message message = Message.obtain();
+            message.what = REFRESH_VOLUMN;
+            message.arg1 = level;
+            mHandler.sendMessage(message);
+
+            //如果仍在录音，100ms之后，再次获取音量
+            if (mIsRecording) {
+                mHandler.sendEmptyMessageDelayed(GET_VOLUMN, 100);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public void playWithSampleRate(int sampleRate) {
+
+    }
+
 }

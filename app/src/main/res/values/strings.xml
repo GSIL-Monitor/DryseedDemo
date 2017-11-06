@@ -49,4 +49,6 @@
     <string name="record_fail">录音失败</string>
     <string name="play_fail">播放失败</string>
     <string name="record_play">播放</string>
+    <string name="quick_play">加速播放</string>
+    <string name="slow_play">减速播放</string>
 </resources>

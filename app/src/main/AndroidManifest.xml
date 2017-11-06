@@ -485,6 +485,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".widget.recyclerView.itemDecoration.TestItemDecoration2Activity"
+            android:label="Widget/RecyclerView/TestItemDecoration2Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".widget.gridview.TestGridViewActivity"
             android:configChanges="keyboard|screenSize|orientation|layoutDirection|fontScale"
             android:label="Widget/GridView">
@@ -671,7 +679,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".tools.record.RecordMediaActivity"
+            android:name=".tools.record.RecordActivity"
             android:label="Tool/RecordMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

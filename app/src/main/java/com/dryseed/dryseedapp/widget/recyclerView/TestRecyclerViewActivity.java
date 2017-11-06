@@ -56,8 +56,8 @@ public class TestRecyclerViewActivity extends Activity {
 
         initHeaderAndFooter();
 
-        //mRecyclerView.setAdapter(mHeaderAndFooterWrapper);
-        mRecyclerView.setAdapter(new HomeAdapter());
+        mRecyclerView.setAdapter(mHeaderAndFooterWrapper);
+        //mRecyclerView.setAdapter(new HomeAdapter());
 
     }
 

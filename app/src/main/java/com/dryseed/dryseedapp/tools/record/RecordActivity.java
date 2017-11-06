@@ -8,11 +8,13 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dryseed.dryseedapp.R;
 
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -22,8 +24,11 @@ import butterknife.OnClick;
 
 /**
  * Created by User on 2017/11/4.
+ *
+ * mediaPlayer实现：添加了获取音量
+ * stream实现：添加了变速播放
  */
-public class RecordMediaActivity extends Activity {
+public class RecordActivity extends Activity {
 
     @Bind(R.id.record_log_btn)
     TextView mRecordLogBtn;
@@ -34,6 +39,13 @@ public class RecordMediaActivity extends Activity {
     @Bind(R.id.play_btn)
     Button mPlayBtn;
 
+    @Bind(R.id.record_volumn_layout)
+    LinearLayout mVolumnLayout;
+
+    @Bind({R.id.record_volumn_indicator_1, R.id.record_volumn_indicator_2, R.id.record_volumn_indicator_3,
+            R.id.record_volumn_indicator_4, R.id.record_volumn_indicator_5, R.id.record_volumn_indicator_6})
+    List<View> mVolumnIndicators;
+
     private ExecutorService mExecutorService;
     private Handler mHandler;
     private IRecorder mRecorder;
@@ -42,7 +54,7 @@ public class RecordMediaActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("MMM", "RecordMediaActivity onCreate");
+        Log.d("MMM", "RecordActivity onCreate");
         setContentView(R.layout.activity_record_main_layout);
         ButterKnife.bind(this);
         init();
@@ -54,11 +66,11 @@ public class RecordMediaActivity extends Activity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        Log.d("MMM", "RecordMediaActivity ACTION_DOWN");
+                        Log.d("MMM", "RecordActivity ACTION_DOWN");
                         startRecord();
                         break;
                     case MotionEvent.ACTION_UP:
-                        Log.d("MMM", "RecordMediaActivity ACTION_UP");
+                        Log.d("MMM", "RecordActivity ACTION_UP");
                         stopRecord();
                         break;
                     case MotionEvent.ACTION_CANCEL:
@@ -78,10 +90,16 @@ public class RecordMediaActivity extends Activity {
                         mRecordLogBtn.setText(mRecordLogBtn.getText() + "\n录音成功" + msg.arg1 + "秒");
                         break;
                     case IRecorder.RECORD_FAIL:
-                        Toast.makeText(RecordMediaActivity.this, getResources().getString(R.string.record_fail), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RecordActivity.this, getResources().getString(R.string.record_fail), Toast.LENGTH_SHORT).show();
                         break;
                     case IRecorder.PLAY_FAIL:
-                        Toast.makeText(RecordMediaActivity.this, getResources().getString(R.string.play_fail), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RecordActivity.this, getResources().getString(R.string.play_fail), Toast.LENGTH_SHORT).show();
+                        break;
+                    case IRecorder.REFRESH_VOLUMN:
+                        refreshVolumnView(msg.arg1);
+                        break;
+                    case IRecorder.GET_VOLUMN:
+                        refreshVolumn();
                         break;
                     default:
                         break;
@@ -107,6 +125,7 @@ public class RecordMediaActivity extends Activity {
     private void startRecord() {
         mRecordBtn.setText(R.string.record_speaking);
         mRecordBtn.setBackgroundColor(0xffcccccc);
+        mVolumnLayout.setVisibility(View.VISIBLE);
 
         mExecutorService.submit(new Runnable() {
             @Override
@@ -120,6 +139,8 @@ public class RecordMediaActivity extends Activity {
                 }
             }
         });
+
+        refreshVolumn();
     }
 
     /**
@@ -128,6 +149,7 @@ public class RecordMediaActivity extends Activity {
     private void stopRecord() {
         mRecordBtn.setText(R.string.record_speak);
         mRecordBtn.setBackgroundColor(0xffffffff);
+        mVolumnLayout.setVisibility(View.GONE);
 
         if (mIsStream) {
             //使用AudioRecord时，startRecord会阻塞线程，所以不能使用线程方式submit第二个任务。
@@ -137,7 +159,7 @@ public class RecordMediaActivity extends Activity {
             mExecutorService.submit(new Runnable() {
                 @Override
                 public void run() {
-                    Log.d("MMM", "RecordMediaActivity stopRecord");
+                    Log.d("MMM", "RecordActivity stopRecord");
                     stopRecordReal();
                 }
             });
@@ -150,7 +172,7 @@ public class RecordMediaActivity extends Activity {
             mRecorder.recordFail();
         }
 
-        if(!mIsStream){ //stream模式下，在线程结束后异步释放Recorder
+        if (!mIsStream) { //stream模式下，在线程结束后异步释放Recorder
             //释放Recorder
             mRecorder.releaseRecorder();
         }
@@ -179,5 +201,56 @@ public class RecordMediaActivity extends Activity {
                 }
             }
         });
+    }
+
+    @OnClick(R.id.quick_play_btn)
+    void onClickQuickPlayBtn() {
+        mExecutorService.submit(new Runnable() {
+            @Override
+            public void run() {
+                if (null != mRecorder) {
+                    mRecorder.playWithSampleRate(IRecorder.SUPPORTED_SAMPLE_RATE[2]);
+                }
+            }
+        });
+    }
+
+    @OnClick(R.id.slow_play_btn)
+    void onClickSlowPlayBtn() {
+        mExecutorService.submit(new Runnable() {
+            @Override
+            public void run() {
+                if (null != mRecorder) {
+                    mRecorder.playWithSampleRate(IRecorder.SUPPORTED_SAMPLE_RATE[0]);
+                }
+            }
+        });
+    }
+
+
+
+    private void refreshVolumn() {
+        mExecutorService.submit(new Runnable() {
+            @Override
+            public void run() {
+                //获取后台音量大小
+                if (null != mRecorder) {
+                    mRecorder.getVolumn();
+                }
+            }
+        });
+    }
+
+    /**
+     * 刷新音量等级
+     *
+     * @param level
+     */
+    private void refreshVolumnView(int level) {
+        if (null == mVolumnIndicators) return;
+        int size = mVolumnIndicators.size();
+        for (int i = 0; i < size; i++) {
+            mVolumnIndicators.get(i).setVisibility(i < level ? View.VISIBLE : View.GONE);
+        }
     }
 }
