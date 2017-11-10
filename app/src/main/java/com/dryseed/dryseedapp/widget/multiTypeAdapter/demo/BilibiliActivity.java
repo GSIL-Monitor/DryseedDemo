@@ -59,7 +59,6 @@ public class BilibiliActivity extends Activity {
 
         List<Post> postList = new ArrayList<>();
 
-
         {
             postList.add(post00);
             postList.add(post00);

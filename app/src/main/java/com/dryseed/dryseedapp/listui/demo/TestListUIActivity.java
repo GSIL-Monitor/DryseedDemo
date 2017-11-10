@@ -89,7 +89,7 @@ public class TestListUIActivity extends Activity implements ILoadMore, IRefresh 
                 .subscribe("loadMore", new Observable.Action<List<Object>>() {
                     @Override
                     public void call(List<Object> items) {
-                        mBaseUIRecyleView.addList(0, items);
+                        mBaseUIRecyleView.addList(items);
                         mBaseUIRecyleView.notifyDataSetChanged();
                     }
 

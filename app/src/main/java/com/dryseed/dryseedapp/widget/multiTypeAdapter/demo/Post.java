@@ -21,7 +21,7 @@ import android.support.annotation.NonNull;
 /**
  * @author drakeet
  */
-public class Post {
+public class Post extends Bean {
 
     public int coverResId;
     public @NonNull

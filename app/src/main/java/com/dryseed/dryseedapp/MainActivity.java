@@ -13,14 +13,10 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
-import com.dryseed.dryseedapp.customView.comboClickTextView.TestComboClickTextViewActivity;
-import com.dryseed.dryseedapp.dispatchEvent.testDemo.DispatchEventDemoActivity3;
-import com.dryseed.dryseedapp.widget.recyclerView.TestRecyclerViewActivity;
 import com.orhanobut.logger.Logger;
 
 

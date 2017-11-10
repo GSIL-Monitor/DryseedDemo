@@ -3,7 +3,6 @@ package com.dryseed.dryseedapp.widget.recyclerView.itemDecoration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.widget.recyclerView.TestRecyclerViewActivity;
 
 import java.util.ArrayList;
 import java.util.List;

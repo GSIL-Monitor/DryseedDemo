@@ -469,7 +469,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".widget.recyclerView.TestRecyclerViewActivity"
+            android:name=".widget.recyclerView.demo.TestRecyclerViewActivity"
             android:label="Widget/RecyclerView/TestRecyclerViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

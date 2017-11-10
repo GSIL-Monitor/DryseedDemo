@@ -21,7 +21,7 @@ import android.support.annotation.NonNull;
 /**
  * @author drakeet
  */
-public class Category {
+public class Category extends Bean{
 
     public @NonNull
     String title;
