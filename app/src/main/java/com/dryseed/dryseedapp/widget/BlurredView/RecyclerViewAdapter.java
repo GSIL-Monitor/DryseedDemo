@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.widget.BlurredView;
+package com.dryseed.dryseedapp.widget.blurredView;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

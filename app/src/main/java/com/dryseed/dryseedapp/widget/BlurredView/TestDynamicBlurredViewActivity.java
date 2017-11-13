@@ -1,19 +1,13 @@
-package com.dryseed.dryseedapp.widget.BlurredView;
+package com.dryseed.dryseedapp.widget.blurredView;
 
 import android.app.Activity;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.WindowManager;
-import android.widget.ImageView;
 
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.utils.ImageUtil;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * Created by caiminming on 2017/7/26.

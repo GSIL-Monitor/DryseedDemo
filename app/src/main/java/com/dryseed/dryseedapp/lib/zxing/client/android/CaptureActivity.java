@@ -410,7 +410,7 @@ public class CaptureActivity extends Activity implements Callback {
 	}
 
 	public void drawViewfinder() {
-		//viewfinderView.drawViewfinder();
+		viewfinderView.drawViewfinder();
 
 	}
 

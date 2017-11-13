@@ -5,7 +5,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-    <com.dryseed.dryseedapp.widget.BlurredView.BlurredView
+    <com.dryseed.dryseedapp.widget.blurredView.BlurredView
         android:id="@+id/yahooweather_blurredview"
         app:src="@drawable/bg"
         app:move="true"

@@ -51,4 +51,8 @@
     <string name="record_play">播放</string>
     <string name="quick_play">加速播放</string>
     <string name="slow_play">减速播放</string>
+
+    <string name="scan_text">对准二维码/条码到框内即可扫描</string>
+    <string name="camera_purchase_text">将识别主体放入框内拍照</string>
+    <string name="sam_card_text">对准会员卡反面条码区域，即可扫描</string>
 </resources>

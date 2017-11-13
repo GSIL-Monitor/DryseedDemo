@@ -914,14 +914,14 @@
         </activity>
 
         <activity
-            android:name=".widget.BlurredView.TestBlurredViewActivity"
+            android:name=".widget.blurredView.TestBlurredViewActivity"
             android:label="Widget/BlurredView">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
-        <activity android:name=".widget.BlurredView.TestDynamicBlurredViewActivity" />
+        <activity android:name=".widget.blurredView.TestDynamicBlurredViewActivity" />
 
         <activity
             android:name=".practice.anrWatchDog.demo.TestAnrWatchDogActivity"
@@ -934,6 +934,23 @@
         <activity
             android:name=".practice.daynight.DayNightActivity"
             android:label="Practice/DayNight">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".widget.textView.TestSpannableActivity"
+            android:label="Widget/TextView/Spannable">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.textView.TestTextViewHtmlActivity"
+            android:label="Widget/TextView/Html.fromHtml">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />

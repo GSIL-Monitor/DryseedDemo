@@ -1,4 +1,4 @@
-/*
+package com.dryseed.dryseedapp.lib.zxing.client.android;/*
  * Copyright (C) 2008 ZXing authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-package com.dryseed.dryseedapp.lib.zxing.client.android;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -30,93 +29,92 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.Button;
 
+import com.dryseed.dryseedapp.R;
+import com.dryseed.dryseedapp.lib.zxing.client.android.camera.CameraManager;
 import com.dryseed.dryseedapp.utils.DPIUtil;
 import com.google.zxing.ResultPoint;
 
 import java.util.Collection;
-import java.util.ConcurrentModificationException;
 import java.util.HashSet;
 
 /**
  * This view is overlaid on top of the camera preview. It adds the viewfinder rectangle and partial transparency outside it, as well as the laser scanner animation and result points.
- * 
  */
 public final class ViewfinderView extends View {
-	/*private static final String TAG = "log";
-	*//**
+	private static final String TAG = "log";
+	/**
 	 * 刷新界面的时间
-	 *//*
+	 */
 	private static final long ANIMATION_DELAY = 3L;
 	private static final int OPAQUE = 0xFF;
 
-	*//**
+	/**
 	 * 四个绿色边角对应的长度
-	 *//*
+	 */
 	private final int ScreenRate;
 
-	*//**
+	/**
 	 * 四个绿色边角对应的宽度
-	 *//*
-	private static final int CORNER_WIDTH = 2;
-	
-	*//**
-	 * 四个边角与扫描框的距离
-	 *//*
-	private static final int CORNER_DIST = 8;
-	*//**
-	 * 扫描框中的中间线的高度
-	 *//*
-	private static int MIDDLE_LINE_HEIGHT = DPIUtil.dip2px(55);
+	 */
+	private static final int CORNER_WIDTH = DPIUtil.getWidthByDesignValue720(8);
 
-	*//**
+	/**
+	 * 四个边角与扫描框的距离
+	 */
+	private static final int CORNER_DIST = 8;
+	/**
+	 * 扫描框中的中间线的高度
+	 */
+	private static int MIDDLE_LINE_HEIGHT = DPIUtil.dip2px(3);
+
+	/**
 	 * 扫描框中的中间线的与扫描框左右的间隙
-	 *//*
+	 */
 	private static final int MIDDLE_LINE_PADDING = 1;
 
-	*//**
+	/**
 	 * 中间那条线每次刷新移动的距离
-	 *//*
+	 */
 	private static final int SPEEN_DISTANCE = 5;
 
-	*//**
+	/**
 	 * 手机的屏幕密度
-	 *//*
+	 */
 	private static float density;
-	*//**
+	/**
 	 * 字体大小
-	 *//*
+	 */
 	private static final int TEXT_SIZE = 16;
-	*//**
+	/**
 	 * 字体距离扫描框下面的距离
-	 *//*
+	 */
 	private static final int TEXT_PADDING_TOP = 30;
 
-	*//**
+	/**
 	 * 扫描框的边线宽度
-	 *//*
+	 */
 	private static final int FRAME_EDAGE_LINE_WIDTH = 1;
-	*//**
+	/**
 	 * 画笔对象的引用
-	 *//*
+	 */
 	private final Paint paint;
-	
+
 	private int bgPadding = DPIUtil.dip2px(10);
-	
-	*//**
+
+	/**
 	 * 中间滑动线的最顶端位置
-	 *//*
+	 */
 	private int slideTop;
 
-	*//**
+	/**
 	 * 中间滑动线的最底端位置
-	 *//*
+	 */
 	private int slideBottom;
 
-	*//**
+	/**
 	 * 将扫描的二维码拍下来，这里没有这个功能，暂时不考虑
-	 *//*
+	 */
 	private Bitmap resultBitmap;
 	private final int maskColor;
 	private final int resultColor;
@@ -127,23 +125,24 @@ public final class ViewfinderView extends View {
 
 	boolean isFirst;
 	boolean isReverse;
-	
+
 	private Bitmap middleBmp;
 //	private Bitmap middleLineBmp;
 //	private Bitmap arrowBmp;
 //	private Bitmap bgBmp;
-	
-	private Button zoomPlus;
-	private Button zoomMinus;
 
 	boolean isLine = false;
 
-	private int position = 0;//扫一扫position = 0; 拍照购position = 1*/
-	
+	//扫一扫position = 0; 拍照购position = 1; 山姆卡position = 2;
+	public static final int typeScan = 0;
+	public static final int typePhoto = 1;
+	public static final int typeSam = 2;
+	private int position = typeScan;
+
 	public ViewfinderView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 
-		/*density = context.getResources().getDisplayMetrics().density;
+		density = context.getResources().getDisplayMetrics().density;
 		// 将像素转换成dp
 		ScreenRate = (int) (20 * density);
 
@@ -154,28 +153,27 @@ public final class ViewfinderView extends View {
 
 		resultPointColor = resources.getColor(R.color.possible_result_points);
 		possibleResultPoints = new HashSet<ResultPoint>(5);
-		
+
 		try {
-			middleBmp = ((BitmapDrawable)resources.getDrawable(R.drawable.barcode_scan_line)).getBitmap();
+			middleBmp = ((BitmapDrawable) resources.getDrawable(R.drawable.barcode_scan_line)).getBitmap();
 //			middleLineBmp = ((BitmapDrawable)resources.getDrawable(R.drawable.app_middle_line)).getBitmap();
 //			arrowBmp=((BitmapDrawable)resources.getDrawable(R.drawable.app_capture_arrow)).getBitmap();
 //			bgBmp=((BitmapDrawable)resources.getDrawable(R.drawable.app_capture_focus_bg)).getBitmap();
 		} catch (Throwable e) {
-			GlobalImageCache.getLruBitmapCache().cleanMost();
-			middleBmp = ((BitmapDrawable)resources.getDrawable(R.drawable.barcode_scan_line)).getBitmap();
+			//GlobalImageCache.getLruBitmapCache().cleanMost();
+			middleBmp = ((BitmapDrawable) resources.getDrawable(R.drawable.barcode_scan_line)).getBitmap();
 //			middleLineBmp = ((BitmapDrawable)resources.getDrawable(R.drawable.app_middle_line)).getBitmap();
 //			arrowBmp=((BitmapDrawable)resources.getDrawable(R.drawable.app_capture_arrow)).getBitmap();
 //			bgBmp=((BitmapDrawable)resources.getDrawable(R.drawable.app_capture_focus_bg)).getBitmap();
-			if(Log.E) {
-				e.printStackTrace();
-			}
-		}*/
+		}
 	}
 
-	@TargetApi(Build.VERSION_CODES.HONEYCOMB) @Override
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+	@Override
 	public void onDraw(Canvas canvas) {
-		/*// 中间的扫描框，你要修改扫描框的大小，去CameraManager里面修改
+		// 中间的扫描框，你要修改扫描框的大小，去CameraManager里面修改
 		CameraManager cm = CameraManager.get();
+
 		if (cm == null) {
 			return;
 		}
@@ -205,17 +203,6 @@ public final class ViewfinderView extends View {
 		canvas.drawRect(new RectF(frame.right + FRAME_EDAGE_LINE_WIDTH, frame.top - FRAME_EDAGE_LINE_WIDTH, width + FRAME_EDAGE_LINE_WIDTH, frame.bottom + FRAME_EDAGE_LINE_WIDTH), paint);
 		canvas.drawRect(new RectF(0, frame.bottom + FRAME_EDAGE_LINE_WIDTH, width, height), paint);
 
-		if (null != zoomSeekBar && Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-			zoomSeekBar.setTop(frame.top);
-			zoomSeekBar.setBottom(frame.bottom);
-			zoomSeekBar.setX(frame.right + zoomSeekBar.getWidth()/2);
-
-			zoomPlus.setTop(frame.top);
-			zoomPlus.setX(frame.right + zoomSeekBar.getWidth()/2);
-			zoomMinus.setTop(frame.bottom - zoomSeekBar.getWidth()*3/2);
-			zoomMinus.setX(frame.right + zoomSeekBar.getWidth()/2);
-		}
-
 		paint.setColor(resultBitmap != null ? resultColor : maskColor);
 //		canvas.save();
 //		RectF finderRect = new RectF(frame.left-padding, frame.top-padding, frame.right+padding, frame.bottom+padding);
@@ -228,7 +215,7 @@ public final class ViewfinderView extends View {
 //		canvas.drawRect(0, frame.top-padding, frame.left-padding, frame.bottom+padding + 1, paint);
 //		canvas.drawRect(frame.right + 1+padding, frame.top-padding, width+padding, frame.bottom+padding + 1, paint);
 //		canvas.drawRect(0, frame.bottom+padding + 1, width+padding, height+padding, paint);
-				
+
 //		canvas.drawCircle(frame.right + 1+padding, frame.top-padding, 30, paint);
 //		canvas.drawCircle(frame.left-padding, frame.top-padding, 30, paint);
 //		canvas.drawCircle(frame.left-padding, frame.bottom+padding + 1, 30, paint);
@@ -240,35 +227,27 @@ public final class ViewfinderView extends View {
 			canvas.drawBitmap(resultBitmap, frame.left, frame.top, paint);
 		} else {
 
+
 			// 画扫描框边上的角，总共8个部分
 			paint.setColor(Color.WHITE);
-//			Matrix matrix = new Matrix();			
-//			canvas.drawBitmap(arrowBmp,frame.left, frame.top,paint);
-//			int bmpW=arrowBmp.getWidth(),bmpH=arrowBmp.getHeight();
-//			matrix.setRotate(90);
-//			canvas.drawBitmap(Bitmap.createBitmap(arrowBmp, 0, 0, arrowBmp.getWidth(), arrowBmp.getHeight(), matrix, true),frame.right - bmpW, frame.top,paint);
-//			matrix.setRotate(180);
-//			canvas.drawBitmap(Bitmap.createBitmap(arrowBmp, 0, 0, arrowBmp.getWidth(), arrowBmp.getHeight(), matrix, true),frame.right - bmpW, frame.bottom - bmpH,paint);			
-//			matrix.setRotate(270);
-//			canvas.drawBitmap(Bitmap.createBitmap(arrowBmp, 0, 0, arrowBmp.getWidth(), arrowBmp.getHeight(), matrix, true),frame.left, frame.bottom - bmpH,paint);
-//			canvas.drawBitmap(bgBmp, new Rect(0, 0, bgBmp.getWidth(), bgBmp.getHeight()), new Rect(frame.left+bgPadding, frame.top+bgPadding, frame.right-bgPadding, frame.bottom-bgPadding), paint);
-			
-			canvas.drawRect(frame.left-CORNER_DIST, frame.top-CORNER_DIST, frame.left-CORNER_DIST + ScreenRate, frame.top-CORNER_DIST + CORNER_WIDTH, paint);
-			canvas.drawRect(frame.left-CORNER_DIST, frame.top-CORNER_DIST, frame.left-CORNER_DIST + CORNER_WIDTH, frame.top-CORNER_DIST + ScreenRate, paint);
-			canvas.drawRect(frame.right+CORNER_DIST - ScreenRate, frame.top-CORNER_DIST, frame.right+CORNER_DIST, frame.top-CORNER_DIST + CORNER_WIDTH, paint);
-			canvas.drawRect(frame.right+CORNER_DIST - CORNER_WIDTH, frame.top-CORNER_DIST, frame.right+CORNER_DIST, frame.top-CORNER_DIST + ScreenRate, paint);
-			canvas.drawRect(frame.left-CORNER_DIST, frame.bottom+CORNER_DIST - CORNER_WIDTH, frame.left-CORNER_DIST + ScreenRate, frame.bottom+CORNER_DIST, paint);
-			canvas.drawRect(frame.left-CORNER_DIST, frame.bottom+CORNER_DIST - ScreenRate, frame.left-CORNER_DIST + CORNER_WIDTH, frame.bottom+CORNER_DIST, paint);
-			canvas.drawRect(frame.right+CORNER_DIST - ScreenRate, frame.bottom+CORNER_DIST - CORNER_WIDTH, frame.right+CORNER_DIST, frame.bottom+CORNER_DIST, paint);
-			canvas.drawRect(frame.right+CORNER_DIST - CORNER_WIDTH, frame.bottom+CORNER_DIST - ScreenRate, frame.right+CORNER_DIST, frame.bottom+CORNER_DIST, paint);
+			canvas.drawRect(frame.left - CORNER_DIST, frame.top - CORNER_DIST, frame.left - CORNER_DIST + ScreenRate, frame.top - CORNER_DIST + CORNER_WIDTH, paint);
+			canvas.drawRect(frame.left - CORNER_DIST, frame.top - CORNER_DIST, frame.left - CORNER_DIST + CORNER_WIDTH, frame.top - CORNER_DIST + ScreenRate, paint);
+			canvas.drawRect(frame.right + CORNER_DIST - ScreenRate, frame.top - CORNER_DIST, frame.right + CORNER_DIST, frame.top - CORNER_DIST + CORNER_WIDTH, paint);
+			canvas.drawRect(frame.right + CORNER_DIST - CORNER_WIDTH, frame.top - CORNER_DIST, frame.right + CORNER_DIST, frame.top - CORNER_DIST + ScreenRate, paint);
+			canvas.drawRect(frame.left - CORNER_DIST, frame.bottom + CORNER_DIST - CORNER_WIDTH, frame.left - CORNER_DIST + ScreenRate, frame.bottom + CORNER_DIST, paint);
+			canvas.drawRect(frame.left - CORNER_DIST, frame.bottom + CORNER_DIST - ScreenRate, frame.left - CORNER_DIST + CORNER_WIDTH, frame.bottom + CORNER_DIST, paint);
+			canvas.drawRect(frame.right + CORNER_DIST - ScreenRate, frame.bottom + CORNER_DIST - CORNER_WIDTH, frame.right + CORNER_DIST, frame.bottom + CORNER_DIST, paint);
+			canvas.drawRect(frame.right + CORNER_DIST - CORNER_WIDTH, frame.bottom + CORNER_DIST - ScreenRate, frame.right + CORNER_DIST, frame.bottom + CORNER_DIST, paint);
 
 			// 画扫描边框线, 共四条
-			paint.setColor(0x7fffffff);
-			canvas.drawLine(frame.left-FRAME_EDAGE_LINE_WIDTH, frame.top-FRAME_EDAGE_LINE_WIDTH, frame.right+FRAME_EDAGE_LINE_WIDTH, frame.top-FRAME_EDAGE_LINE_WIDTH, paint);
-			canvas.drawLine(frame.left-FRAME_EDAGE_LINE_WIDTH, frame.top-FRAME_EDAGE_LINE_WIDTH, frame.left-FRAME_EDAGE_LINE_WIDTH, frame.bottom+FRAME_EDAGE_LINE_WIDTH, paint);
-			canvas.drawLine(frame.left-FRAME_EDAGE_LINE_WIDTH, frame.bottom+FRAME_EDAGE_LINE_WIDTH, frame.right+FRAME_EDAGE_LINE_WIDTH, frame.bottom+FRAME_EDAGE_LINE_WIDTH, paint);
-			canvas.drawLine(frame.right+FRAME_EDAGE_LINE_WIDTH, frame.top-FRAME_EDAGE_LINE_WIDTH, frame.right+FRAME_EDAGE_LINE_WIDTH, frame.bottom+FRAME_EDAGE_LINE_WIDTH+1, paint);
-			
+            /*if (position == Constants.SCAN_TAB_SCAN_INDEX) {
+                paint.setColor(0x7fffffff);
+				canvas.drawLine(frame.left - FRAME_EDAGE_LINE_WIDTH, frame.top - FRAME_EDAGE_LINE_WIDTH, frame.right + FRAME_EDAGE_LINE_WIDTH, frame.top - FRAME_EDAGE_LINE_WIDTH, paint);
+				canvas.drawLine(frame.left - FRAME_EDAGE_LINE_WIDTH, frame.top - FRAME_EDAGE_LINE_WIDTH, frame.left - FRAME_EDAGE_LINE_WIDTH, frame.bottom + FRAME_EDAGE_LINE_WIDTH, paint);
+				canvas.drawLine(frame.left - FRAME_EDAGE_LINE_WIDTH, frame.bottom + FRAME_EDAGE_LINE_WIDTH, frame.right + FRAME_EDAGE_LINE_WIDTH, frame.bottom + FRAME_EDAGE_LINE_WIDTH, paint);
+				canvas.drawLine(frame.right + FRAME_EDAGE_LINE_WIDTH, frame.top - FRAME_EDAGE_LINE_WIDTH, frame.right + FRAME_EDAGE_LINE_WIDTH, frame.bottom + FRAME_EDAGE_LINE_WIDTH + 1, paint);
+			}*/
+
 			Bitmap bitmap = middleBmp;
 			// 绘制中间的线,每次刷新界面，中间的线往下移动SPEEN_DISTANCE
 			slideTop += SPEEN_DISTANCE;
@@ -276,25 +255,32 @@ public final class ViewfinderView extends View {
 				slideTop = frame.top - MIDDLE_LINE_HEIGHT;
 			}
 
-			final Rect dst = new Rect(frame.left,(slideTop < frame.top) ? frame.top : slideTop, frame.right, slideTop+MIDDLE_LINE_HEIGHT);
-			if(bitmap!=null&&!bitmap.isRecycled()){
-				final Rect src = new Rect(0,0,bitmap.getWidth(),bitmap.getHeight());
+			final Rect dst = new Rect(frame.left, (slideTop < frame.top) ? frame.top : slideTop, frame.right, slideTop + MIDDLE_LINE_HEIGHT);
+			if (bitmap != null && !bitmap.isRecycled()) {
+				final Rect src = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
 				canvas.drawBitmap(bitmap, src, dst, paint);
 			}
 
 			// 画扫描框下面的字
 			paint.setColor(Color.WHITE);
 			paint.setTextSize(TEXT_SIZE * density);
+			paint.setAntiAlias(true);
 			// paint.setAlpha(0x40);
 //			paint.setTypeface(Typeface.create("System", Typeface.BOLD));
-            paint.setTypeface(Typeface.MONOSPACE);
-			String hintString = position == 0 ? getResources().getString(R.string.scan_text) : getResources().getString(R.string.camera_purchase_text);
+			paint.setTypeface(Typeface.MONOSPACE);
+			String hintString = "";
+			if (position == typeScan) {
+				hintString = getResources().getString(R.string.scan_text);
+			} else if (position == typeSam) {
+				hintString = getResources().getString(R.string.sam_card_text);
+			}
+
 			float txtWidth = paint.measureText(hintString);// 计算文字宽度
 			int rectCoreLeft = (frame.left + frame.right) / 2;// 计算居中位置
 			rectCoreLeft = (int) (rectCoreLeft - txtWidth / 2);// 计算左顶点
-			canvas.drawText(hintString, rectCoreLeft, frame.top-2*padding + TEXT_PADDING_TOP * density, paint);
+			canvas.drawText(hintString, rectCoreLeft, frame.bottom + TEXT_PADDING_TOP * density, paint);
 
-			Collection<ResultPoint> currentPossible = possibleResultPoints;
+			/*Collection<ResultPoint> currentPossible = possibleResultPoints;
 			Collection<ResultPoint> currentLast = lastPossibleResultPoints;
 
 			if (currentPossible.isEmpty()) {
@@ -305,14 +291,14 @@ public final class ViewfinderView extends View {
 					lastPossibleResultPoints = currentPossible;
 					paint.setAlpha(OPAQUE);
 					paint.setColor(resultPointColor);
-                    try {
-                        for (ResultPoint point : currentPossible) {
-                            canvas.drawCircle(frame.left + point.getX(), frame.top + point.getY(), 6.0f, paint);
-                        }
-                    }
-                    catch(ConcurrentModificationException e){
-                        e.printStackTrace();
-                    }
+					try {
+						for (ResultPoint point : currentPossible) {
+							canvas.drawCircle(frame.left + point.getX(), frame.top + point.getY(), 6.0f, paint);
+						}
+					}
+					catch(ConcurrentModificationException e){
+						e.printStackTrace();
+					}
 
 				}
 			}
@@ -325,26 +311,24 @@ public final class ViewfinderView extends View {
 						canvas.drawCircle(frame.left + point.getX(), frame.top + point.getY(), 3.0f, paint);
 					}
 				}
-			}
+			}*/
 
 			// 只刷新扫描框的内容，其他地方不刷新
 			postInvalidateDelayed(ANIMATION_DELAY, frame.left, frame.top, frame.right, frame.bottom);
 
-		}*/
+		}
 	}
 
-	/*public void drawViewfinder() {
+	public void drawViewfinder() {
 		resultBitmap = null;
 		invalidate();
 	}
 
-
-	*//**
+	/**
 	 * Draw a bitmap with the result points highlighted instead of the live scanning display.
-	 * 
-	 * @param barcode
-	 *            An image of the decoded barcode.
-	 *//*
+	 *
+	 * @param barcode An image of the decoded barcode.
+	 */
 	public void drawResultBitmap(Bitmap barcode) {
 		resultBitmap = barcode;
 		invalidate();
@@ -356,11 +340,11 @@ public final class ViewfinderView extends View {
 		}
 	}
 
-	public void setMiddleBmp (Bitmap bitmap) {
+	public void setMiddleBmp(Bitmap bitmap) {
 		this.middleBmp = bitmap;
 	}
 
 	public void setPosition(int position) {
 		this.position = position;
-	}*/
+	}
 }

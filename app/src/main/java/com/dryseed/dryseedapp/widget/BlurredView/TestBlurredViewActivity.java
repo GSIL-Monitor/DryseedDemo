@@ -1,15 +1,11 @@
-package com.dryseed.dryseedapp.widget.BlurredView;
+package com.dryseed.dryseedapp.widget.blurredView;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.utils.ImageUtil;
@@ -17,8 +13,6 @@ import com.dryseed.dryseedapp.utils.ImageUtil;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
-import static android.widget.Toast.LENGTH_SHORT;
 
 /**
  * Created by caiminming on 2017/7/26.
