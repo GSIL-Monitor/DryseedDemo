@@ -33,6 +33,8 @@ public class MainActivity extends ListActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme); //启动加速之主题切换
+
         super.onCreate(savedInstanceState);
 
         Logger.init().setMethodCount(0).hideThreadInfo();

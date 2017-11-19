@@ -12,10 +12,15 @@
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
         <item name="windowNoTitle">true</item>
+        <!-- 窗口透明（启动应用不会出现白屏） -->
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
+    <style name="AppTheme.Launcher" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:windowBackground">@drawable/launcher_background</item>
+    </style>
 
     <!--白天主题，此处直接和AppTheme一样-->
     <style name="DayTheme" parent="Theme.AppCompat.Light.DarkActionBar">
