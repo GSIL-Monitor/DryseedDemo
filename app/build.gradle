@@ -35,6 +35,15 @@ android {
     }
 
     useLibrary 'org.apache.http.legacy'
+
+    productFlavors {
+        baidu {
+            manifestPlaceholders = [MTA_CHANNEL_VALUE: "baidu"]
+        }
+        xiaomi {
+            manifestPlaceholders = [MTA_CHANNEL_VALUE: "xiaomi"]
+        }
+    }
 }
 
 dependencies {

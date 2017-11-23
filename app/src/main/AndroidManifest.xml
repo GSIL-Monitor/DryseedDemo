@@ -997,6 +997,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
+
+        <meta-data
+            android:name="MTA_CHANNEL"
+            android:value="${MTA_CHANNEL_VALUE}" />
     </application>
 
 
