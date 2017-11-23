@@ -1,5 +1,13 @@
 apply plugin: 'com.android.application'
 
+def getDate() {
+    def date = new Date()
+    def formattedDate = date.format('yyyyMMddHHmm')
+    return formattedDate
+}
+
+def verCode = 1
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
@@ -58,5 +66,5 @@ dependencies {
     //lottie https://github.com/airbnb/lottie-android
     compile 'com.airbnb.android:lottie:1.0.1'
     //weixin camera
-    //compile project(path: ':camera')
+    compile project(path: ':camera')
 }

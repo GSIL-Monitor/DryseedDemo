@@ -20,7 +20,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:theme="@style/AppTheme.Launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -666,7 +667,7 @@
 
         <activity
             android:name=".tools.sensor.shake.ShakeSensorActivity"
-            android:label="Tool/Sensor/ShakeSensorActivity">
+            android:label="Tools/Sensor/ShakeSensorActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -674,7 +675,7 @@
         </activity>
         <activity
             android:name=".tools.sensor.orientation.OrientationSensorActivity"
-            android:label="Tool/Sensor/OrientationSensorActivity">
+            android:label="Tools/Sensor/OrientationSensorActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -682,7 +683,15 @@
         </activity>
         <activity
             android:name=".tools.record.RecordActivity"
-            android:label="Tool/RecordMainActivity">
+            android:label="Tools/RecordMainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".tools.record.video.VideoRecorderActivity"
+            android:label="Tools/VideoRecorderActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -690,7 +699,7 @@
         </activity>
         <activity
             android:name=".tools.sensor.accelerometer.AccelerometerActivity"
-            android:label="Tool/Sensor/Accelerometer">
+            android:label="Tools/Sensor/Accelerometer">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -699,7 +708,7 @@
 
         <activity
             android:name=".tools.xml.TestXmlPullParserActivity"
-            android:label="Tool/XML/XmlPullParser">
+            android:label="Tools/XML/XmlPullParser">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -708,7 +717,7 @@
 
         <activity
             android:name=".tools.videoplayer.VideoPlayerActivity"
-            android:label="Tool/VideoPlayer">
+            android:label="Tools/VideoPlayer">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -717,12 +726,21 @@
         <activity
             android:name=".tools.videoplayer.MyVideoPlayerActivity"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
-            android:label="Tool/MyVideoPlayer">
+            android:label="Tools/MyVideoPlayer">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".tools.weixinCamera.MainActivity"
+            android:label="Tools/WeixinCamera">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".tools.weixinCamera.CameraActivity" />
 
         <activity
             android:name=".lib.zxing.client.android.CaptureActivity"
