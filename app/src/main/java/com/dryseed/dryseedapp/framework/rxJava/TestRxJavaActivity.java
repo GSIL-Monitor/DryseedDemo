@@ -71,10 +71,12 @@ public class TestRxJavaActivity extends Activity {
         mAdapter.notifyDataSetChanged();*/
         //ChapterThree.practice1(mContext);
 
-        ChapterFour.demo1();
+       /* ChapterFour.demo1();
         ChapterFour.demo2();
-        ChapterFour.demo3();
+        ChapterFour.demo3();*/
         //ChapterFour.practice1();
+
+        //TestRxjava.test();
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {

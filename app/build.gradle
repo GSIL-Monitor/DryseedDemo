@@ -21,6 +21,7 @@ android {
         //RenderScript support 用于高斯模糊
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true
+        multiDexEnabled true
     }
 
     signingConfigs {
@@ -84,10 +85,11 @@ android {
                 timeNow = getDate()
                 outDirectory = output.outputFile.getParent()
                 if ('debug'.equals(variant.buildType.name)) {
-                    newName = "${APPNAME}-v${APP_VERSION}-debug-${timeNow}.apk"
+                    //newName = "${APPNAME}-v${APP_VERSION}-debug-${timeNow}.apk"
+                    newName = "${APPNAME}-v${APP_VERSION}-debug.apk"
                 } else {
                     //AutoBuildTest-v1.0.1-xiaomi-release.apk
-                    newName = APPNAME + '-' + APP_VERSION + '-' + variant.productFlavors[0].name + '-' + variant.buildType.name + '-' + timeNow + '.apk'
+                    newName = APPNAME + '-' + APP_VERSION + '-' + variant.productFlavors[0].name + '-' + variant.buildType.name + '-' /*+ timeNow*/ + '.apk'
                 }
             }
             output.outputFile = new File(outDirectory + '/'/* + timeNow*/, newName)
@@ -107,9 +109,11 @@ dependencies {
     compile 'com.facebook.fresco:fresco:0.6.0'
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support:recyclerview-v7:25.3.1'
+    //multidex
+    compile 'com.android.support:multidex:1.0.1'
+    //rxjava2.0
     compile 'io.reactivex.rxjava2:rxjava:2.0.1'
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-
     //retrofit
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     //Gson converter
