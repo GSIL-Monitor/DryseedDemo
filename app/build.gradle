@@ -17,15 +17,32 @@ android {
         minSdkVersion 16
         targetSdkVersion 25
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         //RenderScript support 用于高斯模糊
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true
     }
+
+    signingConfigs {
+        release {
+            //由于本地打包使用的是本机上的KeyStore,而Jenkins打包用的是服务器上的KeyStore,两个路径不一样
+            if ("true".equals(IS_JENKINS)) {
+                storeFile file("服务器上KeyStore的路径")
+            } else {
+                storeFile file(STORE_FILE_PATH)
+            }
+            storeFile file(STORE_FILE_PATH)
+            keyAlias KEY_ALIAS
+            keyPassword KEY_PASSWORD
+            storePassword STORE_FILE_PASSWORD
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 
@@ -42,6 +59,38 @@ android {
         }
         xiaomi {
             manifestPlaceholders = [MTA_CHANNEL_VALUE: "xiaomi"]
+        }
+    }
+
+    //修改生成的apk名字及输出文件夹
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            //新名字
+            def newName
+            //时间戳
+            def timeNow
+            //输出文件夹
+            def outDirectory
+            //是否为Jenkins打包，输出路径不同
+            if ("true".equals(IS_JENKINS)) {
+                //Jenkins打包输出到服务器路径
+                timeNow = BUILD_TIME
+                //BUILD_PATH为服务器输出路径
+                outDirectory = BUILD_PATH
+                //AutoBuildTest-v1.0.1-xiaomi-release.apk
+                newName = 'AutoBuildTest-v' + APP_VERSION + '-' + variant.productFlavors[0].name + '-' + variant.buildType.name + '.apk'
+            } else {
+                //本机打包输出在本机路径
+                timeNow = getDate()
+                outDirectory = output.outputFile.getParent()
+                if ('debug'.equals(variant.buildType.name)) {
+                    newName = "${APPNAME}-v${APP_VERSION}-debug-${timeNow}.apk"
+                } else {
+                    //AutoBuildTest-v1.0.1-xiaomi-release.apk
+                    newName = APPNAME + '-' + APP_VERSION + '-' + variant.productFlavors[0].name + '-' + variant.buildType.name + '-' + timeNow + '.apk'
+                }
+            }
+            output.outputFile = new File(outDirectory + '/'/* + timeNow*/, newName)
         }
     }
 }
