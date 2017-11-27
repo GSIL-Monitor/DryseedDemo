@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 import java.io.File;
@@ -23,7 +24,7 @@ import dalvik.system.DexClassLoader;
  * Created by caiminming on 2017/7/13.
  */
 
-public class TestDynamicLoadDexActivity extends AppCompatActivity {
+public class TestDynamicLoadDexActivity extends BaseActivity {
     final public static String TAG = "MMM";
 
     @Override

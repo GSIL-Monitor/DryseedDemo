@@ -12,6 +12,7 @@ import android.os.RemoteException;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 /**
@@ -21,7 +22,7 @@ import com.dryseed.dryseedapp.R;
  * http://www.jianshu.com/p/467016b4487c
  */
 
-public class TestAIDLActivity extends Activity {
+public class TestAIDLActivity extends BaseActivity {
     private final static String TAG = "MainActivity";
     private IRemoteService remoteService;
 

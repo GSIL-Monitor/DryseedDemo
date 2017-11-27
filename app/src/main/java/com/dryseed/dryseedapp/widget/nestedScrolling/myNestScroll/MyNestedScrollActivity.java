@@ -3,9 +3,10 @@ package com.dryseed.dryseedapp.widget.nestedScrolling.myNestScroll;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-public class MyNestedScrollActivity extends AppCompatActivity {
+public class MyNestedScrollActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

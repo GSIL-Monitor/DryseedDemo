@@ -14,6 +14,7 @@ import android.graphics.Shader.TileMode;
 import android.os.Bundle;
 import android.view.View;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 /*
@@ -22,7 +23,7 @@ import com.dryseed.dryseedapp.R;
 	其实我们可以通过绘制该图多次，比如第一次绘制往下倾斜；第二次绘制往上倾斜；这样就和我们标题2的实现类似了，只需要利用setPolyToPoly。
 	那么绘制多次，每次显示肯定不是一整张图，比如第一次，我只想显示第一块，所以我们还需要clipRect的配合，说到这，应该以及揭秘了~~~
  */
-public class SimpleUseActivity extends Activity {
+public class SimpleUseActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

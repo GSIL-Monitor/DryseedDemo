@@ -4,10 +4,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.MainActivity;
 import com.dryseed.dryseedapp.R;
 
-public class TestGestureLockActivity extends AppCompatActivity {
+public class TestGestureLockActivity extends BaseActivity {
 
     private GestureLockViewGroup mGestureLockViewGroup;
 

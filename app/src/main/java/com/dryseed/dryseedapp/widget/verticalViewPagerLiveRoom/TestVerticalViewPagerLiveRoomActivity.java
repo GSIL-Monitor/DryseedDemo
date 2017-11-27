@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.animation.mojiWeatherAnimation.PagerAdapter;
 import com.dryseed.dryseedapp.ui.VerticalViewPager;
@@ -22,7 +23,7 @@ import butterknife.ButterKnife;
  * Created by caiminming on 2017/8/15.
  */
 
-public class TestVerticalViewPagerLiveRoomActivity extends Activity {
+public class TestVerticalViewPagerLiveRoomActivity extends BaseActivity {
 
     @Bind(R.id.liveroom_vertical_viewpager)
     LiveVerticalViewPager mVerticalViewPager;

@@ -5,13 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 /**
  * Created by caiminming on 2017/7/10.
  */
 
-public class TestCoodinatorLayoutActivity extends Activity {
+public class TestCoodinatorLayoutActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -19,11 +19,12 @@ import com.cjt2325.cameralibrary.listener.ErrorListener;
 import com.cjt2325.cameralibrary.listener.JCameraListener;
 import com.cjt2325.cameralibrary.util.DeviceUtil;
 import com.cjt2325.cameralibrary.util.FileUtil;
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 import java.io.File;
 
-public class CameraActivity extends AppCompatActivity {
+public class CameraActivity extends BaseActivity {
     private JCameraView jCameraView;
 
     @Override

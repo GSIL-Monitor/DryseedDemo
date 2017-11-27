@@ -5,9 +5,10 @@ import android.app.Activity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-public class ShakeSensorActivity extends Activity {
+public class ShakeSensorActivity extends BaseActivity {
 
     private TextView startTV = null;
     private TextView stopTV = null;

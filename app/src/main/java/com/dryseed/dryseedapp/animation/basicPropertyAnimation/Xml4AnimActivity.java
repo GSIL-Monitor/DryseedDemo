@@ -8,9 +8,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-public class Xml4AnimActivity extends Activity {
+public class Xml4AnimActivity extends BaseActivity {
 
     private ImageView mMv;
 

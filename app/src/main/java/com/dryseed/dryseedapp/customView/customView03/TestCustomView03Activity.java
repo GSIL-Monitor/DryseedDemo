@@ -3,9 +3,10 @@ package com.dryseed.dryseedapp.customView.customView03;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-public class TestCustomView03Activity extends AppCompatActivity {
+public class TestCustomView03Activity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

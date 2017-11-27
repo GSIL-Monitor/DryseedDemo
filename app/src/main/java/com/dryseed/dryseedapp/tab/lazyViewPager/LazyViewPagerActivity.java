@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ import java.util.List;
  * Created by caiminming on 2017/5/26.
  */
 
-public class LazyViewPagerActivity extends Activity {
+public class LazyViewPagerActivity extends BaseActivity {
     /**
      * ViewPager
      */

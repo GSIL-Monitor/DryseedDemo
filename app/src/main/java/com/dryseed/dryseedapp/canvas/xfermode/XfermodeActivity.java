@@ -4,10 +4,11 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 
-public class XfermodeActivity extends Activity {
+public class XfermodeActivity extends BaseActivity {
 
     private ScanFrameView scanFrameView = null;
     Handler handler = new Handler();

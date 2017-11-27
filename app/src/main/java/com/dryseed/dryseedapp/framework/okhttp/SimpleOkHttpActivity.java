@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 import java.io.IOException;
@@ -20,7 +21,7 @@ import okhttp3.Response;
 /**
  * Created by User on 2017/11/5.
  */
-public class SimpleOkHttpActivity extends Activity {
+public class SimpleOkHttpActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

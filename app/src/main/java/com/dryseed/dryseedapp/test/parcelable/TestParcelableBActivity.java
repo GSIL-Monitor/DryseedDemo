@@ -5,13 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.test.singleTask.TestAActivity;
 
 /**
  * Created by caiminming on 2017/5/12.
  */
 
-public class TestParcelableBActivity extends Activity {
+public class TestParcelableBActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

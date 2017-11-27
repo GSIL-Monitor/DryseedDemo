@@ -11,12 +11,13 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 /**
  * Created by User on 2017/8/26.
  */
-public class TestRotate3dAnimationActivity extends Activity {
+public class TestRotate3dAnimationActivity extends BaseActivity {
     private RelativeLayout mContentRl;
     private ImageView mLogoIv;
     private TextView mDescTv;

@@ -3,13 +3,14 @@ package com.dryseed.dryseedapp.tools.sensor.orientation;
 import android.app.Activity;
 import android.os.Bundle;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 /**
  * Created by caiminming on 2017/5/3.
  */
 
-public class OrientationSensorActivity extends Activity {
+public class OrientationSensorActivity extends BaseActivity {
 
     private OrientationSensorUtils mOrientationSensorUtils;
 

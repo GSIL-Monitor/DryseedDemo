@@ -17,9 +17,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cjt2325.cameralibrary.util.DeviceUtil;
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     private final int GET_PERMISSION_REQUEST = 100; //权限申请自定义码
     private ImageView photo;
     private TextView device;

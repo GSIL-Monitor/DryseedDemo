@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.orhanobut.logger.Logger;
 
@@ -17,7 +18,7 @@ import com.orhanobut.logger.Logger;
  * http://blog.csdn.net/liguangzhenghi/article/details/8076121
  */
 
-public class TestViewTreeObserverActivity extends Activity implements
+public class TestViewTreeObserverActivity extends BaseActivity implements
         View.OnClickListener,
         ViewTreeObserver.OnTouchModeChangeListener,          // 用于监听 Touch 和非 Touch 模式的转换
         ViewTreeObserver.OnGlobalLayoutListener,             // 用于监听布局之类的变化，比如某个空间消失了

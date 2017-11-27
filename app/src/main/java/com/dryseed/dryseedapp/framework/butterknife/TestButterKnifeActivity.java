@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 import butterknife.Bind;
@@ -22,7 +23,7 @@ import java.util.List;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
-public class TestButterKnifeActivity extends Activity {
+public class TestButterKnifeActivity extends BaseActivity {
     private static final ButterKnife.Action<View> ALPHA_FADE = new ButterKnife.Action<View>() {
         @Override
         public void apply(@NonNull View view, int index) {

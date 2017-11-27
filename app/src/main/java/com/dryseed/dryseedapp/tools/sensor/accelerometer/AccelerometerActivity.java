@@ -10,10 +10,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Surface;
 
+import com.dryseed.dryseedapp.BaseActivity;
+
 /**
  * Created by User on 2017/7/22.
  */
-public class AccelerometerActivity extends Activity implements SensorEventListener {
+public class AccelerometerActivity extends BaseActivity implements SensorEventListener {
 
     private SensorManager mSensorManager;
     private Sensor mSensor;

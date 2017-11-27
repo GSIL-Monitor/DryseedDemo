@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshRecyclerView;
@@ -22,7 +23,7 @@ import java.util.ArrayList;
 /**
  * Created by User on 2017/7/1.
  */
-public class TestPullToRefreshRecyclerViewActivity extends Activity {
+public class TestPullToRefreshRecyclerViewActivity extends BaseActivity {
     private PullToRefreshRecyclerView mPullToRefreshRecyclerView;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;

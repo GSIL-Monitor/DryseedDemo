@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.utils.ImageUtil;
 
@@ -18,7 +19,7 @@ import butterknife.OnClick;
  * Created by caiminming on 2017/7/26.
  */
 
-public class TestBlurredViewActivity extends Activity {
+public class TestBlurredViewActivity extends BaseActivity {
     @Bind(R.id.blurred_view_image)
     ImageView mImageView;
 

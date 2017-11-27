@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 /*
@@ -40,7 +41,7 @@ setUnderlineText(boolean underlineText);	设置带有下划线的文字效果
 setStrikeThruText(boolean strikeThruText); 设置带有删除线的效果
 
  */
-public class TestCanvasActivity extends Activity implements Button.OnClickListener {
+public class TestCanvasActivity extends BaseActivity implements Button.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

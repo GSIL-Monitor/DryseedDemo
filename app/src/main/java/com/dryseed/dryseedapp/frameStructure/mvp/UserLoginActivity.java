@@ -8,13 +8,14 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.frameStructure.mvp.bean.User;
 import com.dryseed.dryseedapp.frameStructure.mvp.presenter.UserLoginPresenter;
 import com.dryseed.dryseedapp.frameStructure.mvp.view.IUserLoginView;
 
 
-public class UserLoginActivity extends ActionBarActivity implements IUserLoginView {
+public class UserLoginActivity extends BaseActivity implements IUserLoginView {
 
 
     private EditText mEtUsername, mEtPassword;

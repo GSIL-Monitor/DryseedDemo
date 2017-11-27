@@ -19,9 +19,10 @@ import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-public class ValueAnimatorActivity extends Activity
+public class ValueAnimatorActivity extends BaseActivity
 {
 	protected static final String TAG = "TestFoldingLayoutActivity";
 

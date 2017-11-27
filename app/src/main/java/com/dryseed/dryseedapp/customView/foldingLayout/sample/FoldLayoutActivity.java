@@ -3,10 +3,11 @@ package com.dryseed.dryseedapp.customView.foldingLayout.sample;
 import android.app.Activity;
 import android.os.Bundle;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.customView.foldingLayout.view.FoldLayout;
 
-public class FoldLayoutActivity extends Activity
+public class FoldLayoutActivity extends BaseActivity
 {
 	private FoldLayout mFoldLayout;
 

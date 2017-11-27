@@ -25,6 +25,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.utils.DPIUtil;
 import com.dryseed.dryseedapp.widget.multiTypeAdapter.lib.MultiTypeAdapter;
@@ -36,7 +37,7 @@ import java.util.List;
 /**
  * @author drakeet
  */
-public class BilibiliActivity extends Activity {
+public class BilibiliActivity extends BaseActivity {
 
     private static final int SPAN_COUNT = 2;
     @VisibleForTesting

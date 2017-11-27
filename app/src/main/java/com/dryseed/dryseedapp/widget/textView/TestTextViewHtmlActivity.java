@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.widget.TextView;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.utils.DPIUtil;
 
@@ -19,7 +20,7 @@ import butterknife.ButterKnife;
  * Created by caiminming on 2017/11/13.
  */
 
-public class TestTextViewHtmlActivity extends AppCompatActivity {
+public class TestTextViewHtmlActivity extends BaseActivity {
 
     @Bind(R.id.html_string)
     TextView textView;

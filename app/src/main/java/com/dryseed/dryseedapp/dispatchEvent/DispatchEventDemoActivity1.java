@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.dispatchEvent.ui.HorizontalScrollViewEx;
 import com.dryseed.dryseedapp.utils.DPIUtil;
@@ -27,7 +28,7 @@ import com.dryseed.dryseedapp.utils.DPIUtil;
  * 父容器：HorizontalScrollViewEx
  * 子容器：ListView
  */
-public class DispatchEventDemoActivity1 extends Activity {
+public class DispatchEventDemoActivity1 extends BaseActivity {
     private static final String TAG = "DemoActivity_1";
 
     private HorizontalScrollViewEx mListContainer;

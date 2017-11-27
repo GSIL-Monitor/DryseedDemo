@@ -5,9 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-public class SlideMenu03Activity extends Activity
+public class SlideMenu03Activity extends BaseActivity
 {
 	private SlidingMenu mMenu;
 

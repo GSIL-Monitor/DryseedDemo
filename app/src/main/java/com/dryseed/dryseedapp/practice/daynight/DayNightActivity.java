@@ -24,6 +24,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 import java.lang.reflect.Field;
@@ -38,7 +39,7 @@ import java.util.List;
  * @author Clock
  * @since 2016-08-11
  */
-public class DayNightActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
+public class DayNightActivity extends BaseActivity implements CompoundButton.OnCheckedChangeListener {
 
     private final static String TAG = DayNightActivity.class.getSimpleName();
 

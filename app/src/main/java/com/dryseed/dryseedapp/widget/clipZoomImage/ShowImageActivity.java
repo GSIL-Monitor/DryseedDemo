@@ -6,9 +6,10 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-public class ShowImageActivity extends Activity
+public class ShowImageActivity extends BaseActivity
 {
 	private ImageView mImageView;
 

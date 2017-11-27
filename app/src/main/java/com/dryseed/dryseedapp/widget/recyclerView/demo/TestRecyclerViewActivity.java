@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo.Category;
 import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo.Post;
@@ -35,7 +36,7 @@ import retrofit2.http.POST;
  * Created by caiminming on 2017/4/7.
  */
 
-public class TestRecyclerViewActivity extends Activity {
+public class TestRecyclerViewActivity extends BaseActivity {
     private final int SPAN_COUNT = 2;
     private PullToRefreshRecyclerView mPullToRefreshRecyclerView;
     private RecyclerView mRecyclerView;

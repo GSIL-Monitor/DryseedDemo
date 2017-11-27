@@ -13,9 +13,10 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.GridLayout;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-public class LayoutAnimatorActivity extends Activity implements
+public class LayoutAnimatorActivity extends BaseActivity implements
         OnCheckedChangeListener {
     private ViewGroup viewGroup;
     private GridLayout mGridLayout;

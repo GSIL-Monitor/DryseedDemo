@@ -7,9 +7,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-public class ObjectAnimatorActivity extends Activity {
+public class ObjectAnimatorActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

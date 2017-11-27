@@ -21,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.utils.DPIUtil;
 
@@ -31,7 +32,7 @@ import java.util.List;
  * Created by caiminming on 2017/6/14.
  */
 
-public class TestGridViewActivity extends Activity {
+public class TestGridViewActivity extends BaseActivity {
     private Button mButton;
     private ViewPager mViewPager;
     private ViewPagerAdapter mViewPagerAdapter;

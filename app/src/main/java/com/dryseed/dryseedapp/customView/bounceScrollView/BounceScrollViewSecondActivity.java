@@ -3,9 +3,10 @@ package com.dryseed.dryseedapp.customView.bounceScrollView;
 import android.app.Activity;
 import android.os.Bundle;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-public class BounceScrollViewSecondActivity extends Activity
+public class BounceScrollViewSecondActivity extends BaseActivity
 {
 	@Override
 	protected void onCreate(Bundle savedInstanceState)

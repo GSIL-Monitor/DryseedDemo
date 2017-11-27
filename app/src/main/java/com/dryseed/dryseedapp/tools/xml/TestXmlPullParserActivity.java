@@ -5,6 +5,8 @@ import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.dryseed.dryseedapp.BaseActivity;
+
 import java.io.InputStream;
 import java.util.List;
 
@@ -12,7 +14,7 @@ import java.util.List;
  * Created by caiminming on 2017/9/14.
  */
 
-public class TestXmlPullParserActivity extends Activity {
+public class TestXmlPullParserActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

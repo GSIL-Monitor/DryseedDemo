@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.widget.Button;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 import butterknife.Bind;
@@ -18,7 +19,7 @@ import butterknife.OnClick;
  * Created by caiminming on 2017/8/23.
  */
 
-public class TestServiceActivity extends Activity {
+public class TestServiceActivity extends BaseActivity {
 
     @Bind(R.id.start_service)
     public Button mStartService;

@@ -10,10 +10,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 
-public class TestBounceScrollViewActivity extends Activity {
+public class TestBounceScrollViewActivity extends BaseActivity {
 
     private ListView mListView;
     private BounceScrollView mScrollView;

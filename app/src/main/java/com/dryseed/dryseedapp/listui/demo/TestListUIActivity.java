@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.listui.BaseUIRecyleView;
 import com.dryseed.dryseedapp.listui.ILoadMore;
@@ -32,7 +33,7 @@ import java.util.List;
 /**
  * Created by User on 2017/6/28.
  */
-public class TestListUIActivity extends Activity implements ILoadMore, IRefresh {
+public class TestListUIActivity extends BaseActivity implements ILoadMore, IRefresh {
 
     Context mContext;
     Observable mObservable;

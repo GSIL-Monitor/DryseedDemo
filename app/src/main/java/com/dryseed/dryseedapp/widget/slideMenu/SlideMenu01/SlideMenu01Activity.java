@@ -11,9 +11,10 @@ import android.view.View.OnTouchListener;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-public class SlideMenu01Activity extends Activity implements OnTouchListener {
+public class SlideMenu01Activity extends BaseActivity implements OnTouchListener {
 
 	/**
 	 * 滚动显示和隐藏menu时，手指滑动需要达到的速度。

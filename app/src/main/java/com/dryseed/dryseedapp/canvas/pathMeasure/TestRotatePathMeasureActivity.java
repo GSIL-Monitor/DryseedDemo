@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
+import com.dryseed.dryseedapp.BaseActivity;
+
 /**
  * Created by User on 2017/9/17.
  */
-public class TestRotatePathMeasureActivity extends Activity {
+public class TestRotatePathMeasureActivity extends BaseActivity {
     RotatePathMeasureView rotatePathMeasureView;
 
     @Override

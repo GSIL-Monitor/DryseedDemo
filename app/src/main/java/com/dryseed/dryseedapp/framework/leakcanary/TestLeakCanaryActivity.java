@@ -7,12 +7,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 /**
  * Created by caiminming on 2016/11/24.
  */
-public class TestLeakCanaryActivity extends Activity {
+public class TestLeakCanaryActivity extends BaseActivity {
     static Demo sDemo;
 
     @Override

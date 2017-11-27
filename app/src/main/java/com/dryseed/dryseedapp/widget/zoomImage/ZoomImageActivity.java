@@ -8,9 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-public class ZoomImageActivity extends Activity {
+public class ZoomImageActivity extends BaseActivity {
 
     private ViewPager mViewPager;
     private int[] mImgs = new int[]{R.drawable.tbug, R.drawable.mv, R.drawable.xx};

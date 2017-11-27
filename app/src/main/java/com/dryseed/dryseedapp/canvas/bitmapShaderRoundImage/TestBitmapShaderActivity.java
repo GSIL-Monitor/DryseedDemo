@@ -5,9 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-public class TestBitmapShaderActivity extends Activity
+public class TestBitmapShaderActivity extends BaseActivity
 {
 	private RoundImageView mQiQiu;
 	private RoundImageView mMeiNv ; 

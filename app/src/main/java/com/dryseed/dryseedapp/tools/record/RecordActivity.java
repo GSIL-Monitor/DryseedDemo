@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 import java.util.List;
@@ -28,7 +29,7 @@ import butterknife.OnClick;
  * mediaPlayer实现：添加了获取音量
  * stream实现：添加了变速播放
  */
-public class RecordActivity extends Activity {
+public class RecordActivity extends BaseActivity {
 
     @Bind(R.id.record_log_btn)
     TextView mRecordLogBtn;

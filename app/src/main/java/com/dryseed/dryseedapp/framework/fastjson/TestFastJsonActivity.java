@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.framework.fastjson.bean.Person;
 import com.dryseed.dryseedapp.framework.fastjson.model.DataManager;
@@ -24,7 +25,7 @@ import java.util.concurrent.Executors;
 /**
  * Created by caiminming on 2016/11/24.
  */
-public class TestFastJsonActivity extends Activity {
+public class TestFastJsonActivity extends BaseActivity {
     final int CYCLE_COUNT = 100;
     private int mExecuteCount = 1;
 

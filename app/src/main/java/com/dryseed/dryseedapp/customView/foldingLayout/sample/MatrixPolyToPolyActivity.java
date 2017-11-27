@@ -9,9 +9,10 @@ import android.graphics.Matrix;
 import android.os.Bundle;
 import android.view.View;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-public class MatrixPolyToPolyActivity extends Activity {
+public class MatrixPolyToPolyActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -5,10 +5,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 
-public class AlipayConfirmViewActivity extends Activity {
+public class AlipayConfirmViewActivity extends BaseActivity {
 
     private AlipayConfirmView confirmView;
 

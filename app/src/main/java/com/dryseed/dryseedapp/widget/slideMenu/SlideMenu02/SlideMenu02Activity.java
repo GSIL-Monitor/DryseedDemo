@@ -11,9 +11,10 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-public class SlideMenu02Activity extends Activity {
+public class SlideMenu02Activity extends BaseActivity {
 
 	/**
 	 * 侧滑布局对象，用于通过手指滑动将左侧的菜单布局进行显示或隐藏。

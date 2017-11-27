@@ -3,9 +3,10 @@ package com.dryseed.dryseedapp.canvas.bitmapShaderTitanic;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-public class TestBitmapShaderTitanicActivity extends ActionBarActivity {
+public class TestBitmapShaderTitanicActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

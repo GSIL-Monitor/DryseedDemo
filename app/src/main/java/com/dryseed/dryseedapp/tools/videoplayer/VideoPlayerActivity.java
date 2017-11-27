@@ -10,6 +10,7 @@ import android.util.Log;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 import java.io.File;
@@ -20,7 +21,7 @@ import butterknife.ButterKnife;
 /**
  * Created by User on 2017/11/11.
  */
-public class VideoPlayerActivity extends AppCompatActivity {
+public class VideoPlayerActivity extends BaseActivity {
 
     @Bind(R.id.video_view)
     VideoView mVideoView;

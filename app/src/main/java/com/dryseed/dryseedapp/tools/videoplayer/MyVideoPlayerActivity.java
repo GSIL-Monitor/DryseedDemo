@@ -20,6 +20,7 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.utils.DPIUtil;
 
@@ -30,7 +31,7 @@ import butterknife.OnClick;
 /**
  * Created by User on 2017/11/11.
  */
-public class MyVideoPlayerActivity extends AppCompatActivity {
+public class MyVideoPlayerActivity extends BaseActivity {
 
     private static final int UPDATE_TIME = 0;
 

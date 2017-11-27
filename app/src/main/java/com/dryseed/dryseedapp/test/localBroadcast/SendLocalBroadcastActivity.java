@@ -14,6 +14,7 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.widget.Button;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 import butterknife.Bind;
@@ -21,7 +22,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
-public class SendLocalBroadcastActivity extends Activity{
+public class SendLocalBroadcastActivity extends BaseActivity {
 
     @Bind(R.id.broadcast_btn)
     Button btnSend;

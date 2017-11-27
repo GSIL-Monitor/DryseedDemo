@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.widget.viewPager.viewpagerTransformer.transformer.AlphaPageTransformer;
 import com.dryseed.dryseedapp.widget.viewPager.viewpagerTransformer.transformer.NonPageTransformer;
@@ -22,7 +23,7 @@ import com.dryseed.dryseedapp.widget.viewPager.viewpagerTransformer.transformer.
     android:clipChildren="false"  该属性的意思就是在子View进行绘制时不要去裁切它们的显示范围
     viewPager.setPageTransformer
  */
-public class ViewPagerTransformerActivity extends AppCompatActivity
+public class ViewPagerTransformerActivity extends BaseActivity
 {
 
     private ViewPager mViewPager;

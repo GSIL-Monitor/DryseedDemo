@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.customView.comboClickTextView.CountDownTimer;
 import com.dryseed.dryseedapp.test.singleTask.TestBActivity;
@@ -16,7 +17,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
  * Created by caiminming on 2017/5/12.
  */
 
-public class TestParcelableAActivity extends Activity {
+public class TestParcelableAActivity extends BaseActivity {
     public final static String SER_KEY = "com.dryseed.dryseedapp.serkey";
     public final static String PAR_KEY = "com.dryseed.dryseedapp.parkey";
 

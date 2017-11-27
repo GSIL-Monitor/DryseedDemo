@@ -17,12 +17,13 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestTransitionAnimatorActivity extends AppCompatActivity {
+public class TestTransitionAnimatorActivity extends BaseActivity {
 
     private ListView mListView;
     private Adapter mAdapter;

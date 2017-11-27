@@ -7,6 +7,7 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSON;
 import com.android.volley.Request;
 import com.android.volley.VolleyError;
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.framework.fastjson.bean.Person;
 import com.dryseed.dryseedapp.utils.VolleyUtils;
 import com.orhanobut.logger.Logger;
@@ -20,7 +21,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/6/25.
  */
-public class TestVolleyActivity extends Activity {
+public class TestVolleyActivity extends BaseActivity {
     JsonObjectRequest jsonObjectRequest;
 
     @Override

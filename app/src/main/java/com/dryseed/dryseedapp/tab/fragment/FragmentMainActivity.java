@@ -10,12 +10,13 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 /**
  * 评价：每个Fragment中的控件的处理，都是独立到各自的类中，相对来说主Activity简化了不少，可惜没有左右滑动的效果了。
  */
-public class FragmentMainActivity extends Activity implements OnClickListener {
+public class FragmentMainActivity extends BaseActivity implements OnClickListener {
     private MainTab02 mTab02;
     private MainTab01 mTab01;
     private MainTab03 mTab03;

@@ -10,9 +10,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-public class ViewAnimatorActivity extends Activity {
+public class ViewAnimatorActivity extends BaseActivity {
     protected static final String TAG = "ViewAnimateActivity";
 
     private ImageView mBlueBall;

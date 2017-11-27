@@ -5,12 +5,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class TestCustomViewGroup01Activity extends Activity
+public class TestCustomViewGroup01Activity extends BaseActivity
 {
 
     private List<String> mDatas = Arrays.asList("Android", "Java");

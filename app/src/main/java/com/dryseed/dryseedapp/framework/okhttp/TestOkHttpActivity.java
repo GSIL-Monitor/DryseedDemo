@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.MyApplication;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.framework.okhttp.listener.DisposeDataHandle;
@@ -29,7 +30,7 @@ import okhttp3.Response;
 /**
  * Created by User on 2017/11/5.
  */
-public class TestOkHttpActivity extends Activity {
+public class TestOkHttpActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

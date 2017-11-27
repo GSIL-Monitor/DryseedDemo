@@ -14,6 +14,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 import java.io.File;
@@ -25,7 +26,7 @@ import butterknife.OnClick;
 /**
  * Created by User on 2017/7/23.
  */
-public class TestGlideActivity extends Activity {
+public class TestGlideActivity extends BaseActivity {
     @Bind(R.id.glide_image)
     ImageView mImageView;
 

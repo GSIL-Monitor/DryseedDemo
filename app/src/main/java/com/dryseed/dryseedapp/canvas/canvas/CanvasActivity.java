@@ -6,10 +6,11 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 
-public class CanvasActivity extends Activity {
+public class CanvasActivity extends BaseActivity {
 
     private MyCanvasView myCanvasView = null;
 

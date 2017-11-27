@@ -9,13 +9,14 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 /**
  * Created by caiminming on 2017/4/7.
  */
 
-public class DispatchEventDemoActivity3 extends Activity {
+public class DispatchEventDemoActivity3 extends BaseActivity {
 
     private String TAG = "MMM";
 

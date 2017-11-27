@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.utils.DPIUtil;
 import com.dryseed.dryseedapp.widget.stickyRecyclerView.library.PowerfulStickyDecoration;
@@ -28,7 +29,7 @@ import butterknife.ButterKnife;
 /**
  * 自定义View悬浮
  */
-public class PowerfulStickyRecyclerViewActivity extends AppCompatActivity {
+public class PowerfulStickyRecyclerViewActivity extends BaseActivity {
 
     @Bind(R.id.rv)
     RecyclerView mRv;

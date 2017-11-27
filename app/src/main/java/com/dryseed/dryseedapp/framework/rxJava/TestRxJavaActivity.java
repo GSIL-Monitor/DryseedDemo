@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.framework.rxJava.demo.ChapterFour;
 
@@ -17,7 +18,7 @@ import java.util.List;
 /**
  * Created by User on 2017/7/8.
  */
-public class TestRxJavaActivity extends Activity {
+public class TestRxJavaActivity extends BaseActivity {
     private static final String TAG = "MMM";
     private Context mContext;
     private RecyclerView mRecyclerView;
@@ -74,7 +75,7 @@ public class TestRxJavaActivity extends Activity {
        /* ChapterFour.demo1();
         ChapterFour.demo2();
         ChapterFour.demo3();*/
-        //ChapterFour.practice1();
+        ChapterFour.practice1();
 
         //TestRxjava.test();
     }

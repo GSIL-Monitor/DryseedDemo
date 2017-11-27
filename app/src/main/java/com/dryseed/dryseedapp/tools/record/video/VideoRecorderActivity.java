@@ -24,6 +24,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 import java.io.File;
@@ -33,7 +34,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class VideoRecorderActivity extends AppCompatActivity implements SurfaceHolder.Callback {
+public class VideoRecorderActivity extends BaseActivity implements SurfaceHolder.Callback {
     private SurfaceView mSurfaceview;
     private Button mBtnStartStop;
     private Button mBtnPlay;

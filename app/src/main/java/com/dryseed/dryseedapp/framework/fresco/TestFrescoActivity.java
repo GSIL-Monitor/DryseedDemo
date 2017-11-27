@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.facebook.common.executors.CallerThreadExecutor;
 import com.facebook.common.executors.UiThreadImmediateExecutorService;
@@ -33,7 +34,7 @@ import butterknife.OnClick;
 /**
  * Created by caiminming on 2016/11/24.
  */
-public class TestFrescoActivity extends Activity {
+public class TestFrescoActivity extends BaseActivity {
 
 //    static String picUrl = "http://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1503309332&di=ceaee4e6be074d73b731b31a60f7f595&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201603%2F17%2F20160317123417_u5Ewc.jpeg";
     static String picUrl = "http://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1502726140291&di=6c6009eb335bc3b6a2ccab76818899ff&imgtype=0&src=http%3A%2F%2Fwww.gtsw.com.cn%2Fpublic%2Fupload%2Fueditor%2F20161130%2F1480473407618875.gif";

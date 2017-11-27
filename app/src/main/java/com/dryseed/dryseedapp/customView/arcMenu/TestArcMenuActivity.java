@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.customView.bounceScrollView.BounceScrollView;
 import com.dryseed.dryseedapp.customView.bounceScrollView.BounceScrollViewSecondActivity;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 
-public class TestArcMenuActivity extends Activity {
+public class TestArcMenuActivity extends BaseActivity {
 
     private ArcMenu mArcMenuLeftTop;
 

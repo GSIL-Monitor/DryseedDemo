@@ -11,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
  * Android共享元素场景切换动画的实现
  * http://blog.csdn.net/u012199331/article/details/72137112
  */
-public class TestTransitionActivity extends AppCompatActivity {
+public class TestTransitionActivity extends BaseActivity {
 
     private ArrayList<String> list;
 

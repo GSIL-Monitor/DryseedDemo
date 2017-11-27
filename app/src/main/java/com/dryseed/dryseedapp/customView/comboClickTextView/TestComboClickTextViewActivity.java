@@ -8,13 +8,14 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.utils.DPIUtil;
 
 /**
  * Created by User on 2017/4/1.
  */
-public class TestComboClickTextViewActivity extends Activity {
+public class TestComboClickTextViewActivity extends BaseActivity {
     private Button mBtn;
     private ComboClickLayout mComboClickLayout;
     @Override

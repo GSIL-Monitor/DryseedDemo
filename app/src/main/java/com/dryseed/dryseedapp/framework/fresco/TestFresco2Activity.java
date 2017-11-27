@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -20,7 +21,7 @@ import butterknife.OnClick;
 /**
  * Created by caiminming on 2016/11/24.
  */
-public class TestFresco2Activity extends Activity {
+public class TestFresco2Activity extends BaseActivity {
 
     @Bind(R.id.fresco_eg1)
     SimpleDraweeView img1;

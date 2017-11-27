@@ -23,7 +23,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
  * Created by yibin6 on 2016/3/3.
  *//*
 
-public class CropActivity extends Activity{
+public class CropActivity extends BaseActivity{
 
     private SimpleDraweeView scan_exit,iv_crop_src;
     private TextView tv_recapture;

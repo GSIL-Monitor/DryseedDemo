@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.annotation.viewInject.annotation.ContentView;
 import com.dryseed.dryseedapp.annotation.viewInject.annotation.OnClick;
@@ -16,7 +17,7 @@ import com.dryseed.dryseedapp.annotation.viewInject.annotation.ViewInject;
  */
 
 @ContentView(value = R.layout.activity_view_inject_layout)
-public class TestViewInjectActivity extends Activity{
+public class TestViewInjectActivity extends BaseActivity {
     @ViewInject(R.id.id_btn)
     private Button mBtn1;
     @ViewInject(R.id.id_btn02)

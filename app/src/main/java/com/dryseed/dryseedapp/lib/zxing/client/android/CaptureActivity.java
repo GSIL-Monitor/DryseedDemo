@@ -21,6 +21,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.lib.zxing.client.android.camera.CameraManager;
 import com.google.zxing.BarcodeFormat;
@@ -36,7 +37,7 @@ import java.util.Vector;
  * 
  * 
  */
-public class CaptureActivity extends Activity implements Callback {
+public class CaptureActivity extends BaseActivity implements Callback {
 	private static String TAG = "Barcode_CaptureActivity";
 	private static final float BEEP_VOLUME = 0.10f;
 	private static final int LONG_LIMIT = 800;

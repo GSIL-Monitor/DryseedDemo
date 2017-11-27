@@ -5,9 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ViewFlipper;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-public class TestViewFlipperActivity extends AppCompatActivity {
+public class TestViewFlipperActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

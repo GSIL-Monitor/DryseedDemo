@@ -3,6 +3,7 @@ package com.dryseed.dryseedapp.image;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.image.loader.ImageLoader;
 import com.dryseed.dryseedapp.image.utils.MyUtils;
@@ -24,7 +25,7 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
-public class TestImageActivity extends Activity implements OnScrollListener {
+public class TestImageActivity extends BaseActivity implements OnScrollListener {
     private static final String TAG = "TestCanvasActivity";
 
     private List<String> mUrList = new ArrayList<String>();

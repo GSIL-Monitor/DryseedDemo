@@ -7,13 +7,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.WindowManager;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 /**
  * Created by caiminming on 2017/7/26.
  */
 
-public class TestDynamicBlurredViewActivity extends Activity {
+public class TestDynamicBlurredViewActivity extends BaseActivity {
     /**
      * blurredview
      */

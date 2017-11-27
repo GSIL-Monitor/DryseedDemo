@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.dispatchEvent.ui.HorizontalScrollViewEx2;
 import com.dryseed.dryseedapp.dispatchEvent.ui.ListViewEx;
@@ -27,7 +28,7 @@ import com.dryseed.dryseedapp.utils.DPIUtil;
  * 重写父容器的onInterceptTouchEvent方法 -- 详见HorizontalScrollViewEx2
  * 重写子元素的dispatchTouchEvent方法 -- 详见ListViewEx
  */
-public class DispatchEventDemoActivity2 extends Activity {
+public class DispatchEventDemoActivity2 extends BaseActivity {
     private static final String TAG = "DemoActivity_2";
 
     private HorizontalScrollViewEx2 mListContainer;

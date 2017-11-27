@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.utils.DPIUtil;
 import com.dryseed.dryseedapp.widget.stickyRecyclerView.adapter.SimpleAdapter;
@@ -26,7 +27,7 @@ import butterknife.ButterKnife;
 /**
  * 自定义View悬浮
  */
-public class BeautifulRecyclerViewActivity extends AppCompatActivity {
+public class BeautifulRecyclerViewActivity extends BaseActivity {
 
     @Bind(R.id.rv)
     RecyclerView mRv;

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -18,7 +19,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
   startActivityForResult 方式启动 启动模式设为singleTask的activity，则onActivityResult会立即受到一个cancel的result，并且singleTask模式也会失效
   特例：在小米2A手机上，singleTask不会失效
  */
-public class TestAActivity extends Activity {
+public class TestAActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

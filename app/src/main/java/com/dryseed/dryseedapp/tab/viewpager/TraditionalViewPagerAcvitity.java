@@ -15,12 +15,13 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 /**
  * 评价：所有的代码都集中在一个Activity中，显得代码比较乱。
  */
-public class TraditionalViewPagerAcvitity extends Activity {
+public class TraditionalViewPagerAcvitity extends BaseActivity {
 
     /**
      * ViewPager

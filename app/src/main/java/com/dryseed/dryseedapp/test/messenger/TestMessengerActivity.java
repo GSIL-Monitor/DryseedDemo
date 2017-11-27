@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 /**
@@ -25,7 +26,7 @@ import com.dryseed.dryseedapp.R;
  * http://blog.csdn.net/lmj623565791/article/details/47017485
  */
 
-public class TestMessengerActivity extends Activity {
+public class TestMessengerActivity extends BaseActivity {
     private static final String TAG = "MMM";
     private static final int MSG_SUM = 0x110;
 

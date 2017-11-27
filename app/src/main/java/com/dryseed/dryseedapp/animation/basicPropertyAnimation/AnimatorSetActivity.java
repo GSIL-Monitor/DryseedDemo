@@ -8,9 +8,10 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-public class AnimatorSetActivity extends Activity {
+public class AnimatorSetActivity extends BaseActivity {
     private ImageView mBlueBall;
 
     @Override

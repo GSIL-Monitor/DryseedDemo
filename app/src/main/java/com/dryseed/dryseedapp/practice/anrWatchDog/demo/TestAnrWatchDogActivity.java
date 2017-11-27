@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.practice.anrWatchDog.lib.Caton;
 
@@ -17,7 +18,7 @@ import butterknife.OnClick;
  * Created by caiminming on 2017/8/9.
  */
 
-public class TestAnrWatchDogActivity extends Activity {
+public class TestAnrWatchDogActivity extends BaseActivity {
 
     @Bind(R.id.broadcast_btn)
     Button btnSend;

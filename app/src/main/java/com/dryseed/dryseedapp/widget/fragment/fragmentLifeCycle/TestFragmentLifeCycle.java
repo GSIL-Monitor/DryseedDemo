@@ -7,6 +7,7 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.widget.Button;
 
+import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.tab.fragment.MainTab01;
 import com.dryseed.dryseedapp.tab.fragment.MainTab02;
@@ -22,7 +23,7 @@ import butterknife.OnClick;
  * http://blog.csdn.net/htq__/article/details/51210306
  */
 
-public class TestFragmentLifeCycle extends Activity {
+public class TestFragmentLifeCycle extends BaseActivity {
 
     private FragmentManager fragmentManager;
     Fragment fragmentOne;
