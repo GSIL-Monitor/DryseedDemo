@@ -705,6 +705,14 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".tools.sensor.networkstate.NetworkStateActivity"
+            android:label="Tools/Sensor/NetworkState">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".tools.xml.TestXmlPullParserActivity"

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <RelativeLayout
+        android:id="@+id/app_network_model_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="#ee595959" >
+
+        <ImageView
+            android:id="@+id/app_network_model_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="15dp"
+            android:src="@drawable/app_network_icon" />
+
+        <ImageView
+            android:id="@+id/app_network_model_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="15dp"
+            android:src="@drawable/app_network_arrow" />
+
+        <TextView
+            android:id="@+id/app_network_model_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toLeftOf="@id/app_network_model_arrow"
+            android:layout_toRightOf="@id/app_network_model_icon"
+            android:text="@string/off_network"
+            android:textColor="#ffffff" />
+    </RelativeLayout>
+
+</AbsoluteLayout>

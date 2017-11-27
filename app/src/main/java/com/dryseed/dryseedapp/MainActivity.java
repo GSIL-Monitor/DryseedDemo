@@ -17,6 +17,8 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import com.dryseed.dryseedapp.tools.sensor.networkstate.NetworkStateManager;
+import com.dryseed.dryseedapp.utils.NetWorkUtil;
 import com.orhanobut.logger.Logger;
 
 
@@ -53,6 +55,11 @@ public class MainActivity extends ListActivity {
                 android.R.layout.simple_list_item_1, new String[]{"title"},
                 new int[]{android.R.id.text1}));
         getListView().setTextFilterEnabled(true);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     protected List<Map<String, Object>> getData(String prefix) {
@@ -139,4 +146,5 @@ public class MainActivity extends ListActivity {
         Intent intent = (Intent) map.get("intent");
         startActivity(intent);
     }
+
 }
