@@ -30,6 +30,24 @@
         </activity>
 
         <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="${TENCENT_ID_WITH_NAME}" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <activity
             android:name=".framework.volley.TestVolleyActivity"
             android:label="FrameWork/Volley">
             <intent-filter>
@@ -749,6 +767,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".tools.weixinCamera.CameraActivity" />
+
+        <activity
+            android:name=".tools.share.ShareActivity"
+            android:label="Tools/Share">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".lib.zxing.client.android.CaptureActivity"

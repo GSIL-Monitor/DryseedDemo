@@ -22,6 +22,8 @@ android {
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true
         multiDexEnabled true
+        buildConfigField "String", "TENCENT_ID", "\"" + TENCENT_ID + "\""
+        manifestPlaceholders = [TENCENT_ID_WITH_NAME: "tencent" + TENCENT_ID]
     }
 
     signingConfigs {
