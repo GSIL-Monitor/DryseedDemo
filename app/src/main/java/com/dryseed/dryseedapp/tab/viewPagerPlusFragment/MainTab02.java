@@ -8,8 +8,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.dryseed.dryseedapp.R;
+import com.dryseed.dryseedapp.tools.sensor.networkstate.NetworkState2Manager;
 
 public class MainTab02 extends Fragment {
 
@@ -30,7 +32,19 @@ public class MainTab02 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.i(TAG, "MainTab02 onCreateView");
-        return inflater.inflate(R.layout.activity_tab_viewpager_main_tab_02, container, false);
+        final LinearLayout rootView = (LinearLayout) inflater.inflate(R.layout.activity_tab_viewpager_main_tab_02, container, false);
+        /*NetworkState2Manager.getInstance().addObserver(
+                new NetworkState2Manager.OnNetworkStateChangeListener() {
+                    @Override
+                    public void onNetConnected(View view) {
+                        if (null != rootView) {
+                            rootView.addView(view, 0);
+                        }
+                    }
+                },
+                NetworkState2Manager.getInstance().getModel(getActivity())
+        );*/
+        return rootView;
     }
 
     @Override

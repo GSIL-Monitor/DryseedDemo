@@ -24,6 +24,7 @@ import java.util.List;
 /**
  * Created by caiminming on 2017/11/27.
  * <p>
+ * 无网提示全局只有一个
  * 如果要扩展成全局的，则可以放到MainActivity中去监听注册，在BaseActivity中进行ui刷新
  */
 
@@ -40,7 +41,7 @@ public class NetworkStateManager {
     private ViewGroup rootFrameLayout;
     private View model;
     private RelativeLayout layout;
-    private int top = DPIUtil.dip2px(70);
+    private int top = 0;//DPIUtil.dip2px(70);
 
     /**
      * 注册网络监听广播
@@ -142,7 +143,7 @@ public class NetworkStateManager {
         return rootFrameLayout;
     }
 
-    public void setUITop(int top){
+    public void setUITop(int top) {
         this.top = top;
     }
 

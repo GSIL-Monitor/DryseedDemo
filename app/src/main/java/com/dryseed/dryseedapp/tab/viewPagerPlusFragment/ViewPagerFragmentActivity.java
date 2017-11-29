@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -13,17 +14,23 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+import com.android.volley.Network;
 import com.dryseed.dryseedapp.R;
+import com.dryseed.dryseedapp.tools.sensor.networkstate.NetworkState2Manager;
+import com.dryseed.dryseedapp.tools.sensor.networkstate.NetworkState3Manager;
+import com.dryseed.dryseedapp.tools.sensor.networkstate.NetworkStateManager;
+import com.dryseed.dryseedapp.tools.sensor.networkstate.NetworkStateReceiver;
 
 /**
  * 评价：实现效果和第一种效果一模一样，每个Fragment独自处理自己内部的逻辑，代码整洁很多，并且支持左右滑动。感觉是viewpager和fragment的结合版本。
  */
 public class ViewPagerFragmentActivity extends FragmentActivity {
 
+    private NetworkStateReceiver mNetworkStateReceiver = new NetworkStateReceiver();
+
     private ViewPager mViewPager;
     private FragmentPagerAdapter mAdapter;
     private List<Fragment> mFragments = new ArrayList<Fragment>();
-
 
     /**
      * 底部四个按钮
@@ -32,7 +39,6 @@ public class ViewPagerFragmentActivity extends FragmentActivity {
     private LinearLayout mTabBtnFrd;
     private LinearLayout mTabBtnAddress;
     private LinearLayout mTabBtnSettings;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +102,17 @@ public class ViewPagerFragmentActivity extends FragmentActivity {
             }
         });
 
+        //NetworkState2Manager.getInstance().registerReceiver(this);
+        mNetworkStateReceiver.registerReceiver(this);
     }
+
+    @Override
+    protected void onDestroy() {
+        //NetworkState2Manager.getInstance().unRegisterReceiver(this);
+        mNetworkStateReceiver.unRegisterReciver(this);
+        super.onDestroy();
+    }
+
 
     protected void resetTabBtn() {
         ((ImageButton) mTabBtnWeixin.findViewById(R.id.btn_tab_bottom_weixin))
@@ -110,7 +126,6 @@ public class ViewPagerFragmentActivity extends FragmentActivity {
     }
 
     private void initView() {
-
         mTabBtnWeixin = (LinearLayout) findViewById(R.id.id_tab_bottom_weixin);
         mTabBtnFrd = (LinearLayout) findViewById(R.id.id_tab_bottom_friend);
         mTabBtnAddress = (LinearLayout) findViewById(R.id.id_tab_bottom_contact);
@@ -119,7 +134,7 @@ public class ViewPagerFragmentActivity extends FragmentActivity {
         mTabBtnWeixin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(null != mViewPager){
+                if (null != mViewPager) {
                     mViewPager.setCurrentItem(0);
                 }
             }
@@ -127,7 +142,7 @@ public class ViewPagerFragmentActivity extends FragmentActivity {
         mTabBtnFrd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(null != mViewPager){
+                if (null != mViewPager) {
                     mViewPager.setCurrentItem(1);
                 }
             }
@@ -135,7 +150,7 @@ public class ViewPagerFragmentActivity extends FragmentActivity {
         mTabBtnAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(null != mViewPager){
+                if (null != mViewPager) {
                     mViewPager.setCurrentItem(2);
                 }
             }
@@ -143,7 +158,7 @@ public class ViewPagerFragmentActivity extends FragmentActivity {
         mTabBtnSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(null != mViewPager){
+                if (null != mViewPager) {
                     mViewPager.setCurrentItem(3);
                 }
             }
