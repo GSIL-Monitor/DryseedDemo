@@ -1,6 +1,8 @@
 package com.dryseed.dryseedapp;
 
 
+import android.text.TextUtils;
+import android.util.Log;
 import android.util.SparseArray;
 
 import java.util.ArrayList;
@@ -10,6 +12,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Test {
 
@@ -38,6 +42,20 @@ public class Test {
 
         //quickSort();
 
+        getPlaceHolderCount("我正在%1$s房间里玩，快来%2$s一起连麦嗨～");
+
+    }
+
+
+    private static int getPlaceHolderCount(String title) {
+        if (null == title || title.length() > 0) return 0;
+        Pattern p = Pattern.compile("%[0-9]*\\$");
+        Matcher m = p.matcher(title);
+        int count = 0;
+        while (m.find()) {
+            count++;
+        }
+        return count;
     }
 
     private static void quickSort() {
@@ -224,10 +242,11 @@ public class Test {
     }
 
     private static Test mInstance;
-    private static Test getInstance(){
-        if(null == mInstance){
-            synchronized (Test.class){
-                if(null == mInstance){
+
+    private static Test getInstance() {
+        if (null == mInstance) {
+            synchronized (Test.class) {
+                if (null == mInstance) {
                     mInstance = new Test();
                 }
             }

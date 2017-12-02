@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.dryseed.dryseedapp.utils.NetWorkUtil;
 
+import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class NetworkState3Manager {
         return NetworkState3ManagerHolder.instance;
     }
 
-    private List<OnNetworkStateChangeListener> mCallbacks = new ArrayList<>();
+    private List<SoftReference<OnNetworkStateChangeListener>> mCallbacks = new ArrayList<>();
 
     /**
      * 更新无网提示
@@ -47,8 +48,10 @@ public class NetworkState3Manager {
      */
     private void hideUI() {
         Log.d("MMM", "hideUI");
-        for (OnNetworkStateChangeListener callback : mCallbacks) {
-            callback.onNetConnected();
+        for (SoftReference<OnNetworkStateChangeListener> softReference : mCallbacks) {
+            if (null != softReference && null != softReference.get()) {
+                softReference.get().onNetConnected();
+            }
         }
     }
 
@@ -57,14 +60,24 @@ public class NetworkState3Manager {
      */
     private void showUI() {
         Log.d("MMM", "showUI");
-        for (OnNetworkStateChangeListener callback : mCallbacks) {
-            callback.onNetDisconnected();
+        for (SoftReference<OnNetworkStateChangeListener> softReference : mCallbacks) {
+            if (null != softReference && null != softReference.get()) {
+                softReference.get().onNetDisconnected();
+            }
         }
     }
 
     public void addObserver(OnNetworkStateChangeListener onNetworkStateChangeListener) {
-        mCallbacks.add(onNetworkStateChangeListener);
+        if (null != mCallbacks) {
+            mCallbacks.add(new SoftReference<>(onNetworkStateChangeListener));
+        }
         refreshNetworkTipUI();
+    }
+
+    public void removeObservers() {
+        if (null != mCallbacks) {
+            mCallbacks.clear();
+        }
     }
 
     public interface OnNetworkStateChangeListener {

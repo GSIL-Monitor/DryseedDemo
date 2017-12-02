@@ -109,7 +109,7 @@ public class ViewPagerFragmentActivity extends FragmentActivity {
     @Override
     protected void onDestroy() {
         //NetworkState2Manager.getInstance().unRegisterReceiver(this);
-        mNetworkStateReceiver.unRegisterReciver(this);
+        mNetworkStateReceiver.unRegisterReceiver(this);
         super.onDestroy();
     }
 

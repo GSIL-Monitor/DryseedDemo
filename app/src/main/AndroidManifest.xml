@@ -864,6 +864,15 @@
         </activity>
 
         <activity
+            android:name=".test.statusBar.TestStatusBarActivity"
+            android:label="Test/StatusBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".service.intentService.IntentServiceActivity"
             android:label="Service/IntentService">
             <intent-filter>

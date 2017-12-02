@@ -13,3 +13,7 @@
 /.idea/codeStyleSettings.xml
 /gradle.properties
 /.idea
+/freeline_core
+/freeline.py
+/freeline_project_description.json
+/freeline

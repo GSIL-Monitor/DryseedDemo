@@ -35,9 +35,10 @@ public class NetworkStateReceiver extends BroadcastReceiver {
      *
      * @param context
      */
-    public void unRegisterReciver(Context context) {
+    public void unRegisterReceiver(Context context) {
         try {
             context.unregisterReceiver(this);
+            NetworkState3Manager.getInstance().removeObservers();
         } catch (Exception e) {
             e.printStackTrace();
         }
