@@ -1,6 +1,7 @@
 package com.dryseed.dryseedapp.utils;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;

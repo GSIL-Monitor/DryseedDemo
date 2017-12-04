@@ -1,0 +1,6 @@
+<resources>
+
+    <style name="StatusBarTranslucentTheme" parent="AppTheme">
+        <item name="android:statusBarColor">#e2c500</item>
+    </style>
+</resources>

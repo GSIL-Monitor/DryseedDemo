@@ -15,6 +15,10 @@
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
+    <style name="StatusBarTranslucentTheme" parent="AppTheme">
+        <!--在Android 4.4之前的版本上运行，直接跟随系统主题-->
+    </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.Launcher" parent="ThemeOverlay.AppCompat.Dark.ActionBar">

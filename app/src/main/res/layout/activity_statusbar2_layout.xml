@@ -3,11 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dryseed.dryseedapp.test.statusBar.TestStatusBarActivity">
+    tools:context="com.dryseed.dryseedapp.test.statusBar.TestStatusBar2Activity">
 
-    <ImageView
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:src="@drawable/bg" />
+        android:layout_height="44dp"
+        android:background="#e2c500"
+        android:text="dryseedcai" />
+
 </RelativeLayout>
