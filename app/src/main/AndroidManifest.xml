@@ -112,6 +112,31 @@
         </activity>
 
         <activity
+            android:name=".framework.retrofit.demo1.TestRetrofitActivity"
+            android:label="FrameWork/Retrofit/demo1">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".framework.retrofit.demo2.NewsActivity"
+            android:label="FrameWork/Retrofit/demo2">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".framework.retrofit.demo3.NewsActivity"
+            android:label="FrameWork/Retrofit/demo3">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".framework.glide.TestGlideActivity"
             android:label="FrameWork/Glide">
             <intent-filter>
@@ -874,7 +899,7 @@
         <activity
             android:name=".test.statusBar.TestStatusBar2Activity"
             android:label="Test/StatusBar实战"
-            android:theme="@style/StatusBarTranslucentTheme" >
+            android:theme="@style/StatusBarTranslucentTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
