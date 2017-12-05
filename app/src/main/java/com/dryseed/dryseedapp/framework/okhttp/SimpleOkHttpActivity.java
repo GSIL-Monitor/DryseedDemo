@@ -39,8 +39,13 @@ public class SimpleOkHttpActivity extends BaseActivity {
         Call call = okHttpClient.newCall(request);
         call.enqueue(new Callback() {
             @Override
-            public void onFailure(Call call, IOException e) {
-
+            public void onFailure(Call call, final IOException e) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(SimpleOkHttpActivity.this, "onFailure : " + e.toString(), Toast.LENGTH_LONG).show();
+                    }
+                });
             }
 
             @Override
@@ -49,7 +54,7 @@ public class SimpleOkHttpActivity extends BaseActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(SimpleOkHttpActivity.this, res, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SimpleOkHttpActivity.this, res, Toast.LENGTH_LONG).show();
                     }
                 });
             }

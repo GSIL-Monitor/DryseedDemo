@@ -41,6 +41,13 @@ public class TestOkHttpActivity extends BaseActivity {
 
     @OnClick(R.id.simple_okhttp_get_request_btn)
     void onClickGetRequest() {
+        /*
+            需要在okhttpclient中设置信任https证书，才能正常访问，否则会抛出异常javax.net.ssl.SSLHandshakeException
+            .sslSocketFactory(createSSLSocketFactory()) //信任所有证书
+            .hostnameVerifier(new TrustAllHostnameVerifier()); //不匹配https网站hostname
+         */
+        //Request request = CommonRequest.createGetRequest("https://kyfw.12306.cn/otn/", new RequestParams()); //带有https证书
+        
         Request request = CommonRequest.createGetRequest("http://httpbin.org/get", new RequestParams());
         CommonOkHttpClient.get(request, new DisposeDataHandle(new DisposeDataListener() {
             @Override

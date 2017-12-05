@@ -10,17 +10,27 @@ import com.dryseed.dryseedapp.framework.okhttp.response.CommonFileCallback;
 import com.dryseed.dryseedapp.framework.okhttp.response.CommonJsonCallback;
 import com.dryseed.dryseedapp.framework.okhttp.ssl.HttpsUtils;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.CookieManager;
 import java.net.CookiePolicy;
+import java.security.SecureRandom;
+import java.security.cert.CertificateException;
 import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
+import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 
 import okhttp3.Call;
+import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.logging.HttpLoggingInterceptor;
 
 /**
  * @author vision
@@ -40,15 +50,29 @@ public class CommonOkHttpClient {
             }
         });
 
-        okHttpClientBuilder.cookieJar(new SimpleCookieJar());
-        okHttpClientBuilder.connectTimeout(TIME_OUT, TimeUnit.SECONDS);
-        okHttpClientBuilder.readTimeout(TIME_OUT, TimeUnit.SECONDS);
-        okHttpClientBuilder.writeTimeout(TIME_OUT, TimeUnit.SECONDS);
-        okHttpClientBuilder.followRedirects(true);
-        /**
-         * trust all the https point
-         */
-        //okHttpClientBuilder.sslSocketFactory(HttpsUtils.getSslSocketFactory());
+        okHttpClientBuilder
+                .cookieJar(new SimpleCookieJar())
+                .connectTimeout(TIME_OUT, TimeUnit.SECONDS)
+                .readTimeout(TIME_OUT, TimeUnit.SECONDS)
+                .writeTimeout(TIME_OUT, TimeUnit.SECONDS)
+                .followRedirects(true)
+                .addNetworkInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.HEADERS)) //开启请求头
+                .addNetworkInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)) //开启body日志
+                .addNetworkInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC)) //基础日志输出
+                .addInterceptor(new Interceptor() { //增加通用头部信息
+                    @Override
+                    public Response intercept(Chain chain) throws IOException {
+                        Request request = chain.request()
+                                .newBuilder()
+                                .addHeader("userId", "dryseedcai")
+                                .build();
+                        return chain.proceed(request);
+                    }
+                })
+                .sslSocketFactory(createSSLSocketFactory()) //信任所有证书
+                //.sslSocketFactory(HttpsUtils.getSslSocketFactory())
+                .hostnameVerifier(new TrustAllHostnameVerifier()); //不匹配https网站hostname
+
         mOkHttpClient = okHttpClientBuilder.build();
     }
 
@@ -90,5 +114,41 @@ public class CommonOkHttpClient {
         Call call = mOkHttpClient.newCall(request);
         call.enqueue(new CommonFileCallback(handle));
         return call;
+    }
+
+    private static SSLSocketFactory createSSLSocketFactory() {
+        SSLSocketFactory sSLSocketFactory = null;
+        try {
+            SSLContext sc = SSLContext.getInstance("TLS");
+            sc.init(null, new TrustManager[]{new TrustAllManager()},
+                    new SecureRandom());
+            sSLSocketFactory = sc.getSocketFactory();
+        } catch (Exception e) {
+        }
+        return sSLSocketFactory;
+    }
+
+    private static class TrustAllManager implements X509TrustManager {
+        @Override
+        public void checkClientTrusted(java.security.cert.X509Certificate[] chain, String authType) throws CertificateException {
+
+        }
+
+        @Override
+        public void checkServerTrusted(java.security.cert.X509Certificate[] chain, String authType) throws CertificateException {
+
+        }
+
+        @Override
+        public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+            return new java.security.cert.X509Certificate[0];
+        }
+    }
+
+    private static class TrustAllHostnameVerifier implements HostnameVerifier {
+        @Override
+        public boolean verify(String hostname, SSLSession session) {
+            return true;
+        }
     }
 }
