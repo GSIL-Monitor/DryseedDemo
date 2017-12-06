@@ -112,6 +112,16 @@
         </activity>
 
         <activity
+            android:name=".framework.rxBus.TestRxBusActivity"
+            android:label="FrameWork/RxBus">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".framework.rxBus.RxBusPostEventActivity" />
+
+        <activity
             android:name=".framework.retrofit.demo1.TestRetrofitActivity"
             android:label="FrameWork/Retrofit/demo1">
             <intent-filter>
@@ -1009,6 +1019,43 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".plugin.hook.PluginHookActivity"
+            android:label="Plugin/Hook">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".plugin.binderHook.PluginBinderHookActivity"
+            android:label="Plugin/BinderHook">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".plugin.amsPmsHook.PluginAmsPmsHookActivity"
+            android:label="Plugin/AmsPmsHook">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".plugin.interceptActivity.PluginInterceptActivity"
+            android:label="Plugin/InterceptActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".plugin.interceptActivity.StubActivity" />
 
         <activity
             android:name=".widget.blurredView.TestBlurredViewActivity"

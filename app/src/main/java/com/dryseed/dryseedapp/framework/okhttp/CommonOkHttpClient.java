@@ -10,6 +10,7 @@ import com.dryseed.dryseedapp.framework.okhttp.response.CommonFileCallback;
 import com.dryseed.dryseedapp.framework.okhttp.response.CommonJsonCallback;
 import com.dryseed.dryseedapp.framework.okhttp.ssl.HttpsUtils;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.CookieManager;
@@ -25,6 +26,7 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
+import okhttp3.Cache;
 import okhttp3.Call;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -50,6 +52,11 @@ public class CommonOkHttpClient {
             }
         });
 
+        // okhttp只会对get请求进行缓存，post请求是不会进行缓存，这也是有道理的，
+        // 因为get请求的数据一般是比较持久的，而post一般是交互操作，没太大意义进行缓存。
+        File cacheFile = new File(MyApplication.getInstance().getCacheDir(), "cache");
+        Cache cache = new Cache(cacheFile, 1024 * 1024 * 50); //50Mb
+
         okHttpClientBuilder
                 .cookieJar(new SimpleCookieJar())
                 .connectTimeout(TIME_OUT, TimeUnit.SECONDS)
@@ -71,7 +78,8 @@ public class CommonOkHttpClient {
                 })
                 .sslSocketFactory(createSSLSocketFactory()) //信任所有证书
                 //.sslSocketFactory(HttpsUtils.getSslSocketFactory())
-                .hostnameVerifier(new TrustAllHostnameVerifier()); //不匹配https网站hostname
+                .hostnameVerifier(new TrustAllHostnameVerifier()) //不匹配https网站hostname
+                .cache(cache); //设置缓存
 
         mOkHttpClient = okHttpClientBuilder.build();
     }

@@ -1,8 +1,6 @@
 package com.dryseed.dryseedapp.framework.okhttp;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.dryseed.dryseedapp.BaseActivity;
@@ -16,16 +14,10 @@ import com.dryseed.dryseedapp.framework.okhttp.request.RequestParams;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.FormBody;
-import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.Response;
 
 /**
  * Created by User on 2017/11/5.
@@ -47,7 +39,7 @@ public class TestOkHttpActivity extends BaseActivity {
             .hostnameVerifier(new TrustAllHostnameVerifier()); //不匹配https网站hostname
          */
         //Request request = CommonRequest.createGetRequest("https://kyfw.12306.cn/otn/", new RequestParams()); //带有https证书
-        
+
         Request request = CommonRequest.createGetRequest("http://httpbin.org/get", new RequestParams());
         CommonOkHttpClient.get(request, new DisposeDataHandle(new DisposeDataListener() {
             @Override

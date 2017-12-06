@@ -41,8 +41,11 @@ public class LogHandler implements InvocationHandler {
         //第二个参数要实现和目标对象一样的接口，所以只需要拿到目标对象的实现接口
         //第三个参数表明这些被拦截的方法在被拦截时需要执行哪个InvocationHandler的invoke方法
         //根据传入的目标返回一个代理对象
-        return Proxy.newProxyInstance(targetObject.getClass().getClassLoader(),
-                targetObject.getClass().getInterfaces(), this);
+        return Proxy.newProxyInstance(
+                targetObject.getClass().getClassLoader(),
+                targetObject.getClass().getInterfaces(),
+                this
+        );
     }
 
     //关联的这个实现类的方法被调用时将被执行

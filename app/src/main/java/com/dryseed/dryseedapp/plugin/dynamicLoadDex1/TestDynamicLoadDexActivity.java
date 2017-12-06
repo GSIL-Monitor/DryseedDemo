@@ -80,7 +80,7 @@ public class TestDynamicLoadDexActivity extends BaseActivity {
                 DexClassLoader classLoader = new DexClassLoader(path, optimizedDirectoryFile.getAbsolutePath(), null, getClassLoader());
 
                 /*
-                    public class MainActivity extends AppCompatActivity {
+                    public class PluginClassloaderHookActivity extends AppCompatActivity {
                         @Override
                         protected void onCreate(Bundle savedInstanceState) {
                             super.onCreate(savedInstanceState);
@@ -88,7 +88,7 @@ public class TestDynamicLoadDexActivity extends BaseActivity {
                             findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    biu(MainActivity.this,"Click Button");
+                                    biu(PluginClassloaderHookActivity.this,"Click Button");
                                 }
                             });
                         }
@@ -100,7 +100,7 @@ public class TestDynamicLoadDexActivity extends BaseActivity {
                  */
 
                 // 通过反射机制调用
-                Class mLoadClass = classLoader.loadClass("plugin.dryseed.plugin.MainActivity");
+                Class mLoadClass = classLoader.loadClass("plugin.dryseed.plugin.PluginClassloaderHookActivity");
                 Constructor constructor = mLoadClass.getConstructor(new Class[]{});
                 Object mainActivity = constructor.newInstance(new Object[]{});
 

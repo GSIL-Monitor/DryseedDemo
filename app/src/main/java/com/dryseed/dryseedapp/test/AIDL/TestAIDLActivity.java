@@ -23,7 +23,7 @@ import com.dryseed.dryseedapp.R;
  */
 
 public class TestAIDLActivity extends BaseActivity {
-    private final static String TAG = "MainActivity";
+    private final static String TAG = "PluginClassloaderHookActivity";
     private IRemoteService remoteService;
 
     @Override
