@@ -12,11 +12,15 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
+import com.dryseed.dryseedapp.canvas.canvas.CanvasActivity;
+import com.dryseed.dryseedapp.canvas.canvas.TestCanvasActivity;
 import com.dryseed.dryseedapp.tools.sensor.networkstate.NetworkStateManager;
 import com.dryseed.dryseedapp.utils.NetWorkUtil;
 import com.orhanobut.logger.Logger;
@@ -55,6 +59,17 @@ public class MainActivity extends ListActivity {
                 android.R.layout.simple_list_item_1, new String[]{"title"},
                 new int[]{android.R.id.text1}));
         getListView().setTextFilterEnabled(true);
+
+        //scheme : 在Test/WebView中打开html
+        String scheme = intent.getScheme();//获得Scheme名称
+        if ("dryseed".equals(scheme)) {
+            Toast.makeText(this, "scheme", Toast.LENGTH_SHORT).show();
+            Uri uri = intent.getData();
+            String name = uri.getQueryParameter("name");
+            if (name.equals("canvas")) {
+                startActivity(new Intent(this, TestCanvasActivity.class));
+            }
+        }
     }
 
     @Override
