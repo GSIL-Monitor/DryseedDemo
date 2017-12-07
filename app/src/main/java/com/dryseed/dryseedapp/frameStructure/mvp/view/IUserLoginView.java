@@ -1,9 +1,10 @@
 package com.dryseed.dryseedapp.frameStructure.mvp.view;
 
 
+import com.dryseed.dryseedapp.frameStructure.mvp.IBaseUI;
 import com.dryseed.dryseedapp.frameStructure.mvp.bean.User;
 
-public interface IUserLoginView {
+public interface IUserLoginView extends IBaseUI {
     String getUserName();
 
     String getPassword();

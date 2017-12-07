@@ -1,28 +1,24 @@
 package com.dryseed.dryseedapp.frameStructure.mvp;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.frameStructure.mvp.bean.User;
 import com.dryseed.dryseedapp.frameStructure.mvp.presenter.UserLoginPresenter;
 import com.dryseed.dryseedapp.frameStructure.mvp.view.IUserLoginView;
 
 
-public class UserLoginActivity extends BaseActivity implements IUserLoginView {
+public class UserLoginActivity extends MvpBaseActivity<UserLoginPresenter> implements IUserLoginView {
 
 
     private EditText mEtUsername, mEtPassword;
     private Button mBtnLogin, mBtnClear;
     private ProgressBar mPbLoading;
-
-    private UserLoginPresenter mUserLoginPresenter = new UserLoginPresenter(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +26,11 @@ public class UserLoginActivity extends BaseActivity implements IUserLoginView {
         setContentView(R.layout.activity_user_login);
 
         initViews();
+    }
+
+    @Override
+    protected UserLoginPresenter createPresenter() {
+        return new UserLoginPresenter();
     }
 
     private void initViews() {
@@ -44,14 +45,14 @@ public class UserLoginActivity extends BaseActivity implements IUserLoginView {
         mBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mUserLoginPresenter.login();
+                getPresenter().login();
             }
         });
 
         mBtnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mUserLoginPresenter.clear();
+                getPresenter().clear();
             }
         });
     }

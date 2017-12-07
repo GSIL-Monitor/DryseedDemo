@@ -14,6 +14,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -43,6 +44,8 @@ public class MainActivity extends ListActivity {
 
         super.onCreate(savedInstanceState);
 
+        Log.d("MMM", "MainActivity onCreate");
+
         Logger.init().setMethodCount(0).hideThreadInfo();
 
         //test
@@ -66,6 +69,12 @@ public class MainActivity extends ListActivity {
             Toast.makeText(this, "scheme", Toast.LENGTH_SHORT).show();
             Uri uri = intent.getData();
             String name = uri.getQueryParameter("name");
+            Log.d("MMM", "scheme: " + uri.getScheme());
+            Log.d("MMM", "host: " + uri.getHost());
+            Log.d("MMM", "port: " + uri.getPort());
+            Log.d("MMM", "path: " + uri.getPath());
+            Log.d("MMM", "queryString: " + uri.getQuery());
+            Log.d("MMM", "queryParameter - name: " + uri.getQueryParameter("name"));
             if (name.equals("canvas")) {
                 startActivity(new Intent(this, TestCanvasActivity.class));
             }
