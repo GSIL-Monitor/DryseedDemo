@@ -42,6 +42,7 @@ public abstract class MvpBaseActivity<P extends BasePresenter> extends BaseActiv
         super.onDestroy();
         if (mPresenter != null) {
             mPresenter.detachUI(this);
+            mPresenter.unSubscribe(); //集成RxJava2，停止管道
         }
     }
 }

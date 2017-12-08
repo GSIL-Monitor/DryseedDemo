@@ -4,9 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.dryseed.dryseedapp.frameStructure.mvp.BasePresenter;
-import com.dryseed.dryseedapp.frameStructure.mvp.IBaseUI;
-
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 

@@ -153,6 +153,14 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".framework.retrofit.mvpDemo.NewsMvpActivity"
+            android:label="FrameWork/Retrofit/mvpDemo">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".framework.glide.TestGlideActivity"
