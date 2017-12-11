@@ -1,13 +1,5 @@
 package com.dryseed.dryseedapp;
 
-import java.text.Collator;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import android.app.ListActivity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -20,11 +12,17 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
-import com.dryseed.dryseedapp.canvas.canvas.CanvasActivity;
 import com.dryseed.dryseedapp.canvas.canvas.TestCanvasActivity;
-import com.dryseed.dryseedapp.tools.sensor.networkstate.NetworkStateManager;
-import com.dryseed.dryseedapp.utils.NetWorkUtil;
+import com.dryseed.dryseedapp.widget.floatView.FloatViewManager;
 import com.orhanobut.logger.Logger;
+
+import java.text.Collator;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class MainActivity extends ListActivity {
@@ -171,4 +169,25 @@ public class MainActivity extends ListActivity {
         startActivity(intent);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // 全局悬浮窗，在FloatViewActivity开启
+        if (showFloatView()) {
+            FloatViewManager.getInstance().showFloatView(this);
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // 全局悬浮窗，在FloatViewActivity开启
+        if (showFloatView()) {
+            FloatViewManager.getInstance().hideFloatView();
+        }
+    }
+
+    protected boolean showFloatView() {
+        return true;
+    }
 }

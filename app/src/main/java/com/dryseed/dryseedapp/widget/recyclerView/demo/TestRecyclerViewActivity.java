@@ -1,27 +1,20 @@
 package com.dryseed.dryseedapp.widget.recyclerView.demo;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo.Category;
 import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo.Post;
-import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo.PostList;
-import com.dryseed.dryseedapp.widget.recyclerView.adapter.CommonAdapter;
-import com.dryseed.dryseedapp.widget.recyclerView.base.ViewHolder;
 import com.dryseed.dryseedapp.widget.recyclerView.wrapper.HeaderAndFooterWrapper;
 import com.dryseed.dryseedapp.widget.recyclerView.wrapper.LoadMoreWrapper;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
@@ -29,8 +22,6 @@ import com.handmark.pulltorefresh.library.PullToRefreshRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.http.POST;
 
 /**
  * Created by caiminming on 2017/4/7.
@@ -98,7 +89,7 @@ public class TestRecyclerViewActivity extends BaseActivity {
                 holder.setText(R.id.id_num, s + " : " + holder.getAdapterPosition() + " , " + holder.getLayoutPosition());
             }
         };*/
-        MultiRecyclerAdapter mAdapter = new MultiRecyclerAdapter(this, mDatas);
+        BiliMultiRecyclerAdapter mAdapter = new BiliMultiRecyclerAdapter(this, mDatas);
 
         // header and footer
         mHeaderAndFooterWrapper = new HeaderAndFooterWrapper(mAdapter);

@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.dryseed.dryseedapp.widget.floatView.FloatViewManager;
+
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
@@ -38,5 +40,27 @@ public class BaseActivity extends AppCompatActivity {
         if (mCompositeDisposable != null) {
             mCompositeDisposable.add(disposable);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (showFloatView()) {
+            // 全局悬浮窗，在FloatViewActivity开启
+            FloatViewManager.getInstance().showFloatView(this);
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (showFloatView()) {
+            // 全局悬浮窗，在FloatViewActivity开启
+            FloatViewManager.getInstance().hideFloatView();
+        }
+    }
+
+    protected boolean showFloatView() {
+        return true;
     }
 }

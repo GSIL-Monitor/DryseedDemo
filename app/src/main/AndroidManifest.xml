@@ -581,6 +581,14 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".widget.floatView.FloatViewActivity"
+            android:label="Widget/FloatView">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".customView.foldingLayout.sample.TestFoldingLayoutActivity"
@@ -925,6 +933,15 @@
         <activity
             android:name=".test.statusBar.TestStatusBar2Activity"
             android:label="Test/StatusBar实战"
+            android:theme="@style/StatusBarTranslucentTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".test.statusBar.TestStatusBar3Activity"
+            android:label="Test/StatusBar实战2"
             android:theme="@style/StatusBarTranslucentTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

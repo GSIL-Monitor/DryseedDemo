@@ -13,4 +13,5 @@
     <item name="return_scan_result" type="id" />
     <!--mutitype adapter need-->
     <item name="tag_mutitypeadapter_default" type="id" />
+    <item type="id" name="floatview" />
 </resources>

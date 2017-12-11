@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- 默认状态栏背景色 -->
+    <attr name="defaultStatusBarColor" format="color" />
+
     <!-- 自定义日间夜间背景色 -->
     <attr name="clockBackground" format="color" />
     <attr name="clockTextColor" format="color" />
