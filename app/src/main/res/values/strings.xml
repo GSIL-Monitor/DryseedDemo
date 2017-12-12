@@ -12,7 +12,7 @@
         <item>RotateDown and Alpha And ScaleIn</item>
     </string-array>
 
-        <string name="contenttv">
+    <string name="contenttv">
         \r\n\r\n梦游天姥吟留别 / 别东鲁诸公\r\n
 \r\n
         \r\n\r\n\r\n\r\n\r\n\r\n
@@ -57,4 +57,9 @@
     <string name="sam_card_text">对准会员卡反面条码区域，即可扫描</string>
     <string name="off_network">网络请求失败，请检查您的网络设置</string>
     <string name="shared_failed">分享失败</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="close">关闭</string>
+    <string name="error_title">提示</string>
+
 </resources>

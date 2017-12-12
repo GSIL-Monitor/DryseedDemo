@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
@@ -13,6 +14,7 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.dryseed.dryseedapp.canvas.canvas.TestCanvasActivity;
+import com.dryseed.dryseedapp.utils.ToastUtil;
 import com.dryseed.dryseedapp.widget.floatView.FloatViewManager;
 import com.orhanobut.logger.Logger;
 
@@ -43,6 +45,13 @@ public class MainActivity extends ListActivity {
         super.onCreate(savedInstanceState);
 
         Log.d("MMM", "MainActivity onCreate");
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                ToastUtil.cancelToast();
+            }
+        }, 1000);
 
         Logger.init().setMethodCount(0).hideThreadInfo();
 

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:minWidth="280dp"
+    android:orientation="vertical"
+    android:padding="32dp">
+
+    <LinearLayout
+        android:id="@+id/material_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/contentView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#CFCFCF"
+                android:textSize="20sp"
+                tools:text="Material title" />
+
+            <ScrollView
+                android:id="@+id/message_content_root"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                tools:layout_height="700dp">
+
+                <LinearLayout
+                    android:id="@+id/message_content_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/message"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingExtra="8dp"
+                        android:textColor="#A6A4A5"
+                        android:textSize="16sp"
+                        tools:text="message" />
+                </LinearLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/buttonLayout"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_gravity="right"
+            android:gravity="right|center_vertical"
+            android:paddingBottom="8dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="8dp"
+            android:paddingTop="8dp">
+
+            <Button
+                android:id="@+id/btn_n"
+                style="@style/Dialog_Button"
+                android:gravity="center"
+                android:stateListAnimator="@null"
+                android:textColor="@drawable/app_dialog_cancel_button_selector"
+                tools:text="CANCEL" />
+
+            <Button
+                android:id="@+id/btn_p"
+                style="@style/Dialog_Button"
+                android:layout_marginLeft="8dp"
+                android:gravity="center"
+                android:stateListAnimator="@null"
+                android:textColor="@drawable/app_dialog_confirm_button_selector"
+                tools:text="OK" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

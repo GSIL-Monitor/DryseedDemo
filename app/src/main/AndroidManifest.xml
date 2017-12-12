@@ -1034,10 +1034,27 @@
             </intent-filter>
         </activity>
 
-
         <activity
             android:name=".widget.fragment.fragmentLifeCycle.TestFragmentLifeCycle"
             android:label="Widget/FragmentLifeCycle">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".widget.toast.TestToastActivity"
+            android:label="Widget/Toast">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".widget.dialog.TestDialogActivity"
+            android:label="Widget/Dialog">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
