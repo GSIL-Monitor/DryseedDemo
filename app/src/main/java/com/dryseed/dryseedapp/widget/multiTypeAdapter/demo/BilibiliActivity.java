@@ -16,19 +16,16 @@
 
 package com.dryseed.dryseedapp.widget.multiTypeAdapter.demo;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.VisibleForTesting;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.GridLayoutManager.SpanSizeLookup;
 import android.support.v7.widget.RecyclerView;
-import android.view.Menu;
-import android.view.MenuInflater;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.utils.DPIUtil;
-import com.dryseed.dryseedapp.widget.multiTypeAdapter.lib.MultiTypeAdapter;
+import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo.lib.MultiTypeAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

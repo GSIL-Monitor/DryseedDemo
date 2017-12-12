@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.dryseed.dryseedapp.widget.multiTypeAdapter.lib.MultiTypeAdapter;
+import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo.lib.MultiTypeAdapter;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 
 import java.util.List;

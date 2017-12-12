@@ -24,7 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.widget.multiTypeAdapter.lib.ItemViewBinder;
+import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo.lib.ItemViewBinder;
 
 import java.util.List;
 

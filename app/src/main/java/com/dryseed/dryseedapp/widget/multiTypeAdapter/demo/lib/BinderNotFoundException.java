@@ -14,26 +14,17 @@
  * limitations under the License.
  */
 
-package com.dryseed.dryseedapp.widget.multiTypeAdapter.lib;
+package com.dryseed.dryseedapp.widget.multiTypeAdapter.demo.lib;
 
-import android.support.annotation.CheckResult;
 import android.support.annotation.NonNull;
 
 /**
- * Process and flow operators for one-to-many.
- *
  * @author drakeet
  */
-public interface OneToManyFlow<T> {
+class BinderNotFoundException extends RuntimeException {
 
-    /**
-     * Sets some item view binders to the item type.
-     *
-     * @param binders the item view binders
-     * @return end flow operator
-     */
-    @NonNull
-    @CheckResult
-    @SuppressWarnings("unchecked")
-    OneToManyEndpoint<T> to(@NonNull ItemViewBinder<T, ?>... binders);
+    BinderNotFoundException(@NonNull Class<?> clazz) {
+        super("Do you have registered the binder for {className}.class in the adapter/pool?"
+            .replace("{className}", clazz.getSimpleName()));
+    }
 }

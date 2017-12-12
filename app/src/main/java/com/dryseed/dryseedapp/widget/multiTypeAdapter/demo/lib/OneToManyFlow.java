@@ -14,30 +14,26 @@
  * limitations under the License.
  */
 
-package com.dryseed.dryseedapp.widget.multiTypeAdapter.lib;
+package com.dryseed.dryseedapp.widget.multiTypeAdapter.demo.lib;
 
+import android.support.annotation.CheckResult;
 import android.support.annotation.NonNull;
 
 /**
- * End-operators for one-to-many.
+ * Process and flow operators for one-to-many.
  *
  * @author drakeet
  */
-public interface OneToManyEndpoint<T> {
+public interface OneToManyFlow<T> {
 
     /**
-     * Sets a linker to link the items and binders by array index.
+     * Sets some item view binders to the item type.
      *
-     * @param linker the row linker
-     * @see Linker
+     * @param binders the item view binders
+     * @return end flow operator
      */
-    void withLinker(@NonNull Linker<T> linker);
-
-    /**
-     * Sets a class linker to link the items and binders by the class instance of binders.
-     *
-     * @param classLinker the class linker
-     * @see ClassLinker
-     */
-    void withClassLinker(@NonNull ClassLinker<T> classLinker);
+    @NonNull
+    @CheckResult
+    @SuppressWarnings("unchecked")
+    OneToManyEndpoint<T> to(@NonNull ItemViewBinder<T, ?>... binders);
 }

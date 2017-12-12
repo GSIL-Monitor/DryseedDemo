@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.dryseed.dryseedapp.widget.multiTypeAdapter.lib;
+package com.dryseed.dryseedapp.widget.multiTypeAdapter.demo.lib;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;

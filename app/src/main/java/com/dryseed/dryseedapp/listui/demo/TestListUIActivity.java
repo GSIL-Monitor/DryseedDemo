@@ -1,16 +1,12 @@
 package com.dryseed.dryseedapp.listui.demo;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
@@ -24,9 +20,8 @@ import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo.HorizontalPostsViewBi
 import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo.Post;
 import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo.PostList;
 import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo.PostViewBinder;
-import com.dryseed.dryseedapp.widget.multiTypeAdapter.lib.MultiTypeAdapter;
+import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo.lib.MultiTypeAdapter;
 
-import java.security.AccessControlContext;
 import java.util.ArrayList;
 import java.util.List;
 

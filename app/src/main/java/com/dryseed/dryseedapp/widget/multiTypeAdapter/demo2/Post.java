@@ -14,24 +14,24 @@
  * limitations under the License.
  */
 
-package com.dryseed.dryseedapp.widget.multiTypeAdapter.lib;
+package com.dryseed.dryseedapp.widget.multiTypeAdapter.demo2;
 
 import android.support.annotation.NonNull;
 
+import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo.Bean;
+
 /**
- * An interface to link the items and binders by the classes of binders.
- *
  * @author drakeet
  */
-public interface ClassLinker<T> {
+public class Post extends Bean {
 
-    /**
-     * Returns the class of your registered binders for your item.
-     *
-     * @param t Your item data
-     * @return The index of your registered binders
-     * @see OneToManyEndpoint#withClassLinker(ClassLinker)
-     */
-    @NonNull
-    Class<? extends ItemViewBinder<T, ?>> index(@NonNull T t);
+    public int coverResId;
+    public @NonNull
+    String title;
+
+
+    public Post(int coverResId, @NonNull final String title) {
+        this.coverResId = coverResId;
+        this.title = title;
+    }
 }

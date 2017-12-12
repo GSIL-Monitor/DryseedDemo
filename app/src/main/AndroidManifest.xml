@@ -984,6 +984,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".widget.multiTypeAdapter.demo2.BiliBiliActivity"
+            android:label="Widget/MultiTypeAdapterDemo2">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".widget.pullToRefresh.TestPullToRefreshRecyclerViewActivity"
             android:label="Widget/PullToRefresh">
             <intent-filter>
