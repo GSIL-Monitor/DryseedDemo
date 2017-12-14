@@ -199,6 +199,15 @@
         </activity>
 
         <activity
+            android:name=".framework.x5.X5WebViewActivity"
+            android:label="FrameWork/X5">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".customView.customView01.TestCustomView01Activity"
             android:label="CustomView/CustomView01">
             <intent-filter>
@@ -887,7 +896,17 @@
 
         <activity
             android:name=".test.webView.TestWebViewActivity"
-            android:label="Test/WebView">
+            android:label="Test/WebView/SimpleWebView">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".test.webView.capture.CaptureWebViewActivity"
+            android:hardwareAccelerated="false"
+            android:label="Test/WebView/CaptureWebView">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
