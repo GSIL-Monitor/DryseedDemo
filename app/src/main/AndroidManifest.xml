@@ -902,6 +902,14 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".test.webView.html5.TestHtml5Activity"
+            android:label="Test/WebView/Html5">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".test.webView.capture.CaptureWebViewActivity"
