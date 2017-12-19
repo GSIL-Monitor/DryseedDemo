@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.dryseed.dryseedapp.R;
 
@@ -30,7 +32,10 @@ public class MainTab01 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.i(TAG, "MainTab01 onCreateView");
-        return inflater.inflate(R.layout.activity_tab_viewpager_main_tab_01, container, false);
+        LinearLayout linearLayout = (LinearLayout) inflater.inflate(R.layout.activity_tab_viewpager_main_tab_01, container, false);
+        TextView textView = (TextView) linearLayout.findViewById(R.id.textview);
+        textView.setTag("tab01");
+        return linearLayout;
     }
 
     @Override

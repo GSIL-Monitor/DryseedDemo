@@ -5,10 +5,13 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
@@ -17,6 +20,7 @@ import com.dryseed.dryseedapp.R;
  * 评价：每个Fragment中的控件的处理，都是独立到各自的类中，相对来说主Activity简化了不少，可惜没有左右滑动的效果了。
  */
 public class FragmentMainActivity extends BaseActivity implements OnClickListener {
+    private FrameLayout mContent;
     private MainTab02 mTab02;
     private MainTab01 mTab01;
     private MainTab03 mTab03;
@@ -46,6 +50,7 @@ public class FragmentMainActivity extends BaseActivity implements OnClickListene
 
 
     private void initViews() {
+        mContent = (FrameLayout) findViewById(R.id.id_content);
         mTabBtnWeixin = (LinearLayout) findViewById(R.id.id_tab_bottom_weixin);
         mTabBtnFrd = (LinearLayout) findViewById(R.id.id_tab_bottom_friend);
         mTabBtnAddress = (LinearLayout) findViewById(R.id.id_tab_bottom_contact);
@@ -59,6 +64,7 @@ public class FragmentMainActivity extends BaseActivity implements OnClickListene
 
     @Override
     public void onClick(View v) {
+        Log.d("MMM", "findViewWithTag:" + ((TextView) mContent.findViewWithTag("tab01")).getText());
         switch (v.getId()) {
             case R.id.id_tab_bottom_weixin:
                 setTabSelection(0);
@@ -72,7 +78,6 @@ public class FragmentMainActivity extends BaseActivity implements OnClickListene
             case R.id.id_tab_bottom_setting:
                 setTabSelection(3);
                 break;
-
             default:
                 break;
         }

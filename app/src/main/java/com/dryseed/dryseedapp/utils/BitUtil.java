@@ -2,6 +2,8 @@ package com.dryseed.dryseedapp.utils;
 
 /**
  * Created by caiminming on 2017/12/15.
+ * <p>
+ * 参考：http://blog.csdn.net/morewindows/article/details/7354571
  */
 
 public class BitUtil {
@@ -74,10 +76,19 @@ public class BitUtil {
      *
      * @param args
      */
+
+    public static final int FLAG_1 = 0;
+    public static final int FLAG_2 = 1;
+    public static final int FLAG_3 = 2;
+
     public static void main(String[] args) {
 
         // 取十进制 11 (二级制 0000 1011) 为例子
         byte source = 11;
+
+        System.out.println("FLAG_1 : " + getBitValue(source, FLAG_1));
+        System.out.println("FLAG_2 : " + getBitValue(source, FLAG_2));
+        System.out.println("FLAG_3 : " + getBitValue(source, FLAG_3));
 
         // 取第2位值并输出, 结果应为 0000 1011
         for (byte i = 7; i >= 0; i--) {
@@ -99,6 +110,7 @@ public class BitUtil {
                 System.out.printf("%d ", i);
             }
         }
+
 
     }
 }
