@@ -139,4 +139,6 @@ dependencies {
     compile 'com.airbnb.android:lottie:1.0.1'
     //weixin camera
     compile project(path: ':camera')
+    //badge https://github.com/qstumn/BadgeView
+    compile 'q.rorbin:badgeview:1.1.3'
 }

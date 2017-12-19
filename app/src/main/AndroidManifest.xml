@@ -598,6 +598,24 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".widget.badgeView.linkDemo.BadgeViewActivity"
+            android:label="Widget/BadgeView/LinkDemo">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".widget.badgeView.linkDemo.BadgeView2Activity" />
+        <activity
+            android:name=".widget.badgeView.redDotDemo.RedDotActivity"
+            android:label="Widget/BadgeView/RedDotDemo">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".widget.badgeView.redDotDemo.RedDot2Activity" />
 
         <activity
             android:name=".customView.foldingLayout.sample.TestFoldingLayoutActivity"
