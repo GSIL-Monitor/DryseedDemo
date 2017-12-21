@@ -44,8 +44,6 @@ public class MainActivity extends ListActivity {
 
         super.onCreate(savedInstanceState);
 
-        Log.d("MMM", "MainActivity onCreate");
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

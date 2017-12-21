@@ -647,6 +647,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".widget.badgeView.redDotDemo.RedDot2Activity" />
+        <activity android:name=".widget.badgeView.redDotDemo.RedDot3Activity" />
         <activity
             android:name=".widget.scrollingActivity.officialDemo.ScrollingActivity"
             android:label="Widget/ScrollingActivity/OfficialDemo">
@@ -1065,6 +1066,15 @@
         <activity
             android:name=".test.parseJson.ParseJsonActivity"
             android:label="Test/ParseJson">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".test.viewStub.ViewStubActivity"
+            android:label="Test/ViewStub">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

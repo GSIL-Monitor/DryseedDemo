@@ -9,7 +9,7 @@ import android.widget.Toast;
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.annotation.viewInject.annotation.ContentView;
-import com.dryseed.dryseedapp.annotation.viewInject.annotation.OnClick;
+import com.dryseed.dryseedapp.annotation.viewInject.annotation.OnDsClick;
 import com.dryseed.dryseedapp.annotation.viewInject.annotation.ViewInject;
 
 /**
@@ -31,7 +31,7 @@ public class TestViewInjectActivity extends BaseActivity {
         ViewInjectUtils.inject(this);
     }
 
-    @OnClick({ R.id.id_btn, R.id.id_btn02 })
+    @OnDsClick({ R.id.id_btn, R.id.id_btn02 })
     public void clickBtnInvoked(View view)
     {
         switch (view.getId())

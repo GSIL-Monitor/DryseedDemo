@@ -1,19 +1,19 @@
 package com.dryseed.dryseedapp.widget.badgeView.redDotDemo;
 
+import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
-import com.dryseed.dryseedapp.BaseActivity;
+import com.dryseed.dryseedapp.BaseFragment;
 import com.dryseed.dryseedapp.MyApplication;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.framework.rxBus.RxBus;
@@ -27,31 +27,45 @@ import q.rorbin.badgeview.Badge;
 import q.rorbin.badgeview.QBadgeView;
 
 /**
- * Created by caiminming on 2017/12/19.
+ * Created by caiminming on 2017/12/21.
  */
 
-public class RedDot2Activity extends BaseActivity {
+public class RedDotFragment extends BaseFragment {
+    private static final String TAG = "MMM";
 
     @Bind(R.id.button1)
-    Button mButton1;
-
-    @Bind(R.id.fragment_content)
-    FrameLayout mFragmentContent;
-
-    private RedDotFragment mRedDotFragment;
+    Button mButton;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_red_dot_2_layout);
-        ButterKnife.bind(this);
-        initRedDot();
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        Log.i(TAG, "RedDotFragment onAttach");
     }
 
-    private void initRedDot() {
-        final int redDotViewId = getRedDotViewId();
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Log.i(TAG, "RedDotFragment onCreate");
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        Log.i(TAG, "RedDotFragment onCreateView");
+        FrameLayout mRootView = (FrameLayout) inflater.inflate(R.layout.fragment_red_dot_layout, container, false);
+        ButterKnife.bind(this, mRootView);
+        return mRootView;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initRedDot(view);
+    }
+
+    private void initRedDot(View view) {
+        final int redDotViewId = getRedDotViewId(view);
         if (redDotViewId == R.id.button1) {
-            final Badge mBadgeView1 = new QBadgeView(mButton1.getContext()).bindTarget(mButton1);
+            final Badge mBadgeView1 = new QBadgeView(mButton.getContext()).bindTarget(mButton);
             mBadgeView1.setBadgeGravity(Gravity.END | Gravity.TOP);
             mBadgeView1.setBadgePadding(4, true);
             mBadgeView1.setShowShadow(false);
@@ -98,14 +112,8 @@ public class RedDot2Activity extends BaseActivity {
         }*/
     }
 
-
     @OnClick(R.id.button1)
-    void onBtn1Click(View view) {
-        startActivity(new Intent(this, RedDot3Activity.class));
-    }
-
-    @OnClick(R.id.update)
-    void onUpdateClick(View view) {
+    void onBtnClick() {
         //更新红点数据
         SharedPreferences sp = MyApplication.getInstance().getSharedPreferences(RedDotConstant.LINK_TYPE_CONSERVATION, Context.MODE_PRIVATE);
         sp.edit().putInt("number", RedDotConstant.RED_DOT_TYPE_HIDE).commit();
@@ -113,15 +121,4 @@ public class RedDot2Activity extends BaseActivity {
         //刷新红点路径
         RedDotManager.getInstance().updateDot(RedDotConstant.LINK_TYPE_CONSERVATION);
     }
-
-    @OnClick(R.id.load_fragment_btn)
-    void onLoadFragmentBtnClick(View view) {
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction transaction = fm.beginTransaction();
-        mRedDotFragment = new RedDotFragment();
-        transaction.replace(R.id.fragment_content, mRedDotFragment);
-        transaction.commit();
-    }
-
-
 }

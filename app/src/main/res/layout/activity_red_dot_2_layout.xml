@@ -10,32 +10,34 @@
         android:id="@+id/button1"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_centerInParent="true"
         android:background="#66ccff"
         android:gravity="center"
         android:tag="RedDotTag"
         android:text="BUTTON1 LINK1" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/load_fragment_btn"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_centerInParent="true"
         android:layout_marginTop="10dp"
         android:background="#66ccff"
         android:gravity="center"
-        android:tag="RedDotTag"
-        android:text="BUTTON2 LINK1" />
+        android:text="LOAD FRAGMENT" />
 
     <Button
         android:id="@+id/update"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_centerInParent="true"
         android:layout_marginTop="10dp"
         android:background="#66ccff"
         android:gravity="center"
         android:tag="RedDotTag"
         android:text="UPDATE" />
+
+    <FrameLayout
+        android:id="@+id/fragment_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
 
 </LinearLayout>

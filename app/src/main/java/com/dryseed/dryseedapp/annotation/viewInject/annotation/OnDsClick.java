@@ -65,6 +65,6 @@ import android.view.View;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 @EventBase(listenerType = View.OnClickListener.class, listenerSetter = "setOnClickListener", methodName = "onClick")
-public @interface OnClick {
+public @interface OnDsClick {
     int[] value();
 }
