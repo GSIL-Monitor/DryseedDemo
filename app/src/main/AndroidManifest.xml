@@ -419,6 +419,16 @@
         </activity>
         <activity android:name=".animation.transitionAnimator.MessageActivity" />
         <activity
+            android:name=".animation.viewanimator.TestViewAnimatorActivity"
+            android:label="Animation/ViewAnimator">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".widget.slideMenu.SlideMenu01.SlideMenu01Activity"
             android:label="Widget/SlideMenu/01.自定义侧滑控件">
             <intent-filter>
@@ -661,6 +671,15 @@
             android:name=".widget.scrollingActivity.heyDemo.ScrollingActivity"
             android:label="Widget/ScrollingActivity/HeyDemo"
             android:theme="@style/StatusBarTranslucentTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.popupMenuView.PopupMenuViewActivity"
+            android:label="Widget/PopupMenuView">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

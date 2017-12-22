@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- 默认状态栏背景色 -->
     <attr name="defaultStatusBarColor" format="color" />
@@ -238,9 +238,20 @@
     </declare-styleable>
 
     <declare-styleable name="BlurredView">
-        <attr name="src"/>
+        <attr name="src" />
         <attr name="move" format="boolean" />
         <attr name="disableBlurred" format="boolean" />
     </declare-styleable>
 
+    <declare-styleable name="PopLayout" tools:ignore="ResourceName">
+        <attr name="radiusSize" format="dimension" />
+        <attr name="bulgeSize" format="dimension" />
+        <attr name="offsetSize" format="dimension" />
+        <attr name="siteMode" format="enum">
+            <enum name="top" value="0" />
+            <enum name="left" value="1" />
+            <enum name="right" value="2" />
+            <enum name="bottom" value="3" />
+        </attr>
+    </declare-styleable>
 </resources>

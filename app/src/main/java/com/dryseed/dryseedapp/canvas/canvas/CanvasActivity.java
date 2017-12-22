@@ -11,7 +11,6 @@ import com.dryseed.dryseedapp.R;
 
 
 public class CanvasActivity extends BaseActivity {
-
     private MyCanvasView myCanvasView = null;
 
     @Override

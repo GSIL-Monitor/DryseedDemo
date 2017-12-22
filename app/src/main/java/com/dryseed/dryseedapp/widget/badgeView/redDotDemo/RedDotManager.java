@@ -16,6 +16,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * 红点管理
@@ -25,7 +27,7 @@ import java.util.Map;
 
 public class RedDotManager {
     private RedDotManager() {
-
+        mSingleThreadExecutor = Executors.newSingleThreadExecutor();
     }
 
     private static class RedDotManagerHolder {
@@ -37,6 +39,7 @@ public class RedDotManager {
     }
 
     private HashMap<String, HashSet<Integer>> mDotsHashMap = new HashMap<>(); // <linkTag, HashSet<dotTag>>
+    private ExecutorService mSingleThreadExecutor;
 
     /**
      * 设置红点路径并显示
@@ -49,9 +52,6 @@ public class RedDotManager {
             mDotsHashMap.put(linkTag, dotHashSet);
         }
         dotHashSet.add(dotTag);
-
-        //刷新
-        updateDot(linkTag);
     }
 
     /**
@@ -59,16 +59,23 @@ public class RedDotManager {
      *
      * @param linkTag
      */
-    public void updateDot(String linkTag) {
-        //检查更新，遍历所有元素刷新
-        int ret = checkUpdate(linkTag);
-        HashSet<Integer> mDotHashSet = mDotsHashMap.get(linkTag);
-        if (null == mDotHashSet || mDotHashSet.isEmpty()) return;
-        Iterator iter = mDotHashSet.iterator();
-        while (iter.hasNext()) {
-            int dotTag = (int) iter.next();
-            RxBus.getDefault().post(new RedDotEvent(dotTag, ret));
-        }
+    public void updateDot(final String linkTag) {
+        if (null == mSingleThreadExecutor) return;
+        mSingleThreadExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                Log.d("MMM", "updateDot : " + Thread.currentThread().getName());
+                //检查更新，遍历所有元素刷新
+                int ret = checkUpdate(linkTag);
+                HashSet<Integer> mDotHashSet = mDotsHashMap.get(linkTag);
+                if (null == mDotHashSet || mDotHashSet.isEmpty()) return;
+                Iterator iter = mDotHashSet.iterator();
+                while (iter.hasNext()) {
+                    int dotTag = (int) iter.next();
+                    RxBus.getDefault().post(new RedDotEvent(dotTag, ret));
+                }
+            }
+        });
     }
 
     /**

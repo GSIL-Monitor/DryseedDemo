@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import q.rorbin.badgeview.Badge;
@@ -77,11 +78,11 @@ public class RedDotActivity extends BaseActivity {
                     badgeView.setBadgePadding(4, true);
                     badgeView.setShowShadow(false);
                     badgeView.setGravityOffset(4, 4, true);
-                    Disposable disposable = RxBus.getDefault().getObservable(RedDotEvent.class).subscribe(new Consumer<RedDotEvent>() {
+                    Disposable disposable = RxBus.getDefault().getObservable(RedDotEvent.class).observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<RedDotEvent>() {
                         @Override
                         public void accept(RedDotEvent redDotEvent) throws Exception {
                             if (redDotEvent.getId() == id) {
-                                Log.d("MMM", "RedDotActivity onUpdate");
+                                Log.d("MMM", "RedDotActivity onUpdate : " + Thread.currentThread().getName());
                                 badgeView.setBadgeNumber(redDotEvent.getNumber());
                             }
                         }
@@ -89,6 +90,8 @@ public class RedDotActivity extends BaseActivity {
                     addDisposable(disposable);
                     //保存红点路径
                     RedDotManager.getInstance().setDot(id, RedDotConstant.LINK_TYPE_CONSERVATION);
+                    //刷新红点
+                    RedDotManager.getInstance().updateDot(RedDotConstant.LINK_TYPE_CONSERVATION);
                     break;
                 case R.id.button2:
                     final Badge badgeView2 = new QBadgeView(mButton2.getContext()).bindTarget(mButton2);
@@ -96,7 +99,7 @@ public class RedDotActivity extends BaseActivity {
                     badgeView2.setBadgePadding(4, true);
                     badgeView2.setShowShadow(false);
                     badgeView2.setGravityOffset(4, 4, true);
-                    Disposable disposable2 = RxBus.getDefault().getObservable(RedDotEvent.class).subscribe(new Consumer<RedDotEvent>() {
+                    Disposable disposable2 = RxBus.getDefault().getObservable(RedDotEvent.class).observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<RedDotEvent>() {
                         @Override
                         public void accept(RedDotEvent redDotEvent) throws Exception {
                             if (redDotEvent.getId() == id) {
@@ -108,11 +111,14 @@ public class RedDotActivity extends BaseActivity {
                     addDisposable(disposable2);
                     //保存红点路径
                     RedDotManager.getInstance().setDot(id, RedDotConstant.LINK_TYPE_CONSERVATION);
+                    //刷新红点
+                    RedDotManager.getInstance().updateDot(RedDotConstant.LINK_TYPE_CONSERVATION);
                     break;
                 default:
                     break;
             }
         }
+
     }
 
 

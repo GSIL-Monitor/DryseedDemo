@@ -21,6 +21,7 @@ import com.dryseed.dryseedapp.framework.rxBus.RxBus;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import q.rorbin.badgeview.Badge;
@@ -56,7 +57,7 @@ public class RedDot2Activity extends BaseActivity {
             mBadgeView1.setBadgePadding(4, true);
             mBadgeView1.setShowShadow(false);
             mBadgeView1.setGravityOffset(4, 4, true);
-            Disposable disposable = RxBus.getDefault().getObservable(RedDotEvent.class).subscribe(new Consumer<RedDotEvent>() {
+            Disposable disposable = RxBus.getDefault().getObservable(RedDotEvent.class).observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<RedDotEvent>() {
                 @Override
                 public void accept(RedDotEvent redDotEvent) throws Exception {
                     if (redDotEvent.getId() == redDotViewId) {
@@ -68,6 +69,8 @@ public class RedDot2Activity extends BaseActivity {
             addDisposable(disposable);
             //保存红点路径
             RedDotManager.getInstance().setDot(redDotViewId, RedDotConstant.LINK_TYPE_CONSERVATION);
+            //刷新红点
+            RedDotManager.getInstance().updateDot(RedDotConstant.LINK_TYPE_CONSERVATION);
         }
 
         /*ArrayList<Integer> redDotViewIds = getRedDotViewIds();
