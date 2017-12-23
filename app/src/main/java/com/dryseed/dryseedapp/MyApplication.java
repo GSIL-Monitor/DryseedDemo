@@ -6,6 +6,7 @@ import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 
+import com.dryseed.dryseedapp.utils.BackForegroundWatcher;
 import com.dryseed.dryseedapp.utils.DPIUtil;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.squareup.leakcanary.LeakCanary;
@@ -44,6 +45,7 @@ public class MyApplication extends MultiDexApplication {
         Fresco.initialize(sInstance);
         LeakCanary.install(sInstance);
         initX5();
+        BackForegroundWatcher.getInstance().init(MyApplication.getInstance());
     }
 
     @Override
