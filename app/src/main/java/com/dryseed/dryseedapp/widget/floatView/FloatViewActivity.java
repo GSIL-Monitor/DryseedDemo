@@ -12,6 +12,9 @@ import com.dryseed.dryseedapp.utils.DPIUtil;
 
 /**
  * Created by caiminming on 2017/12/9.
+ * <p>
+ * app应用内的悬浮窗
+ * 思路：在BaseActivity的onResume/onPause中，控制FloatView的显示和隐藏
  */
 
 public class FloatViewActivity extends BaseActivity {

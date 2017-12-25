@@ -1226,6 +1226,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".widget.floatWindow.FloatWindowActivity"
+            android:label="Widget/FloatWindow">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".annotation.viewInject.TestViewInjectActivity"
             android:label="Annotation/ViewInject">
             <intent-filter>

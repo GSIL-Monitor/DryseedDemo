@@ -11,6 +11,8 @@ import java.lang.ref.SoftReference;
 
 /**
  * Created by caiminming on 2017/12/9.
+ * <p>
+ * 思路：在BaseActivity的onResume/onPause中，控制FloatView的显示和隐藏
  */
 
 public class FloatViewManager {
