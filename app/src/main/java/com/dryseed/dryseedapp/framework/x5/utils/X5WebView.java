@@ -48,9 +48,17 @@ public class X5WebView extends WebView {
         webSetting.setUseWideViewPort(true); //自适应屏幕
         webSetting.setSupportMultipleWindows(true);
         // webSetting.setLoadWithOverviewMode(true);
+
+        // 启用Application Caches API，必需设置有效的缓存路径才能生效，默认值 false ; 此API已废弃，参考：https://developer.mozilla.org/zh-CN/docs/Web/HTML/Using_the_application_cache
         webSetting.setAppCacheEnabled(true);
-        // webSetting.setDatabaseEnabled(true);
+
+        // 启用Web SQL Database API，这个设置会影响同一进程内的所有WebView，默认值 false ; 此API已不推荐使用，参考：https://www.w3.org/TR/webdatabase/
+        //webSetting.setDatabaseEnabled(true);
+
+        // 启用HTML5 DOM storage API，默认值 false
         webSetting.setDomStorageEnabled(true);
+
+        //设置定位可用
         webSetting.setGeolocationEnabled(true);
         webSetting.setAppCacheMaxSize(Long.MAX_VALUE);
         // webSetting.setPageCacheCapacity(IX5WebSettings.DEFAULT_CACHE_CAPACITY);

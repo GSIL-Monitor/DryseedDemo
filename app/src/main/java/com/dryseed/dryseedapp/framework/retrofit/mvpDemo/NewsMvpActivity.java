@@ -3,16 +3,9 @@ package com.dryseed.dryseedapp.framework.retrofit.mvpDemo;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.frameStructure.mvp.MvpBaseActivity;
 import com.dryseed.dryseedapp.framework.retrofit.demo2.entity.NewsEntity;
-import com.dryseed.dryseedapp.framework.retrofit.demo3.RetrofitProvider;
-import com.dryseed.dryseedapp.framework.retrofit.demo3.api.NewsApi;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * Retrofit demo
