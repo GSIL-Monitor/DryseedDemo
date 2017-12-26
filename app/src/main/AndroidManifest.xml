@@ -958,7 +958,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".tools.photoSelector.PictureSelectorActivity"
+            android:name=".tools.photoSelector.TestPictureSelectorActivity"
             android:label="Tools/PhotoSelector">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
