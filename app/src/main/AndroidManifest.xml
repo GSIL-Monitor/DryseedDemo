@@ -958,6 +958,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".tools.photoSelector.PictureSelectorActivity"
+            android:label="Tools/PhotoSelector">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".lib.zxing.client.android.CaptureActivity"
             android:label="CaptureActivity">
             <intent-filter>
