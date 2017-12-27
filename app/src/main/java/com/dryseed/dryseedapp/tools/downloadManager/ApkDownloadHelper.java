@@ -109,6 +109,7 @@ public class ApkDownloadHelper {
 
             }
         }
+        Log.d("MMM", "getDownloadStatus fail to find");
         return DownloadManager.STATUS_FAILED;
 //        return false;
     }
