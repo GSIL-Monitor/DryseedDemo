@@ -1,7 +1,7 @@
-package com.dryseed.dryseedapp.designPattern.decorator.equip;
+package com.dryseed.dryseedapp.designPattern.decorator.demo1.equip;
 
 
-import com.dryseed.dryseedapp.designPattern.decorator.IEquip;
+import com.dryseed.dryseedapp.designPattern.decorator.demo1.IEquip;
 
 /**
  * Created by jingbin on 2016/11/1.

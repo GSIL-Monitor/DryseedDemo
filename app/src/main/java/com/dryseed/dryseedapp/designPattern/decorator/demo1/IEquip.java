@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.designPattern.decorator;
+package com.dryseed.dryseedapp.designPattern.decorator.demo1;
 
 /**
  * Created by jingbin on 2016/11/1.
