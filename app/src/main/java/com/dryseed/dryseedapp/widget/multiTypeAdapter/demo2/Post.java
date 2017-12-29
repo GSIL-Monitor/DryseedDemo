@@ -19,19 +19,48 @@ package com.dryseed.dryseedapp.widget.multiTypeAdapter.demo2;
 import android.support.annotation.NonNull;
 
 import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo.Bean;
+import com.dryseed.dryseedapp.widget.suspensionRecyclerView.ISuspensionInterface;
 
 /**
  * @author drakeet
  */
-public class Post extends Bean {
+public class Post extends Bean implements ISuspensionInterface{
 
     public int coverResId;
-    public @NonNull
+    public
+    @NonNull
     String title;
 
 
     public Post(int coverResId, @NonNull final String title) {
         this.coverResId = coverResId;
         this.title = title;
+    }
+
+    public int getCoverResId() {
+        return coverResId;
+    }
+
+    public void setCoverResId(int coverResId) {
+        this.coverResId = coverResId;
+    }
+
+    @NonNull
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(@NonNull String title) {
+        this.title = title;
+    }
+
+    @Override
+    public boolean isShowSuspension() {
+        return true;
+    }
+
+    @Override
+    public String getSuspensionTag() {
+        return this.title;
     }
 }

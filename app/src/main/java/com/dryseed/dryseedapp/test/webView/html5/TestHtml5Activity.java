@@ -49,7 +49,8 @@ public class TestHtml5Activity extends BaseActivity {
 
 
         // 从assets目录下面的加载html
-        mWebView.loadUrl("file:///android_asset/christmas.html");
+        //mWebView.loadUrl("file:///android_asset/christmas.html");
+        mWebView.loadUrl("file:///android_asset/2.html");
     }
 
     @Override

@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.antfortune.freeline'
+apply plugin: 'org.greenrobot.greendao'
 
 def getDate() {
     def date = new Date()
@@ -156,4 +157,8 @@ dependencies {
     compile 'q.rorbin:badgeview:1.1.3'
     //pictureselector https://github.com/LuckSiege/PictureSelector
     compile project(path: ':pictureselector')
+    //greendao https://github.com/greenrobot/greenDAO
+    compile 'org.greenrobot:greendao:3.2.2'
+    //stetho https://github.com/facebook/stetho
+    compile 'com.facebook.stetho:stetho:1.5.0'
 }

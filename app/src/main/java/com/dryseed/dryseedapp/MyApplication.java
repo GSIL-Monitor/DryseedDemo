@@ -9,6 +9,7 @@ import android.util.Log;
 import com.dryseed.dryseedapp.utils.BackForegroundWatcher;
 import com.dryseed.dryseedapp.utils.DPIUtil;
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.stetho.Stetho;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.smtt.export.external.TbsCoreSettings;
 import com.tencent.smtt.sdk.QbSdk;
@@ -46,6 +47,7 @@ public class MyApplication extends MultiDexApplication {
         LeakCanary.install(sInstance);
         initX5();
         BackForegroundWatcher.getInstance().init(MyApplication.getInstance());
+        Stetho.initializeWithDefaults(sInstance);
     }
 
     @Override

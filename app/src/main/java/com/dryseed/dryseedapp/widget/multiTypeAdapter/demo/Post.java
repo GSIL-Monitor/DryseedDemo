@@ -24,12 +24,40 @@ import android.support.annotation.NonNull;
 public class Post extends Bean {
 
     public int coverResId;
-    public @NonNull
+    public
+    @NonNull
     String title;
+    String tag;
 
 
     public Post(int coverResId, @NonNull final String title) {
         this.coverResId = coverResId;
         this.title = title;
+        this.tag = title;
+    }
+
+    public int getCoverResId() {
+        return coverResId;
+    }
+
+    public void setCoverResId(int coverResId) {
+        this.coverResId = coverResId;
+    }
+
+    @NonNull
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(@NonNull String title) {
+        this.title = title;
+    }
+
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 }

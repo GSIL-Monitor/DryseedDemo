@@ -210,6 +210,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".framework.greendao.TestGreenDaoActivity"
+            android:label="FrameWork/GreenDao">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".customView.customView01.TestCustomView01Activity"
             android:label="CustomView/CustomView01">
             <intent-filter>
@@ -686,6 +695,15 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".widget.suspensionRecyclerView.SuspensionRecyclerViewActivity"
+            android:label="Widget/SuspensionRecyclerView">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".customView.foldingLayout.sample.TestFoldingLayoutActivity"
@@ -1128,6 +1146,18 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".test.setresult.TestSetResultActivity"
+            android:label="Test/SetResult">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".test.setresult.SetResult2Activity" />
+        <activity android:name=".test.setresult.SetResult3Activity" />
+
+        <activity
             android:name=".service.intentService.IntentServiceActivity"
             android:label="Service/IntentService">
             <intent-filter>
@@ -1335,6 +1365,16 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".practice.localMusic.LocalMusicActivity"
+            android:label="Practice/LocalMusic">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".widget.textView.TestSpannableActivity"
             android:label="Widget/TextView/Spannable">
