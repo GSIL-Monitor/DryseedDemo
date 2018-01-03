@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Audio.Media;
+import android.util.Log;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -56,6 +57,8 @@ public class MusicUtil {
             String filePath = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATA));
             music.data = filePath;
             music.folder = filePath.substring(0, filePath.lastIndexOf(File.separator));
+            Log.d("MMM", "music.data:" + music.data + "|music.folder:" + music.folder);
+            Log.d("MMM", "isContains : " + music.folder.contains("/storage/emulated/0/heyheytalk/Music".toString()));
             music.size = cursor.getInt(cursor.getColumnIndex(MediaStore.Audio.Media.SIZE));
             music.islocal = true;
             musicList.add(music);
@@ -63,4 +66,5 @@ public class MusicUtil {
         cursor.close();
         return musicList;
     }
+
 }

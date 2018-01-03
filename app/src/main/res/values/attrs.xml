@@ -254,4 +254,8 @@
             <enum name="bottom" value="3" />
         </attr>
     </declare-styleable>
+
+    <attr name="color_list_bg" format="color" />
+    <attr name="color_list_bg_light" format="color" />
+    <attr name="default_black" format="color" />
 </resources>

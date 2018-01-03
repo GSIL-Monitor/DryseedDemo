@@ -1,9 +1,8 @@
-package com.dryseed.dryseedapp.framework.greendao;
+package com.dryseed.dryseedapp.practice.localMusic;
 
 import org.greenrobot.greendao.annotation.Entity;
-import org.greenrobot.greendao.annotation.Id;
-import org.greenrobot.greendao.annotation.Property;
 import org.greenrobot.greendao.annotation.Generated;
+import org.greenrobot.greendao.annotation.Id;
 
 /**
  * Created by caiminming on 2017/12/28.

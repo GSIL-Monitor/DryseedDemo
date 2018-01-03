@@ -12,6 +12,10 @@
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
     <application
         android:name=".MyApplication"
@@ -203,15 +207,6 @@
         <activity
             android:name=".framework.x5.X5WebViewActivity"
             android:label="FrameWork/X5">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".framework.greendao.TestGreenDaoActivity"
-            android:label="FrameWork/GreenDao">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -698,6 +693,15 @@
         <activity
             android:name=".widget.suspensionRecyclerView.SuspensionRecyclerViewActivity"
             android:label="Widget/SuspensionRecyclerView">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.popupWindow.PopupWindowActivity"
+            android:label="Widget/PopupWindow">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -1374,6 +1378,15 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".practice.location.LocationActivity"
+            android:label="Practice/Location">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".widget.textView.TestSpannableActivity"
@@ -1423,6 +1436,12 @@
 
         <receiver android:name=".tools.sensor.networkstate.NetworkStateReceiver" />
 
+        <!-- http://lbs.amap.com/dev/key/app# QQ登录-->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="dcbd0b9f5ef47333002ce1d82939b7cb" />
+        <!-- 定位需要的服务 -->
+        <service android:name="com.amap.api.location.APSService" />
     </application>
 
 </manifest>

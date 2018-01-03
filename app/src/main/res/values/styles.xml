@@ -13,6 +13,10 @@
         <item name="windowNoTitle">true</item>
         <!-- 窗口透明（启动应用不会出现白屏） -->
         <item name="android:windowIsTranslucent">true</item>
+
+        <item name="color_list_bg">?attr/default_black</item>
+        <item name="color_list_bg_light">#2C292A</item>
+        <item name="default_black">#242021</item>
     </style>
 
     <style name="StatusBarTranslucentTheme" parent="AppTheme">

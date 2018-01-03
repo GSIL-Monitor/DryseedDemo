@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.framework.greendao;
+package com.dryseed.dryseedapp.practice.localMusic;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

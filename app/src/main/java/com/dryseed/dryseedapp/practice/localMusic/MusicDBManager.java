@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.framework.greendao;
+package com.dryseed.dryseedapp.practice.localMusic;
 
 
 import com.dryseed.dryseedapp.MyApplication;
@@ -33,7 +33,7 @@ public class MusicDBManager {
                     .where(UserMusicDBDao.Properties.UserId.eq(userId), UserMusicDBDao.Properties.MusicId.eq(musicId))
                     .unique();
             if (userMusicDB1 == null) {
-                UserMusicDB userMusicDB = new UserMusicDB(null, userId, musicId);
+                UserMusicDB userMusicDB = new UserMusicDB(null, userId, musicId, false);
                 getUserMusicDBDao().insertOrReplace(userMusicDB);
             }
         } catch (Exception e) {
@@ -62,6 +62,17 @@ public class MusicDBManager {
         }
         return musicDBList;
     }
+
+    /**
+     * 选中某首歌
+     * @param userId
+     * @param musicId
+     */
+    public static void selectMusic(long userId, long musicId){
+        UserMusicDB userMusicDB = new UserMusicDB(null, userId, musicId, true);
+        getUserMusicDBDao().insertOrReplace(userMusicDB);
+    }
+
 
     /**
      * 删除歌曲

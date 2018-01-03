@@ -1,9 +1,8 @@
-package com.dryseed.dryseedapp.framework.greendao;
+package com.dryseed.dryseedapp.practice.localMusic;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
-import org.greenrobot.greendao.annotation.Property;
 
 /**
  * Created by caiminming on 2017/12/28.
@@ -15,12 +14,13 @@ public class UserMusicDB {
     private Long id;
     private Long userId;
     private Long musicId;
-
-    @Generated(hash = 1826655111)
-    public UserMusicDB(Long id, Long userId, Long musicId) {
+    private boolean isSelected;
+    @Generated(hash = 2114206970)
+    public UserMusicDB(Long id, Long userId, Long musicId, boolean isSelected) {
         this.id = id;
         this.userId = userId;
         this.musicId = musicId;
+        this.isSelected = isSelected;
     }
     @Generated(hash = 483010982)
     public UserMusicDB() {
@@ -43,4 +43,12 @@ public class UserMusicDB {
     public void setMusicId(Long musicId) {
         this.musicId = musicId;
     }
+    public boolean getIsSelected() {
+        return this.isSelected;
+    }
+    public void setIsSelected(boolean isSelected) {
+        this.isSelected = isSelected;
+    }
+
+    
 }
