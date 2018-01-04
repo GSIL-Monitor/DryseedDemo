@@ -614,6 +614,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".widget.recyclerView.itemAnimator.RecyclerViewItemAnimatorActivity"
+            android:label="Widget/RecyclerView/ItemAnimator">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".widget.gridview.TestGridViewActivity"
             android:configChanges="keyboard|screenSize|orientation|layoutDirection|fontScale"
             android:label="Widget/GridView">
@@ -1287,6 +1296,53 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".widget.datapicker.DatePickerActivity"
+            android:label="Widget/DatePicker">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.blurredView.TestBlurredViewActivity"
+            android:label="Widget/BlurredView">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".widget.blurredView.TestDynamicBlurredViewActivity" />
+        <activity
+            android:name=".practice.anrWatchDog.demo.TestAnrWatchDogActivity"
+            android:label="Practice/AnrWatchDog">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.textView.TestSpannableActivity"
+            android:label="Widget/TextView/Spannable">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.textView.TestTextViewHtmlActivity"
+            android:label="Widget/TextView/Html.fromHtml">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".annotation.viewInject.TestViewInjectActivity"
             android:label="Annotation/ViewInject">
             <intent-filter>
@@ -1341,25 +1397,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".plugin.interceptActivity.StubActivity" />
-        <activity
-            android:name=".widget.blurredView.TestBlurredViewActivity"
-            android:label="Widget/BlurredView">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".widget.blurredView.TestDynamicBlurredViewActivity" />
-        <activity
-            android:name=".practice.anrWatchDog.demo.TestAnrWatchDogActivity"
-            android:label="Practice/AnrWatchDog">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".practice.daynight.DayNightActivity"
             android:label="Practice/DayNight">
@@ -1388,24 +1426,6 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".widget.textView.TestSpannableActivity"
-            android:label="Widget/TextView/Spannable">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".widget.textView.TestTextViewHtmlActivity"
-            android:label="Widget/TextView/Html.fromHtml">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
 
         <service
             android:name=".service.intentService.UploadImgService"

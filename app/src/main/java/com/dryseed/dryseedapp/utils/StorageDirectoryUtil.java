@@ -12,12 +12,17 @@ import java.io.File;
 
 public class StorageDirectoryUtil {
     /*
+        #内部存储
         getFilesDir = /data/data/com.dryseed.dryseedapp/files
-        getExternalFilesDir = /storage/emulated/0/Android/data/com.dryseed.dryseedapp/files/exter_test
+        getCacheDir = /data/data/com.dryseed.dryseedapp/cache
+        #外部存储
+            #私有存储
+            Context.getExternalFilesDir() = /storage/emulated/0/Android/data/com.dryseed.dryseedapp/files/exter_test
+            #公共存储
+            Environment.getExternalStorageDirectory = /storage/emulated/0
+            Environment.getExternalStoragePublicDirectory = /storage/emulated/0/pub_test
         getDownloadCacheDirectory = /cache
         getDataDirectory = /data
-        getExternalStorageDirectory = /storage/emulated/0
-        getExternalStoragePublicDirectory = /storage/emulated/0/pub_test
 
         Log.d("MMM", "getFilesDir = " + getFilesDir());
         Log.d("MMM", "getExternalFilesDir = " + getExternalFilesDir("exter_test").getAbsolutePath());

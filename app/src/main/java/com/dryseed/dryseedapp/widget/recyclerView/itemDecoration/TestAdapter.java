@@ -29,7 +29,7 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.TestHolder> {
 
     @Override
     public TestHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_recyclerview_itemdecoration_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_recyclerview_itemdecoration_item, parent, false);
 //        RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view.getLayoutParams();
 //        layoutParams.topMargin = 1;
 //        view.setLayoutParams(layoutParams);
@@ -39,7 +39,7 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.TestHolder> {
 
     @Override
     public void onBindViewHolder(TestHolder holder, int position) {
-        if (data != null && data.size() > 0 ) {
+        if (data != null && data.size() > 0) {
             String text = data.get(position);
             holder.textView.setText(text);
         }
@@ -51,8 +51,9 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.TestHolder> {
         return data == null ? 0 : data.size();
     }
 
-    static class TestHolder extends  RecyclerView.ViewHolder{
+    static class TestHolder extends RecyclerView.ViewHolder {
         public TextView textView;
+
         public TestHolder(View itemView) {
             super(itemView);
             textView = (TextView) itemView.findViewById(R.id.tv_content);
