@@ -1,7 +1,5 @@
 package com.dryseed.dryseedapp.widget.verticalViewPagerLiveRoom;
 
-import android.app.Activity;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
@@ -9,12 +7,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.animation.mojiWeatherAnimation.PagerAdapter;
-import com.dryseed.dryseedapp.ui.VerticalViewPager;
+import com.dryseed.dryseedapp.widget.verticalViewPagerLiveRoom.lib.VerticalViewPager;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

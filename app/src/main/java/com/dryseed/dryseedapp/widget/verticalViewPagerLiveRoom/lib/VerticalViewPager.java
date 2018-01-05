@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.ui;
+package com.dryseed.dryseedapp.widget.verticalViewPagerLiveRoom.lib;
 
 import android.content.Context;
 import android.content.res.Resources;

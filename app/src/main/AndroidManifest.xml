@@ -870,6 +870,16 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".canvas.shapeSelector.ShapeSelectorActivity"
+            android:label="Canvas/ShapeSelector">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".frameStructure.mvp.UserLoginActivity"
             android:label="FrameStructure/Mvp/UserLoginActivity">
             <intent-filter>
@@ -1425,7 +1435,6 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
-
 
         <service
             android:name=".service.intentService.UploadImgService"

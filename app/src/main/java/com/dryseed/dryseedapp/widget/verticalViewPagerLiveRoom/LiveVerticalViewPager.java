@@ -3,9 +3,8 @@ package com.dryseed.dryseedapp.widget.verticalViewPagerLiveRoom;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.view.View;
 
-import com.dryseed.dryseedapp.ui.VerticalViewPager;
+import com.dryseed.dryseedapp.widget.verticalViewPagerLiveRoom.lib.VerticalViewPager;
 
 public class LiveVerticalViewPager extends VerticalViewPager {
 
