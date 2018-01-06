@@ -16,6 +16,10 @@ import com.tencent.smtt.sdk.QbSdk;
 
 import java.util.HashMap;
 
+import zlc.season.rxdownload3.core.DownloadConfig;
+import zlc.season.rxdownload3.extension.ApkInstallExtension;
+import zlc.season.rxdownload3.extension.ApkOpenExtension;
+
 /**
  * Created by caiminming on 2016/11/23.
  */
@@ -46,6 +50,7 @@ public class MyApplication extends MultiDexApplication {
         Fresco.initialize(sInstance);
         LeakCanary.install(sInstance);
         initX5();
+        initRxDownload();
         BackForegroundWatcher.getInstance().init(MyApplication.getInstance());
         Stetho.initializeWithDefaults(sInstance);
     }
@@ -80,5 +85,17 @@ public class MyApplication extends MultiDexApplication {
         map.put(TbsCoreSettings.TBS_SETTINGS_USE_PRIVATE_CLASSLOADER, true);
         QbSdk.initTbsSettings(map);
         QbSdk.initX5Environment(getApplicationContext(), cb);
+    }
+
+    private void initRxDownload() {
+        DownloadConfig.Builder builder = DownloadConfig.Builder.Companion.create(this)
+                //.enableDb(true)
+                //.setDbActor(new CustomSqliteActor(this))
+                .enableService(true)
+                .enableNotification(true)
+                .addExtension(ApkInstallExtension.class)
+                .addExtension(ApkOpenExtension.class);
+
+        DownloadConfig.INSTANCE.init(builder);
     }
 }

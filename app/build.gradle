@@ -175,4 +175,7 @@ dependencies {
     compile('cn.qqtheme.framework:WheelPicker:1.5.5') {
         exclude group: 'com.android.support'
     }
+    compile ('zlc.season:rxdownload3:1.2.0') {
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+    }
 }
