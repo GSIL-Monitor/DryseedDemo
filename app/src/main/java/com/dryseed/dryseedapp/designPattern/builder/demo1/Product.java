@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.designPattern.builder;
+package com.dryseed.dryseedapp.designPattern.builder.demo1;
 
 /**
  * Created by caiminming on 2017/1/23.

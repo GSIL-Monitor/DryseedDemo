@@ -5,17 +5,80 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/blurred_view_image"
+        android:id="@+id/blurred_view_image1"
+        android:layout_width="120dp"
+        android:layout_height="213dp"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/blurred_text_view1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/blurred_view_image1"
+        android:text="RS Scale:0.5f Cost:"
+        android:textSize="10sp" />
+
+    <ImageView
+        android:id="@+id/blurred_view_image2"
+        android:layout_width="120dp"
+        android:layout_height="213dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/blurred_view_image1"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/blurred_text_view2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/blurred_view_image2"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/blurred_view_image1"
+        android:text="RS Scale:0.125f Cost:"
+        android:textSize="10sp" />
+
+    <ImageView
+        android:id="@+id/blurred_view_image3"
+        android:layout_width="120dp"
+        android:layout_height="213dp"
+        android:layout_below="@id/blurred_text_view1"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/blurred_text_view3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/blurred_view_image3"
+        android:text="Java Scale:0.5f Cost:"
+        android:textSize="10sp" />
+
+    <ImageView
+        android:id="@+id/blurred_view_image4"
+        android:layout_width="120dp"
+        android:layout_height="213dp"
+        android:layout_below="@id/blurred_text_view2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/blurred_view_image3"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/blurred_text_view4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/blurred_view_image4"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/blurred_view_image3"
+        android:text="Java Scale:0.125f Cost:"
+        android:textSize="10sp" />
 
     <Button
         android:id="@+id/blurred_view_btn"
         android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="50dp"
-        android:text="dynamic"
+        android:layout_height="40dp"
+        android:layout_below="@id/blurred_text_view3"
         android:gravity="center"
-        android:layout_below="@id/blurred_view_image"/>
+        android:text="dynamic"
+        android:textSize="10sp" />
 
 </RelativeLayout>

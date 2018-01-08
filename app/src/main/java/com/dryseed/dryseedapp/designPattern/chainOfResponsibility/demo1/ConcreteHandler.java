@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.designPattern.chainOfResponsibility;
+package com.dryseed.dryseedapp.designPattern.chainOfResponsibility.demo1;
 
 /**
  * Created by caiminming on 2017/1/24.

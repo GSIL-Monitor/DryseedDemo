@@ -9,6 +9,8 @@ public class Test {
         RiceNoodle
         add beef
         add spicy
+
+        执行顺序： spicyNoodleDecorator.cook() -> beefNoodleDecorator.cook() -> riceNoodle.cook() -> RiceNoodle -> add beef -> add spicy
      */
     public static void main(String[] args) {
         RiceNoodle riceNoodle = new RiceNoodle();
