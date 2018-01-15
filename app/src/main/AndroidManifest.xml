@@ -9,7 +9,6 @@
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -1178,7 +1177,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".test.setresult.TestSetResultActivity"
+            android:name=".test.setresult.test1.TestSetResultActivity"
             android:label="Test/SetResult">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -1186,8 +1185,18 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
-        <activity android:name=".test.setresult.SetResult2Activity" />
-        <activity android:name=".test.setresult.SetResult3Activity" />
+        <activity android:name=".test.setresult.test1.SetResult2Activity" />
+        <activity android:name=".test.setresult.test1.SetResult3Activity" />
+        <activity
+            android:name=".test.setresult.test2.TestSetResultFinishActivity"
+            android:label="Test/SetResultFinish">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".test.setresult.test2.SetResultFinish2Activity" />
 
         <activity
             android:name=".service.intentService.IntentServiceActivity"
@@ -1360,6 +1369,18 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".widget.dragPhotoView.DragPhotoViewActivity"
+            android:label="Widget/DragPhotoView">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.dragPhotoView.ImageShowActivity"
+            android:theme="@style/transparent" />
 
         <activity
             android:name=".annotation.viewInject.TestViewInjectActivity"

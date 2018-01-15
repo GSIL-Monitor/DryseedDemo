@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.test.setresult;
+package com.dryseed.dryseedapp.test.setresult.test1;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,8 +23,11 @@ import io.reactivex.functions.Consumer;
  */
 
 public class SetResult2Activity extends BaseActivity {
+    private Disposable mDisposable;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        Log.d("MMM", "SetResult2Activity onCreate");
         super.onCreate(savedInstanceState);
         Button button = new Button(this);
         button.setText("GO TO C");
@@ -32,7 +35,7 @@ public class SetResult2Activity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 startActivityForResult(new Intent(SetResult2Activity.this, SetResult3Activity.class), 123);
-                //finish();
+                finish();
             }
         });
         setContentView(button);
@@ -41,7 +44,7 @@ public class SetResult2Activity extends BaseActivity {
     }
 
     private void initEvents() {
-        Disposable disposable = RxBus.getDefault().getObservable(EventEntity.class).subscribe(new Consumer<EventEntity>() {
+        mDisposable = RxBus.getDefault().getObservable(EventEntity.class).subscribe(new Consumer<EventEntity>() {
             @Override
             public void accept(EventEntity eventEntity) throws Exception {
                 Log.d("MMM", "SetResult2Activity onNext");
@@ -54,12 +57,24 @@ public class SetResult2Activity extends BaseActivity {
     }
 
     @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d("MMM", "SetResult2Activity onRestart");
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         //String name = data.getStringExtra("name");
 
-        String s = String.format("TestSetResultActivity === requestCode:%s|resultCode:%s|intent:%s", requestCode, resultCode, data);
+        String s = String.format("SetResult2Activity onActivityResult === requestCode:%s|resultCode:%s|intent:%s", requestCode, resultCode, data);
         ToastUtil.showToast(s);
         Log.d("MMM", s);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mDisposable.dispose();
     }
 }

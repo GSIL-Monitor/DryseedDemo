@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.framework.rxJava.demo.ChapterFour;
+import com.dryseed.dryseedapp.framework.rxJava.demo.TestRxjava;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,9 +76,9 @@ public class TestRxJavaActivity extends BaseActivity {
        /* ChapterFour.demo1();
         ChapterFour.demo2();
         ChapterFour.demo3();*/
-        ChapterFour.practice1();
+        //ChapterFour.practice1();
 
-        //TestRxjava.test();
+        TestRxjava.test();
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {

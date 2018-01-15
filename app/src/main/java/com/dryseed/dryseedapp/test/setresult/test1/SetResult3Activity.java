@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.test.setresult;
+package com.dryseed.dryseedapp.test.setresult.test1;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,13 +25,13 @@ public class SetResult3Activity extends BaseActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent();
-//                intent.putExtra("name", "dryseed");
-//                setResult(321, intent);
-//                finish();
-
-                RxBus.getDefault().post(new EventEntity());
+                Intent intent = new Intent();
+                intent.putExtra("name", "dryseed");
+                setResult(321, intent);
                 finish();
+
+//                RxBus.getDefault().post(new EventEntity());
+//                finish();
             }
         });
         setContentView(button);

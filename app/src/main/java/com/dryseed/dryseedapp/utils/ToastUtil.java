@@ -30,7 +30,7 @@ public class ToastUtil {
     }
 
     public static void showToast(String content) {
-        if (content != null && content.length() > 100) return;
+        if (content != null && content.length() > 500) return;
         toastBuild(MyApplication.getInstance(), content, Gravity.CENTER_VERTICAL, 0);
     }
 
