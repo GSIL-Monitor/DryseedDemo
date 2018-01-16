@@ -1,1 +1,1 @@
-include ':app', ':camera', ':ucrop', ':pictureselector'
+include ':app', ':camera'/*, ':ucrop', ':pictureselector'*/

@@ -31,7 +31,7 @@ public class Variable extends Expression {
     }
 
     @Override
-    public boolean interpret(Context ctx) {
+    public boolean interpret(InterpreterContext ctx) {
         return ctx.lookup(this);
     }
 

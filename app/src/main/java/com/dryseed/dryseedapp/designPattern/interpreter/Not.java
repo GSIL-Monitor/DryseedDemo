@@ -25,7 +25,7 @@ public class Not extends Expression {
     }
 
     @Override
-    public boolean interpret(Context ctx) {
+    public boolean interpret(InterpreterContext ctx) {
         return !exp.interpret(ctx);
     }
 

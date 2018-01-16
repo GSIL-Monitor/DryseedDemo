@@ -8,9 +8,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.dryseed.dryseedapp.BaseActivity;
+import com.dryseed.dryseedapp.framework.eventbus.Event;
 import com.dryseed.dryseedapp.framework.rxBus.RxBus;
 import com.dryseed.dryseedapp.utils.ToastUtil;
-import com.luck.picture.lib.entity.EventEntity;
 
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
@@ -44,9 +44,9 @@ public class SetResult2Activity extends BaseActivity {
     }
 
     private void initEvents() {
-        mDisposable = RxBus.getDefault().getObservable(EventEntity.class).subscribe(new Consumer<EventEntity>() {
+        mDisposable = RxBus.getDefault().getObservable(Event.class).subscribe(new Consumer<Event>() {
             @Override
-            public void accept(EventEntity eventEntity) throws Exception {
+            public void accept(Event eventEntity) throws Exception {
                 Log.d("MMM", "SetResult2Activity onNext");
                 Intent intent = new Intent();
                 intent.putExtra("name", "dryseed");

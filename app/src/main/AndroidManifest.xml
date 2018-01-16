@@ -1352,6 +1352,16 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".practice.answer.AnswerActivity"
+            android:label="Practice/Answer">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".widget.textView.TestSpannableActivity"
             android:label="Widget/TextView/Spannable">
             <intent-filter>

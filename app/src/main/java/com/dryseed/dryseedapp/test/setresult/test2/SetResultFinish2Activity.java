@@ -8,13 +8,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.dryseed.dryseedapp.BaseActivity;
-import com.dryseed.dryseedapp.framework.rxBus.RxBus;
-import com.dryseed.dryseedapp.test.setresult.test1.SetResult3Activity;
-import com.dryseed.dryseedapp.utils.ToastUtil;
-import com.luck.picture.lib.entity.EventEntity;
-
-import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
 
 /**
  * Created by caiminming on 2017/12/28.

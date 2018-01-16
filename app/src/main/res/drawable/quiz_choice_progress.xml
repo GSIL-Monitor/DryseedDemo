@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+            <item android:id="@android:id/background">
+                <shape>
+                    <corners android:radius="50dip" />
+                    <solid android:color="#cccccc" />
+                    <stroke
+                        android:width="0.5dp"
+                        android:color="#f2f2f2" />
+                </shape>
+            </item>
+
+            <item android:id="@android:id/secondaryProgress">
+                <clip>
+                    <shape>
+                        <corners android:radius="50dip" />
+                        <solid android:color="#000000" />
+                    </shape>
+                </clip>
+            </item>
+
+            <item android:id="@android:id/progress">
+                <clip>
+                    <shape>
+                        <corners android:radius="50dip" />
+                        <solid android:color="#22ac38" />
+                    </shape>
+                </clip>
+            </item>
+
+        </layer-list>
+    </item>
+    <item>
+        <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+            <item android:id="@android:id/background">
+                <shape>
+                    <corners android:radius="50dip" />
+                    <solid android:color="#ffffff" />
+                    <stroke
+                        android:width="0.5dp"
+                        android:color="#f2f2f2" />
+                </shape>
+            </item>
+
+            <item android:id="@android:id/secondaryProgress">
+                <clip>
+                    <shape>
+                        <corners android:radius="50dip" />
+                        <solid android:color="#000000" />
+                    </shape>
+                </clip>
+            </item>
+
+            <item android:id="@android:id/progress">
+                <clip>
+                    <shape>
+                        <corners android:radius="50dip" />
+                        <solid android:color="#22ac38" />
+                    </shape>
+                </clip>
+            </item>
+
+        </layer-list>
+    </item>
+</selector>

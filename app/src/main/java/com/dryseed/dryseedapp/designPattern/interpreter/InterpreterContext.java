@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * Created by caiminming on 2017/1/24.
  */
-public class Context {
+public class InterpreterContext {
 
     private Map<Variable, Boolean> map = new HashMap<Variable, Boolean>();
 

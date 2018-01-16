@@ -5,7 +5,7 @@ package com.dryseed.dryseedapp.designPattern.interpreter;
  */
 public class Main {
     public static void main(String[] args) {
-        Context ctx = new Context();
+        InterpreterContext ctx = new InterpreterContext();
         Variable x = new Variable("x");
         Variable y = new Variable("y");
         Constant c = new Constant(true);

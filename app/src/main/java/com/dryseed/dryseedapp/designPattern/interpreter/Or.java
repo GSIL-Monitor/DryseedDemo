@@ -25,7 +25,7 @@ public class Or extends Expression {
     }
 
     @Override
-    public boolean interpret(Context ctx) {
+    public boolean interpret(InterpreterContext ctx) {
         return left.interpret(ctx) || right.interpret(ctx);
     }
 

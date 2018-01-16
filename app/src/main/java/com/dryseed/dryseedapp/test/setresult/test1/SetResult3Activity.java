@@ -7,10 +7,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.dryseed.dryseedapp.BaseActivity;
-import com.dryseed.dryseedapp.framework.rxBus.RxBus;
-import com.luck.picture.lib.entity.EventEntity;
-
-import io.reactivex.functions.Consumer;
 
 /**
  * Created by caiminming on 2017/12/28.
@@ -30,7 +26,7 @@ public class SetResult3Activity extends BaseActivity {
                 setResult(321, intent);
                 finish();
 
-//                RxBus.getDefault().post(new EventEntity());
+//                RxBus.getDefault().post(new Event());
 //                finish();
             }
         });

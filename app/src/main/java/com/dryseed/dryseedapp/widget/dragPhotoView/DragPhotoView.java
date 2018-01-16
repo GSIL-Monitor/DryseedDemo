@@ -7,15 +7,10 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
-import android.widget.ImageView;
-
-import com.dryseed.dryseedapp.utils.DPIUtil;
 
 public class DragPhotoView extends android.support.v7.widget.AppCompatImageView {
     private Paint mPaint;

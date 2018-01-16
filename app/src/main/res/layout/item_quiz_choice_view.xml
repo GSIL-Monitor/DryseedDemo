@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_network_model_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp">
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:progressDrawable="@drawable/quiz_choice_progress" />
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:textColor="#242021"
+        android:textSize="14sp"
+        tools:text="摩擦力" />
+</RelativeLayout>
