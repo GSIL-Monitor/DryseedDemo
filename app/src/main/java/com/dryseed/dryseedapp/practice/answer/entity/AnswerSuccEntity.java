@@ -2,11 +2,10 @@ package com.dryseed.dryseedapp.practice.answer.entity;
 
 import com.dryseed.dryseedapp.practice.answer.constant.AnswerStateEnum;
 import com.dryseed.dryseedapp.practice.answer.callback.AnswerCallback;
-import com.dryseed.dryseedapp.practice.answer.callback.AnswerLateCallback;
+import com.dryseed.dryseedapp.practice.answer.callback.AnswerSuccCallback;
 
-public class AnswerLateEntity extends AnswerEntity {
-
-    public AnswerLateEntity(AnswerStateEnum stateType, AnswerCallback callback) {
+public class AnswerSuccEntity extends AnswerEntity {
+    public AnswerSuccEntity(AnswerStateEnum stateType, AnswerCallback callback) {
         this.stateType = stateType;
         this.callback = callback;
     }
@@ -14,13 +13,13 @@ public class AnswerLateEntity extends AnswerEntity {
     public static class Builder {
         private AnswerCallback callback;
 
-        public Builder setCallback(AnswerLateCallback callback) {
+        public Builder setCallback(AnswerSuccCallback callback) {
             this.callback = callback;
             return this;
         }
 
-        public AnswerLateEntity build() {
-            return new AnswerLateEntity(AnswerStateEnum.LATE, callback);
+        public AnswerSuccEntity build() {
+            return new AnswerSuccEntity(AnswerStateEnum.SUCC, callback);
         }
     }
 }

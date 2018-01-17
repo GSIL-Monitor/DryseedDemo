@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="343dp"
+    android:layout_height="340dp"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:id="@+id/answer_late_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="你迟到了"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/answer_wait_begin_layout"
+        android:layout_width="match_parent"
+        android:layout_height="318dp"
+        android:background="#cccccc"
+        android:visibility="gone">
+
+        <include layout="@layout/answer_wait_begin_layout" />
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/answer_quiz_time_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:visibility="gone">
+
+        <include layout="@layout/answer_quiz_time_layout" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/anchor_wait_begin_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="#cccccc"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/answer_achor_wait_next_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="#cccccc"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/answer_out_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="#cccccc"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/answer_succ_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="#cccccc"
+        android:visibility="gone" />
+</FrameLayout>

@@ -1,12 +1,17 @@
 package com.dryseed.dryseedapp.practice.answer.state;
 
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.customView.comboClickTextView.CountDownTimer;
+import com.dryseed.dryseedapp.practice.answer.constant.AnswerConstants;
 import com.dryseed.dryseedapp.practice.answer.AnswerMachine;
 import com.dryseed.dryseedapp.practice.answer.callback.AnswerCallback;
 import com.dryseed.dryseedapp.practice.answer.callback.AnswerWaitBeginCallback;
@@ -15,38 +20,64 @@ import com.dryseed.dryseedapp.practice.answer.entity.AnswerWaitBeginEntity;
 import com.dryseed.dryseedapp.utils.TimeUtils;
 
 public class AnswerWaitBeginState implements AnswerState {
-
-    private final long TIMER_TIME_INTERVAL = 1000;
-
     private AnswerMachine mMachine;
-    private LinearLayout mRootView;
+    private FrameLayout mRootView;
     private AnswerWaitBeginCallback mCallback;
     private AnswerWaitBeginEntity mEntity;
     private CountDownTimer mCountDownTimer;
-    private long mMillisInFuture;
-    TextView mCountDownTimerTextView;
+    private TextView mCountDownTimerTextView;
+    private TextView mSignUpSuccTextView;
+    private ImageView mCloseBtn;
+    private Button mSignUpBtn;
 
-    public AnswerWaitBeginState(AnswerMachine mMachine, LinearLayout rootView) {
+    public AnswerWaitBeginState(AnswerMachine mMachine, FrameLayout rootView) {
         this.mMachine = mMachine;
         this.mRootView = rootView;
-        initViews();
     }
 
     private void initViews() {
+        LayoutInflater.from(mRootView.getContext()).inflate(R.layout.answer_wait_begin_layout, mRootView, true);
         mCountDownTimerTextView = (TextView) mRootView.findViewById(R.id.count_down_timer);
+        mSignUpSuccTextView = (TextView) mRootView.findViewById(R.id.sign_up_succ);
+        mCloseBtn = (ImageView) mRootView.findViewById(R.id.close_btn);
+        mCloseBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (null != mCallback) {
+                    mCallback.onClose();
+                }
+            }
+        });
+        mSignUpBtn = (Button) mRootView.findViewById(R.id.button);
+        mSignUpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (null != mCallback) {
+                    mCallback.onSignUp();
+                }
+            }
+        });
     }
 
     @Override
     public void start() {
         Log.d("MMM", "AnswerWaitBeginState start");
         mRootView.setVisibility(View.VISIBLE);
+        initViews();
+        setData();
+    }
 
-        if (mMillisInFuture > 0) {
-            mCountDownTimer = new CountDownTimer(mMillisInFuture, TIMER_TIME_INTERVAL) {
+    private void setData() {
+        if (null == mEntity) return;
+        if (mEntity.getCountDownTime() > 0) {
+            mCountDownTimer = new CountDownTimer(mEntity.getCountDownTime(), AnswerConstants.TIMER_TIME_INTERVAL) {
                 @Override
                 public void onTick(long millisUntilFinished) {
                     Log.d("MMM", "AnswerWaitBeginState start" + millisUntilFinished);
                     mCountDownTimerTextView.setText(TimeUtils.getClockTime((int) (millisUntilFinished / 1000)));
+                    if (null != mCallback) {
+                        mCallback.onTimerTick(millisUntilFinished);
+                    }
                 }
 
                 @Override
@@ -56,6 +87,14 @@ public class AnswerWaitBeginState implements AnswerState {
                 }
             };
             mCountDownTimer.start();
+        }
+
+        if (mEntity.isSignUp()) {
+            mSignUpBtn.setVisibility(View.GONE);
+            mSignUpSuccTextView.setVisibility(View.VISIBLE);
+        } else {
+            mSignUpBtn.setVisibility(View.VISIBLE);
+            mSignUpSuccTextView.setVisibility(View.GONE);
         }
     }
 
@@ -77,7 +116,6 @@ public class AnswerWaitBeginState implements AnswerState {
             throw new IllegalArgumentException("wrong params!");
         }
         mEntity = (AnswerWaitBeginEntity) answerEntity;
-        mMillisInFuture = mEntity.millisInFuture;
     }
 
     @Override
@@ -89,17 +127,23 @@ public class AnswerWaitBeginState implements AnswerState {
     }
 
     @Override
-    public LinearLayout getView() {
+    public FrameLayout getView() {
         return mRootView;
     }
 
     private void stopTimer() {
-        if (null != mCountDownTimerTextView) {
-            mCountDownTimerTextView.setText("00:00");
-        }
         if (null != mCountDownTimer) {
             mCountDownTimer.cancel();
             mCountDownTimer = null;
+        }
+    }
+
+    public void signUpSucc() {
+        if (null != mSignUpBtn) {
+            mSignUpBtn.setVisibility(View.GONE);
+        }
+        if (null != mSignUpSuccTextView) {
+            mSignUpSuccTextView.setVisibility(View.VISIBLE);
         }
     }
 }

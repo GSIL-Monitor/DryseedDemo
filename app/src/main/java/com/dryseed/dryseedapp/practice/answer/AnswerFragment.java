@@ -10,7 +10,10 @@ import android.widget.FrameLayout;
 import com.dryseed.dryseedapp.BaseFragment;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.practice.answer.callback.AnswerCallback;
+import com.dryseed.dryseedapp.practice.answer.callback.AnswerWaitBeginCallback;
+import com.dryseed.dryseedapp.practice.answer.constant.AnswerStateEnum;
 import com.dryseed.dryseedapp.practice.answer.entity.AnswerEntity;
+import com.dryseed.dryseedapp.practice.answer.state.AnswerWaitBeginState;
 
 import butterknife.ButterKnife;
 
@@ -22,7 +25,7 @@ public class AnswerFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mRootView = (FrameLayout) inflater.inflate(R.layout.fragment_answer_layout, null);
+        mRootView = (FrameLayout) inflater.inflate(R.layout.answer_fragment_layout, null);
         ButterKnife.bind(this, mRootView);
         return mRootView;
     }
@@ -42,44 +45,44 @@ public class AnswerFragment extends BaseFragment {
 
     }
 
-    protected void setState(AnswerStateEnum stateEnum, AnswerEntity entity) {
-        setState(stateEnum, entity, null);
+    public void signUpSucc() {
+        if (mAnswerMachine.getState() instanceof AnswerWaitBeginState) {
+            ((AnswerWaitBeginState) (mAnswerMachine.getState())).signUpSucc();
+        }
     }
 
-
-    protected void setState(AnswerStateEnum stateEnum, AnswerEntity entity, AnswerCallback callback) {
+    protected void setState(AnswerEntity entity) {
+        AnswerStateEnum stateEnum = entity.getStateType();
+        AnswerCallback callback = entity.getCallback();
+        mAnswerMachine.stop();
         switch (stateEnum) {
             case LATE:
-                mAnswerMachine.stop();
                 mAnswerMachine.setState(mAnswerMachine.getAnswerLateState());
-                mAnswerMachine.setEntity(entity);
-                if (null != callback) mAnswerMachine.setCallback(callback);
-                mAnswerMachine.start();
                 break;
             case WAIT_BEGIN:
-                mAnswerMachine.stop();
                 mAnswerMachine.setState(mAnswerMachine.getAnswerWaitBeginState());
-                mAnswerMachine.setEntity(entity);
-                if (null != callback) mAnswerMachine.setCallback(callback);
-                mAnswerMachine.start();
                 break;
             case QUIZ_TIME:
-                mAnswerMachine.stop();
                 mAnswerMachine.setState(mAnswerMachine.getAnswerQuizTimeState());
-                mAnswerMachine.setEntity(entity);
-                if (null != callback) mAnswerMachine.setCallback(callback);
-                mAnswerMachine.start();
                 break;
             case ANCHOR_WAIT_BEGIN:
-                mAnswerMachine.stop();
                 mAnswerMachine.setState(mAnswerMachine.getAnchorWaitBeginState());
-                mAnswerMachine.setEntity(entity);
-                if (null != callback) mAnswerMachine.setCallback(callback);
-                mAnswerMachine.start();
+                break;
+            case ANCHOR_WAIT_NEXT:
+                mAnswerMachine.setState(mAnswerMachine.getAnchorWaitNextState());
+                break;
+            case OUT:
+                mAnswerMachine.setState(mAnswerMachine.getAnswerOutState());
+                break;
+            case SUCC:
+                mAnswerMachine.setState(mAnswerMachine.getAnswerSuccState());
                 break;
             default:
                 break;
         }
+        mAnswerMachine.setEntity(entity);
+        if (null != callback) mAnswerMachine.setCallback(callback);
+        mAnswerMachine.start();
     }
 
     @Override

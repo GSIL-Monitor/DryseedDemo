@@ -10,25 +10,25 @@ import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.customView.comboClickTextView.CountDownTimer;
 import com.dryseed.dryseedapp.practice.answer.AnswerMachine;
 import com.dryseed.dryseedapp.practice.answer.callback.AnchorWaitBeginCallback;
+import com.dryseed.dryseedapp.practice.answer.callback.AnchorWaitNextCallback;
 import com.dryseed.dryseedapp.practice.answer.callback.AnswerCallback;
-import com.dryseed.dryseedapp.practice.answer.callback.AnswerWaitBeginCallback;
 import com.dryseed.dryseedapp.practice.answer.entity.AnchorWaitBeginEntity;
+import com.dryseed.dryseedapp.practice.answer.entity.AnchorWaitNextEntity;
 import com.dryseed.dryseedapp.practice.answer.entity.AnswerEntity;
-import com.dryseed.dryseedapp.practice.answer.entity.AnswerWaitBeginEntity;
 import com.dryseed.dryseedapp.utils.TimeUtils;
 
-public class AnchorWaitBeginState implements AnswerState {
+public class AnchorWaitNextState implements AnswerState {
 
     private final long TIMER_TIME_INTERVAL = 1000;
 
     private AnswerMachine mMachine;
     private RelativeLayout mRootView;
-    private AnchorWaitBeginCallback mCallback;
-    private AnchorWaitBeginEntity mEntity;
+    private AnchorWaitNextCallback mCallback;
+    private AnchorWaitNextEntity mEntity;
     private CountDownTimer mCountDownTimer;
     TextView mCountDownTimerTextView;
 
-    public AnchorWaitBeginState(AnswerMachine mMachine, RelativeLayout rootView) {
+    public AnchorWaitNextState(AnswerMachine mMachine, RelativeLayout rootView) {
         this.mMachine = mMachine;
         this.mRootView = rootView;
         initViews();
@@ -42,6 +42,12 @@ public class AnchorWaitBeginState implements AnswerState {
     public void start() {
         Log.d("MMM", "AnswerWaitBeginState start");
         mRootView.setVisibility(View.VISIBLE);
+
+        setData();
+    }
+
+    private void setData() {
+        if (null == mEntity) return;
 
         if (mEntity.getCountDownTime() > 0) {
             mCountDownTimer = new CountDownTimer(mEntity.getCountDownTime(), TIMER_TIME_INTERVAL) {
@@ -75,18 +81,18 @@ public class AnchorWaitBeginState implements AnswerState {
 
     @Override
     public void setEntity(AnswerEntity answerEntity) {
-        if (!(answerEntity instanceof AnchorWaitBeginEntity)) {
+        if (!(answerEntity instanceof AnchorWaitNextEntity)) {
             throw new IllegalArgumentException("wrong params!");
         }
-        mEntity = (AnchorWaitBeginEntity) answerEntity;
+        mEntity = (AnchorWaitNextEntity) answerEntity;
     }
 
     @Override
     public void setCallback(AnswerCallback answerCallback) {
-        if (!(answerCallback instanceof AnchorWaitBeginCallback)) {
+        if (!(answerCallback instanceof AnchorWaitNextCallback)) {
             throw new IllegalArgumentException("wrong params!");
         }
-        mCallback = (AnchorWaitBeginCallback) answerCallback;
+        mCallback = (AnchorWaitNextCallback) answerCallback;
     }
 
     @Override

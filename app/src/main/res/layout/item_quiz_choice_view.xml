@@ -12,16 +12,28 @@
         android:id="@+id/progress_bar"
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="match_parent"
-        android:layout_height="36dp"
-        android:progressDrawable="@drawable/quiz_choice_progress" />
+        android:layout_height="36dp" />
 
     <TextView
-        android:id="@+id/textview"
+        android:id="@+id/answer_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="20dp"
         android:textColor="#242021"
+        android:textStyle="bold"
         android:textSize="14sp"
         tools:text="摩擦力" />
+
+    <TextView
+        android:id="@+id/count_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:textColor="#C0C3C9"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        tools:text="4444" />
 </RelativeLayout>
