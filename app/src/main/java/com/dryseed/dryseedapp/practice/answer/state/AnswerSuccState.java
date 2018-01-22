@@ -1,9 +1,12 @@
 package com.dryseed.dryseedapp.practice.answer.state;
 
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
+import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.practice.answer.AnswerMachine;
 import com.dryseed.dryseedapp.practice.answer.callback.AnswerCallback;
 import com.dryseed.dryseedapp.practice.answer.callback.AnswerOutCallback;
@@ -14,14 +17,13 @@ import com.dryseed.dryseedapp.practice.answer.entity.AnswerSuccEntity;
 
 public class AnswerSuccState implements AnswerState {
     private AnswerMachine mMachine;
-    private RelativeLayout mRootView;
+    private FrameLayout mRootView;
     private AnswerSuccCallback mCallback;
     private AnswerSuccEntity mEntity;
 
-    public AnswerSuccState(AnswerMachine mMachine, RelativeLayout rootView) {
+    public AnswerSuccState(AnswerMachine mMachine, FrameLayout rootView) {
         this.mMachine = mMachine;
         this.mRootView = rootView;
-        initViews();
     }
 
     private void initViews() {
@@ -32,6 +34,7 @@ public class AnswerSuccState implements AnswerState {
     public void start() {
         Log.d("MMM", "AnswerLateState start");
         mRootView.setVisibility(View.VISIBLE);
+        initViews();
     }
 
     @Override
@@ -62,7 +65,7 @@ public class AnswerSuccState implements AnswerState {
     }
 
     @Override
-    public RelativeLayout getView() {
+    public FrameLayout getView() {
         return mRootView;
     }
 }

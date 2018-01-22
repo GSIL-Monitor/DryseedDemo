@@ -4,4 +4,6 @@ public interface AnswerSuccCallback extends AnswerCallback {
     void onShare();
 
     void onMyAccount();
+
+    void onClose();
 }

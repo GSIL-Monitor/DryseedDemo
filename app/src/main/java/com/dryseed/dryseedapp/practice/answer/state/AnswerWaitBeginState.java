@@ -26,6 +26,7 @@ public class AnswerWaitBeginState implements AnswerState {
     private AnswerWaitBeginEntity mEntity;
     private CountDownTimer mCountDownTimer;
     private TextView mCountDownTimerTextView;
+    private TextView mSubTitle;
     private TextView mSignUpSuccTextView;
     private ImageView mCloseBtn;
     private Button mSignUpBtn;
@@ -36,8 +37,8 @@ public class AnswerWaitBeginState implements AnswerState {
     }
 
     private void initViews() {
-        LayoutInflater.from(mRootView.getContext()).inflate(R.layout.answer_wait_begin_layout, mRootView, true);
         mCountDownTimerTextView = (TextView) mRootView.findViewById(R.id.count_down_timer);
+        mSubTitle = (TextView) mRootView.findViewById(R.id.subtitle);
         mSignUpSuccTextView = (TextView) mRootView.findViewById(R.id.sign_up_succ);
         mCloseBtn = (ImageView) mRootView.findViewById(R.id.close_btn);
         mCloseBtn.setOnClickListener(new View.OnClickListener() {
@@ -96,6 +97,8 @@ public class AnswerWaitBeginState implements AnswerState {
             mSignUpBtn.setVisibility(View.VISIBLE);
             mSignUpSuccTextView.setVisibility(View.GONE);
         }
+
+        mSubTitle.setText(mEntity.getDiamondCount() + "");
     }
 
     @Override

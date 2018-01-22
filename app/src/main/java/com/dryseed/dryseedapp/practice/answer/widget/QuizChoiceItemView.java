@@ -35,7 +35,7 @@ public class QuizChoiceItemView extends FrameLayout {
     }
 
     private void initView(Context context) {
-        View rootView = LayoutInflater.from(context).inflate(R.layout.item_quiz_choice_view, this);
+        View rootView = LayoutInflater.from(context).inflate(R.layout.answer_quiz_choice_item_view, this);
         mProgressBar = (ProgressBar) rootView.findViewById(R.id.progress_bar);
         mAnswerText = (TextView) rootView.findViewById(R.id.answer_textview);
         mCountText = (TextView) rootView.findViewById(R.id.count_textview);

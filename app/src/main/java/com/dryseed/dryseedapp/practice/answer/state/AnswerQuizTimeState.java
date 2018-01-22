@@ -46,7 +46,6 @@ public class AnswerQuizTimeState implements AnswerState {
     }
 
     private void initViews() {
-        LayoutInflater.from(mRootView.getContext()).inflate(R.layout.answer_quiz_time_layout, mRootView, true);
         mQuestionText = (TextView) mRootView.findViewById(R.id.answer_quiz_time_question);
         mQuizStateView = (QuizStateView) mRootView.findViewById(R.id.answer_quiz_time_state);
 

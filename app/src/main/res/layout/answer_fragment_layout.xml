@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="343dp"
     android:layout_height="340dp"
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    android:background="#cccccc">
 
     <LinearLayout
         android:id="@+id/answer_late_layout"
@@ -23,7 +24,6 @@
         android:id="@+id/answer_wait_begin_layout"
         android:layout_width="match_parent"
         android:layout_height="318dp"
-        android:background="#cccccc"
         android:visibility="gone">
 
         <include layout="@layout/answer_wait_begin_layout" />
@@ -43,7 +43,6 @@
         android:id="@+id/anchor_wait_begin_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
         android:background="#cccccc"
         android:visibility="gone" />
 
@@ -51,7 +50,6 @@
         android:id="@+id/answer_achor_wait_next_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
         android:background="#cccccc"
         android:visibility="gone" />
 
@@ -59,15 +57,12 @@
         android:id="@+id/answer_out_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
         android:background="#cccccc"
         android:visibility="gone" />
 
-    <RelativeLayout
+    <FrameLayout
         android:id="@+id/answer_succ_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:background="#cccccc"
-        android:visibility="gone" />
+        android:visibility="visible"></FrameLayout>
 </FrameLayout>

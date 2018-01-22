@@ -36,7 +36,7 @@ public class TestViewAnimatorActivity extends BaseActivity {
 
     @OnClick(R.id.button)
     void onButtonClick() {
-        ViewAnimator
+        /*ViewAnimator
                 .animate(mImageView)
                 .translationY(0, 1000)
                 .alpha(1.0f, 0.1f)
@@ -52,7 +52,13 @@ public class TestViewAnimatorActivity extends BaseActivity {
                 .thenAnimate(mImageView)
                 .pulse()
                 .repeatCount(-1)
-                .start();
+                .start();*/
 
+        ViewAnimator
+                .animate(mImageView)
+                .scale(1f, 1.3f, 1f)
+                .duration(300)
+                .interpolator(new AccelerateDecelerateInterpolator())
+                .start();
     }
 }

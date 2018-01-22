@@ -40,7 +40,7 @@ public class AnswerMachine implements AnswerState {
         mAnchorWaitBeginState = new AnchorWaitBeginState(this, (RelativeLayout) view.findViewById(R.id.anchor_wait_begin_layout));
         mAnchorWaitNextState = new AnchorWaitNextState(this, (RelativeLayout) view.findViewById(R.id.answer_achor_wait_next_layout));
         mAnswerOutState = new AnswerOutState(this, (RelativeLayout) view.findViewById(R.id.answer_out_layout));
-        mAnswerSuccState = new AnswerSuccState(this, (RelativeLayout) view.findViewById(R.id.answer_succ_layout));
+        mAnswerSuccState = new AnswerSuccState(this, (FrameLayout) view.findViewById(R.id.answer_succ_layout));
         mRootView = view;
         mState = mAnswerLateState;
     }
