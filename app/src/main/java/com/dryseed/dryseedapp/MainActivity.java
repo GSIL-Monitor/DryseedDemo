@@ -80,7 +80,7 @@ public class MainActivity extends ListActivity {
             Log.d("MMM", "path: " + uri.getPath());
             Log.d("MMM", "queryString: " + uri.getQuery());
             Log.d("MMM", "queryParameter - name: " + uri.getQueryParameter("name"));
-            if (name.equals("canvas")) {
+            if (null != name && name.equals("canvas")) {
                 startActivity(new Intent(this, TestCanvasActivity.class));
             }
         }

@@ -18,6 +18,7 @@ public class StorageDirectoryUtil {
         #外部存储
             #私有存储
             Context.getExternalFilesDir() = /storage/emulated/0/Android/data/com.dryseed.dryseedapp/files/exter_test
+            Context.getExternalCacheDir() = /storage/emulated/0/Android/data/com.dryseed.dryseedapp/cache
             #公共存储
             Environment.getExternalStorageDirectory = /storage/emulated/0
             Environment.getExternalStoragePublicDirectory = /storage/emulated/0/pub_test

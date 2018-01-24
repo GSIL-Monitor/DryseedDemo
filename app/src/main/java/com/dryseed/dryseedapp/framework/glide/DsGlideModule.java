@@ -1,12 +1,14 @@
 package com.dryseed.dryseedapp.framework.glide;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.GlideBuilder;
 import com.bumptech.glide.Registry;
 import com.bumptech.glide.load.engine.bitmap_recycle.LruBitmapPool;
 import com.bumptech.glide.load.engine.cache.ExternalCacheDiskCacheFactory;
+import com.bumptech.glide.load.engine.cache.InternalCacheDiskCacheFactory;
 import com.bumptech.glide.load.engine.cache.LruResourceCache;
 import com.bumptech.glide.load.engine.cache.MemorySizeCalculator;
 import com.bumptech.glide.module.AppGlideModule;
@@ -29,12 +31,13 @@ public class DsGlideModule extends AppGlideModule {
 
         int customMemoryCacheSize = (int) (1.2 * defaultMemoryCacheSize);
         int customBitmapPoolSize = (int) (1.2 * defaultBitmapPoolSize);
+        Log.d("MMM", GlideCacheUtil.getFormatSize(customMemoryCacheSize) + " " + GlideCacheUtil.getFormatSize(customBitmapPoolSize));
 
         builder.setMemoryCache(new LruResourceCache(customMemoryCacheSize));
         builder.setBitmapPool(new LruBitmapPool(customBitmapPoolSize));
 
         //磁盘缓存 Glide使用DiskLruCacheWrapper作为默认的磁盘缓存，默认大小是250M,缓存文件放在APP的缓存文件夹下。
-        builder.setDiskCache(new ExternalCacheDiskCacheFactory(context, StorageDirectoryUtil.getImageDirectory(), 250 * 1024 * 1024));
+        builder.setDiskCache(new ExternalCacheDiskCacheFactory(context, ExternalCacheDiskCacheFactory.DEFAULT_DISK_CACHE_DIR, GlideCacheUtil.DEFAULT_GLIDE_DISK_CACHE_SIZE));
     }
 
     @Override
@@ -55,4 +58,5 @@ public class DsGlideModule extends AppGlideModule {
     public boolean isManifestParsingEnabled() {
         return false;
     }
+
 }
