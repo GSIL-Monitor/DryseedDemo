@@ -1045,6 +1045,17 @@
         </activity>
         <activity android:name=".test.singleTask.TestBActivity" />
         <activity
+            android:name=".test.singleTask.TestSingleInstanceAActivity"
+            android:label="Test/SingleInstance"
+            android:launchMode="singleInstance">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".test.singleTask.TestSingleInstanceBActivity" />
+        <activity
             android:name=".test.parcelable.TestParcelableAActivity"
             android:label="Test/Parcelable">
             <intent-filter>
@@ -1197,6 +1208,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".test.setresult.test2.SetResultFinish2Activity" />
+        <activity
+            android:name=".test.xposed.TestXposedActivity"
+            android:label="Test/Xposed">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".service.intentService.IntentServiceActivity"
@@ -1354,6 +1374,15 @@
         <activity
             android:name=".practice.answer.AnswerActivity"
             android:label="Practice/Answer">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".practice.imageVerify.ImageVerifyActivity"
+            android:label="Practice/ImageVerify">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
