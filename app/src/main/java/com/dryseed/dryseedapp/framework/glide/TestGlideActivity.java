@@ -39,6 +39,7 @@ import com.dryseed.dryseedapp.framework.volley.JsonObjectRequest;
 import com.dryseed.dryseedapp.framework.volley.TestVolleyActivity;
 import com.dryseed.dryseedapp.utils.DPIUtil;
 import com.dryseed.dryseedapp.utils.ToastUtil;
+import com.dryseed.dryseedapp.utils.UnitUtil;
 import com.dryseed.dryseedapp.utils.VolleyUtils;
 import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo2.lib.RecyclerListAdapter;
 import com.dryseed.dryseedapp.widget.recyclerView.itemAnimator.RecyclerViewItemAnimatorActivity;
@@ -259,7 +260,7 @@ public class TestGlideActivity extends BaseActivity {
 
     private void showGlideCacheInfo(Context context) {
         String cacheSize = GlideCacheUtil.getInstance().getCacheSize(context);
-        ToastUtil.showToast(context, cacheSize + " / " + GlideCacheUtil.getFormatSize(GlideCacheUtil.DEFAULT_GLIDE_DISK_CACHE_SIZE));
+        ToastUtil.showToast(context, cacheSize + " / " + UnitUtil.getFormatSize(GlideCacheUtil.DEFAULT_GLIDE_DISK_CACHE_SIZE));
     }
 
     private void clearDiskCache(Context context) {

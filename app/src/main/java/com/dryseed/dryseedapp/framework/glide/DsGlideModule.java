@@ -13,6 +13,7 @@ import com.bumptech.glide.load.engine.cache.LruResourceCache;
 import com.bumptech.glide.load.engine.cache.MemorySizeCalculator;
 import com.bumptech.glide.module.AppGlideModule;
 import com.dryseed.dryseedapp.utils.StorageDirectoryUtil;
+import com.dryseed.dryseedapp.utils.UnitUtil;
 
 /**
  * https://muyangmin.github.io/glide-docs-cn/doc/generatedapi.html
@@ -31,7 +32,7 @@ public class DsGlideModule extends AppGlideModule {
 
         int customMemoryCacheSize = (int) (1.2 * defaultMemoryCacheSize);
         int customBitmapPoolSize = (int) (1.2 * defaultBitmapPoolSize);
-        Log.d("MMM", GlideCacheUtil.getFormatSize(customMemoryCacheSize) + " " + GlideCacheUtil.getFormatSize(customBitmapPoolSize));
+        Log.d("MMM", UnitUtil.getFormatSize(customMemoryCacheSize) + " " + UnitUtil.getFormatSize(customBitmapPoolSize));
 
         builder.setMemoryCache(new LruResourceCache(customMemoryCacheSize));
         builder.setBitmapPool(new LruBitmapPool(customBitmapPoolSize));

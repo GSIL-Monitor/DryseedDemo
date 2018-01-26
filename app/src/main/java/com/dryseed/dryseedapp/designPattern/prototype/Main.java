@@ -2,9 +2,15 @@ package com.dryseed.dryseedapp.designPattern.prototype;
 
 /**
  * Created by caiminming on 2017/1/23.
+ * <p>
+ * log:
+ * -----Resume{name='dryseed', sex='null', age='27', work=WorkExperience{workDate='2015-2017', workCompany='Tencent'}}
+ * -----Resume{name='dryseed', sex='null', age='27', work=WorkExperience{workDate='2015-2017', workCompany='Tencent'}}
+ * -----Resume{name='dryseed', sex='null', age='27', work=WorkExperience{workDate='2017-2018', workCompany='JD'}}
+ * -----Resume{name='dryseed', sex='null', age='27', work=WorkExperience{workDate='2015-2017', workCompany='Tencent'}}
  */
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Resume a = new Resume();
         a.setName("dryseed");
         a.setAge("27");
