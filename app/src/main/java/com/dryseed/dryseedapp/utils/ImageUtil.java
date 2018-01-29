@@ -1,7 +1,10 @@
 package com.dryseed.dryseedapp.utils;
 
+import android.content.Context;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
@@ -12,6 +15,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.provider.MediaStore;
 import android.util.Log;
 
 public class ImageUtil {
@@ -344,5 +348,26 @@ public class ImageUtil {
             e.printStackTrace();
             return bitmap;
         }
+    }
+
+    public static Bitmap getRecentPhotoThumb(Context context) {
+        Cursor cursor = null;
+        Bitmap bm = null;
+        try {
+            cursor = context.getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                    new String[]{MediaStore.Images.Media._ID},
+                    null, null, MediaStore.Images.Media.DATE_ADDED + " DESC");
+            String imageId = "";
+            if (cursor != null && cursor.moveToFirst()) {
+                imageId = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media._ID));
+                bm = MediaStore.Images.Thumbnails.getThumbnail(context.getContentResolver(),
+                        Long.parseLong(imageId), MediaStore.Images.Thumbnails.MICRO_KIND, new BitmapFactory.Options());
+            }
+        } catch (Exception e) {
+        } finally {
+            if (null != cursor && !cursor.isClosed())
+                cursor.close();
+        }
+        return bm;
     }
 }

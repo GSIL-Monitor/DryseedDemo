@@ -67,7 +67,7 @@ public class ImageLoader {
             CORE_POOL_SIZE, MAXIMUM_POOL_SIZE,
             KEEP_ALIVE, TimeUnit.SECONDS,
             new LinkedBlockingQueue<Runnable>(), sThreadFactory);
-    
+
     private Handler mMainHandler = new Handler(Looper.getMainLooper()) {
         @Override
         public void handleMessage(Message msg) {
@@ -80,7 +80,9 @@ public class ImageLoader {
             } else {
                 Log.w(TAG, "set image bitmap,but url has changed, ignored!");
             }
-        };
+        }
+
+        ;
     };
 
     private Context mContext;
@@ -104,8 +106,7 @@ public class ImageLoader {
         }
         if (getUsableSpace(diskCacheDir) > DISK_CACHE_SIZE) {
             try {
-                mDiskLruCache = DiskLruCache.open(diskCacheDir, 1, 1,
-                        DISK_CACHE_SIZE);
+                mDiskLruCache = DiskLruCache.open(diskCacheDir, 1, 1, DISK_CACHE_SIZE);
                 mIsDiskLruCacheCreated = true;
             } catch (IOException e) {
                 e.printStackTrace();
@@ -115,6 +116,7 @@ public class ImageLoader {
 
     /**
      * build a new instance of ImageLoader
+     *
      * @param context
      * @return a new instance of ImageLoader
      */
@@ -135,7 +137,8 @@ public class ImageLoader {
     /**
      * load bitmap from memory cache or disk cache or network async, then bind imageView and bitmap.
      * NOTE THAT: should run in UI Thread
-     * @param uri http url
+     *
+     * @param uri       http url
      * @param imageView bitmap's bind object
      */
     public void bindBitmap(final String uri, final ImageView imageView) {
@@ -143,7 +146,7 @@ public class ImageLoader {
     }
 
     public void bindBitmap(final String uri, final ImageView imageView,
-            final int reqWidth, final int reqHeight) {
+                           final int reqWidth, final int reqHeight) {
         imageView.setTag(TAG_KEY_URI, uri);
         Bitmap bitmap = loadBitmapFromMemCache(uri);
         if (bitmap != null) {
@@ -152,7 +155,6 @@ public class ImageLoader {
         }
 
         Runnable loadBitmapTask = new Runnable() {
-
             @Override
             public void run() {
                 Bitmap bitmap = loadBitmap(uri, reqWidth, reqHeight);
@@ -167,8 +169,9 @@ public class ImageLoader {
 
     /**
      * load bitmap from memory cache or disk cache or network.
-     * @param uri http url
-     * @param reqWidth the width ImageView desired
+     *
+     * @param uri       http url
+     * @param reqWidth  the width ImageView desired
      * @param reqHeight the height ImageView desired
      * @return bitmap, maybe null.
      */
@@ -205,15 +208,14 @@ public class ImageLoader {
         return bitmap;
     }
 
-    private Bitmap loadBitmapFromHttp(String url, int reqWidth, int reqHeight)
-            throws IOException {
+    private Bitmap loadBitmapFromHttp(String url, int reqWidth, int reqHeight) throws IOException {
         if (Looper.myLooper() == Looper.getMainLooper()) {
             throw new RuntimeException("can not visit network from UI Thread.");
         }
         if (mDiskLruCache == null) {
             return null;
         }
-        
+
         String key = hashKeyFormUrl(url);
         DiskLruCache.Editor editor = mDiskLruCache.edit(key);
         if (editor != null) {
@@ -228,8 +230,7 @@ public class ImageLoader {
         return loadBitmapFromDiskCache(url, reqWidth, reqHeight);
     }
 
-    private Bitmap loadBitmapFromDiskCache(String url, int reqWidth,
-            int reqHeight) throws IOException {
+    private Bitmap loadBitmapFromDiskCache(String url, int reqWidth, int reqHeight) throws IOException {
         if (Looper.myLooper() == Looper.getMainLooper()) {
             Log.w(TAG, "load bitmap from UI Thread, it's not recommended!");
         }
@@ -241,10 +242,9 @@ public class ImageLoader {
         String key = hashKeyFormUrl(url);
         DiskLruCache.Snapshot snapShot = mDiskLruCache.get(key);
         if (snapShot != null) {
-            FileInputStream fileInputStream = (FileInputStream)snapShot.getInputStream(DISK_CACHE_INDEX);
+            FileInputStream fileInputStream = (FileInputStream) snapShot.getInputStream(DISK_CACHE_INDEX);
             FileDescriptor fileDescriptor = fileInputStream.getFD();
-            bitmap = mImageResizer.decodeSampledBitmapFromFileDescriptor(fileDescriptor,
-                    reqWidth, reqHeight);
+            bitmap = mImageResizer.decodeSampledBitmapFromFileDescriptor(fileDescriptor, reqWidth, reqHeight);
             if (bitmap != null) {
                 addBitmapToMemoryCache(key, bitmap);
             }
@@ -253,8 +253,7 @@ public class ImageLoader {
         return bitmap;
     }
 
-    public boolean downloadUrlToStream(String urlString,
-            OutputStream outputStream) {
+    public boolean downloadUrlToStream(String urlString, OutputStream outputStream) {
         HttpURLConnection urlConnection = null;
         BufferedOutputStream out = null;
         BufferedInputStream in = null;
@@ -262,8 +261,7 @@ public class ImageLoader {
         try {
             final URL url = new URL(urlString);
             urlConnection = (HttpURLConnection) url.openConnection();
-            in = new BufferedInputStream(urlConnection.getInputStream(),
-                    IO_BUFFER_SIZE);
+            in = new BufferedInputStream(urlConnection.getInputStream(), IO_BUFFER_SIZE);
             out = new BufferedOutputStream(outputStream, IO_BUFFER_SIZE);
 
             int b;
