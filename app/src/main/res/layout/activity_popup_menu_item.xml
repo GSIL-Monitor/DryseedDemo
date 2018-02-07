@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="200dip"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="200dip"
+        android:layout_height="wrap_content"
+        android:background="#2D292A"
+        android:fitsSystemWindows="false"
+        android:orientation="vertical"
+        android:padding="10dip">
+
+        <TextView
+            android:id="@+id/current"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="什么是亲密度"
+            android:textColor="#D2D2D2"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dip"
+            android:text="1. 亲密度是互关好友间互动多少的体现。\n2. 互关期间，互点爱心越多，互送钻石礼物越多，在同一房间同时上麦时间越长，亲密度越高。\n3. 取消关注后，亲密度将会清0。\n4. 陪伴值从2018年2月3日开始计算。"
+            android:textColor="#D2D2D2"
+            android:textSize="10sp" />
+
+    </LinearLayout>
+</FrameLayout>

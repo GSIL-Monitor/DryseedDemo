@@ -266,4 +266,10 @@
         <attr name="endLine" format="color|reference" />
         <attr name="lineSize" format="dimension" />
     </declare-styleable>
+
+    <declare-styleable name="LineHeightEditText">
+        <attr name="cursorColor" format="color" />
+        <attr name="cursorHeight" format="dimension" />
+        <attr name="cursorWidth" format="dimension" />
+    </declare-styleable>
 </resources>

@@ -2,6 +2,7 @@ package com.dryseed.dryseedapp.utils;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.text.TextPaint;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -83,5 +84,20 @@ public class UIUtil {
             }
         }
         return result;
+    }
+
+    public static String ellipsizeText(String text, TextPaint paint, float showWidth) {
+        float textw = paint.measureText(text);
+        if (showWidth < textw) {
+            float sw = paint.measureText("…");
+            showWidth = showWidth - sw;
+            int end = 0;
+            for (int j = 1; j < text.length(); j++) {
+                end = j;
+                if (paint.measureText(text, 0, j) > showWidth) break;
+            }
+            return text.substring(0, end) + "…";
+        }
+        return text;
     }
 }

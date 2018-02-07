@@ -8,8 +8,6 @@ import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 
-//import com.jingdong.common.utils.Log;
-
 /**
  * Created by IntelliJ IDEA.
  * User: George

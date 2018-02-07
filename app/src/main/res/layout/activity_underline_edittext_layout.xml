@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.dryseed.dryseedapp.widget.underLineEditText.UnderLineEditText
+        android:id="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#cccccc"
+        android:lineSpacingMultiplier="2"
+        android:padding="10dp"
+        android:text="      无论生死，无论别离欢聚，我要告诉你，我会一直牵着你，一直到老。将最简单的话语结合最深刻的戒指送上，就是一封最感人的情书"
+        android:textColor="#F08B87"
+        android:textSize="14sp" />
+
+    <com.dryseed.dryseedapp.widget.underLineEditText.UnderLineEditText2
+        android:id="@+id/edit_text2"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:background="#cccccc"
+        android:lineSpacingMultiplier="2"
+        android:padding="10dp"
+        android:textColor="#F08B87"
+        android:textSize="14sp" />
+
+    <!--<com.dryseed.dryseedapp.widget.underLineEditText.LimitedEditText
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:background="#cccccc"
+        android:gravity="top"
+        android:lineSpacingExtra="13dp"
+        android:maxLines="4"
+        android:padding="10dp"
+        android:text="      无论生死，无论别离欢聚，我要告诉你，我会一直牵着你，一直到老。将最简单的话语结合最深刻的戒指送上，就是一封最感人的情书      无论生死，无论别离欢聚，我要告诉你，我会一直牵着你，一直到老。"
+        android:textColor="#fff08b87"
+        android:textSize="14sp" />-->
+</LinearLayout>
