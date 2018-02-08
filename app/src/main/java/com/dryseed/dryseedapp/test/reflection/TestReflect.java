@@ -7,6 +7,8 @@ import java.lang.reflect.Modifier;
 
 /**
  * Created by caiminming on 2017/7/12.
+ * <p>
+ * 通过反射，获取类的相关参数
  */
 
 public class TestReflect implements Serializable {
@@ -52,6 +54,64 @@ public class TestReflect implements Serializable {
             }
             System.out.println();
         }
+
+        /*
+            ===========test4=================
+            public static|int|numberOfLeadingZeros|(int arg0)
+            public static|int|numberOfTrailingZeros|(int arg0)
+            public static|int|bitCount|(int arg0)
+            public|boolean|equals|(java.lang.Object arg0)
+            public static|java.lang.String|toString|(int arg0,int arg1)
+            public|java.lang.String|toString|()
+            public static|java.lang.String|toString|(int arg0)
+            public static|int|hashCode|(int arg0)
+            public|int|hashCode|()
+            public static|int|min|(int arg0,int arg1)
+            public static|int|max|(int arg0,int arg1)
+            public static|int|reverseBytes|(int arg0)
+            public|int|compareTo|(java.lang.Integer arg0)
+            public volatile|int|compareTo|(java.lang.Object arg0)
+            public|byte|byteValue|()
+            public|short|shortValue|()
+            public|int|intValue|()
+            public|long|longValue|()
+            public|float|floatValue|()
+            public|double|doubleValue|()
+            public static|java.lang.Integer|valueOf|(int arg0)
+            public static|java.lang.Integer|valueOf|(java.lang.String arg0) throws java.lang.NumberFormatException
+            public static|java.lang.Integer|valueOf|(java.lang.String arg0,int arg1) throws java.lang.NumberFormatException
+            public static|java.lang.String|toHexString|(int arg0)
+            public static|java.lang.Integer|decode|(java.lang.String arg0) throws java.lang.NumberFormatException
+            public static|int|compare|(int arg0,int arg1)
+            public static|int|reverse|(int arg0)
+            public static|int|sum|(int arg0,int arg1)
+            public static|long|toUnsignedLong|(int arg0)
+            public static|int|parseInt|(java.lang.String arg0) throws java.lang.NumberFormatException
+            public static|int|parseInt|(java.lang.String arg0,int arg1) throws java.lang.NumberFormatException
+            public static|java.lang.String|toUnsignedString|(int arg0)
+            public static|java.lang.String|toUnsignedString|(int arg0,int arg1)
+            public static|java.lang.String|toOctalString|(int arg0)
+            public static|java.lang.String|toBinaryString|(int arg0)
+            public static|int|parseUnsignedInt|(java.lang.String arg0) throws java.lang.NumberFormatException
+            public static|int|parseUnsignedInt|(java.lang.String arg0,int arg1) throws java.lang.NumberFormatException
+            public static|java.lang.Integer|getInteger|(java.lang.String arg0,int arg1)
+            public static|java.lang.Integer|getInteger|(java.lang.String arg0)
+            public static|java.lang.Integer|getInteger|(java.lang.String arg0,java.lang.Integer arg1)
+            public static|int|compareUnsigned|(int arg0,int arg1)
+            public static|int|divideUnsigned|(int arg0,int arg1)
+            public static|int|remainderUnsigned|(int arg0,int arg1)
+            public static|int|highestOneBit|(int arg0)
+            public static|int|lowestOneBit|(int arg0)
+            public static|int|rotateLeft|(int arg0,int arg1)
+            public static|int|rotateRight|(int arg0,int arg1)
+            public static|int|signum|(int arg0)
+            public final|void|wait|(long arg0,int arg1) throws java.lang.InterruptedException
+            public final native|void|wait|(long arg0) throws java.lang.InterruptedException
+            public final|void|wait|() throws java.lang.InterruptedException
+            public final native|java.lang.Class|getClass|()
+            public final native|void|notify|()
+            public final native|void|notifyAll|()
+         */
     }
 
     /**
@@ -85,6 +145,27 @@ public class TestReflect implements Serializable {
             Class<?> type = filed1[j].getType();
             System.out.println(priv + "|" + type.getName() + "|" + filed1[j].getName() + ";");
         }
+
+        /*
+            ===============本类属性===============
+            public static final|int|MIN_VALUE;
+            public static final|int|MAX_VALUE;
+            public static final|java.lang.Class|TYPE;
+            static final|[C|digits;
+            static final|[C|DigitTens;
+            static final|[C|DigitOnes;
+            static final|[I|sizeTable;
+            private final|int|value;
+            public static final|int|SIZE;
+            public static final|int|BYTES;
+            private static final|long|serialVersionUID;
+            ==========实现的接口或者父类的属性==========
+            public static final|int|MIN_VALUE;
+            public static final|int|MAX_VALUE;
+            public static final|java.lang.Class|TYPE;
+            public static final|int|SIZE;
+            public static final|int|BYTES;
+         */
     }
 
     /**

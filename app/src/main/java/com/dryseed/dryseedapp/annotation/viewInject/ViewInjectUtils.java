@@ -38,11 +38,9 @@ public class ViewInjectUtils {
             Annotation[] annotations = method.getAnnotations();
             //拿到方法上的所有的注解
             for (Annotation annotation : annotations) {
-                Class<? extends Annotation> annotationType = annotation
-                        .annotationType();
+                Class<? extends Annotation> annotationType = annotation.annotationType();
                 //拿到注解上的注解
-                EventBase eventBaseAnnotation = annotationType
-                        .getAnnotation(EventBase.class);
+                EventBase eventBaseAnnotation = annotationType.getAnnotation(EventBase.class);
                 //如果设置为EventBase
                 if (eventBaseAnnotation != null) {
                     //取出设置监听器的名称，监听器的类型，调用的方法名
@@ -96,8 +94,7 @@ public class ViewInjectUtils {
                 if (viewId != -1) {
                     // 初始化View
                     try {
-                        Method method = clazz.getMethod(METHOD_FIND_VIEW_BY_ID,
-                                Integer.class);
+                        Method method = clazz.getMethod(METHOD_FIND_VIEW_BY_ID, Integer.class);
                         Object resView = method.invoke(clazz, viewId);
                         field.setAccessible(true);
                         field.set(clazz, resView);
