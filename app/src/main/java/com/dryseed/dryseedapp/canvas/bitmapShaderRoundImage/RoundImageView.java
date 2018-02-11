@@ -26,7 +26,7 @@ import com.dryseed.dryseedapp.R;
  *
  * @author zhy
  */
-public class RoundImageView extends ImageView {
+public class RoundImageView extends android.support.v7.widget.AppCompatImageView {
     /**
      * 图片的类型，圆形or圆角
      */
@@ -71,14 +71,12 @@ public class RoundImageView extends ImageView {
         mBitmapPaint = new Paint();
         mBitmapPaint.setAntiAlias(true);
 
-        TypedArray a = context.obtainStyledAttributes(attrs,
-                R.styleable.BitmapShaderRoundImageView);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.BitmapShaderRoundImageView);
 
         mBorderRadius = a.getDimensionPixelSize(
-                R.styleable.BitmapShaderRoundImageView_borderRadius, (int) TypedValue
-                        .applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-                                BODER_RADIUS_DEFAULT, getResources()
-                                        .getDisplayMetrics()));// 默认为10dp
+                R.styleable.BitmapShaderRoundImageView_borderRadius,
+                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, BODER_RADIUS_DEFAULT, getResources().getDisplayMetrics()) // 默认为10dp
+        );
         type = a.getInt(R.styleable.BitmapShaderRoundImageView_type, TYPE_CIRCLE);// 默认为Circle
 
         a.recycle();
@@ -122,11 +120,10 @@ public class RoundImageView extends ImageView {
             scale = mWidth * 1.0f / bSize;
 
         } else if (type == TYPE_ROUND) {
-            Log.e("TAG","b'w = " + bmp.getWidth() + " , " + "b'h = " + bmp.getHeight());
+            Log.e("TAG", "b'w = " + bmp.getWidth() + " , " + "b'h = " + bmp.getHeight());
             if (!(bmp.getWidth() == getWidth() && bmp.getHeight() == getHeight())) {
                 // 如果图片的宽或者高与view的宽高不匹配，计算出需要缩放的比例；缩放后的图片的宽高，一定要大于我们view的宽高；所以我们这里取大值；
-                scale = Math.max(getWidth() * 1.0f / bmp.getWidth(),
-                        getHeight() * 1.0f / bmp.getHeight());
+                scale = Math.max(getWidth() * 1.0f / bmp.getWidth(), getHeight() * 1.0f / bmp.getHeight());
             }
 
         }
@@ -147,8 +144,7 @@ public class RoundImageView extends ImageView {
         setUpShader();
 
         if (type == TYPE_ROUND) {
-            canvas.drawRoundRect(mRoundRect, mBorderRadius, mBorderRadius,
-                    mBitmapPaint);
+            canvas.drawRoundRect(mRoundRect, mBorderRadius, mBorderRadius, mBitmapPaint);
         } else {
             canvas.drawCircle(mRadius, mRadius, mRadius, mBitmapPaint);
             // drawSomeThing(canvas);

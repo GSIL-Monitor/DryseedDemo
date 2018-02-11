@@ -19,7 +19,7 @@ import com.orhanobut.logger.Logger;
  * romainpiel
  * 13/03/2014
  */
-public class TitanicTextView extends TextView {
+public class TitanicTextView extends android.support.v7.widget.AppCompatTextView {
 
     public interface AnimationSetupCallback {
         public void onSetupAnimation(TitanicTextView titanicTextView);
@@ -146,7 +146,7 @@ public class TitanicTextView extends TextView {
         c.drawColor(getCurrentTextColor());
 
         wave.setBounds(0, 0, waveW, waveH);
-        wave.draw(c);
+        wave.draw(c); //把wave这个drawable画到canvas上
 
         shader = new BitmapShader(b, Shader.TileMode.REPEAT, Shader.TileMode.CLAMP);
         getPaint().setShader(shader);

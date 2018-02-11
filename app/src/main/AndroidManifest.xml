@@ -734,6 +734,15 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".widget.autoWrapTextView.TestAutoWrapTextViewActivity"
+            android:label="Widget/AutoWrapTextView">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".customView.foldingLayout.sample.TestFoldingLayoutActivity"
@@ -889,6 +898,15 @@
         <activity
             android:name=".canvas.shapeSelector.ShapeSelectorActivity"
             android:label="Canvas/ShapeSelector">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".canvas.doubleBuffer.TestDoubleBufferActivity"
+            android:label="Canvas/DoubleBuffer">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
