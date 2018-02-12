@@ -8,6 +8,8 @@ import com.dryseed.dryseedapp.R;
 
 public class TestBitmapShaderTitanicActivity extends BaseActivity {
 
+    Titanic mTitanic;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,10 +18,16 @@ public class TestBitmapShaderTitanicActivity extends BaseActivity {
         TitanicTextView tv = (TitanicTextView) findViewById(R.id.my_text_view);
 
         // set fancy typeface
-        tv.setTypeface(Typefaces.get(this, "Satisfy-Regular.ttf"));
+        //tv.setTypeface(Typefaces.get(this, "Satisfy-Regular.ttf"));
 
         // start animation
-        new Titanic().start(tv);
+        mTitanic = new Titanic();
+        mTitanic.start(tv);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mTitanic.cancel();
+    }
 }

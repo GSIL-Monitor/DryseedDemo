@@ -5,6 +5,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.os.Build;
+import android.util.Log;
 import android.view.animation.LinearInterpolator;
 
 /**
@@ -35,17 +36,24 @@ public class Titanic {
                 textView.setSinking(true);
 
                 // horizontal animation. 200 = wave.png width
-                ObjectAnimator maskXAnimator = ObjectAnimator.ofFloat(textView, "maskX", 0, 200);
+                ObjectAnimator maskXAnimator = ObjectAnimator.ofFloat(textView, "maskX", 0, 300);
                 maskXAnimator.setRepeatCount(ValueAnimator.INFINITE);
                 maskXAnimator.setDuration(1000);
                 maskXAnimator.setStartDelay(0);
+                maskXAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                    @Override
+                    public void onAnimationUpdate(ValueAnimator animation) {
+                        Log.d("MMM", animation.getAnimatedValue() + "");
+                    }
+                });
+
 
                 int h = textView.getHeight();
 
                 // vertical animation
                 // maskY = 0 -> wave vertically centered
                 // repeat mode REVERSE to go back and forth
-                ObjectAnimator maskYAnimator = ObjectAnimator.ofFloat(textView, "maskY", h/2, - h/2);
+                ObjectAnimator maskYAnimator = ObjectAnimator.ofFloat(textView, "maskY", h / 2, -h / 2);
                 maskYAnimator.setRepeatCount(ValueAnimator.INFINITE);
                 maskYAnimator.setRepeatMode(ValueAnimator.REVERSE);
                 maskYAnimator.setDuration(10000);

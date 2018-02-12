@@ -1475,7 +1475,7 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
-        <activity
+        <!--<activity
             android:name=".plugin.dynamicLoadDex1.TestDynamicLoadDexActivity"
             android:label="Plugin/DynamicLoadDex">
             <intent-filter>
@@ -1483,7 +1483,7 @@
 
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
-        </activity>
+        </activity>-->
         <activity
             android:name=".plugin.hook.PluginHookActivity"
             android:label="Plugin/Hook">
