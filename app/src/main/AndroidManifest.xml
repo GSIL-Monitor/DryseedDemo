@@ -1549,6 +1549,15 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".practice.checkEmulator.CheckEmulatorActivity"
+            android:label="Practice/CheckEmulator">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
 
         <service
             android:name=".service.intentService.UploadImgService"
