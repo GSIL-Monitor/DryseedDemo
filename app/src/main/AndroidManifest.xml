@@ -1033,7 +1033,7 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
-        <activity
+        <!--<activity
             android:name=".tools.photoSelector.TestPictureSelectorActivity"
             android:label="Tools/PhotoSelector">
             <intent-filter>
@@ -1041,7 +1041,7 @@
 
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
-        </activity>
+        </activity>-->
         <activity
             android:name=".tools.downloadManager.DownloadManagerActivity"
             android:label="Tools/DownloadManager">

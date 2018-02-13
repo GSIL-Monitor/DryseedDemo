@@ -10,6 +10,12 @@ def getDate() {
 
 def verCode = 1
 
+repositories {
+    flatDir {
+        dirs 'libs' //this way we can find the .aar file in libs folder
+    }
+}
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
