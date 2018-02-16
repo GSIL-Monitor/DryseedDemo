@@ -1,6 +1,7 @@
 package com.dryseed.dryseedapp.frameStructure.mvp.presenter;
 
 import android.os.Handler;
+import android.util.Log;
 
 import com.dryseed.dryseedapp.frameStructure.mvp.BasePresenter;
 import com.dryseed.dryseedapp.frameStructure.mvp.bean.User;
@@ -55,5 +56,35 @@ public class UserLoginPresenter extends BasePresenter<IUserLoginView> {
     public void clear() {
         getUI().clearUserName();
         getUI().clearPassword();
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Log.d("MMM", "UserLoginPresenter onCreate");
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.d("MMM", "UserLoginPresenter onStart");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("MMM", "UserLoginPresenter onResume");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.d("MMM", "UserLoginPresenter onPause");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.d("MMM", "UserLoginPresenter onStop");
     }
 }

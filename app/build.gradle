@@ -57,7 +57,7 @@ android {
         debug {
             keyAlias 'ds'
             keyPassword '123456'
-            storeFile file('C:/DryseedDemo/app/ds.jks')
+            storeFile file('E:/DryseedDemo/app/ds.jks')
             storePassword '123456'
         }
     }
@@ -186,4 +186,7 @@ dependencies {
     }
     //https://github.com/hanks-zyh/LineHeightEditText
     //compile 'com.hanks:lineheightedittext-library:1.0'
+    // Lifecycles https://developer.android.google.cn/topic/libraries/architecture/adding-components.html
+    compile "android.arch.lifecycle:extensions:1.1.0"
+    annotationProcessor "android.arch.lifecycle:compiler:1.1.0"
 }

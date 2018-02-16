@@ -18,6 +18,7 @@ public abstract class MvpBaseActivity<P extends BasePresenter> extends BaseActiv
 
         if (mPresenter == null) {
             mPresenter = createPresenter();
+            getLifecycle().addObserver(mPresenter);
         }
 
         if (mPresenter != null) {
