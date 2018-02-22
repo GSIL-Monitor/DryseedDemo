@@ -1,6 +1,7 @@
 package com.dryseed.dryseedapp.tab.lazyViewPagerFragment;
 
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 /**
@@ -8,31 +9,43 @@ import android.support.v4.app.Fragment;
  */
 
 public abstract class LazyFragment extends Fragment {
-    protected boolean isVisible;
 
-    /**
-     * 在这里实现Fragment数据的缓加载.
-     *
-     * @param isVisibleToUser
-     */
+    protected boolean isViewInitiated;
+    protected boolean isVisibleToUser;
+    protected boolean isDataInitiated;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        isViewInitiated = true;
+        prepareFetchData();
+    }
+
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        if (getUserVisibleHint()) {
-            isVisible = true;
-            onVisible();
-        } else {
-            isVisible = false;
-            onInvisible();
-        }
+        this.isVisibleToUser = isVisibleToUser;
+        prepareFetchData();
     }
 
-    protected void onVisible() {
-        lazyLoad();
+    public boolean prepareFetchData() {
+        return prepareFetchData(false);
+    }
+
+    public boolean prepareFetchData(boolean forceUpdate) {
+        if (isVisibleToUser && isViewInitiated && (!isDataInitiated || forceUpdate)) {
+            lazyLoad();
+            isDataInitiated = true;
+            return true;
+        }
+        return false;
     }
 
     protected abstract void lazyLoad();
 
-    protected void onInvisible() {
-    }
 }

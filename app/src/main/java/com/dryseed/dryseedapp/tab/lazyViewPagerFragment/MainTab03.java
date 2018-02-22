@@ -14,16 +14,6 @@ public class MainTab03 extends LazyFragment {
 
     private static final String TAG = "MMM";
 
-    /**
-     * 标志位，标志已经初始化完成。
-     */
-    private boolean isPrepared;
-
-    /**
-     * 标记已加载完成，保证懒加载只能加载一次
-     */
-    private boolean hasLoaded = false;
-
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -39,11 +29,7 @@ public class MainTab03 extends LazyFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.i(TAG, "MainTab03 onCreateView");
-        View view = inflater.inflate(R.layout.activity_tab_viewpager_main_tab_01, container, false);
-
-        isPrepared = true;
-        lazyLoad();
-
+        View view = inflater.inflate(R.layout.activity_tab_viewpager_main_tab_03, container, false);
         return view;
     }
 
@@ -68,8 +54,6 @@ public class MainTab03 extends LazyFragment {
     @Override
     public void onDestroyView() {
         Log.i(TAG, "MainTab03 onDestroyView");
-        isPrepared = false;
-        hasLoaded = false;
         super.onDestroyView();
     }
 
@@ -112,10 +96,5 @@ public class MainTab03 extends LazyFragment {
     @Override
     protected void lazyLoad() {
         Log.i(TAG, "MainTab03 lazyLoad");
-        if(!isPrepared || !isVisible || hasLoaded) {
-            return;
-        }
-        Log.i(TAG, "MainTab03 lazyLoad do something");
-        hasLoaded = true;
     }
 }

@@ -1,9 +1,7 @@
 package com.dryseed.dryseedapp.tab.lazyViewPager;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +17,13 @@ import java.util.List;
 
 /**
  * Created by caiminming on 2017/5/26.
+ * <p>
+ * 直接修改ViewPager源码。通过查看ViewPager源码可知，控制其预加载的是一个常量
+ * DEFAULT_OFFSCREEN_PAGES，其默认值为1，表示当前页面前后各预加载一个页面，在这里我们直接将其设置为0即可，即去掉预加载。但是，这样有一个问题，那就是在使用其他控件时需要传入ViewPager时，这个就不能用了。
+ * 优点：完全屏蔽掉了预加载
+ * 缺点：应用太受限制，比如使用ViewPagerIndicator时需要传入ViewPager对象，这时傻眼了。
+ * <p>
+ * 不建议使用
  */
 
 public class LazyViewPagerActivity extends BaseActivity {

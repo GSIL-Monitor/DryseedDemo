@@ -16,7 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 评价：实现效果和第一种效果一模一样，每个Fragment独自处理自己内部的逻辑，代码整洁很多，并且支持左右滑动。感觉是viewpager和fragment的结合版本。
+ * ViewPager+Fragment LazyLoad最优解（setUserVisibleHint）
+ * https://www.jianshu.com/p/c5d29a0c3f4c
  */
 public class LazyViewPagerFragmentActivity extends FragmentActivity {
 
@@ -119,7 +120,7 @@ public class LazyViewPagerFragmentActivity extends FragmentActivity {
         mTabBtnWeixin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(null != mViewPager){
+                if (null != mViewPager) {
                     mViewPager.setCurrentItem(0);
                 }
             }
@@ -127,7 +128,7 @@ public class LazyViewPagerFragmentActivity extends FragmentActivity {
         mTabBtnFrd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(null != mViewPager){
+                if (null != mViewPager) {
                     mViewPager.setCurrentItem(1);
                 }
             }
@@ -135,7 +136,7 @@ public class LazyViewPagerFragmentActivity extends FragmentActivity {
         mTabBtnAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(null != mViewPager){
+                if (null != mViewPager) {
                     mViewPager.setCurrentItem(2);
                 }
             }
@@ -143,7 +144,7 @@ public class LazyViewPagerFragmentActivity extends FragmentActivity {
         mTabBtnSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(null != mViewPager){
+                if (null != mViewPager) {
                     mViewPager.setCurrentItem(3);
                 }
             }
