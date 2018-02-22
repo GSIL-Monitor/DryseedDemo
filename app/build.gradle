@@ -57,7 +57,7 @@ android {
         debug {
             keyAlias 'ds'
             keyPassword '123456'
-            storeFile file('E:/DryseedDemo/app/ds.jks')
+            storeFile file('ds.jks')
             storePassword '123456'
         }
     }
