@@ -31,7 +31,6 @@ public class AnswerActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anwser_layout);
         ButterKnife.bind(this);
-
         initViews();
     }
 

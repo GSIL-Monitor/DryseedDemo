@@ -1,6 +1,5 @@
 package com.dryseed.dryseedapp.framework.rxJava;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,7 +9,6 @@ import android.widget.TextView;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.framework.rxJava.demo.ChapterFour;
 import com.dryseed.dryseedapp.framework.rxJava.demo.TestRxjava;
 
 import java.util.ArrayList;
