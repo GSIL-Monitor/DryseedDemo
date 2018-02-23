@@ -16,13 +16,16 @@ public class MusicDB {
     private String artist;
     private int duration;
     private int size;
-    @Generated(hash = 449546356)
-    public MusicDB(Long id, String name, String artist, int duration, int size) {
+    private int back;
+    @Generated(hash = 285691324)
+    public MusicDB(Long id, String name, String artist, int duration, int size,
+            int back) {
         this.id = id;
         this.name = name;
         this.artist = artist;
         this.duration = duration;
         this.size = size;
+        this.back = back;
     }
     @Generated(hash = 1072602783)
     public MusicDB() {
@@ -56,6 +59,12 @@ public class MusicDB {
     }
     public void setSize(int size) {
         this.size = size;
+    }
+    public int getBack() {
+        return this.back;
+    }
+    public void setBack(int back) {
+        this.back = back;
     }
 
 }

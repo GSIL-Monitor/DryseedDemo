@@ -57,7 +57,7 @@ public class LocalMusicActivity extends BaseActivity {
         int size = musicList.size();
         for (int i = 0; i < size; i++) {
             MusicInfo music = musicList.get(i);
-            MusicDB musicDB = new MusicDB(music.songId, music.musicName, music.artist, music.duration, music.size);
+            MusicDB musicDB = new MusicDB(music.songId, music.musicName, music.artist, music.duration, music.size, 0);
             MusicDBManager.insertOrReplaceMusic(mUserId, musicDB);
         }
 
@@ -128,7 +128,7 @@ public class LocalMusicActivity extends BaseActivity {
 
     @OnClick(R.id.add)
     void OnAddBtnClick() {
-        MusicDB music = new MusicDB(888888L, "Lonely", "Nana", 1 * 100 * 1000, 2 * 1024 * 1024);
+        MusicDB music = new MusicDB(888888L, "Lonely", "Nana", 1 * 100 * 1000, 2 * 1024 * 1024, 0);
         MusicDBManager.insertOrReplaceMusic(mUserId, music);
         query(mUserId);
     }

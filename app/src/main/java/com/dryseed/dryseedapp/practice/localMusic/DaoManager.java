@@ -2,9 +2,14 @@ package com.dryseed.dryseedapp.practice.localMusic;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import org.greenrobot.greendao.database.Database;
 
+import greendao.DaoMaster;
+import greendao.DaoSession;
+import greendao.MusicDBDao;
+import greendao.UserMusicDBDao;
 
 /**
  * Created by caiminming on 2017/12/28.
@@ -88,11 +93,24 @@ public class DaoManager {
 
         @Override
         public void onUpgrade(Database db, int oldVersion, int newVersion) {
-            if (oldVersion <= 11) {
+            Log.d("MMM", String.format("greendao onUpgrade : oldVersion - %d | newVersion - %d", oldVersion, newVersion));
+            /*if (oldVersion <= 11) {
                 //暂时不做升级兼容，直接删掉旧数据，重新建表
                 DaoMaster.dropAllTables(db, true);
                 onCreate(db);
-            }
+            }*/
+            GreenDaoUpgradeHelper.DEBUG = true;
+            GreenDaoUpgradeHelper.migrate(db, new GreenDaoUpgradeHelper.ReCreateAllTableListener() {
+                @Override
+                public void onCreateAllTables(Database db, boolean ifNotExists) {
+                    DaoMaster.createAllTables(db, ifNotExists);
+                }
+
+                @Override
+                public void onDropAllTables(Database db, boolean ifExists) {
+                    DaoMaster.dropAllTables(db, ifExists);
+                }
+            }, MusicDBDao.class, UserMusicDBDao.class);
         }
 
         @Override

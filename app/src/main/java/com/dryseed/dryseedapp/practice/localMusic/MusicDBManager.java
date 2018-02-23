@@ -6,6 +6,9 @@ import com.dryseed.dryseedapp.MyApplication;
 import java.util.ArrayList;
 import java.util.List;
 
+import greendao.MusicDBDao;
+import greendao.UserMusicDBDao;
+
 /**
  * Created by caiminming on 2017/12/28.
  */

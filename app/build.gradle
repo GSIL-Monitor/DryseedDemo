@@ -73,6 +73,14 @@ android {
         }
     }
 
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['src/main/jniLibs']
+            java.srcDirs = ['src/main/java', 'src/main/java-dao']
+            res.srcDirs = ['src/main/res']
+        }
+    }
+
     lintOptions {
         checkReleaseBuilds false
         abortOnError false
@@ -123,6 +131,15 @@ android {
     }
 }
 
+//greendao版本配置
+greendao {
+    targetGenDir 'src/main/java-dao'
+    schemaVersion 16
+    daoPackage 'greendao'
+}
+clean.doFirst {
+    new File('app/src/main/java-dao/greendao').deleteDir()
+}
 
 //强制库的解析:这是解决冲突的另一种方式，不是声明一个配置，而是强制他用于所有配置。
 configurations.all {
