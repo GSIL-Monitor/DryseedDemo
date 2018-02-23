@@ -19,7 +19,7 @@ import com.dryseed.dryseedapp.R;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -28,10 +28,10 @@ import butterknife.OnClick;
  */
 
 public class CaptureWebViewActivity extends BaseActivity {
-    @Bind(R.id.webview)
+    @BindView(R.id.webview)
     WebView mWebView;
 
-    @Bind(R.id.imageview)
+    @BindView(R.id.imageview)
     ImageView mImageView;
 
     @Override

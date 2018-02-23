@@ -18,7 +18,7 @@ import com.dryseed.dryseedapp.MyApplication;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.framework.rxBus.RxBus;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.reactivex.disposables.Disposable;
@@ -33,7 +33,7 @@ import q.rorbin.badgeview.QBadgeView;
 public class RedDotFragment extends BaseFragment {
     private static final String TAG = "MMM";
 
-    @Bind(R.id.button1)
+    @BindView(R.id.button1)
     Button mButton;
 
     @Override

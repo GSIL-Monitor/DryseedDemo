@@ -8,7 +8,7 @@ import android.widget.Button;
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -18,7 +18,7 @@ import butterknife.OnClick;
 
 public class ShareActivity extends BaseActivity {
 
-    @Bind(R.id.share_btn)
+    @BindView(R.id.share_btn)
     Button mShareBtn;
 
     ShareDialog mShareDialog;

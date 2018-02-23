@@ -11,7 +11,7 @@ import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.utils.ImageUtil;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -20,31 +20,31 @@ import butterknife.OnClick;
  */
 
 public class TestBlurredViewActivity extends BaseActivity {
-    @Bind(R.id.blurred_view_image1)
+    @BindView(R.id.blurred_view_image1)
     ImageView mImageView1;
 
-    @Bind(R.id.blurred_view_image2)
+    @BindView(R.id.blurred_view_image2)
     ImageView mImageView2;
 
-    @Bind(R.id.blurred_view_image3)
+    @BindView(R.id.blurred_view_image3)
     ImageView mImageView3;
 
-    @Bind(R.id.blurred_view_image4)
+    @BindView(R.id.blurred_view_image4)
     ImageView mImageView4;
 
-    @Bind(R.id.blurred_text_view1)
+    @BindView(R.id.blurred_text_view1)
     TextView mTextView1;
 
-    @Bind(R.id.blurred_text_view2)
+    @BindView(R.id.blurred_text_view2)
     TextView mTextView2;
 
-    @Bind(R.id.blurred_text_view3)
+    @BindView(R.id.blurred_text_view3)
     TextView mTextView3;
 
-    @Bind(R.id.blurred_text_view4)
+    @BindView(R.id.blurred_text_view4)
     TextView mTextView4;
 
-    @Bind(R.id.blurred_view_btn)
+    @BindView(R.id.blurred_view_btn)
     Button mButton;
 
     long timeStart;

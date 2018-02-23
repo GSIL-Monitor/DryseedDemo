@@ -15,7 +15,7 @@ import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo2.lib.RecyclerListAdap
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
  */
 public class TimeLineActivity extends BaseActivity {
 
-    @Bind(R.id.recycler_view)
+    @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
 
     RecyclerListAdapter mRecyclerListAdapter = new RecyclerListAdapter();

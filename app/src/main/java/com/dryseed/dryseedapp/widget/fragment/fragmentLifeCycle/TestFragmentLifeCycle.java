@@ -12,7 +12,7 @@ import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.tab.fragment.MainTab01;
 import com.dryseed.dryseedapp.tab.fragment.MainTab02;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 

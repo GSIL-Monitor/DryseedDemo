@@ -13,7 +13,7 @@ import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.facebook.drawee.view.SimpleDraweeView;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -23,10 +23,10 @@ import butterknife.OnClick;
  */
 public class TestFresco2Activity extends BaseActivity {
 
-    @Bind(R.id.fresco_eg1)
+    @BindView(R.id.fresco_eg1)
     SimpleDraweeView img1;
 
-    @Bind(R.id.fresco_btn)
+    @BindView(R.id.fresco_btn)
     Button btn;
 
     @Override

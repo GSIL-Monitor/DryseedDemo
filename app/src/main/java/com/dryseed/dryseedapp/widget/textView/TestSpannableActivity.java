@@ -27,16 +27,16 @@ import android.widget.Toast;
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
  * Created by caiminming on 2017/11/13.
  */
 public class TestSpannableActivity extends BaseActivity {
-    @Bind(R.id.span_string)
+    @BindView(R.id.span_string)
     TextView spanString;
-    @Bind(R.id.span_builder)
+    @BindView(R.id.span_builder)
     TextView spanBuilder;
 
     @Override

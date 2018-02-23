@@ -25,7 +25,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshRecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -34,10 +34,10 @@ import butterknife.ButterKnife;
 
 public class TestStatusBar3Activity extends BaseActivity {
 
-    @Bind(R.id.status_bar_title_layout)
+    @BindView(R.id.status_bar_title_layout)
     LinearLayout mTitleLayout;
 
-    @Bind(R.id.pull_to_refresh_recycler_view)
+    @BindView(R.id.pull_to_refresh_recycler_view)
     PullToRefreshRecyclerView mPullToRefreshRecyclerView;
 
     private List mDatas;

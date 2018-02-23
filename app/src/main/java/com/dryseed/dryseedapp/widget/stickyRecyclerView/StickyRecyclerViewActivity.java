@@ -22,7 +22,7 @@ import com.dryseed.dryseedapp.widget.stickyRecyclerView.util.CityUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -30,7 +30,7 @@ import butterknife.ButterKnife;
  */
 public class StickyRecyclerViewActivity extends BaseActivity {
 
-    @Bind(R.id.rv)
+    @BindView(R.id.rv)
     RecyclerView mRecyclerView;
 
     RecyclerView.Adapter mAdapter;
@@ -97,7 +97,7 @@ public class StickyRecyclerViewActivity extends BaseActivity {
     }
 
     static class Holder extends RecyclerView.ViewHolder {
-        @Bind(R.id.tv)
+        @BindView(R.id.tv)
         TextView mTextView;
 
         public Holder(View itemView) {

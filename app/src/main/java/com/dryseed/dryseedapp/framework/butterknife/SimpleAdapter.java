@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.dryseed.dryseedapp.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class SimpleAdapter extends BaseAdapter {
@@ -57,11 +57,11 @@ public class SimpleAdapter extends BaseAdapter {
     }
 
     static final class ViewHolder {
-        @Bind(R.id.word)
+        @BindView(R.id.word)
         TextView word;
-        @Bind(R.id.length)
+        @BindView(R.id.length)
         TextView length;
-        @Bind(R.id.position)
+        @BindView(R.id.position)
         TextView position;
 
         ViewHolder(View view) {

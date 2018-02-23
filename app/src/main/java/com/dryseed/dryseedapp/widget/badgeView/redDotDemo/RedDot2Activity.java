@@ -18,7 +18,7 @@ import com.dryseed.dryseedapp.MyApplication;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.framework.rxBus.RxBus;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -33,10 +33,10 @@ import q.rorbin.badgeview.QBadgeView;
 
 public class RedDot2Activity extends BaseActivity {
 
-    @Bind(R.id.button1)
+    @BindView(R.id.button1)
     Button mButton1;
 
-    @Bind(R.id.fragment_content)
+    @BindView(R.id.fragment_content)
     FrameLayout mFragmentContent;
 
     private RedDotFragment mRedDotFragment;

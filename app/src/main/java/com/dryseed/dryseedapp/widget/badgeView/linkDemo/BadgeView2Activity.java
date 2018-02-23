@@ -9,7 +9,7 @@ import android.widget.Button;
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import q.rorbin.badgeview.Badge;
@@ -20,7 +20,7 @@ import q.rorbin.badgeview.QBadgeView;
  */
 
 public class BadgeView2Activity extends BaseActivity {
-    @Bind(R.id.button1)
+    @BindView(R.id.button1)
     Button mButton1;
     private Badge mBadgeView1;
     private BadgeModel mBadgeModel1;

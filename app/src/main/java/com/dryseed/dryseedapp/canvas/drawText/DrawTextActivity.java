@@ -6,18 +6,18 @@ import android.support.annotation.Nullable;
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class DrawTextActivity extends BaseActivity {
 
-    @Bind(R.id.textview_1)
+    @BindView(R.id.textview_1)
     MyTextView mMyTextView1;
 
-    @Bind(R.id.textview_2)
+    @BindView(R.id.textview_2)
     MyCenterTextView mMyTextView2;
 
-    @Bind(R.id.textview_3)
+    @BindView(R.id.textview_3)
     MyMultiCenterTextView mMyTextView3;
 
     @Override

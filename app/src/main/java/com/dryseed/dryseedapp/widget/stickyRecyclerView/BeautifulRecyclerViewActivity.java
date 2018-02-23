@@ -21,7 +21,7 @@ import com.dryseed.dryseedapp.widget.stickyRecyclerView.util.CityUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -29,7 +29,7 @@ import butterknife.ButterKnife;
  */
 public class BeautifulRecyclerViewActivity extends BaseActivity {
 
-    @Bind(R.id.rv)
+    @BindView(R.id.rv)
     RecyclerView mRv;
 
     RecyclerView.Adapter mAdapter;

@@ -13,7 +13,8 @@ import android.widget.Toast;
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
+import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemClick;
@@ -35,18 +36,18 @@ public class TestButterKnifeActivity extends BaseActivity {
         }
     };
 
-    @Bind(R.id.title)
+    @BindView(R.id.title)
     TextView title;
-    @Bind(R.id.subtitle)
+    @BindView(R.id.subtitle)
     TextView subtitle;
-    @Bind(R.id.hello)
+    @BindView(R.id.hello)
     Button hello;
-    @Bind(R.id.list_of_things)
+    @BindView(R.id.list_of_things)
     ListView listOfThings;
-    @Bind(R.id.footer)
+    @BindView(R.id.footer)
     TextView footer;
 
-    @Bind({R.id.title, R.id.subtitle, R.id.hello})
+    @BindViews({R.id.title, R.id.subtitle, R.id.hello})
     List<View> headerViews;
 
     private SimpleAdapter adapter;

@@ -14,7 +14,7 @@ import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.utils.DPIUtil;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -29,7 +29,7 @@ public class PopupWindowActivity extends BaseActivity {
     private View mMusicLocalAddLayout;
     private View mMusicUploadLayout;
 
-    @Bind(R.id.btn)
+    @BindView(R.id.btn)
     TextView mBtn;
 
     @Override

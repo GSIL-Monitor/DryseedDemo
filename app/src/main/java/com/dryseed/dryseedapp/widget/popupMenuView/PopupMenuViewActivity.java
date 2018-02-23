@@ -25,7 +25,7 @@ import com.dryseed.dryseedapp.widget.popupMenuView.lib.PopupView;
 import java.util.Arrays;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -37,13 +37,13 @@ import butterknife.OnClick;
 
 public class PopupMenuViewActivity extends BaseActivity {
 
-    @Bind(R.id.button2)
+    @BindView(R.id.button2)
     Button mBtn2;
 
-    @Bind(R.id.button3)
+    @BindView(R.id.button3)
     Button mBtn3;
 
-    @Bind(R.id.pop_layout)
+    @BindView(R.id.pop_layout)
     PopLayout mPopLayout;
 
     FrameLayout mRootView;

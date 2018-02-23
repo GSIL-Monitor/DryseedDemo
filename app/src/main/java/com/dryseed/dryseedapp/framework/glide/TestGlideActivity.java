@@ -53,7 +53,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -68,10 +68,10 @@ public class TestGlideActivity extends BaseActivity {
     List<ImageEntity> mImageList = new ArrayList<>();
     RecyclerListAdapter mRecyclerListAdapter;
 
-    @Bind(R.id.glide_image)
+    @BindView(R.id.glide_image)
     ImageView mImageView;
 
-    @Bind(R.id.recycler_view)
+    @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
 
     @Override

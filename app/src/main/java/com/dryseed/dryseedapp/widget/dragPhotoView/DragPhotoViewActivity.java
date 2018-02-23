@@ -17,12 +17,12 @@ import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo2.lib.RecyclerListAdap
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class DragPhotoViewActivity extends BaseActivity {
 
-    @Bind(R.id.recycler_view)
+    @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
 
     private ImageView[] imageViews;

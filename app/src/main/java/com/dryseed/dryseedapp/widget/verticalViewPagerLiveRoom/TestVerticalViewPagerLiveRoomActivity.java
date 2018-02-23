@@ -13,7 +13,7 @@ import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.animation.mojiWeatherAnimation.PagerAdapter;
 import com.dryseed.dryseedapp.widget.verticalViewPagerLiveRoom.lib.VerticalViewPager;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
 
 public class TestVerticalViewPagerLiveRoomActivity extends BaseActivity {
 
-    @Bind(R.id.liveroom_vertical_viewpager)
+    @BindView(R.id.liveroom_vertical_viewpager)
     LiveVerticalViewPager mVerticalViewPager;
 
     ViewPager mContentViewPager;

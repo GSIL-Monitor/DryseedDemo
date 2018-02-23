@@ -18,7 +18,7 @@ import com.dryseed.dryseedapp.utils.ToastUtil;
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -33,10 +33,10 @@ import q.rorbin.badgeview.QBadgeView;
 
 public class RedDotActivity extends BaseActivity {
 
-    @Bind(R.id.button1)
+    @BindView(R.id.button1)
     Button mButton1;
 
-    @Bind(R.id.button2)
+    @BindView(R.id.button2)
     Button mButton2;
 
     @Override

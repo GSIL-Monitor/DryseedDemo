@@ -13,7 +13,7 @@ import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.framework.x5.utils.X5WebView;
 import com.tencent.smtt.sdk.WebView;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -26,10 +26,10 @@ import butterknife.OnClick;
 
 public class X5WebViewActivity extends BaseActivity {
 
-    @Bind(R.id.x5_webview)
+    @BindView(R.id.x5_webview)
     X5WebView mX5WebView;
 
-    @Bind(R.id.imageview)
+    @BindView(R.id.imageview)
     ImageView mImageView;
 
     @Override

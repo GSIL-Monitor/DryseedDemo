@@ -7,15 +7,15 @@ import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.utils.ToastUtil;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ImageVerifyActivity extends BaseActivity {
 
-    @Bind(R.id.image_verify)
+    @BindView(R.id.image_verify)
     ImageVerifyView mImageVerifyView;
 
-    @Bind(R.id.image_scroll_view)
+    @BindView(R.id.image_scroll_view)
     ImageVerifyScrollView mImageVerifyScrollView;
 
     @Override

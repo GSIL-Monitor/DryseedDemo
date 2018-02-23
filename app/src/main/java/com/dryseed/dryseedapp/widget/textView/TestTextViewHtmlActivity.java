@@ -13,7 +13,7 @@ import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.utils.DPIUtil;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
 
 public class TestTextViewHtmlActivity extends BaseActivity {
 
-    @Bind(R.id.html_string)
+    @BindView(R.id.html_string)
     TextView textView;
 
     @Override

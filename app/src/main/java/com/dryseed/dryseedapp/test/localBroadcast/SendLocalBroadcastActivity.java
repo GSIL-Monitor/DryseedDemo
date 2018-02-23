@@ -17,14 +17,14 @@ import android.widget.Button;
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
 public class SendLocalBroadcastActivity extends BaseActivity {
 
-    @Bind(R.id.broadcast_btn)
+    @BindView(R.id.broadcast_btn)
     Button btnSend;
     private final static String ACTION = "com.dryseed.dryseedapp.test.localBroadcast";
 

@@ -9,7 +9,7 @@ import android.widget.Button;
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -18,10 +18,10 @@ import butterknife.OnClick;
  */
 
 public class ViewStubActivity extends BaseActivity {
-    @Bind(R.id.button1)
+    @BindView(R.id.button1)
     Button mButton;
 
-    @Bind(R.id.stub)
+    @BindView(R.id.stub)
     ViewStub mViewStub;
 
     View mInflateView;

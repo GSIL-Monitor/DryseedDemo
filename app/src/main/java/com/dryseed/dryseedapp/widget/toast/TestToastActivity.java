@@ -9,7 +9,7 @@ import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.utils.ToastUtil;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -20,7 +20,7 @@ public class TestToastActivity extends BaseActivity {
 
     int index = 0;
 
-    @Bind(R.id.textview)
+    @BindView(R.id.textview)
     TextView mTextView;
 
     @Override

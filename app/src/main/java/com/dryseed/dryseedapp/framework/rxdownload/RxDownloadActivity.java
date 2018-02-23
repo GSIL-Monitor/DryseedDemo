@@ -10,7 +10,7 @@ import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.utils.StorageDirectoryUtil;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -26,10 +26,10 @@ import static zlc.season.rxdownload3.helper.UtilsKt.dispose;
 public class RxDownloadActivity extends BaseActivity {
     private static final String url = "http://shouji.360tpcdn.com/170918/a01da193400dd5ffd42811db28effd53/com.tencent.mobileqq_730.apk";
 
-    @Bind(R.id.progress)
+    @BindView(R.id.progress)
     ProgressBar mProgressBar;
 
-    @Bind(R.id.percent)
+    @BindView(R.id.percent)
     TextView mPercentText;
 
     private Disposable disposable;

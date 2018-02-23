@@ -13,7 +13,7 @@ import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo2.lib.RecyclerListAdap
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
 
 public class BiliBiliActivity extends BaseActivity {
 
-    @Bind(R.id.recyclerview)
+    @BindView(R.id.recyclerview)
     RecyclerView mRecyclerView;
 
     private static final int SPAN_COUNT = 2;

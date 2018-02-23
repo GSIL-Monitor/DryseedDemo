@@ -11,7 +11,7 @@ import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.animation.viewanimator.lib.ViewAnimator;
 import com.dryseed.dryseedapp.utils.DPIUtil;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -21,10 +21,10 @@ import butterknife.OnClick;
 
 public class TestViewAnimatorActivity extends BaseActivity {
 
-    @Bind(R.id.button)
+    @BindView(R.id.button)
     Button mButton;
 
-    @Bind(R.id.imageview)
+    @BindView(R.id.imageview)
     ImageView mImageView;
 
     @Override

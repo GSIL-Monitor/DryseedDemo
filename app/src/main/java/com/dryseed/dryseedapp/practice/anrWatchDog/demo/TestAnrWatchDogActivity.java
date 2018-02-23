@@ -10,7 +10,7 @@ import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.practice.anrWatchDog.lib.Caton;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -20,7 +20,7 @@ import butterknife.OnClick;
 
 public class TestAnrWatchDogActivity extends BaseActivity {
 
-    @Bind(R.id.broadcast_btn)
+    @BindView(R.id.broadcast_btn)
     Button btnSend;
 
     @Override

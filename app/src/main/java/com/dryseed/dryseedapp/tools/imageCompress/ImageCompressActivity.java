@@ -16,15 +16,15 @@ import com.dryseed.dryseedapp.utils.UnitUtil;
 
 import java.io.File;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ImageCompressActivity extends BaseActivity {
 
-    @Bind(R.id.imageview1)
+    @BindView(R.id.imageview1)
     ImageView mSrcImageView;
 
-    @Bind(R.id.imageview2)
+    @BindView(R.id.imageview2)
     ImageView mTargetImageView;
 
     @Override

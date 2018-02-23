@@ -11,7 +11,7 @@ import android.widget.Button;
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -21,16 +21,16 @@ import butterknife.OnClick;
 
 public class TestServiceActivity extends BaseActivity {
 
-    @Bind(R.id.start_service)
+    @BindView(R.id.start_service)
     public Button mStartService;
 
-    @Bind(R.id.stop_service)
+    @BindView(R.id.stop_service)
     public Button mStopService;
 
-    @Bind(R.id.bind_service)
+    @BindView(R.id.bind_service)
     public Button mBindService;
 
-    @Bind(R.id.unbind_service)
+    @BindView(R.id.unbind_service)
     public Button mUnbindService;
 
     private MyService.MyBinder myBinder;

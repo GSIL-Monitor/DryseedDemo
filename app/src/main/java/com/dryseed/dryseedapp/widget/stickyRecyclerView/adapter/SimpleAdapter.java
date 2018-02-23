@@ -16,7 +16,7 @@ import com.dryseed.dryseedapp.widget.stickyRecyclerView.model.City;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -70,13 +70,13 @@ public class SimpleAdapter extends RecyclerView.Adapter {
 
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.iv_city)
+        @BindView(R.id.iv_city)
         ImageView mIvCity;
-        @Bind(R.id.tv_city)
+        @BindView(R.id.tv_city)
         TextView mTvCity;
-        @Bind(R.id.tv_brief)
+        @BindView(R.id.tv_brief)
         TextView mTvBrief;
-        @Bind(R.id.ll_bg)
+        @BindView(R.id.ll_bg)
         LinearLayout mLlBg;
 
         ViewHolder(View view) {

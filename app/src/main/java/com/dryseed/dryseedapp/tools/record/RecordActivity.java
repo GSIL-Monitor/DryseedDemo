@@ -19,7 +19,8 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import butterknife.Bind;
+import butterknife.BindView;
+import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -31,19 +32,19 @@ import butterknife.OnClick;
  */
 public class RecordActivity extends BaseActivity {
 
-    @Bind(R.id.record_log_btn)
+    @BindView(R.id.record_log_btn)
     TextView mRecordLogBtn;
 
-    @Bind(R.id.record_btn)
+    @BindView(R.id.record_btn)
     Button mRecordBtn;
 
-    @Bind(R.id.play_btn)
+    @BindView(R.id.play_btn)
     Button mPlayBtn;
 
-    @Bind(R.id.record_volumn_layout)
+    @BindView(R.id.record_volumn_layout)
     LinearLayout mVolumnLayout;
 
-    @Bind({R.id.record_volumn_indicator_1, R.id.record_volumn_indicator_2, R.id.record_volumn_indicator_3,
+    @BindViews({R.id.record_volumn_indicator_1, R.id.record_volumn_indicator_2, R.id.record_volumn_indicator_3,
             R.id.record_volumn_indicator_4, R.id.record_volumn_indicator_5, R.id.record_volumn_indicator_6})
     List<View> mVolumnIndicators;
 

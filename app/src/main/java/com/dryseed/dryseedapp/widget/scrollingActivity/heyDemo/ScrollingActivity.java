@@ -16,7 +16,7 @@ import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.utils.DPIUtil;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -25,13 +25,13 @@ import butterknife.ButterKnife;
 
 public class ScrollingActivity extends BaseActivity {
 
-    @Bind(R.id.app_bar)
+    @BindView(R.id.app_bar)
     AppBarLayout mAppBarLayout;
 
-    @Bind(R.id.toolbar)
+    @BindView(R.id.toolbar)
     Toolbar mBToolBar;
 
-    @Bind(R.id.parallax)
+    @BindView(R.id.parallax)
     FrameLayout mParallax;
 
     @Override

@@ -15,7 +15,7 @@ import com.dryseed.dryseedapp.R;
 
 import java.io.File;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
  */
 public class VideoPlayerActivity extends BaseActivity {
 
-    @Bind(R.id.video_view)
+    @BindView(R.id.video_view)
     VideoView mVideoView;
 
     MediaController mMediaController;

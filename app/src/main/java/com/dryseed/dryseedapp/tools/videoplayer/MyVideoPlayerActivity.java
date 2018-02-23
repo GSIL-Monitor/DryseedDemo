@@ -24,7 +24,7 @@ import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.utils.DPIUtil;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -35,28 +35,28 @@ public class MyVideoPlayerActivity extends BaseActivity {
 
     private static final int UPDATE_TIME = 0;
 
-    @Bind(R.id.video_layout)
+    @BindView(R.id.video_layout)
     RelativeLayout mVideoLayout;
 
-    @Bind(R.id.video_view)
+    @BindView(R.id.video_view)
     MyVideoView mVideoView;
 
-    @Bind(R.id.video_play)
+    @BindView(R.id.video_play)
     ImageView mVideoPlay;
 
-    @Bind(R.id.full_screen)
+    @BindView(R.id.full_screen)
     ImageView mFullScreen;
 
-    @Bind(R.id.current_time)
+    @BindView(R.id.current_time)
     TextView mCurrentTime;
 
-    @Bind(R.id.total_time)
+    @BindView(R.id.total_time)
     TextView mTotalTime;
 
-    @Bind(R.id.play_seekBar)
+    @BindView(R.id.play_seekBar)
     SeekBar mPlaySeekBar;
 
-    @Bind(R.id.volume_seek)
+    @BindView(R.id.volume_seek)
     SeekBar mVolumnSeekBar;
 
     private AudioManager mAudioManager;
