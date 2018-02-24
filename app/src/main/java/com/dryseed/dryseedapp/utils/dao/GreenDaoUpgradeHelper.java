@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.practice.localMusic;
+package com.dryseed.dryseedapp.utils.dao;
 
 import android.database.Cursor;
 import android.database.SQLException;
@@ -25,7 +25,7 @@ import java.util.List;
 public final class GreenDaoUpgradeHelper {
 
     public static boolean DEBUG = false;
-    private static String TAG = "MigrationHelper";
+    private static String TAG = "MMM";
     private static final String SQLITE_MASTER = "sqlite_master";
     private static final String SQLITE_TEMP_MASTER = "sqlite_temp_master";
 

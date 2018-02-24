@@ -1,8 +1,11 @@
-package com.dryseed.dryseedapp.practice.localMusic;
+package com.dryseed.dryseedapp.utils.dao;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+
+import com.dryseed.dryseedapp.widget.dialog.DsAlertDialog;
+import com.dryseed.dryseedapp.widget.dialog.DsDialogFactory;
 
 import org.greenrobot.greendao.database.Database;
 
@@ -83,12 +86,16 @@ public class DaoManager {
     }
 
     public static class DsOpenHelper extends DaoMaster.OpenHelper {
+        private Context context;
+
         public DsOpenHelper(Context context, String name) {
             super(context, name);
+            this.context = context;
         }
 
         public DsOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory) {
             super(context, name, factory);
+            this.context = context;
         }
 
         @Override
@@ -99,6 +106,8 @@ public class DaoManager {
                 DaoMaster.dropAllTables(db, true);
                 onCreate(db);
             }*/
+            DsAlertDialog dialog = DsDialogFactory.showTipDialog(context, "start upgrade");
+
             GreenDaoUpgradeHelper.DEBUG = true;
             GreenDaoUpgradeHelper.migrate(db, new GreenDaoUpgradeHelper.ReCreateAllTableListener() {
                 @Override
@@ -111,6 +120,8 @@ public class DaoManager {
                     DaoMaster.dropAllTables(db, ifExists);
                 }
             }, MusicDBDao.class, UserMusicDBDao.class);
+
+            dialog.dismiss();
         }
 
         @Override
