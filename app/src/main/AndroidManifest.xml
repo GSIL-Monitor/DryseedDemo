@@ -1062,15 +1062,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".lib.zxing.client.android.CaptureActivity"
-            android:label="CaptureActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".test.singleTask.TestAActivity"
             android:label="Test/SingleTask"
             android:launchMode="singleTask">
@@ -1447,6 +1438,15 @@
         <activity
             android:name=".practice.faceDetector.FaceDetectorActivity"
             android:label="Practice/FaceDetector">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".lib.zxing.client.android.CaptureActivity"
+            android:label="Practice/CaptureActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
