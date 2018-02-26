@@ -1,8 +1,5 @@
 package com.dryseed.dryseedapp.test.lifecycle;
 
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.LifecycleRegistry;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
@@ -11,6 +8,7 @@ import com.dryseed.dryseedapp.BaseActivity;
 /**
  * LifeCycle
  * https://developer.android.google.cn/topic/libraries/architecture/lifecycle.html
+ * 配合mvp的例子：MvpBaseActivity、BasePresenter
  */
 public class LifeCycleActivity extends BaseActivity {
 

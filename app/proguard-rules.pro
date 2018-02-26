@@ -16,13 +16,19 @@
 #   public *;
 #}
 
+
 ## ----------------------------------
-##   ########## GreenDao ##########
+##   ########## GreenDao3 ##########
 ## ----------------------------------
 -keepclassmembers class * extends org.greenrobot.greendao.AbstractDao {
-    public static void dropTable(org.greenrobot.greendao.database.Database, boolean);
-    public static void createTable(org.greenrobot.greendao.database.Database, boolean);
+public static java.lang.String TABLENAME;
 }
+-keep class **$Properties
+# If you do not use SQLCipher:
+-dontwarn org.greenrobot.greendao.database.**
+# If you do not use RxJava:
+-dontwarn rx.**
+
 
 ## ----------------------------------
 ##   ########## Retrofit ##########
@@ -36,10 +42,15 @@
 # Retain declared checked exceptions for use by a Proxy instance.
 -keepattributes Exceptions
 
+-keep class retrofit2.adapter.rxjava2.HttpException
+-dontwarn retrofit2.adapter.rxjava2.HttpException
+
+
 ## ----------------------------------
 ##   ########## Okio ##########
 ## ----------------------------------
 -dontwarn okio.**
+
 
 ## ----------------------------------
 ##   ########## okhttp3 ##########
@@ -50,6 +61,7 @@
 # A resource is loaded with a relative path so the package of this class must be preserved.
 -keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase
 
+
 ## ----------------------------------
 ##   ########## glide ##########
 ## ----------------------------------
@@ -59,7 +71,9 @@
   **[] $VALUES;
   public *;
 }
--dontwarn com.bumptech.glide.load.resource.bitmap.VideoDecoder
+-dontwarn  com.bumptech.glide.load.**
+-dontwarn com.bumptech.glide.manager.**
+
 
 ## ----------------------------------
 ##   ########## 高德定位SDK ##########
@@ -69,6 +83,40 @@
 -keep class com.autonavi.aps.amapapi.model.**{*;}
 
 
+## ----------------------------------
+##   ########## junit ##########
+## ----------------------------------
+-keep class org.junit.** { *; }
+-dontwarn org.junit.**
 
 
+## ----------------------------------
+##   ########## Rxdownload ##########
+## ----------------------------------
+-keep class zlc.season.rxdownload3.core.**{*;}
+-dontwarn zlc.season.rxdownload3.core.**
+-keep class zlc.season.rxdownload3.notification.**{*;}
+-dontwarn zlc.season.rxdownload3.notification.**
 
+
+#Warning:library class android.test.AndroidTestCase extends or implements program class junit.framework.TestCase
+-dontwarn android.test.**
+
+
+## ----------------------------------
+##   ########## Tencent X5 ##########
+## ----------------------------------
+-keep class com.tencent.smtt.export.external.**{*;}
+-dontwarn com.tencent.smtt.**
+
+
+## ----------------------------------
+##   ########## 关闭日志 ##########
+## ----------------------------------
+-assumenosideeffects class android.util.Log{
+    public static *** v(...);
+    public static *** i(...);
+    public static *** d(...);
+    public static *** w(...);
+    public static *** e(...);
+}
