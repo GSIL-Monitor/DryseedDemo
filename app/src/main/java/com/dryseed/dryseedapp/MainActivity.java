@@ -15,6 +15,9 @@ import android.widget.Toast;
 
 import com.dryseed.dryseedapp.canvas.canvas.TestCanvasActivity;
 import com.dryseed.dryseedapp.utils.ToastUtil;
+import com.dryseed.dryseedapp.utils.dao.DaoManager;
+import com.dryseed.dryseedapp.widget.dialog.DsAlertDialog;
+import com.dryseed.dryseedapp.widget.dialog.DsDialogFactory;
 import com.dryseed.dryseedapp.widget.floatView.FloatViewManager;
 import com.orhanobut.logger.Logger;
 
@@ -84,10 +87,66 @@ public class MainActivity extends ListActivity {
                 startActivity(new Intent(this, TestCanvasActivity.class));
             }
         }
+
+        //数据库升级
+        upgradeDatabase();
+    }
+
+    DsAlertDialog mDialog;
+    DaoManager mDaoManager;
+
+    /**
+     * 数据库升级提示
+     * 测试：
+     *  DaoManager.java中默认加了5s的升级延时；
+     *  通过修改app/build.gradle中的schemaVersion测试
+     */
+    private void upgradeDatabase() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                mDaoManager = DaoManager.getInstance(MainActivity.this, new DaoManager.Callback() {
+                    @Override
+                    public void onStartUpgrade() {
+                        Log.d("MMM", "onStartUpgrade");
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                mDialog = new DsAlertDialog(MainActivity.this);
+                                mDialog.setTitle(R.string.error_title);
+                                mDialog.setMessage("正在更新数据库，请稍等");
+                                mDialog.setCanceledOnTouchOutside(false);
+                                mDialog.show();
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onStopUpgrade() {
+                        Log.d("MMM", "onStopUpgrade");
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (mDialog != null) {
+                                    mDialog.dismiss();
+                                }
+                            }
+                        });
+                        if (null != mDaoManager) {
+                            Log.d("MMM", "daoManager.removeCallback();");
+                            mDaoManager.removeCallback();
+                        }
+                    }
+                });
+            }
+        }).start();
     }
 
     @Override
     protected void onDestroy() {
+        if (null != mDaoManager) {
+            mDaoManager.removeCallback();
+        }
         super.onDestroy();
     }
 

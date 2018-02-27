@@ -1,6 +1,11 @@
 package com.dryseed.dryseedapp.utils;
 
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
+import android.os.Environment;
 import android.text.TextUtils;
+
+import com.dryseed.dryseedapp.MyApplication;
 
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
@@ -11,6 +16,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.concurrent.Executors;
 
 public class FileUtil {
 
@@ -147,6 +153,52 @@ public class FileUtil {
             }
         }
         fileOrDirectory.delete();
+    }
+
+    public static void copyAssetsToFile(final String assetFilename, final String dstName) {
+        Executors.newCachedThreadPool().execute(new Runnable() {
+            @Override
+            public void run() {
+                FileOutputStream fos = null;
+                InputStream is = null;
+                AssetManager assetManager = MyApplication.getInstance().getAssets();
+                String newFileName = dstName + "/" + assetFilename;
+                File dstFile = new File(newFileName);
+                try {
+                    is = assetManager.open(assetFilename);
+                    fos = new FileOutputStream(dstFile);
+                    byte[] buffer = new byte[1024 * 2];
+                    int byteCount;
+                    while ((byteCount = is.read(buffer)) != -1) {
+                        fos.write(buffer, 0, byteCount);
+                    }
+                    fos.flush();
+                } catch (IOException e) {
+                } finally {
+                    if (fos != null) {
+                        try {
+                            fos.flush();
+                            fos.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    if (is != null) {
+                        try {
+                            is.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+        });
+
+    }
+
+    public static AssetFileDescriptor getAssetFileDescription(String filename) throws IOException {
+        AssetManager manager = MyApplication.getInstance().getAssets();
+        return manager.openFd(filename);
     }
 
 }

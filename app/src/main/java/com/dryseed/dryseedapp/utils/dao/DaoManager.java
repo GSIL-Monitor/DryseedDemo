@@ -2,6 +2,7 @@ package com.dryseed.dryseedapp.utils.dao;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Handler;
 import android.util.Log;
 
 import com.dryseed.dryseedapp.widget.dialog.DsAlertDialog;
@@ -27,11 +28,13 @@ public class DaoManager {
     private static DaoSession mDaoSession;
 
     private Context mContext;
+    private Callback mCallback;
 
-    private DaoManager(Context context) {
+    private DaoManager(Context context, Callback callback) {
         this.mContext = context;
+        this.mCallback = callback;
         // 初始化数据库信息
-        mDevOpenHelper = new DsOpenHelper(context, DB_NAME);
+        mDevOpenHelper = new DsOpenHelper(context, DB_NAME, mCallback);
         getDaoMaster(context);
         getDaoSession(context);
     }
@@ -40,7 +43,18 @@ public class DaoManager {
         if (null == mDbManager) {
             synchronized (DaoManager.class) {
                 if (null == mDbManager) {
-                    mDbManager = new DaoManager(context);
+                    mDbManager = new DaoManager(context, null);
+                }
+            }
+        }
+        return mDbManager;
+    }
+
+    public static DaoManager getInstance(Context context, Callback callback) {
+        if (null == mDbManager) {
+            synchronized (DaoManager.class) {
+                if (null == mDbManager) {
+                    mDbManager = new DaoManager(context, callback);
                 }
             }
         }
@@ -87,10 +101,12 @@ public class DaoManager {
 
     public static class DsOpenHelper extends DaoMaster.OpenHelper {
         private Context context;
+        private Callback callback;
 
-        public DsOpenHelper(Context context, String name) {
+        public DsOpenHelper(Context context, String name, Callback callback) {
             super(context, name);
             this.context = context;
+            this.callback = callback;
         }
 
         public DsOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory) {
@@ -101,12 +117,21 @@ public class DaoManager {
         @Override
         public void onUpgrade(Database db, int oldVersion, int newVersion) {
             Log.d("MMM", String.format("greendao onUpgrade : oldVersion - %d | newVersion - %d", oldVersion, newVersion));
+            Log.d("MMM", "onUpgrade thread : " + Thread.currentThread().getName());
             /*if (oldVersion <= 11) {
                 //暂时不做升级兼容，直接删掉旧数据，重新建表
                 DaoMaster.dropAllTables(db, true);
                 onCreate(db);
             }*/
-            DsAlertDialog dialog = DsDialogFactory.showTipDialog(context, "start upgrade");
+
+            if (null != callback) {
+                callback.onStartUpgrade();
+            }
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
             GreenDaoUpgradeHelper.DEBUG = true;
             GreenDaoUpgradeHelper.migrate(db, new GreenDaoUpgradeHelper.ReCreateAllTableListener() {
@@ -121,7 +146,9 @@ public class DaoManager {
                 }
             }, MusicDBDao.class, UserMusicDBDao.class);
 
-            dialog.dismiss();
+            if (null != callback) {
+                callback.onStopUpgrade();
+            }
         }
 
         @Override
@@ -139,5 +166,22 @@ public class DaoManager {
         public void onCreate(Database db) {
             super.onCreate(db);
         }
+
+        public void removeCallback() {
+            callback = null;
+        }
+    }
+
+    public void removeCallback() {
+        mCallback = null;
+        if (null != mDevOpenHelper) {
+            mDevOpenHelper.removeCallback();
+        }
+    }
+
+    public interface Callback {
+        void onStartUpgrade();
+
+        void onStopUpgrade();
     }
 }

@@ -9,6 +9,8 @@ import android.util.Log;
 import com.dryseed.dryseedapp.utils.BackForegroundWatcher;
 import com.dryseed.dryseedapp.utils.DPIUtil;
 import com.dryseed.dryseedapp.utils.dao.DaoManager;
+import com.dryseed.dryseedapp.widget.dialog.DsAlertDialog;
+import com.dryseed.dryseedapp.widget.dialog.DsDialogFactory;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.stetho.Stetho;
 import com.squareup.leakcanary.LeakCanary;
@@ -54,7 +56,6 @@ public class MyApplication extends MultiDexApplication {
         initRxDownload();
         BackForegroundWatcher.getInstance().init(MyApplication.getInstance());
         Stetho.initializeWithDefaults(sInstance);
-        upgradeDatabase();
     }
 
     @Override
@@ -101,7 +102,4 @@ public class MyApplication extends MultiDexApplication {
         DownloadConfig.INSTANCE.init(builder);
     }
 
-    private void upgradeDatabase() {
-        DaoManager.getInstance(this); //触发DsOpenHelper的onUpgrade回调
-    }
 }

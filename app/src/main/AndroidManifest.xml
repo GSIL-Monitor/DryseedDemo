@@ -943,6 +943,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".tools.textToAudio.TextToAudioActivity"
+            android:label="Tools/TextToAudio">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".tools.record.RecordActivity"
             android:label="Tools/RecordMainActivity">
             <intent-filter>
