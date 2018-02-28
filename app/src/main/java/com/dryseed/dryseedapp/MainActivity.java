@@ -28,9 +28,22 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CountDownLatch;
+
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 
 public class MainActivity extends ListActivity {
+
+    private CountDownLatch mCountDownLatch;
+    private DsAlertDialog mDialog;
+    private DaoManager mDaoManager;
 
     private final static Comparator<Map<String, Object>> NAME_COMPARATOR =
             new Comparator<Map<String, Object>>() {
@@ -71,6 +84,36 @@ public class MainActivity extends ListActivity {
                 new int[]{android.R.id.text1}));
         getListView().setTextFilterEnabled(true);
 
+
+        //升级数据库
+        Observable
+                .create(
+                        new ObservableOnSubscribe<Integer>() {
+                            @Override
+                            public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
+                                Log.d("MMM", "=======" + Thread.currentThread().getName());
+                                mCountDownLatch = new CountDownLatch(1);
+                                upgradeDatabase();
+                                try {
+                                    mCountDownLatch.await();
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                                emitter.onNext(1);
+                            }
+                        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<Integer>() {
+                    @Override
+                    public void accept(Integer integer) throws Exception {
+                        Log.d("MMM", String.format("Task%d begin thread : %s", integer, Thread.currentThread().getName()));
+                        //dispath activity
+                        //startActivity(new Intent(MainActivity.this, TestCanvasActivity.class));
+                    }
+                });
+
+
         //scheme : 在Test/WebView中打开html
         String scheme = intent.getScheme();//获得Scheme名称
         if ("dryseed".equals(scheme)) {
@@ -88,65 +131,51 @@ public class MainActivity extends ListActivity {
             }
         }
 
-        //数据库升级
-        upgradeDatabase();
     }
-
-    DsAlertDialog mDialog;
-    DaoManager mDaoManager;
 
     /**
      * 数据库升级提示
      * 测试：
-     *  DaoManager.java中默认加了5s的升级延时；
-     *  通过修改app/build.gradle中的schemaVersion测试
+     * DaoManager.java中默认加了10s的升级延时；
+     * 通过修改app/build.gradle中的schemaVersion测试
      */
     private void upgradeDatabase() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                mDaoManager = DaoManager.getInstance(MainActivity.this, new DaoManager.Callback() {
-                    @Override
-                    public void onStartUpgrade() {
-                        Log.d("MMM", "onStartUpgrade");
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                mDialog = new DsAlertDialog(MainActivity.this);
-                                mDialog.setTitle(R.string.error_title);
-                                mDialog.setMessage("正在更新数据库，请稍等");
-                                mDialog.setCanceledOnTouchOutside(false);
-                                mDialog.show();
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void onStopUpgrade() {
-                        Log.d("MMM", "onStopUpgrade");
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                if (mDialog != null) {
-                                    mDialog.dismiss();
-                                }
-                            }
-                        });
-                        if (null != mDaoManager) {
-                            Log.d("MMM", "daoManager.removeCallback();");
-                            mDaoManager.removeCallback();
-                        }
-                    }
-                });
+        if (DaoManager.isUpdating) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    mDialog = new DsAlertDialog(MainActivity.this);
+                    mDialog.setTitle(R.string.error_title);
+                    mDialog.setMessage("正在更新数据库，请稍等");
+                    mDialog.setCanceledOnTouchOutside(false);
+                    mDialog.show();
+                }
+            });
+            while (!DaoManager.isUpdating) {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
-        }).start();
+
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if (mDialog != null) {
+                        mDialog.dismiss();
+                    }
+                }
+            });
+        }
+
+        if (null != mCountDownLatch) {
+            mCountDownLatch.countDown();
+        }
     }
 
     @Override
     protected void onDestroy() {
-        if (null != mDaoManager) {
-            mDaoManager.removeCallback();
-        }
         super.onDestroy();
     }
 

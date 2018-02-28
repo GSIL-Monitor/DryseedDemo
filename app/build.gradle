@@ -139,7 +139,7 @@ android {
 //greendao版本配置
 greendao {
     targetGenDir 'src/main/java-dao'
-    schemaVersion 29
+    schemaVersion 40
     daoPackage 'greendao'
 }
 clean.doFirst {

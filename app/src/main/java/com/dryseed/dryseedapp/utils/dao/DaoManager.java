@@ -26,15 +26,14 @@ public class DaoManager {
     private static DsOpenHelper mDevOpenHelper;
     private static DaoMaster mDaoMaster;
     private static DaoSession mDaoSession;
+    public static boolean isUpdating = false;
 
     private Context mContext;
-    private Callback mCallback;
 
-    private DaoManager(Context context, Callback callback) {
+    private DaoManager(Context context) {
         this.mContext = context;
-        this.mCallback = callback;
         // 初始化数据库信息
-        mDevOpenHelper = new DsOpenHelper(context, DB_NAME, mCallback);
+        mDevOpenHelper = new DsOpenHelper(context, DB_NAME);
         getDaoMaster(context);
         getDaoSession(context);
     }
@@ -43,18 +42,7 @@ public class DaoManager {
         if (null == mDbManager) {
             synchronized (DaoManager.class) {
                 if (null == mDbManager) {
-                    mDbManager = new DaoManager(context, null);
-                }
-            }
-        }
-        return mDbManager;
-    }
-
-    public static DaoManager getInstance(Context context, Callback callback) {
-        if (null == mDbManager) {
-            synchronized (DaoManager.class) {
-                if (null == mDbManager) {
-                    mDbManager = new DaoManager(context, callback);
+                    mDbManager = new DaoManager(context);
                 }
             }
         }
@@ -101,12 +89,10 @@ public class DaoManager {
 
     public static class DsOpenHelper extends DaoMaster.OpenHelper {
         private Context context;
-        private Callback callback;
 
-        public DsOpenHelper(Context context, String name, Callback callback) {
+        public DsOpenHelper(Context context, String name) {
             super(context, name);
             this.context = context;
-            this.callback = callback;
         }
 
         public DsOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory) {
@@ -115,7 +101,7 @@ public class DaoManager {
         }
 
         @Override
-        public void onUpgrade(Database db, int oldVersion, int newVersion) {
+        public void onUpgrade(final Database db, int oldVersion, int newVersion) {
             Log.d("MMM", String.format("greendao onUpgrade : oldVersion - %d | newVersion - %d", oldVersion, newVersion));
             Log.d("MMM", "onUpgrade thread : " + Thread.currentThread().getName());
             /*if (oldVersion <= 11) {
@@ -124,31 +110,36 @@ public class DaoManager {
                 onCreate(db);
             }*/
 
-            if (null != callback) {
-                callback.onStartUpgrade();
-            }
-            try {
-                Thread.sleep(5000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
 
-            GreenDaoUpgradeHelper.DEBUG = true;
-            GreenDaoUpgradeHelper.migrate(db, new GreenDaoUpgradeHelper.ReCreateAllTableListener() {
+            new Thread(new Runnable() {
                 @Override
-                public void onCreateAllTables(Database db, boolean ifNotExists) {
-                    DaoMaster.createAllTables(db, ifNotExists);
-                }
+                public void run() {
+                    isUpdating = true;
 
-                @Override
-                public void onDropAllTables(Database db, boolean ifExists) {
-                    DaoMaster.dropAllTables(db, ifExists);
-                }
-            }, MusicDBDao.class, UserMusicDBDao.class);
+                    try {
+                        Thread.sleep(10000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
 
-            if (null != callback) {
-                callback.onStopUpgrade();
-            }
+                    GreenDaoUpgradeHelper.DEBUG = true;
+                    GreenDaoUpgradeHelper.migrate(db, new GreenDaoUpgradeHelper.ReCreateAllTableListener() {
+                        @Override
+                        public void onCreateAllTables(Database db, boolean ifNotExists) {
+                            DaoMaster.createAllTables(db, ifNotExists);
+                        }
+
+                        @Override
+                        public void onDropAllTables(Database db, boolean ifExists) {
+                            DaoMaster.dropAllTables(db, ifExists);
+                        }
+                    }, MusicDBDao.class, UserMusicDBDao.class);
+
+                    isUpdating = false;
+
+                }
+            }).start();
+
         }
 
         @Override
@@ -167,21 +158,6 @@ public class DaoManager {
             super.onCreate(db);
         }
 
-        public void removeCallback() {
-            callback = null;
-        }
     }
 
-    public void removeCallback() {
-        mCallback = null;
-        if (null != mDevOpenHelper) {
-            mDevOpenHelper.removeCallback();
-        }
-    }
-
-    public interface Callback {
-        void onStartUpgrade();
-
-        void onStopUpgrade();
-    }
 }
