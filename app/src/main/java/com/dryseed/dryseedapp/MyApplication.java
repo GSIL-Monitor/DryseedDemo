@@ -6,6 +6,7 @@ import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 
+import com.blankj.utilcode.util.Utils;
 import com.dryseed.dryseedapp.utils.BackForegroundWatcher;
 import com.dryseed.dryseedapp.utils.DPIUtil;
 import com.dryseed.dryseedapp.utils.dao.DaoManager;
@@ -50,6 +51,7 @@ public class MyApplication extends MultiDexApplication {
             e.printStackTrace();
         }
 
+        Utils.init(sInstance);
         Fresco.initialize(sInstance);
         LeakCanary.install(sInstance);
         initX5();
