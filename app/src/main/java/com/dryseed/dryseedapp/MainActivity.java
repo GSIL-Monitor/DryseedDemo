@@ -91,7 +91,7 @@ public class MainActivity extends ListActivity {
                         new ObservableOnSubscribe<Integer>() {
                             @Override
                             public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
-                                Log.d("MMM", "=======" + Thread.currentThread().getName());
+                                //Log.d("MMM", "MainActivity =======" + Thread.currentThread().getName());
                                 mCountDownLatch = new CountDownLatch(1);
                                 upgradeDatabase();
                                 try {
@@ -107,7 +107,7 @@ public class MainActivity extends ListActivity {
                 .subscribe(new Consumer<Integer>() {
                     @Override
                     public void accept(Integer integer) throws Exception {
-                        Log.d("MMM", String.format("Task%d begin thread : %s", integer, Thread.currentThread().getName()));
+                        //Log.d("MMM", String.format("MainActivity Task%d begin thread : %s", integer, Thread.currentThread().getName()));
                         //dispath activity
                         //startActivity(new Intent(MainActivity.this, TestCanvasActivity.class));
                     }

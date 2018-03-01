@@ -48,7 +48,6 @@
 -keepattributes *Annotation*,InnerClasses,Signature,EnclosingMethod
 
 # 保护注解
--keepattributes *Annotation*
 -keep class * extends java.lang.annotation.Annotation {*;}
 
  # 重命名抛出异常时的文件名称
