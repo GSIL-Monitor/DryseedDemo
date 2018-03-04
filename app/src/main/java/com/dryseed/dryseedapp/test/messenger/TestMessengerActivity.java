@@ -1,5 +1,6 @@
 package com.dryseed.dryseedapp.test.messenger;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
@@ -22,7 +23,7 @@ import com.dryseed.dryseedapp.R;
 
 /**
  * Created by caiminming on 2017/9/18.
- *
+ * <p>
  * http://blog.csdn.net/lmj623565791/article/details/47017485
  */
 
@@ -39,9 +40,12 @@ public class TestMessengerActivity extends BaseActivity {
     private boolean isConn;
 
 
+    @SuppressLint("HandlerLeak")
     private Messenger mMessenger = new Messenger(new Handler() {
         @Override
         public void handleMessage(Message msgFromServer) {
+            //com.dryseed.dryseedapp D/MMM: TestMessengerActivity handleMessage : main
+            Log.d(TAG, "TestMessengerActivity handleMessage : " + Thread.currentThread().getName());
             switch (msgFromServer.what) {
                 case MSG_SUM:
                     TextView tv = (TextView) mLyContainer.findViewById(msgFromServer.arg1);

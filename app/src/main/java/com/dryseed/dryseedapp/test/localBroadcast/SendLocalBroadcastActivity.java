@@ -4,14 +4,9 @@ package com.dryseed.dryseedapp.test.localBroadcast;
  * Created by User on 2017/8/8.
  */
 
-import android.app.Activity;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
-import android.util.Log;
 import android.widget.Button;
 
 import com.dryseed.dryseedapp.BaseActivity;

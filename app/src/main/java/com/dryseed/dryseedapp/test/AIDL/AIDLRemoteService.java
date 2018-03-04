@@ -13,8 +13,8 @@ import android.os.RemoteException;
  * Created by caiminming on 2017/9/18.
  */
 
-public class TestAIDLRemoteService extends Service {
-    public TestAIDLRemoteService() {
+public class AIDLRemoteService extends Service {
+    public AIDLRemoteService() {
     }
 
     @Override
@@ -32,7 +32,7 @@ public class TestAIDLRemoteService extends Service {
 
         @Override
         public MyProcess getProcess(MyProcess clientProcess) throws RemoteException {
-            MyProcess process = new MyProcess(Process.myPid(), getCurProcessName(TestAIDLRemoteService.this));
+            MyProcess process = new MyProcess(Process.myPid(), getCurProcessName(AIDLRemoteService.this));
             return process;
         }
 

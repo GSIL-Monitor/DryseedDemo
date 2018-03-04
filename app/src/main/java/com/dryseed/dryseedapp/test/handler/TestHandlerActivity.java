@@ -20,7 +20,7 @@ public class TestHandlerActivity extends BaseActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                //03-01 16:58:40.629 22418-22418/com.dryseed.dryseedapp D/MMM: MainThread : main
+                //com.dryseed.dryseedapp D/MMM: MainThread : main
                 Log.d("MMM", "MainThread : " + Thread.currentThread().getName());
                 Message message = Message.obtain();
                 message.what = 1;
@@ -28,8 +28,11 @@ public class TestHandlerActivity extends BaseActivity {
                 looperThread.getHandler().sendMessage(message);
             }
         }, 1000);
+    }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }
 
@@ -41,11 +44,13 @@ class LooperThread extends Thread {
         Looper.prepare();
         mHandler = new Handler() {
             public void handleMessage(Message msg) {
-                //03-01 16:56:57.919 22056-22220/com.dryseed.dryseedapp D/MMM: LooperThread : Thread-2287
+                //com.dryseed.dryseedapp D/MMM: LooperThread : Thread-2287
                 Log.d("MMM", "LooperThread : " + Thread.currentThread().getName());
             }
         };
         Looper.loop();
+
+        Log.d("MMM", "LooperThread : after Looper.loop()"); //noting print
     }
 
     public Handler getHandler() {

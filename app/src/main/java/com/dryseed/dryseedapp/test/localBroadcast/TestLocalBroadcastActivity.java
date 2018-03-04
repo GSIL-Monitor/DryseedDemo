@@ -4,7 +4,6 @@ package com.dryseed.dryseedapp.test.localBroadcast;
  * Created by User on 2017/8/8.
  */
 
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;

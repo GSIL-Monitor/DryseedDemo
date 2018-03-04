@@ -1150,6 +1150,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".test.broadcast.TestBroadcastActivity"
+            android:label="Test/Broadcast">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".test.localBroadcast.TestLocalBroadcastActivity"
             android:label="Test/LocalBroadcast">
             <intent-filter>
@@ -1301,8 +1310,8 @@
         </activity>
 
         <activity
-            android:name=".service.intentService.IntentServiceActivity"
-            android:label="Service/IntentService">
+            android:name=".test.service.intentService.IntentServiceActivity"
+            android:label="Test/IntentService">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -1310,8 +1319,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".service.service.TestServiceActivity"
-            android:label="Service/Service">
+            android:name=".test.service.service.TestServiceActivity"
+            android:label="Test/Service">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -1390,7 +1399,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".widget.fragment.fragmentLifeCycle.TestFragmentLifeCycle"
+            android:name=".widget.fragment.TestFragmentLifeCycle"
             android:label="Widget/FragmentLifeCycle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -1624,13 +1633,13 @@
         </activity>
 
         <service
-            android:name=".service.intentService.UploadImgService"
+            android:name=".test.service.intentService.UploadImgService"
             android:exported="false" />
         <service
-            android:name=".service.service.MyService"
+            android:name=".test.service.service.MyService"
             android:exported="false" />
         <service
-            android:name=".test.AIDL.TestAIDLRemoteService"
+            android:name=".test.AIDL.AIDLRemoteService"
             android:enabled="true"
             android:exported="true"
             android:process=":remote" />

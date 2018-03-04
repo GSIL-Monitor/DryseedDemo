@@ -1,6 +1,5 @@
 package com.dryseed.dryseedapp.test.AIDL;
 
-import android.app.Activity;
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.Intent;
@@ -23,7 +22,7 @@ import com.dryseed.dryseedapp.R;
  */
 
 public class TestAIDLActivity extends BaseActivity {
-    private final static String TAG = "PluginClassloaderHookActivity";
+    private final static String TAG = "MMM";
     private IRemoteService remoteService;
 
     @Override
@@ -32,7 +31,7 @@ public class TestAIDLActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
 
         Intent intent = new Intent();
-        intent.setClass(this, TestAIDLRemoteService.class);
+        intent.setClass(this, AIDLRemoteService.class);
         bindService(intent, connection, Service.BIND_AUTO_CREATE); // 绑定服务
     }
 
