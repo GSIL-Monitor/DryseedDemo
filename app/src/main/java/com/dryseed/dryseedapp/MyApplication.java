@@ -1,17 +1,12 @@
 package com.dryseed.dryseedapp;
 
-import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
-import android.util.Log;
 
 import com.blankj.utilcode.util.Utils;
 import com.dryseed.dryseedapp.utils.BackForegroundWatcher;
 import com.dryseed.dryseedapp.utils.DPIUtil;
-import com.dryseed.dryseedapp.utils.dao.DaoManager;
-import com.dryseed.dryseedapp.widget.dialog.DsAlertDialog;
-import com.dryseed.dryseedapp.widget.dialog.DsDialogFactory;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.stetho.Stetho;
 import com.squareup.leakcanary.LeakCanary;

@@ -10,6 +10,7 @@ import android.graphics.PathMeasure;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
+import android.view.animation.LinearInterpolator;
 
 /**
  * Created by User on 2017/9/17.
@@ -81,9 +82,8 @@ public class BasePathMeasureView extends View {
         Log.i(TAG, "measure length = " + mPathMeasure.getLength());
         mAnimator.setDuration(duration);
         mAnimator.setRepeatCount(ValueAnimator.INFINITE);
-        mAnimator.setInterpolator(new DecelerateInterpolator());
+        mAnimator.setInterpolator(new LinearInterpolator());
         mAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 float value = (Float) animation.getAnimatedValue();
@@ -96,7 +96,7 @@ public class BasePathMeasureView extends View {
     }
 
     public void stop() {
-        if(null != mAnimator){
+        if (null != mAnimator) {
             mAnimator.cancel();
         }
     }
