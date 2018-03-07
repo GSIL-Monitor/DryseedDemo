@@ -1,12 +1,18 @@
 package com.dryseed.dryseedapp;
 
 import android.content.Context;
+import android.os.Process;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
+import android.text.TextUtils;
+import android.util.Log;
 
+import com.antfortune.freeline.FreelineCore;
+import com.blankj.utilcode.util.ProcessUtils;
 import com.blankj.utilcode.util.Utils;
 import com.dryseed.dryseedapp.utils.BackForegroundWatcher;
 import com.dryseed.dryseedapp.utils.DPIUtil;
+import com.dryseed.dryseedapp.utils.ProcessUtil;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.stetho.Stetho;
 import com.squareup.leakcanary.LeakCanary;
@@ -38,6 +44,17 @@ public class MyApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        Log.d("MMM", " MyApplication onCreate");
+
+        String processName = ProcessUtil.getProcessName(this, Process.myPid());
+        if (!TextUtils.isEmpty(processName) && processName.equals("com.dryseed.dryseedapp")) {
+            init();
+        }
+    }
+
+    private void init() {
+        Log.d("MMM", " MyApplication init");
         sInstance = this;
 
         try {
@@ -49,6 +66,10 @@ public class MyApplication extends MultiDexApplication {
         Utils.init(sInstance);
         Fresco.initialize(sInstance);
         LeakCanary.install(sInstance);
+        if (BuildConfig.DEBUG) {
+            FreelineCore.init(this);
+        }
+        FreelineCore.init(sInstance);
         initX5();
         initRxDownload();
         BackForegroundWatcher.getInstance().init(MyApplication.getInstance());
@@ -70,14 +91,12 @@ public class MyApplication extends MultiDexApplication {
         QbSdk.PreInitCallback cb = new QbSdk.PreInitCallback() {
             @Override
             public void onViewInitFinished(boolean arg0) {
-                // TODO Auto-generated method stub
                 //x5內核初始化完成的回调，为true表示x5内核加载成功，否则表示x5内核加载失败，会自动切换到系统内核。
                 //Log.d("MMM", " onViewInitFinished is " + arg0);
             }
 
             @Override
             public void onCoreInitFinished() {
-                // TODO Auto-generated method stub
             }
         };
         //x5内核初始化接口

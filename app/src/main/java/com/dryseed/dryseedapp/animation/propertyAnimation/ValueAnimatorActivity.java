@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.animation.basicPropertyAnimation;
+package com.dryseed.dryseedapp.animation.propertyAnimation;
 
 import android.animation.Animator;
 import android.animation.Animator.AnimatorListener;
@@ -7,7 +7,6 @@ import android.animation.ObjectAnimator;
 import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
-import android.app.Activity;
 import android.graphics.PointF;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -16,7 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.animation.LinearInterpolator;
-import android.widget.Button;
 import android.widget.ImageView;
 
 import com.dryseed.dryseedapp.BaseActivity;
@@ -24,7 +22,7 @@ import com.dryseed.dryseedapp.R;
 
 public class ValueAnimatorActivity extends BaseActivity
 {
-	protected static final String TAG = "TestFoldingLayoutActivity";
+	protected static final String TAG = "MMM";
 
 	private ImageView mBlueBall;
 

@@ -1,9 +1,9 @@
-package com.dryseed.dryseedapp.animation.basicPropertyAnimation;
+package com.dryseed.dryseedapp.animation.propertyAnimation;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
-import android.app.Activity;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -19,6 +19,7 @@ public class ObjectAnimatorActivity extends BaseActivity {
     }
 
     public void rotateyAnimRun(final View view) {
+        @SuppressLint("ObjectAnimatorBinding")
         ObjectAnimator anim = ObjectAnimator
                 .ofFloat(view, "zhy", 1.0F, 0.2F)
                 .setDuration(500);

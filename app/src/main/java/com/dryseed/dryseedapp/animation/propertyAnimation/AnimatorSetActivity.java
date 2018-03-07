@@ -1,8 +1,7 @@
-package com.dryseed.dryseedapp.animation.basicPropertyAnimation;
+package com.dryseed.dryseedapp.animation.propertyAnimation;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.LinearInterpolator;

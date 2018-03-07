@@ -1,8 +1,6 @@
-package com.dryseed.dryseedapp.concurrent.consumerAndProducer;
+package com.dryseed.dryseedapp.concurrent.consumerAndProducer.demo1;
 
 import java.util.ArrayDeque;
-import java.util.List;
-import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**

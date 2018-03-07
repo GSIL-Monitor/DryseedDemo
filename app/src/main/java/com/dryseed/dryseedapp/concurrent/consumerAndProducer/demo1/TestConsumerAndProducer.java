@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.concurrent.consumerAndProducer;
+package com.dryseed.dryseedapp.concurrent.consumerAndProducer.demo1;
 
 import java.util.ArrayDeque;
 

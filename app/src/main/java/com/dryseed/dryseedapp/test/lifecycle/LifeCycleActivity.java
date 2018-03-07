@@ -2,6 +2,9 @@ package com.dryseed.dryseedapp.test.lifecycle;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.ViewPager;
+import android.util.Log;
+import android.view.View;
 
 import com.dryseed.dryseedapp.BaseActivity;
 
@@ -22,5 +25,18 @@ public class LifeCycleActivity extends BaseActivity {
         getLifecycle().addObserver(lifeCycleTextView);
 
         setContentView(lifeCycleTextView);
+
+        View decorView = getWindow().getDecorView();
+        View parent = lifeCycleTextView;
+        while (parent != null) {
+            Log.d("MMM", parent.toString());
+            if (parent == decorView) {
+                Log.d("MMM", "find decorView");
+                break;
+            }
+            if (parent.getParent() instanceof View) {
+                parent = (View) parent.getParent();
+            }
+        }
     }
 }

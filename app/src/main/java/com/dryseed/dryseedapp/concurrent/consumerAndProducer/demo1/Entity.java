@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.concurrent.consumerAndProducer;
+package com.dryseed.dryseedapp.concurrent.consumerAndProducer.demo1;
 
 /**
  * Created by caiminming on 2017/10/19.

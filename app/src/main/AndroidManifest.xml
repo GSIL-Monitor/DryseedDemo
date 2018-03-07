@@ -350,7 +350,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".animation.basicPropertyAnimation.ObjectAnimatorActivity"
+            android:name=".animation.propertyAnimation.ObjectAnimatorActivity"
             android:label="Animation/PropertyAnimation/ObjectAnimator">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -359,7 +359,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".animation.basicPropertyAnimation.ValueAnimatorActivity"
+            android:name=".animation.propertyAnimation.ValueAnimatorActivity"
             android:label="Animation/PropertyAnimation/ValueAnimator">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -368,7 +368,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".animation.basicPropertyAnimation.AnimatorSetActivity"
+            android:name=".animation.propertyAnimation.AnimatorSetActivity"
             android:label="Animation/PropertyAnimation/AnimatorSet">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -377,7 +377,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".animation.basicPropertyAnimation.Xml4AnimActivity"
+            android:name=".animation.propertyAnimation.Xml4AnimActivity"
             android:label="Animation/PropertyAnimation/XML4Anim">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -386,7 +386,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".animation.basicPropertyAnimation.LayoutAnimatorActivity"
+            android:name=".animation.propertyAnimation.LayoutAnimatorActivity"
             android:label="Animation/PropertyAnimation/LayoutAnimator">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -395,7 +395,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".animation.basicPropertyAnimation.ViewAnimatorActivity"
+            android:name=".animation.propertyAnimation.ViewAnimatorActivity"
             android:label="Animation/PropertyAnimation/ViewAnimator">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

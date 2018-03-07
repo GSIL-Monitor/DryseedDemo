@@ -1,8 +1,7 @@
-package com.dryseed.dryseedapp.animation.basicPropertyAnimation;
+package com.dryseed.dryseedapp.animation.propertyAnimation;
 
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
-import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;

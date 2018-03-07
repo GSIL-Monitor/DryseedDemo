@@ -1,9 +1,6 @@
-package com.dryseed.dryseedapp.concurrent.consumerAndProducer;
+package com.dryseed.dryseedapp.concurrent.consumerAndProducer.demo1;
 
 import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Created by caiminming on 2017/10/19.
