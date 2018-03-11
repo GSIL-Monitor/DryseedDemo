@@ -1495,6 +1495,24 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".practice.myNetUtil.MyNetUtilActivity"
+            android:label="Practice/MyNetUtil">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".practice.myImageLoader.MyImageLoaderActivity"
+            android:label="Practice/MyImageLoader">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".widget.textView.TestSpannableActivity"
