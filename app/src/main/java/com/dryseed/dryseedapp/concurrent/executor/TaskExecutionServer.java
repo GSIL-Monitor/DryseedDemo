@@ -1,11 +1,8 @@
 package com.dryseed.dryseedapp.concurrent.executor;
 
 import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -40,7 +37,6 @@ public class TaskExecutionServer {
         for(int i=0; i<10; i++){
             process();
         }
-
         executorService.shutdown();
     }
 

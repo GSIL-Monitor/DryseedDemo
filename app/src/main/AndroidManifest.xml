@@ -1090,6 +1090,18 @@
         </activity>
         <activity android:name=".test.singleTask.TestBActivity" />
         <activity
+            android:name=".test.singleInstance.TestAActivity"
+            android:label="Test/SingleInstance">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".test.singleInstance.TestBActivity"
+            android:launchMode="singleInstance" />
+        <activity
             android:name=".test.parcelable.TestParcelableAActivity"
             android:label="Test/Parcelable">
             <intent-filter>

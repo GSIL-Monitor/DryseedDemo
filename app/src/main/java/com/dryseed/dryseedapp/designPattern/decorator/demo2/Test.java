@@ -6,9 +6,10 @@ package com.dryseed.dryseedapp.designPattern.decorator.demo2;
 
 public class Test {
     /*
-        RiceNoodle
-        add beef
-        add spicy
+        Log:
+            RiceNoodle
+            add beef
+            add spicy
 
         执行顺序： spicyNoodleDecorator.cook() -> beefNoodleDecorator.cook() -> riceNoodle.cook() -> RiceNoodle -> add beef -> add spicy
      */
