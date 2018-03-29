@@ -87,6 +87,7 @@
         </activity>
         <activity
             android:name=".framework.fresco.TestFrescoActivity"
+            android:launchMode="singleInstance"
             android:label="FrameWork/Fresco">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -11,7 +11,7 @@ import com.dryseed.dryseedapp.MyApplication;
 
 /**
  * SingleInstance测试
- * 同时启动TestBActivity(launchMode为Singleinstance)多次，观察栈结构(adb shell dumpsys activity activities)
+ * 同时启动TestBActivity(launchMode为SingleInstance)多次，观察栈结构(adb shell dumpsys activity activities)
  *
  */
 public class TestAActivity extends BaseActivity {
@@ -27,15 +27,15 @@ public class TestAActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MyApplication.getInstance(), TestBActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                MyApplication.getInstance().startActivity(intent);
-                MyApplication.getInstance().startActivity(intent);
+                //MyApplication.getInstance().startActivity(intent);
+                //MyApplication.getInstance().startActivity(intent);
                 //startActivity(new Intent(TestAActivity.this, TestBActivity.class));
-                //startActivity(new Intent(TestAActivity.this, TestBActivity.class));
+                startActivity(new Intent(TestAActivity.this, TestBActivity.class));
             }
         });
 
         /**
-         * ①
+         * ① 跳转TestBActivity
          * Task id #10501
          *      Hist #0 TestBActivity
          * Task id #10500

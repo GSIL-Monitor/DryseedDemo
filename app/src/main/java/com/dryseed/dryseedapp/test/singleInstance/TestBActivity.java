@@ -16,7 +16,7 @@ public class TestBActivity extends BaseActivity {
         TextView textView = new TextView(this);
         textView.setText("SingleInstance TestBActivity");
         setContentView(textView);
-        //startActivity(new Intent(this, TestFrescoActivity.class));
+        startActivity(new Intent(this, TestFrescoActivity.class));
     }
 
     @Override
@@ -24,4 +24,5 @@ public class TestBActivity extends BaseActivity {
         super.onNewIntent(intent);
         Log.d("MMM", "onNewIntent");
     }
+
 }

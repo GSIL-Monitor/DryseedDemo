@@ -2,9 +2,11 @@ package com.dryseed.dryseedapp.utils;
 
 import android.text.TextUtils;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by caiminming on 2018/1/16.
@@ -54,7 +56,7 @@ public class TimeUtils {
      * @param format
      * @return
      */
-    public static String timeStamp2Date(int seconds, String format) {
+    public static String timeStamp2Date(long seconds, String format) {
         if (format == null || format.isEmpty()) {
             format = "yyyy年MM月dd日";
         }
@@ -62,8 +64,29 @@ public class TimeUtils {
         return sdf.format(new Date(Long.valueOf(seconds + "000")));
     }
 
-    public static String timeStamp2Date(int seconds) {
+    public static String timeStamp2Date(long seconds) {
         return timeStamp2Date(seconds, null);
+    }
+
+    /**
+     * 输入所要转换的时间输入例如（"2018年8月21日"）返回时间戳
+     *
+     * @param time
+     * @param format
+     * @return 单位ms
+     * @throws ParseException
+     */
+    public static long dateToTimeStamp(String time, String format) throws ParseException {
+        if (format == null || format.isEmpty()) {
+            format = "yyyy年MM月dd日";
+        }
+        SimpleDateFormat sdr = new SimpleDateFormat(format, Locale.CHINA);
+        Date date = sdr.parse(time);
+        return date.getTime();
+    }
+
+    public static long dateToTimeStamp(String time) throws ParseException {
+        return dateToTimeStamp(time, null);
     }
 
     public static int getYear(int seconds) {
@@ -95,7 +118,7 @@ public class TimeUtils {
 
     public static boolean validYesterday(String str, String format) {
         if (null == str || str.isEmpty()) return false;
-        if (null == format  || format.isEmpty()) {
+        if (null == format || format.isEmpty()) {
             format = "yyyy年MM月dd日";
         }
         Calendar calender = Calendar.getInstance();
