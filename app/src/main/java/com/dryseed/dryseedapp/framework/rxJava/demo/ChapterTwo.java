@@ -71,7 +71,7 @@ public class ChapterTwo {
         Observable<Integer> observable = Observable.create(new ObservableOnSubscribe<Integer>() {
             @Override
             public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
-                list.add("Observable thread is : " + Thread.currentThread().getName());
+                list.add("Observable thread is : " + Thread.currentThread().getName()); //1:RxNewThreadScheduler-1
                 list.add("emit 1");
                 emitter.onNext(1);
             }
@@ -80,7 +80,7 @@ public class ChapterTwo {
         Consumer<Integer> consumer = new Consumer<Integer>() {
             @Override
             public void accept(Integer integer) throws Exception {
-                list.add("Observer thread is : " + Thread.currentThread().getName());
+                list.add("Observer thread is : " + Thread.currentThread().getName()); //4:RxCachedThreadScheduler-1
                 list.add("onNext: " + integer);
             }
         };
@@ -91,15 +91,14 @@ public class ChapterTwo {
                 .doOnNext(new Consumer<Integer>() {
                     @Override
                     public void accept(Integer integer) throws Exception {
-                        list.add("After observeOn(mainThread), current thread is: " + Thread.currentThread()
-                                .getName());
+                        list.add("After observeOn(mainThread), current thread is: " + Thread.currentThread().getName()); //2:main
                     }
                 })
                 .observeOn(Schedulers.io())
                 .doOnNext(new Consumer<Integer>() {
                     @Override
                     public void accept(Integer integer) throws Exception {
-                        list.add("After observeOn(io), current thread is : " + Thread.currentThread().getName());
+                        list.add("After observeOn(io), current thread is : " + Thread.currentThread().getName()); //3:RxCachedThreadScheduler-1
                     }
                 })
                 .subscribe(consumer);

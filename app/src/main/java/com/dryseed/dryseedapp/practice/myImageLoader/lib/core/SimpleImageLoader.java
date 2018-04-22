@@ -12,7 +12,7 @@
  *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -39,7 +39,7 @@ import com.dryseed.dryseedapp.practice.myImageLoader.lib.request.BitmapRequest;
  * 如果是本地图片那么则交给mExecutorService从sd卡中加载
  * .加载之后直接更新UI，无需用户干预.如果用户设置了缓存策略,那么会将加载到的图片缓存起来.用户也可以设置加载策略，例如顺序加载{@see
  * SerialPolicy}和逆向加载{@see ReversePolicy}.
- * 
+ *
  * @author mrsimple
  */
 public final class SimpleImageLoader {
@@ -63,14 +63,14 @@ public final class SimpleImageLoader {
     private ImageLoaderConfig mConfig;
 
     /**
-     * 
+     *
      */
     private SimpleImageLoader() {
     }
 
     /**
      * 获取ImageLoader单例
-     * 
+     *
      * @return
      */
     public static SimpleImageLoader getInstance() {
@@ -122,12 +122,10 @@ public final class SimpleImageLoader {
         displayImage(imageView, uri, null, listener);
     }
 
-    public void displayImage(final ImageView imageView, final String uri,
-            final DisplayConfig config, final ImageListener listener) {
+    public void displayImage(final ImageView imageView, final String uri, final DisplayConfig config, final ImageListener listener) {
         BitmapRequest request = new BitmapRequest(imageView, uri, config, listener);
         // 加载的配置对象,如果没有设置则使用ImageLoader的配置
-        request.displayConfig = request.displayConfig != null ? request.displayConfig
-                : mConfig.displayConfig;
+        request.displayConfig = request.displayConfig != null ? request.displayConfig : mConfig.displayConfig;
         // 添加对队列中
         mImageQueue.addRequest(request);
     }
@@ -142,7 +140,7 @@ public final class SimpleImageLoader {
 
     /**
      * 图片加载Listener
-     * 
+     *
      * @author mrsimple
      */
     public static interface ImageListener {

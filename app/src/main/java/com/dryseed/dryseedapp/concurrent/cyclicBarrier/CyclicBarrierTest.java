@@ -37,8 +37,7 @@ public class CyclicBarrierTest {
         System.out.println(Thread.currentThread().getName() + "放学回家~");
     }
 
-    public static void main(String[] args) throws InterruptedException,
-            BrokenBarrierException {
+    public static void main(String[] args) throws InterruptedException, BrokenBarrierException {
 
         final CyclicBarrierTest instance = new CyclicBarrierTest();
 
@@ -58,9 +57,6 @@ public class CyclicBarrierTest {
                     }
 
                 }
-
-                ;
-
             }.start();
         }
 
