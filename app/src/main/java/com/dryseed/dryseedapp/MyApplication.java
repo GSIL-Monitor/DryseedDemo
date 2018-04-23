@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.antfortune.freeline.FreelineCore;
-import com.blankj.utilcode.util.ProcessUtils;
 import com.blankj.utilcode.util.Utils;
 import com.dryseed.dryseedapp.utils.BackForegroundWatcher;
 import com.dryseed.dryseedapp.utils.DPIUtil;
@@ -25,6 +24,7 @@ import zlc.season.rxdownload3.core.DownloadConfig;
 import zlc.season.rxdownload3.extension.ApkInstallExtension;
 import zlc.season.rxdownload3.extension.ApkOpenExtension;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 /**
  * Created by caiminming on 2016/11/23.
  */
@@ -74,6 +74,15 @@ public class MyApplication extends MultiDexApplication {
         initRxDownload();
         BackForegroundWatcher.getInstance().init(MyApplication.getInstance());
         Stetho.initializeWithDefaults(sInstance);
+        initARouter();
+    }
+
+    private void initARouter() {
+        if (BuildConfig.DEBUG) {           // 这两行必须写在init之前，否则这些配置在init过程中将无效
+            ARouter.openLog();     // 打印日志
+            ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
+        }
+        ARouter.init(sInstance); // 尽可能早，推荐在Application中初始化
     }
 
     @Override

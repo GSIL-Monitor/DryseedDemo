@@ -39,6 +39,13 @@ android {
             //指定ndk需要兼容的架构，把除了v7a以外的兼容包都过滤掉，只剩下一个v7a的文件夹。
             abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
         }
+
+        //ARouter
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
     }
 
     signingConfigs {
@@ -340,4 +347,11 @@ dependencies {
 
     //weixin camera
     compile project(path: ':camera')
+
+    // ----------------------------------------------------
+    // ########## ARouter ##########
+    // https://github.com/alibaba/ARouter
+    // ----------------------------------------------------
+    compile 'com.alibaba:arouter-api:1.3.1'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
 }

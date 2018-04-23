@@ -6,8 +6,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-//import de.greenrobot.event.EventBus;
-
 
 public class ItemListFragment extends ListFragment {
 
@@ -35,6 +33,7 @@ public class ItemListFragment extends ListFragment {
                     Thread.sleep(2000); // 模拟延时
                     // 发布事件，在后台线程发的事件
                     EventBus.getDefault().post(new Event.ItemListEvent(Item.ITEMS));
+                    org.greenrobot.eventbus.EventBus.getDefault().post(new Event.ItemListEvent(Item.ITEMS));
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

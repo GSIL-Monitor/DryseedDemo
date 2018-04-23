@@ -1,6 +1,5 @@
 package com.dryseed.dryseedapp.framework.butterknife;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
@@ -10,6 +9,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
@@ -24,6 +24,7 @@ import java.util.List;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
+@Route(path = "/framework/TestButterKnifeActivity")
 public class TestButterKnifeActivity extends BaseActivity {
     private static final ButterKnife.Action<View> ALPHA_FADE = new ButterKnife.Action<View>() {
         @Override

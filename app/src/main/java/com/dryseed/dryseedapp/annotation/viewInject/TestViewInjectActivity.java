@@ -24,18 +24,15 @@ public class TestViewInjectActivity extends BaseActivity {
     private Button mBtn2;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         ViewInjectUtils.inject(this);
     }
 
-    @OnDsClick({ R.id.id_btn, R.id.id_btn02 })
-    public void clickBtnInvoked(View view)
-    {
-        switch (view.getId())
-        {
+    @OnDsClick({R.id.id_btn, R.id.id_btn02})
+    public void clickBtnInvoked(View view) {
+        switch (view.getId()) {
             case R.id.id_btn:
                 Toast.makeText(this, "Inject Btn01 !", Toast.LENGTH_SHORT).show();
                 break;
