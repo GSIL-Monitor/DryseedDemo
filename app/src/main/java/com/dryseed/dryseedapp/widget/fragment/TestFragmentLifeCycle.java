@@ -54,6 +54,7 @@ public class TestFragmentLifeCycle extends BaseActivity {
         }
         fragmentTransaction.commit();
 
+        // 情况1：replace 没有调用addToBackStack
         // FragmentOne : onPause -> onStop -> onDestroyView -> onDestroy -> onDetach
         // FragmentTow : onAttach -> onCreate -> onCreateView -> onViewCreated -> onActivityCreated -> onStart -> onResume
         // 这说明，在使用replace添加Fragment时如果没有调用addToBackStack方式的话，当FragmentManager替换Fragment时，
@@ -73,6 +74,7 @@ public class TestFragmentLifeCycle extends BaseActivity {
         }
         fragmentTransaction.commit();
 
+        // 情况2：replace 调用addToBackStack
         // FragmentOne : onPause -> onStop -> onDestroyView   少了onDestroy、onDetach
         // FragmentTow : onAttach -> onCreate -> onCreateView -> onViewCreated -> onActivityCreated -> onStart -> onResume
         // 这说明fragOne仅仅只是界面被销毁onDestroyView，而fragOne对象的实例依然被保存在FragmentManager中（因为无onDestroy，onDetach），它的部分状态依然被保存在FragmentManager中。

@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
+import com.dryseed.dryseedapp.framework.rxJava.demo.ChapterTwo;
 import com.dryseed.dryseedapp.framework.rxJava.demo.TestRxjava;
 
 import java.util.ArrayList;
@@ -59,10 +60,10 @@ public class TestRxJavaActivity extends BaseActivity {
         ChapterOne.demo4(mList);
         mAdapter.notifyDataSetChanged();*/
 
-        /*ChapterTwo.demo1(mList);
-        ChapterTwo.demo2(mList);
+        //ChapterTwo.demo1(mList);
+        //ChapterTwo.demo2(mList);
         //ChapterTwo.demo3(mList);
-        mAdapter.notifyDataSetChanged();*/
+        //mAdapter.notifyDataSetChanged();
         //ChapterTwo.practice1(mContext);
 
         /*ChapterThree.demo1(mList);
@@ -76,7 +77,7 @@ public class TestRxJavaActivity extends BaseActivity {
         ChapterFour.demo3();*/
         //ChapterFour.practice1();
 
-        TestRxjava.test();
+        TestRxjava.test2();
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
