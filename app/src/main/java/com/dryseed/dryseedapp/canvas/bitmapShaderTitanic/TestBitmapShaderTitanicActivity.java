@@ -1,7 +1,6 @@
 package com.dryseed.dryseedapp.canvas.bitmapShaderTitanic;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;

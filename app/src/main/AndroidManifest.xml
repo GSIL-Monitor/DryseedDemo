@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.dryseed.dryseedapp">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -23,7 +24,8 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:label">
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.Launcher">
@@ -205,7 +207,7 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
-        <activity
+        <!--<activity
             android:name=".framework.arouter.TestARouterActivity"
             android:label="FrameWork/ARouter">
             <intent-filter>
@@ -213,7 +215,7 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
-        <activity android:name=".framework.arouter.TestARouterWithParamActivity" />
+        <activity android:name=".framework.arouter.TestARouterWithParamActivity" />-->
         <activity
             android:name=".customView.customView01.TestCustomView01Activity"
             android:label="CustomView/CustomView01">
@@ -962,14 +964,14 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
-        <!--<activity
+        <activity
             android:name=".tools.photoSelector.TestPictureSelectorActivity"
             android:label="Tools/PhotoSelector">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
-        </activity>-->
+        </activity>
         <activity
             android:name=".tools.downloadManager.DownloadManagerActivity"
             android:label="Tools/DownloadManager">

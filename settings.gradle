@@ -1,1 +1,13 @@
-include ':app', ':camera'/*, ':ucrop', ':pictureselector'*/
+include ':app',
+        ':camera',
+
+        ':componentlib',
+        ':componentservice',
+        ':build-gradle',
+        ':basiclib',
+        ':basicres',
+
+        ':pictureselectorComponent',
+        ':ucrop'
+
+/*, ':ucrop', ':pictureselector'*/

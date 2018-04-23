@@ -14,6 +14,8 @@ import com.dryseed.dryseedapp.utils.DPIUtil;
 import com.dryseed.dryseedapp.utils.ProcessUtil;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.stetho.Stetho;
+import com.luojilab.component.componentlib.router.Router;
+import com.luojilab.component.componentlib.router.ui.UIRouter;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.smtt.export.external.TbsCoreSettings;
 import com.tencent.smtt.sdk.QbSdk;
@@ -24,7 +26,7 @@ import zlc.season.rxdownload3.core.DownloadConfig;
 import zlc.season.rxdownload3.extension.ApkInstallExtension;
 import zlc.season.rxdownload3.extension.ApkOpenExtension;
 
-import com.alibaba.android.arouter.launcher.ARouter;
+
 /**
  * Created by caiminming on 2016/11/23.
  */
@@ -63,6 +65,7 @@ public class MyApplication extends MultiDexApplication {
             e.printStackTrace();
         }
 
+        initComponent();
         Utils.init(sInstance);
         Fresco.initialize(sInstance);
         LeakCanary.install(sInstance);
@@ -74,15 +77,7 @@ public class MyApplication extends MultiDexApplication {
         initRxDownload();
         BackForegroundWatcher.getInstance().init(MyApplication.getInstance());
         Stetho.initializeWithDefaults(sInstance);
-        initARouter();
-    }
-
-    private void initARouter() {
-        if (BuildConfig.DEBUG) {           // 这两行必须写在init之前，否则这些配置在init过程中将无效
-            ARouter.openLog();     // 打印日志
-            ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
-        }
-        ARouter.init(sInstance); // 尽可能早，推荐在Application中初始化
+        //initARouter();
     }
 
     @Override
@@ -90,6 +85,28 @@ public class MyApplication extends MultiDexApplication {
         super.attachBaseContext(base);
         MultiDex.install(base);
     }
+
+    /**
+     * 组件初始化
+     */
+    private void initComponent() {
+        UIRouter.getInstance().registerUI("app");
+
+        //如果isRegisterCompoAuto为false，则需要通过反射加载组件
+        //Router.registerComponent("com.luojilab.reader.applike.ReaderAppLike");
+        //Router.registerComponent("com.luojilab.share.applike.ShareApplike");
+    }
+
+    /**
+     * ARouter初始化
+     */
+    /*private void initARouter() {
+        if (BuildConfig.DEBUG) {           // 这两行必须写在init之前，否则这些配置在init过程中将无效
+            ARouter.openLog();     // 打印日志
+            ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
+        }
+        ARouter.init(sInstance); // 尽可能早，推荐在Application中初始化
+    }*/
 
     /**
      * 初始化腾讯x5内核
@@ -115,6 +132,9 @@ public class MyApplication extends MultiDexApplication {
         QbSdk.initX5Environment(getApplicationContext(), cb);
     }
 
+    /**
+     * RxDownload初始化
+     */
     private void initRxDownload() {
         DownloadConfig.Builder builder = DownloadConfig.Builder.Companion.create(this)
                 //.enableDb(true)
