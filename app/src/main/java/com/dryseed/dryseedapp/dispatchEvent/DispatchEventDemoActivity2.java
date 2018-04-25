@@ -21,7 +21,7 @@ import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.dispatchEvent.ui.HorizontalScrollViewEx2;
 import com.dryseed.dryseedapp.dispatchEvent.ui.ListViewEx;
-import com.dryseed.dryseedapp.utils.DPIUtil;
+import com.luojilab.component.basiclib.DPIUtil;
 
 /**
  * 内部拦截法：

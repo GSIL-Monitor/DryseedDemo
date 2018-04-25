@@ -18,7 +18,7 @@ import com.dryseed.dryseedapp.practice.answer.entity.AnswerEntity;
 import com.dryseed.dryseedapp.practice.answer.entity.AnswerQuizTimeEntity;
 import com.dryseed.dryseedapp.practice.answer.entity.QuizChoiceEntity;
 import com.dryseed.dryseedapp.practice.answer.widget.QuizStateView;
-import com.dryseed.dryseedapp.utils.DPIUtil;
+import com.luojilab.component.basiclib.DPIUtil;
 
 public class AnswerQuizTimeState implements AnswerState {
 

@@ -12,7 +12,7 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 
-import com.dryseed.dryseedapp.utils.DPIUtil;
+import com.luojilab.component.basiclib.DPIUtil;
 
 
 /**

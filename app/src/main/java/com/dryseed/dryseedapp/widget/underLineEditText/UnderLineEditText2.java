@@ -14,7 +14,7 @@ import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.dryseed.dryseedapp.utils.DPIUtil;
+import com.luojilab.component.basiclib.DPIUtil;
 
 public class UnderLineEditText2 extends FrameLayout {
     private Paint mPaint;

@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.dryseed.dryseedapp.utils.DPIUtil;
+import com.luojilab.component.basiclib.DPIUtil;
 
 public class MyTextView extends View {
 

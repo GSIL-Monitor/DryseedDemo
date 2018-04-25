@@ -16,7 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.utils.DPIUtil;
+import com.luojilab.component.basiclib.DPIUtil;
 import com.dryseed.dryseedapp.utils.NetWorkUtil;
 
 import java.util.List;

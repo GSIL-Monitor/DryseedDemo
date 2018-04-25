@@ -5,9 +5,8 @@ include ':app',
         ':componentservice',
         ':build-gradle',
         ':basiclib',
-        ':basicres',
+        ':basicres'
 
-        ':pictureselectorComponent',
-        ':ucrop'
-
-/*, ':ucrop', ':pictureselector'*/
+//        ':pictureselectorComponent',
+//        ':ucrop',
+//        ':wheelpickerComponent'

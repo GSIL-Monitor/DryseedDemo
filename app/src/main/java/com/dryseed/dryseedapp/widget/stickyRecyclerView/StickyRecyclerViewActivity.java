@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.utils.DPIUtil;
+import com.luojilab.component.basiclib.DPIUtil;
 import com.dryseed.dryseedapp.widget.stickyRecyclerView.library.StickyDecoration;
 import com.dryseed.dryseedapp.widget.stickyRecyclerView.library.listener.GroupListener;
 import com.dryseed.dryseedapp.widget.stickyRecyclerView.model.City;

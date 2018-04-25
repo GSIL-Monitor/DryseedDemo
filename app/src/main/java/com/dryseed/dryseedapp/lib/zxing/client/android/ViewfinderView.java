@@ -32,7 +32,7 @@ import android.view.View;
 
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.lib.zxing.client.android.camera.CameraManager;
-import com.dryseed.dryseedapp.utils.DPIUtil;
+import com.luojilab.component.basiclib.DPIUtil;
 import com.google.zxing.ResultPoint;
 
 import java.util.Collection;

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.luojilab.component.componentlib.router.Router;
@@ -38,6 +39,8 @@ public class TestPictureSelectorActivity extends BaseActivity {
         if (router.getService(PictureSelectorService.class.getSimpleName()) != null) {
             PictureSelectorService service = (PictureSelectorService) router.getService(PictureSelectorService.class.getSimpleName());
             service.showPictureSelector(this);
+        } else {
+            ToastUtils.showShort("Please load PictureselectorComponent first");
         }
 
 //        // 进入相册 以下是例子：不需要的api可以不写

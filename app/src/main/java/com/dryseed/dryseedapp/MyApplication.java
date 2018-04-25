@@ -10,10 +10,11 @@ import android.util.Log;
 import com.antfortune.freeline.FreelineCore;
 import com.blankj.utilcode.util.Utils;
 import com.dryseed.dryseedapp.utils.BackForegroundWatcher;
-import com.dryseed.dryseedapp.utils.DPIUtil;
+import com.luojilab.component.basiclib.DPIUtil;
 import com.dryseed.dryseedapp.utils.ProcessUtil;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.stetho.Stetho;
+import com.luojilab.component.basiclib.MyApplicationProxy;
 import com.luojilab.component.componentlib.router.Router;
 import com.luojilab.component.componentlib.router.ui.UIRouter;
 import com.squareup.leakcanary.LeakCanary;
@@ -65,6 +66,7 @@ public class MyApplication extends MultiDexApplication {
             e.printStackTrace();
         }
 
+        MyApplicationProxy.setApplicationContext(sInstance);
         initComponent();
         Utils.init(sInstance);
         Fresco.initialize(sInstance);

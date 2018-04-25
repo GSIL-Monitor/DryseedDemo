@@ -9,7 +9,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;
 
-import com.dryseed.dryseedapp.utils.DPIUtil;
+import com.luojilab.component.basiclib.DPIUtil;
 
 public class MyNestedScrollChild extends LinearLayout implements NestedScrollingChild {
     private NestedScrollingChildHelper mScrollingChildHelper;

@@ -25,7 +25,7 @@ import android.view.animation.LinearInterpolator;
 
 
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.utils.DPIUtil;
+import com.luojilab.component.basiclib.DPIUtil;
 
 import java.lang.ref.WeakReference;
 

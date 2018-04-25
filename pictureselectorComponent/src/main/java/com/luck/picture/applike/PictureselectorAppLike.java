@@ -20,12 +20,11 @@ public class PictureselectorAppLike implements IApplicationLike {
     public void onCreate() {
         uiRouter.registerUI("pictureselector");
         router.addService(PictureSelectorService.class.getSimpleName(), new PictureselectorServiceImpl());
-        //router.addService(ReadBookService.class.getSimpleName(), new ReadBookServiceImplKotlin());
     }
 
     @Override
     public void onStop() {
         uiRouter.unregisterUI("pictureselector");
-        router.removeService(ReadBookService.class.getSimpleName());
+        router.removeService(PictureSelectorService.class.getSimpleName());
     }
 }

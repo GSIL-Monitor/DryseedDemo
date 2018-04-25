@@ -18,6 +18,8 @@ import android.graphics.drawable.Drawable;
 import android.provider.MediaStore;
 import android.util.Log;
 
+import com.luojilab.component.basiclib.DPIUtil;
+
 public class ImageUtil {
 
     /**
