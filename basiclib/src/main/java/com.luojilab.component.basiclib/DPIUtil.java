@@ -39,7 +39,7 @@ public class DPIUtil {
      */
     public static Display getDefaultDisplay() {
         if (null == defaultDisplay) {
-            WindowManager systemService = (WindowManager) MyApplicationProxy.getApplicationContext().getApplicationContext().getSystemService(Context.WINDOW_SERVICE);
+            WindowManager systemService = (WindowManager) BaseApplication.getAppContext().getSystemService(Context.WINDOW_SERVICE);
             defaultDisplay = systemService.getDefaultDisplay();
         }
         return defaultDisplay;

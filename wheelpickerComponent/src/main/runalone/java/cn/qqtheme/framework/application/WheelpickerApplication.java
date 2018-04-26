@@ -10,8 +10,8 @@ public class WheelpickerApplication extends BaseApplication {
         super.onCreate();
 
         //如果isRegisterCompoAuto为false，则需要通过反射加载组件
-        //Router.registerComponent("com.luojilab.share.applike.ShareApplike");
-        //Router.registerComponent("com.luojilab.share.kotlin.applike.KotlinApplike");
+        //Router.registerComponent("com.luck.picture.applike.PictureselectorAppLike");
+        //Router.registerComponent("cn.qqtheme.framework.applike.WheelpickerAppLike");
     }
 
 }

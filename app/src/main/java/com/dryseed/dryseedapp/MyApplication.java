@@ -3,19 +3,17 @@ package com.dryseed.dryseedapp;
 import android.content.Context;
 import android.os.Process;
 import android.support.multidex.MultiDex;
-import android.support.multidex.MultiDexApplication;
 import android.text.TextUtils;
 import android.util.Log;
 
 import com.antfortune.freeline.FreelineCore;
 import com.blankj.utilcode.util.Utils;
 import com.dryseed.dryseedapp.utils.BackForegroundWatcher;
+import com.luojilab.component.basiclib.BaseApplication;
 import com.luojilab.component.basiclib.DPIUtil;
 import com.dryseed.dryseedapp.utils.ProcessUtil;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.stetho.Stetho;
-import com.luojilab.component.basiclib.MyApplicationProxy;
-import com.luojilab.component.componentlib.router.Router;
 import com.luojilab.component.componentlib.router.ui.UIRouter;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.smtt.export.external.TbsCoreSettings;
@@ -31,7 +29,7 @@ import zlc.season.rxdownload3.extension.ApkOpenExtension;
 /**
  * Created by caiminming on 2016/11/23.
  */
-public class MyApplication extends MultiDexApplication {
+public class MyApplication extends BaseApplication {
     /**
      * A singleton instance of the application class for easy access in other places
      */
@@ -66,7 +64,6 @@ public class MyApplication extends MultiDexApplication {
             e.printStackTrace();
         }
 
-        MyApplicationProxy.setApplicationContext(sInstance);
         initComponent();
         Utils.init(sInstance);
         Fresco.initialize(sInstance);
@@ -95,8 +92,8 @@ public class MyApplication extends MultiDexApplication {
         UIRouter.getInstance().registerUI("app");
 
         //如果isRegisterCompoAuto为false，则需要通过反射加载组件
-        //Router.registerComponent("com.luojilab.reader.applike.ReaderAppLike");
-        //Router.registerComponent("com.luojilab.share.applike.ShareApplike");
+        //Router.registerComponent("com.luck.picture.applike.PictureselectorAppLike");
+        //Router.registerComponent("cn.qqtheme.framework.applike.WheelpickerAppLike");
     }
 
     /**
