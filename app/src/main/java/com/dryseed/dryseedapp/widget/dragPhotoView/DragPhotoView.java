@@ -11,8 +11,9 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
+import com.github.chrisbanes.photoview.PhotoView;
 
-public class DragPhotoView extends android.support.v7.widget.AppCompatImageView {
+public class DragPhotoView extends PhotoView /*android.support.v7.widget.AppCompatImageView*/ {
     private Paint mPaint;
     // downX
     private float mDownX;

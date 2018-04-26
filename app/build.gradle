@@ -2,6 +2,7 @@ apply plugin: 'com.dd.comgradle'
 apply plugin: 'com.antfortune.freeline'
 apply plugin: 'org.greenrobot.greendao'
 
+
 def getDate() {
     def date = new Date()
     def formattedDate = date.format('yyyyMMddHHmm')
@@ -17,13 +18,13 @@ repositories {
 }
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '27.0.1'
+    compileSdkVersion Integer.parseInt("${COMPILE_SDK_VERSION}")
+    buildToolsVersion "${BUILD_TOOLS_VERSION}"
 
     defaultConfig {
         applicationId "com.dryseed.dryseedapp"
-        minSdkVersion 16
-        targetSdkVersion 26
+        minSdkVersion Integer.parseInt("${MIN_SDK_VERSION}")
+        targetSdkVersion Integer.parseInt("${TARGET_SDK_VERSION}")
         versionCode 1
         versionName "1.0.0"
         //RenderScript support 用于高斯模糊
@@ -171,11 +172,11 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
 
-    compile 'com.android.support:appcompat-v7:26.1.0'
+    compile 'com.android.support:appcompat-v7:' + GOOGLE_SUPPORT_VERSION
 
-    compile 'com.android.support:design:26.1.0'
+    compile 'com.android.support:design:' + GOOGLE_SUPPORT_VERSION
 
-    compile 'com.android.support:recyclerview-v7:26.1.0'
+    compile 'com.android.support:recyclerview-v7:' + GOOGLE_SUPPORT_VERSION
 
     compile 'com.android.support:multidex:1.0.1'
 
@@ -367,4 +368,10 @@ dependencies {
     // ----------------------------------------------------
     //compile 'com.alibaba:arouter-api:1.3.1'
     //annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
+
+    // ----------------------------------------------------
+    // ########## PhotoView ##########
+    // https://github.com/chrisbanes/PhotoView
+    // ----------------------------------------------------
+    compile 'com.github.chrisbanes:PhotoView:2.0.0'
 }
