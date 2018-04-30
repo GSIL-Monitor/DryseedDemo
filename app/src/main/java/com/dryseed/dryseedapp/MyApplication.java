@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.antfortune.freeline.FreelineCore;
 import com.blankj.utilcode.util.Utils;
+import com.dryseed.dryseedapp.practice.crash.CrashHandler;
 import com.dryseed.dryseedapp.utils.BackForegroundWatcher;
 import com.luojilab.component.basiclib.BaseApplication;
 import com.luojilab.component.basiclib.DPIUtil;
@@ -34,13 +35,6 @@ public class MyApplication extends BaseApplication {
      * A singleton instance of the application class for easy access in other places
      */
     private static MyApplication sInstance;
-
-    /**
-     * @return ApplicationController singleton instance
-     */
-    public static synchronized MyApplication getInstance() {
-        return sInstance;
-    }
 
     @Override
     public void onCreate() {
@@ -77,12 +71,8 @@ public class MyApplication extends BaseApplication {
         BackForegroundWatcher.getInstance().init(MyApplication.getInstance());
         Stetho.initializeWithDefaults(sInstance);
         //initARouter();
-    }
+        initCrashHandler();
 
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        MultiDex.install(base);
     }
 
     /**
@@ -97,17 +87,6 @@ public class MyApplication extends BaseApplication {
     }
 
     /**
-     * ARouter初始化
-     */
-    /*private void initARouter() {
-        if (BuildConfig.DEBUG) {           // 这两行必须写在init之前，否则这些配置在init过程中将无效
-            ARouter.openLog();     // 打印日志
-            ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
-        }
-        ARouter.init(sInstance); // 尽可能早，推荐在Application中初始化
-    }*/
-
-    /**
      * 初始化腾讯x5内核
      * https://x5.tencent.com/tbs/sdk.html
      */
@@ -115,13 +94,13 @@ public class MyApplication extends BaseApplication {
         //搜集本地tbs内核信息并上报服务器，服务器返回结果决定使用哪个内核。
         QbSdk.PreInitCallback cb = new QbSdk.PreInitCallback() {
             @Override
-            public void onViewInitFinished(boolean arg0) {
-                //x5內核初始化完成的回调，为true表示x5内核加载成功，否则表示x5内核加载失败，会自动切换到系统内核。
-                //Log.d("MMM", " onViewInitFinished is " + arg0);
+            public void onCoreInitFinished() {
             }
 
             @Override
-            public void onCoreInitFinished() {
+            public void onViewInitFinished(boolean arg0) {
+                //x5內核初始化完成的回调，为true表示x5内核加载成功，否则表示x5内核加载失败，会自动切换到系统内核。
+                //Log.d("MMM", " onViewInitFinished is " + arg0);
             }
         };
         //x5内核初始化接口
@@ -144,6 +123,39 @@ public class MyApplication extends BaseApplication {
                 .addExtension(ApkOpenExtension.class);
 
         DownloadConfig.INSTANCE.init(builder);
+    }
+
+    /**
+     * @return ApplicationController singleton instance
+     */
+    public static synchronized MyApplication getInstance() {
+        return sInstance;
+    }
+
+    /**
+     * ARouter初始化
+     */
+    /*private void initARouter() {
+        if (BuildConfig.DEBUG) {           // 这两行必须写在init之前，否则这些配置在init过程中将无效
+            ARouter.openLog();     // 打印日志
+            ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
+        }
+        ARouter.init(sInstance); // 尽可能早，推荐在Application中初始化
+    }*/
+
+    /**
+     * CrashHandler初始化
+     */
+    private void initCrashHandler() {
+        if (BuildConfig.DEBUG) {
+            CrashHandler.getInstance(this).init();
+        }
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(base);
     }
 
 }

@@ -402,6 +402,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".animation.propertyAnimation.ViewPropertyAnimatorActivity"
+            android:label="Animation/PropertyAnimation/ViewPropertyAnimatorActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".animation.transitionAnimator.TestTransitionAnimatorActivity"
             android:label="Animation/TransitionAnimator/TestTransitionAnimatorActivity">
             <intent-filter>
@@ -1501,6 +1509,14 @@
         <activity
             android:name=".practice.checkEmulator.CheckEmulatorActivity"
             android:label="Practice/CheckEmulator">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".practice.crash.CrashActivity"
+            android:label="Practice/Crash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />

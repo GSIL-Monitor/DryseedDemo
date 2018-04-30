@@ -32,6 +32,7 @@ android {
         renderscriptSupportModeEnabled true
         multiDexEnabled true
         buildConfigField "String", "TENCENT_ID", "\"" + TENCENT_ID + "\""
+        buildConfigField "boolean", "AUTO_UPDATES", "true"
         manifestPlaceholders = [TENCENT_ID_WITH_NAME: "tencent" + TENCENT_ID]
 
         // Specifies the ABI configurations of your native
@@ -103,9 +104,12 @@ android {
     productFlavors {
         baidu {
             manifestPlaceholders = [MTA_CHANNEL_VALUE: "baidu"]
+            buildConfigField "boolean", "AUTO_UPDATES", "true"
         }
         xiaomi {
             manifestPlaceholders = [MTA_CHANNEL_VALUE: "xiaomi"]
+            //下面的代码会在BuildConfig类中生成AUTO_UPDATES布尔常量，默认值为true，在使用xiaomi flavor时，该值会被设置成false。
+            buildConfigField "boolean", "AUTO_UPDATES", "false"
         }
     }
 
@@ -374,4 +378,7 @@ dependencies {
     // https://github.com/chrisbanes/PhotoView
     // ----------------------------------------------------
     compile 'com.github.chrisbanes:PhotoView:2.0.0'
+
+    //只有xiaomi渠道包才会引入依赖
+    //xiaomiCompile 'com.qihoo360.union.sdk:union:1.0'
 }

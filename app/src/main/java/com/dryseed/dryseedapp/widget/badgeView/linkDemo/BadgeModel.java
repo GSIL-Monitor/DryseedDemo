@@ -30,10 +30,11 @@ public class BadgeModel {
     }
 
     public String getDotTag() {
-        return dotTag;
+        return dotTag == null ? "" : dotTag;
     }
 
     public void setDotTag(String dotTag) {
+
         this.dotTag = dotTag;
     }
 
