@@ -9,8 +9,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
+import com.luojilab.component.componentlib.service.AutowiredService;
+import com.luojilab.router.facade.annotation.Autowired;
+import com.luojilab.router.facade.annotation.RouteNode;
 
 import butterknife.BindView;
 import butterknife.BindViews;
@@ -23,7 +27,8 @@ import java.util.List;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
-//@Route(path = "/framework/TestButterKnifeActivity")
+//@Route(path = "/framework/TestButterKnifeActivity") //ARouter
+@RouteNode(path = "/butterknife", desc = "butterknife") //JimuRouter
 public class TestButterKnifeActivity extends BaseActivity {
     private static final ButterKnife.Action<View> ALPHA_FADE = new ButterKnife.Action<View>() {
         @Override
@@ -35,6 +40,9 @@ public class TestButterKnifeActivity extends BaseActivity {
             view.startAnimation(alphaAnimation);
         }
     };
+
+    @Autowired(name = "NAME")
+    String name;
 
     @BindView(R.id.title)
     TextView title;
@@ -83,5 +91,12 @@ public class TestButterKnifeActivity extends BaseActivity {
 
         adapter = new SimpleAdapter(this);
         listOfThings.setAdapter(adapter);
+
+        showJimuRouterInfo();
+    }
+
+    private void showJimuRouterInfo() {
+        AutowiredService.Factory.getSingletonImpl().autowire(this);
+        ToastUtils.showShort("name" + name);
     }
 }

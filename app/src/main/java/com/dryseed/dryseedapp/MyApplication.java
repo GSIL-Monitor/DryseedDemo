@@ -79,6 +79,7 @@ public class MyApplication extends BaseApplication {
      * 组件初始化
      */
     private void initComponent() {
+        //App组件Router初始化
         UIRouter.getInstance().registerUI("app");
 
         //如果isRegisterCompoAuto为false，则需要通过反射加载组件

@@ -21,12 +21,12 @@
 //        ButterKnife.bind(this);
 //    }
 //
-//    @OnClick(R.id.TestButterKnifeActivityBtn)
+//    @OnClick(R.id.btn1)
 //    void goTestButterKnifeActivity() {
 //        ARouter.getInstance().build("/framework/TestButterKnifeActivity").navigation();
 //    }
 //
-//    @OnClick(R.id.TestARouterWithParamActivity)
+//    @OnClick(R.id.btn2)
 //    void goTestEventBusActivity() {
 //        ARouter.getInstance().build("/framework/TestARouterWithParamActivity")
 //                .withLong("key1", 666L)

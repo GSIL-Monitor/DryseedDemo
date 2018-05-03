@@ -209,13 +209,21 @@
         </activity>
         <!--<activity
             android:name=".framework.arouter.TestARouterActivity"
-            android:label="FrameWork/ARouter">
+            android:label="FrameWork/Router/ARouter">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
         <activity android:name=".framework.arouter.TestARouterWithParamActivity" />-->
+        <activity
+            android:name=".framework.arouter.TestJimuRouterActivity"
+            android:label="FrameWork/Router/JimuRouter">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".customView.customView01.TestCustomView01Activity"
             android:label="CustomView/CustomView01">

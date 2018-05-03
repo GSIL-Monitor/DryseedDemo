@@ -42,7 +42,7 @@ android {
             abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
         }
 
-        //ARouter
+        //ARouter & Component Router
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [moduleName: project.getName(), host: "app"]

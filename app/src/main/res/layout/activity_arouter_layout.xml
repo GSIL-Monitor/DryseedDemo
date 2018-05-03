@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/TestButterKnifeActivityBtn"
+        android:id="@+id/btn1"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="#cccccc"
@@ -15,7 +15,7 @@
         android:textSize="14sp" />
 
     <TextView
-        android:id="@+id/TestARouterWithParamActivity"
+        android:id="@+id/btn2"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
