@@ -33,7 +33,8 @@ ext {
 
 dependencies {
     compile project(':componentservice') //component
-    annotationProcessor 'com.github.jimu:router-anno-compiler:1.0.1' //component
+    //annotationProcessor 'com.github.jimu:router-anno-compiler:1.0.1' //component router
+    annotationProcessor project(':router-anno-compiler') //component router
 }
 
 combuild {

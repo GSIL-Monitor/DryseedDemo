@@ -27,7 +27,8 @@ android {
 
 dependencies {
     compile project(':componentservice') //component
-    annotationProcessor 'com.github.jimu:router-anno-compiler:1.0.1' //component
+    //annotationProcessor 'com.github.jimu:router-anno-compiler:1.0.1' //component router
+    annotationProcessor project(':router-anno-compiler') //component router
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':ucrop')
     compile 'com.android.support:appcompat-v7:' + GOOGLE_SUPPORT_VERSION

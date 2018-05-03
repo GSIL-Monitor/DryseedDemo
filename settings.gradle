@@ -1,9 +1,13 @@
 include ':app',
         ':camera',
 
+        ':router-annotation',
+        ':router-anno-compiler',
+
         ':componentlib',
         ':componentservice',
         ':build-gradle',
+
         ':basiclib',
         ':basicres'
 

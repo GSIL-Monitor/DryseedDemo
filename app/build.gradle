@@ -189,7 +189,8 @@ dependencies {
     // https://github.com/mqzhangw/JIMU
     // ----------------------------------------------------
     compile project(':componentservice')
-    annotationProcessor 'com.github.jimu:router-anno-compiler:1.0.1'
+    //annotationProcessor 'com.github.jimu:router-anno-compiler:1.0.1'
+    annotationProcessor project(':router-anno-compiler')
 
     // ----------------------------------------------------
     // ########## eventbus ##########
