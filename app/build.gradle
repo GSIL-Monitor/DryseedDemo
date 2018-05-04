@@ -102,14 +102,20 @@ android {
     useLibrary 'org.apache.http.legacy'
 
     productFlavors {
+        dev {
+            //优先级 buildTypes >  productFlavors > defaultConfig
+            minSdkVersion Integer.parseInt("${DEV_MIN_SDK_VERSION}")
+            manifestPlaceholders = [MTA_CHANNEL_VALUE: "dev"]
+            buildConfigField "boolean", "AUTO_UPDATES", "false"
+        }
         baidu {
             manifestPlaceholders = [MTA_CHANNEL_VALUE: "baidu"]
             buildConfigField "boolean", "AUTO_UPDATES", "true"
         }
         xiaomi {
             manifestPlaceholders = [MTA_CHANNEL_VALUE: "xiaomi"]
-            //下面的代码会在BuildConfig类中生成AUTO_UPDATES布尔常量，默认值为true，在使用xiaomi flavor时，该值会被设置成false。
-            buildConfigField "boolean", "AUTO_UPDATES", "false"
+            //下面的代码会在BuildConfig类中生成AUTO_UPDATES布尔常量，默认值为true，在使用xiaomi flavor时，该值会被设置成true。
+            buildConfigField "boolean", "AUTO_UPDATES", "true"
         }
     }
 

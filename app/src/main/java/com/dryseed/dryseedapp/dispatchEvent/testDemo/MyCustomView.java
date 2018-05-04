@@ -11,7 +11,7 @@ import android.widget.ImageView;
  * Created by caiminming on 2017/4/7.
  */
 
-public class MyCustomView extends ImageView {
+public class MyCustomView extends android.support.v7.widget.AppCompatImageView {
 
     private String TAG = "MMM";
 

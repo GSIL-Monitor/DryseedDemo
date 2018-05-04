@@ -67,6 +67,9 @@ public class DispatchEventDemoActivity3 extends BaseActivity {
                     case MotionEvent.ACTION_UP:
                         Log.e(TAG, "MyCustomView onTouch------->>ACTION_UP");
                         break;
+                    case MotionEvent.ACTION_CANCEL:
+                        Log.e(TAG, "MyCustomView onTouch------->>ACTION_CANCEL");
+                        break;
                 }
                 return false;
             }

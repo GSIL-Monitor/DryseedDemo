@@ -60,6 +60,17 @@ public class MyViewGroup extends RelativeLayout {
     @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
         Log.e(TAG, "MyViewGroup onInterceptTouchEvent");
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                Log.e(TAG, "MyViewGroup onTouchEvent------->>ACTION_DOWN");
+                break;
+            case MotionEvent.ACTION_MOVE:
+                Log.e(TAG, "MyViewGroup onTouchEvent------->>ACTION_MOVE");
+                //return true; //测试 触发ACTION_CANCEL情景
+            case MotionEvent.ACTION_UP:
+                Log.e(TAG, "MyViewGroup onTouchEvent------->>ACTION_UP");
+                break;
+        }
         //return true;
         return super.onInterceptTouchEvent(event);
     }
