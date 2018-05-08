@@ -84,15 +84,20 @@ public class RouterProcessor extends AbstractProcessor {
 
         routerNodes = new ArrayList<>();
 
+        //Filer：用于创建 Java 文件的工具类。
         mFiler = processingEnv.getFiler();
+        //Types：用于操作类型的工具类。
         types = processingEnv.getTypeUtils();
+        //Elements：用于处理 Element 的工具类。
         elements = processingEnv.getElementUtils();
+        //将两个工具类进行封装。
         typeUtils = new TypeUtils(types, elements);
 
         type_String = elements.getTypeElement("java.lang.String").asType();
 
         logger = new Logger(processingEnv.getMessager());
 
+        //解析我们在 android 节点下配置的 moduleName，其为对应模块的名字。
         Map<String, String> options = processingEnv.getOptions();
         if (MapUtils.isNotEmpty(options)) {
             host = options.get(KEY_HOST_NAME);
@@ -107,14 +112,18 @@ public class RouterProcessor extends AbstractProcessor {
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
         if (CollectionUtils.isNotEmpty(set)) {
+            //获得所有被 @RouteNode 注解的元素。
             Set<? extends Element> routeNodes = roundEnvironment.getElementsAnnotatedWith(RouteNode.class);
             try {
                 logger.info(">>> Found routes, start... <<<");
+                //开始处理。
                 parseRouteNodes(routeNodes);
             } catch (Exception e) {
                 logger.error(e);
             }
+            //生成HostUIRouter.java
             generateRouterImpl();
+            //生成HostRouterTable.txt
             generateRouterTable();
             return true;
         }
@@ -150,6 +159,7 @@ public class RouterProcessor extends AbstractProcessor {
 
     /**
      * generate HostUIRouter.java
+     * eg:AppUiRouter.java
      */
     private void generateRouterImpl() {
 
@@ -180,13 +190,17 @@ public class RouterProcessor extends AbstractProcessor {
 
     private void parseRouteNodes(Set<? extends Element> routeElements) {
 
+        //1.获得 Activity的信息，这些是定义在 Android SDK 当中的。
         TypeMirror type_Activity = elements.getTypeElement(ACTIVITY).asType();
 
+        //2.遍历所有的被 @Route 注解的 Element
         for (Element element : routeElements) {
+            //获得该元素的类型信息。
             TypeMirror tm = element.asType();
+            //获得该元素的注解。
             RouteNode route = element.getAnnotation(RouteNode.class);
-
-            if (types.isSubtype(tm, type_Activity)) {                 // Activity
+            //Activity 的子类。
+            if (types.isSubtype(tm, type_Activity)) {
                 logger.info(">>> Found activity route: " + tm.toString() + " <<<");
 
                 Node node = new Node();
@@ -202,9 +216,11 @@ public class RouterProcessor extends AbstractProcessor {
 
                 Map<String, Integer> paramsType = new HashMap<>();
                 Map<String, String> paramsDesc = new HashMap<>();
+                //获得其所有被 @Autowired 注解的成员变量。
                 for (Element field : element.getEnclosedElements()) {
                     if (field.getKind().isField() && field.getAnnotation(Autowired.class) != null) {
                         Autowired paramConfig = field.getAnnotation(Autowired.class);
+                        //将所有被 @Autowired 注解的相关信息放到 map 当中。
                         paramsType.put(StringUtils.isEmpty(paramConfig.name())
                                 ? field.getSimpleName().toString() : paramConfig.name(), typeUtils.typeExchange(field));
                         paramsDesc.put(StringUtils.isEmpty(paramConfig.name())

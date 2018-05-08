@@ -1,6 +1,5 @@
 package com.dryseed.dryseedapp.practice.anrWatchDog.demo;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -16,6 +15,17 @@ import butterknife.OnClick;
 
 /**
  * Created by caiminming on 2017/8/9.
+ * <p>
+ * https://blog.csdn.net/lmj623565791/article/details/58626355
+ * https://github.com/pruas/Caton
+ * <p>
+ * ① FPSFrameCallBack
+ * 检测应用卡顿的方案，Android系统每隔16.6ms发出VSYNC信号，来通知界面进行输入、动画、绘制等动作，每一次同步的周期为16.6ms，代表一帧的刷新频率，
+ * 理论上来说两次回调的时间周期应该在16.6ms，如果超过了16.6ms我们则认为发生了卡顿，利用两次回调间的时间周期来判断是否发生卡顿
+ * 这个方案的原理主要是通过Choreographer类设置它的FrameCallback函数，当每一帧被渲染时会触发回调FrameCallback，
+ * FrameCallback回调void doFrame (long frameTimeNanos)函数。一次界面渲染会回调doFrame方法，如果两次doFrame之间的间隔大于16.6ms说明发生了卡顿。
+ * <p>
+ * ②
  */
 
 public class TestAnrWatchDogActivity extends BaseActivity {

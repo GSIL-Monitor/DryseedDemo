@@ -112,6 +112,12 @@ public class AutowiredProcessor extends AbstractProcessor {
         return false;
     }
 
+    /**
+     * eg:TestButterKnifeActivity$$Router$$Autowired
+     *
+     * @throws IOException
+     * @throws IllegalAccessException
+     */
     private void generateHelper() throws IOException, IllegalAccessException {
         TypeElement type_ISyringe = elements.getTypeElement(Constants.ISYRINGE);
 
@@ -124,10 +130,12 @@ public class AutowiredProcessor extends AbstractProcessor {
 
 
         // Build input param name.
+        //函数的形参类型为 Object，形参名为 target。
         ParameterSpec objectParamSpec = ParameterSpec.builder(TypeName.OBJECT, "target").build();
 
         ParameterSpec bundleParamSpec = AnnoUtils.generateMethodParameterSpec(bundleTm, "bundle");
 
+        //遍历所有拥有 @Autowired 注解的元素。
         if (MapUtils.isNotEmpty(parentAndChild)) {
             for (Map.Entry<TypeElement, List<Element>> entry : parentAndChild.entrySet()) {
                 // Build method : 'inject'
@@ -295,6 +303,7 @@ public class AutowiredProcessor extends AbstractProcessor {
 
 
     /**
+     * 进行分类处理。
      * Categories field, find his papa.
      *
      * @param elements Field need autowired
@@ -304,6 +313,7 @@ public class AutowiredProcessor extends AbstractProcessor {
             for (Element element : elements) {
                 TypeElement enclosingElement = (TypeElement) element.getEnclosingElement();
 
+                //不允许声明为 private。
                 if (element.getModifiers().contains(Modifier.PRIVATE)) {
                     throw new IllegalAccessException("The autowired fields CAN NOT BE 'private'!!! please check field ["
                             + element.getSimpleName() + "] in class [" + enclosingElement.getQualifiedName() + "]");
