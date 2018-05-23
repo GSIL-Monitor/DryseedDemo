@@ -875,6 +875,22 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".frameStructure.theMvp.demo1.SimpleActivity"
+            android:label="FrameStructure/TheMvp/SimpleActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".frameStructure.theMvp.demo2.DemoActivity"
+            android:label="FrameStructure/TheMvp/DataBindActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".tools.sensor.shake.ShakeSensorActivity"
             android:label="Tools/Sensor/ShakeSensorActivity">
             <intent-filter>

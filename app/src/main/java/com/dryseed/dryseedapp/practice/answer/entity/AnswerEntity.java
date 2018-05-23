@@ -22,4 +22,6 @@ public class AnswerEntity {
     public AnswerCallback getCallback() {
         return callback;
     }
+
+
 }

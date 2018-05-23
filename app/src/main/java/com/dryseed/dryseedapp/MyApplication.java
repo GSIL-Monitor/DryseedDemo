@@ -2,6 +2,7 @@ package com.dryseed.dryseedapp;
 
 import android.content.Context;
 import android.os.Process;
+import android.os.StrictMode;
 import android.support.multidex.MultiDex;
 import android.text.TextUtils;
 import android.util.Log;
@@ -72,7 +73,7 @@ public class MyApplication extends BaseApplication {
         Stetho.initializeWithDefaults(sInstance);
         //initARouter();
         initCrashHandler();
-
+        //initStrictMode();
     }
 
     /**
@@ -134,6 +135,15 @@ public class MyApplication extends BaseApplication {
     }
 
     /**
+     * CrashHandler初始化
+     */
+    private void initCrashHandler() {
+        if (BuildConfig.DEBUG) {
+            CrashHandler.getInstance(this).init();
+        }
+    }
+
+    /**
      * ARouter初始化
      */
     /*private void initARouter() {
@@ -145,11 +155,29 @@ public class MyApplication extends BaseApplication {
     }*/
 
     /**
-     * CrashHandler初始化
+     * 严格模式初始化
      */
-    private void initCrashHandler() {
+    private void initStrictMode() {
         if (BuildConfig.DEBUG) {
-            CrashHandler.getInstance(this).init();
+            //线程策略
+            StrictMode.setThreadPolicy(
+                    new StrictMode.ThreadPolicy.Builder()
+                            .detectDiskReads() //检测是否存在磁盘读操作
+                            .detectDiskWrites()//检测是否存在磁盘写读操作
+                            .detectNetwork()//检测是否存在网络操作
+                            .penaltyLog()//表示在Logcat中打印日志
+                            .build()
+            );
+
+            //虚拟机策略
+            StrictMode.setVmPolicy(
+                    new StrictMode.VmPolicy.Builder()
+                            .detectActivityLeaks()//检测是否存在Activity泄露
+                            .detectLeakedSqlLiteObjects()//检测是否存在Sqlite对象泄露
+                            .detectLeakedClosableObjects()//检测是否存在未关闭的Closable对象泄露
+                            .penaltyLog()
+                            .build()
+            );
         }
     }
 

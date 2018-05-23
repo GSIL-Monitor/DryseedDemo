@@ -22,13 +22,17 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter()
+        jcenter() //http://jcenter.bintray.com
         mavenCentral()
         maven {
             url 'https://maven.google.com/'
             name 'Google'
         }
         maven { url "https://jitpack.io" }
+        flatDir {
+            //在其他模块中使用basiclib模块中提供的aar
+            dirs '../basiclib/libs'
+        }
     }
 }
 
@@ -36,5 +40,7 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-//版本号统一配置
-apply from: "./dependencies.gradle"
+subprojects {
+    //版本号统一配置
+    apply from: "${project.rootDir}/dependencies.gradle"
+}

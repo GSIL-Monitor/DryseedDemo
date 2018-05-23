@@ -1,6 +1,7 @@
 package com.dryseed.dryseedapp.test.loaderManager;
 
 import android.app.LoaderManager;
+import android.content.AsyncTaskLoader;
 import android.content.CursorLoader;
 import android.content.Loader;
 import android.database.Cursor;
@@ -17,20 +18,11 @@ public class LoaderManagerActivity extends BaseActivity {
     private final String TAG = "MMM";
     private TextView mTextView;
     private StringBuffer mStringBuffer = new StringBuffer();
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mTextView = new TextView(this);
-        setContentView(mTextView);
-        getLoaderManager().initLoader(0, null, mCallback);
-    }
-
     private final LoaderManager.LoaderCallbacks<Cursor> mCallback = new LoaderManager.LoaderCallbacks<Cursor>() {
 
         @Override
         public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-            Log.d(TAG, "LoaderCallbacks-------onCreateLoader");
+            Log.d(TAG, "LoaderCallbacks-------onCreateLoader " + Thread.currentThread().getName()); //main
             mStringBuffer.append("LoaderCallbacks-------onCreateLoader\n");
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 return new CursorLoader(getApplicationContext(), Telephony.MmsSms.CONTENT_CONVERSATIONS_URI, null, null, null, null);
@@ -40,7 +32,7 @@ public class LoaderManagerActivity extends BaseActivity {
 
         @Override
         public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-            Log.d(TAG, "LoaderCallbacks-------onLoadFinished----count:" + data.getCount());
+            Log.d(TAG, "LoaderCallbacks-------onLoadFinished----count:" + data.getCount() + " " + Thread.currentThread().getName()); //main
             mStringBuffer.append("LoaderCallbacks-------onLoadFinished\n");
             int i = 0;
             while (data.moveToNext()) {
@@ -56,7 +48,15 @@ public class LoaderManagerActivity extends BaseActivity {
 
         @Override
         public void onLoaderReset(Loader<Cursor> loader) {
-            Log.d(TAG, "LoaderCallbacks-------onLoaderReset");
+            Log.d(TAG, "LoaderCallbacks-------onLoaderReset " + Thread.currentThread().getName());
         }
     };
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mTextView = new TextView(this);
+        setContentView(mTextView);
+        getLoaderManager().initLoader(0, null, mCallback);
+    }
 }
