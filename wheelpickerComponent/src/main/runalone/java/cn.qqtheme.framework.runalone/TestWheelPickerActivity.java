@@ -1,4 +1,4 @@
-package cn.qqtheme.framework;
+package cn.qqtheme.framework.runalone;
 
 import android.app.Activity;
 import android.os.Bundle;

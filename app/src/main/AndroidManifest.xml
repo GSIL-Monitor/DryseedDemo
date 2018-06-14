@@ -605,6 +605,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".widget.recyclerView.itemTouchHelper.TestItemTouchHelperActivity"
+            android:label="Widget/RecyclerView/ItemTouchHelper">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".widget.gridview.TestGridViewActivity"
             android:configChanges="keyboard|screenSize|orientation|layoutDirection|fontScale"
             android:label="Widget/GridView">

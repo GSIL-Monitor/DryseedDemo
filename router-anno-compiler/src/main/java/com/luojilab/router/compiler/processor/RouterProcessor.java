@@ -193,7 +193,7 @@ public class RouterProcessor extends AbstractProcessor {
         //1.获得 Activity的信息，这些是定义在 Android SDK 当中的。
         TypeMirror type_Activity = elements.getTypeElement(ACTIVITY).asType();
 
-        //2.遍历所有的被 @Route 注解的 Element
+        //2.遍历所有的被 @RouteNode 注解的 Element
         for (Element element : routeElements) {
             //获得该元素的类型信息。
             TypeMirror tm = element.asType();

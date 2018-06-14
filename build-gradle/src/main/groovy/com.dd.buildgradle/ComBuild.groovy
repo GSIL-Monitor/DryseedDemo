@@ -6,6 +6,7 @@ import org.gradle.api.Project
 import com.dd.buildgradle.util.StringUtil
 
 class ComBuild implements Plugin<Project> {
+    final String TAG = "=========> build-gradle : "
 
     //默认是app，直接运行assembleRelease的时候，等同于运行app:assembleRelease
     String compilemodule = "app"
@@ -14,14 +15,14 @@ class ComBuild implements Plugin<Project> {
         project.extensions.create('combuild', ComExtension)
 
         String taskNames = project.gradle.startParameter.taskNames.toString()
-        System.out.println("taskNames is " + taskNames)
-        String module = project.path.replace(":", "")
-        System.out.println("current module is " + module)
+        myPrintln("taskNames is " + taskNames) //[assembleDebug]
+        String module = project.path.replace(":", "") //project.path=":app"
+        myPrintln("current module is " + module) //app
         AssembleTask assembleTask = getTaskInfo(project.gradle.startParameter.taskNames)
 
         if (assembleTask.isAssemble) {
             fetchMainModulename(project, assembleTask)
-            System.out.println("compilemodule  is " + compilemodule)
+            myPrintln("compilemodule  is " + compilemodule) //build-gradle
         }
 
         if (!project.hasProperty("isRunAlone")) {
@@ -57,14 +58,14 @@ class ComBuild implements Plugin<Project> {
                     }
                 }
             }
-            System.out.println("apply plugin is " + 'com.android.application')
+            myPrintln("apply plugin is " + 'com.android.application')
             if (assembleTask.isAssemble && module.equals(compilemodule)) {
                 compileComponents(assembleTask, project)
                 project.android.registerTransform(new ComCodeTransform(project))
             }
         } else {
             project.apply plugin: 'com.android.library'
-            System.out.println("apply plugin is " + 'com.android.library')
+            myPrintln("apply plugin is " + 'com.android.library')
         }
 
     }
@@ -92,6 +93,11 @@ class ComBuild implements Plugin<Project> {
         }
     }
 
+    /**
+     *
+     * @param taskNames
+     * @return 自定义对象
+     */
     private AssembleTask getTaskInfo(List<String> taskNames) {
         AssembleTask assembleTask = new AssembleTask()
         for (String task : taskNames) {
@@ -127,15 +133,16 @@ class ComBuild implements Plugin<Project> {
         }
 
         if (components == null || components.length() == 0) {
-            System.out.println("there is no add dependencies ")
+            myPrintln("there is no add dependencies ")
             return
         }
         String[] compileComponents = components.split(",")
         if (compileComponents == null || compileComponents.length == 0) {
-            System.out.println("there is no add dependencies ")
+            myPrintln("there is no add dependencies ")
             return
         }
         for (String str : compileComponents) {
+            myPrintln()
             System.out.println("comp is " + str)
             str = str.trim()
             if (str.startsWith(":")) {
@@ -149,14 +156,14 @@ class ComBuild implements Plugin<Project> {
                  * 注意，前提是已经将组件aar文件发布到maven上，并配置了相应的repositories
                  */
                 project.dependencies.add("compile", str)
-                System.out.println("add dependencies lib  : " + str)
+                myPrintln("add dependencies lib  : " + str)
             } else {
                 /**
                  * 示例语法:module
                  * compileComponent=readercomponent,sharecomponent
                  */
                 project.dependencies.add("compile", project.project(':' + str))
-                System.out.println("add dependencies project : " + str)
+                myPrintln("add dependencies project : " + str)
             }
         }
     }
@@ -167,4 +174,8 @@ class ComBuild implements Plugin<Project> {
         List<String> modules = new ArrayList<>()
     }
 
+
+    private void myPrintln(String str) {
+        System.out.println(TAG + str)
+    }
 }

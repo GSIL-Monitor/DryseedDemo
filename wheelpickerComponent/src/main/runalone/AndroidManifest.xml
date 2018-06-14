@@ -6,13 +6,13 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".application.WheelpickerApplication"
+        android:name=".runalone.application.WheelpickerApplication"
         android:allowBackup="true"
         android:label="Pictureselector"
         android:supportsRtl="true"
         android:theme="@style/commonAppTheme"
         tools:replace="android:label">
-        <activity android:name="cn.qqtheme.framework.TestWheelPickerActivity">
+        <activity android:name="cn.qqtheme.framework.runalone.TestWheelPickerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

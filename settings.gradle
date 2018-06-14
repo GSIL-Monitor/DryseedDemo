@@ -9,8 +9,8 @@ include ':app',
         ':build-gradle',
 
         ':basiclib',
-        ':basicres'
+        ':basicres',
 
 //        ':pictureselectorComponent',
 //        ':ucrop',
-//        ':wheelpickerComponent'
+        ':wheelpickerComponent'
