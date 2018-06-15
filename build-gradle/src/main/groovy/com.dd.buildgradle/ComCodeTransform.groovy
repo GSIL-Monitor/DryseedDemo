@@ -66,6 +66,7 @@ class ComCodeTransform extends Transform {
             }
             //对类型为“文件夹”的input进行遍历
             input.directoryInputs.each { DirectoryInput directoryInput ->
+                // 添加插桩代码
                 boolean isRegisterCompoAuto = project.extensions.combuild.isRegisterCompoAuto
                 if (isRegisterCompoAuto) {
                     String fileName = directoryInput.file.absolutePath
@@ -83,6 +84,8 @@ class ComCodeTransform extends Transform {
                         }
                     }
                 }
+
+                //处理完输入文件之后，要把输出给下一个任务
                 def dest = transformInvocation.outputProvider.getContentLocation(directoryInput.name,
                         directoryInput.contentTypes,
                         directoryInput.scopes, Format.DIRECTORY)
@@ -111,8 +114,7 @@ class ComCodeTransform extends Transform {
             StringBuilder methodBody = new StringBuilder()
             methodBody.append("protected void onCreate() {")
             methodBody.append("super.onCreate();")
-            methodBody.
-                    append(getAutoLoadComCode(activators))
+            methodBody.append(getAutoLoadComCode(activators))
             methodBody.append("}")
             ctClassApplication.addMethod(CtMethod.make(methodBody.toString(), ctClassApplication))
         } catch (Exception e) {

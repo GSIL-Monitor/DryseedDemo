@@ -2,6 +2,7 @@ apply plugin: 'com.dd.comgradle'
 apply plugin: 'com.antfortune.freeline'
 apply plugin: 'org.greenrobot.greendao'
 
+apply from: "${project.rootDir}/taskTimeCost.gradle"
 
 def getDate() {
     def date = new Date()
@@ -10,7 +11,6 @@ def getDate() {
 }
 
 def verCode = 1
-
 repositories {
     //在libs目录下能找到aar文件
     flatDir {
@@ -400,3 +400,4 @@ dependencies {
     //只有xiaomi渠道包才会引入依赖
     //xiaomiCompile 'com.qihoo360.union.sdk:union:1.0'
 }
+

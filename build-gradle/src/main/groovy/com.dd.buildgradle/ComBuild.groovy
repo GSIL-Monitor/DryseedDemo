@@ -61,7 +61,7 @@ class ComBuild implements Plugin<Project> {
             myPrintln("apply plugin is " + 'com.android.application')
             if (assembleTask.isAssemble && module.equals(compilemodule)) {
                 compileComponents(assembleTask, project)
-                project.android.registerTransform(new ComCodeTransform(project))
+                project.android.registerTransform(new ComCodeTransform(project)) //注册Transform
             }
         } else {
             project.apply plugin: 'com.android.library'
