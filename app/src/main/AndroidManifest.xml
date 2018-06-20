@@ -875,24 +875,56 @@
         </activity>
 
         <activity
-            android:name=".frameStructure.mvp.UserLoginActivity"
-            android:label="FrameStructure/Mvp/UserLoginActivity">
+            android:name=".architecture.mvp.UserLoginActivity"
+            android:label="Architecture/Mvp/UserLoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".frameStructure.theMvp.demo1.SimpleActivity"
-            android:label="FrameStructure/TheMvp/SimpleActivity">
+            android:name=".architecture.theMvp.demo1.SimpleActivity"
+            android:label="Architecture/TheMvp/SimpleActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".frameStructure.theMvp.demo2.DemoActivity"
-            android:label="FrameStructure/TheMvp/DataBindActivity">
+            android:name=".architecture.theMvp.demo2.DemoActivity"
+            android:label="Architecture/TheMvp/DataBindActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".architecture.aac.lifecycle.LifeCycleActivity"
+            android:label="Architecture/AAC/LifeCycle/BaseLifeCycle">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".architecture.aac.lifecycle.LifeCycleOwnerActivity"
+            android:label="Architecture/AAC/LifeCycle/LifeCycleOwner">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".architecture.aac.livedata.LiveDataActivity"
+            android:label="Architecture/AAC/LiveData/BaseLiveData">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".architecture.aac.demo.ui.MainActivity"
+            android:label="Architecture/AAC/demo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -1196,14 +1228,6 @@
         <activity
             android:name=".test.xposed.TestXposedActivity"
             android:label="Test/Xposed">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".test.lifecycle.LifeCycleActivity"
-            android:label="Test/LifeCycle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />

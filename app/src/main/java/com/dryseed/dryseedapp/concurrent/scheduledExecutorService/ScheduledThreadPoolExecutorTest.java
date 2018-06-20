@@ -10,45 +10,37 @@ import java.util.concurrent.TimeUnit;
  */
 
 /**
- Timer是存在一些缺陷的，因为Timer在执行定时任务时只会创建一个线程，所以如果存在多个任务，且任务时间过长，超过了两个任务的间隔时间，会发生一些缺陷
- 因为ScheduledThreadPool内部是个线程池，所以可以支持多个任务并发执行。
+ * Timer是存在一些缺陷的，因为Timer在执行定时任务时只会创建一个线程，所以如果存在多个任务，且任务时间过长，超过了两个任务的间隔时间，会发生一些缺陷
+ * 因为ScheduledThreadPool内部是个线程池，所以可以支持多个任务并发执行。
  */
-public class ScheduledThreadPoolExecutorTest
-{
+public class ScheduledThreadPoolExecutorTest {
     private static long start;
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         /**
          * 使用工厂方法初始化一个ScheduledThreadPool
          */
         ScheduledExecutorService newScheduledThreadPool = Executors
                 .newScheduledThreadPool(2);
 
-        TimerTask task1 = new TimerTask()
-        {
+        TimerTask task1 = new TimerTask() {
             @Override
-            public void run()
-            {
-                try
-                {
+            public void run() {
+                try {
 
                     System.out.println("task1 invoked ! "
                             + (System.currentTimeMillis() - start));
                     Thread.sleep(3000);
-                } catch (Exception e)
-                {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
 
             }
         };
 
-        TimerTask task2 = new TimerTask()
-        {
+        TimerTask task2 = new TimerTask() {
             @Override
-            public void run()
-            {
+            public void run() {
                 System.out.println("task2 invoked ! "
                         + (System.currentTimeMillis() - start));
             }

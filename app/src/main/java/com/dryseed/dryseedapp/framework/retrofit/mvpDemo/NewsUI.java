@@ -1,6 +1,6 @@
 package com.dryseed.dryseedapp.framework.retrofit.mvpDemo;
 
-import com.dryseed.dryseedapp.frameStructure.mvp.IBaseUI;
+import com.dryseed.dryseedapp.architecture.mvp.IBaseUI;
 import com.dryseed.dryseedapp.framework.retrofit.demo2.entity.NewsEntity;
 
 /**

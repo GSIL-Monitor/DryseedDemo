@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.frameStructure.mvp.MvpBaseActivity;
+import com.dryseed.dryseedapp.architecture.mvp.MvpBaseActivity;
 import com.dryseed.dryseedapp.framework.retrofit.demo2.entity.NewsEntity;
 
 /**
