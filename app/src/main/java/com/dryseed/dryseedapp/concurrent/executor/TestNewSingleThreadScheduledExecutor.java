@@ -7,8 +7,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 
 public class TestNewSingleThreadScheduledExecutor {
-    private static ExecutorService mExecutorService;
     private static final Semaphore semaphore = new Semaphore(1);
+    private static ExecutorService mExecutorService;
 
     public static void main(String[] args) {
         test2();
@@ -29,14 +29,14 @@ public class TestNewSingleThreadScheduledExecutor {
         }
     }
 
-    private static Runnable getCoin() {
+    private static Runnable checkNewVersion() {
         return new Runnable() {
             @Override
             public void run() {
                 try {
                     semaphore.acquire();
                     Thread.sleep(2000);
-                    System.out.println("get coin");
+                    System.out.println("check new version");
                     semaphore.release();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -61,14 +61,14 @@ public class TestNewSingleThreadScheduledExecutor {
         };
     }
 
-    private static Runnable checkNewVersion() {
+    private static Runnable getCoin() {
         return new Runnable() {
             @Override
             public void run() {
                 try {
                     semaphore.acquire();
                     Thread.sleep(2000);
-                    System.out.println("check new version");
+                    System.out.println("get coin");
                     semaphore.release();
                 } catch (InterruptedException e) {
                     e.printStackTrace();

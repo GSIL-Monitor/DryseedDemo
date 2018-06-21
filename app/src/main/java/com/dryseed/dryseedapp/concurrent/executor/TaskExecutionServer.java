@@ -24,8 +24,7 @@ import java.util.concurrent.Future;
  */
 public class TaskExecutionServer {
     private static final int THREAD_COUNT = 5;
-    private static final ExecutorService executorService = Executors
-            .newFixedThreadPool(THREAD_COUNT);
+    private static final ExecutorService executorService = Executors.newFixedThreadPool(THREAD_COUNT);
 
     public static void main(String[] args) throws IOException {
 //        executorService.execute(new Runnable() {
@@ -34,14 +33,14 @@ public class TaskExecutionServer {
 //            }
 //        });
 
-        for(int i=0; i<10; i++){
+        for (int i = 0; i < 10; i++) {
             process();
         }
         executorService.shutdown();
     }
 
-    private static void process(){
-        Future future = executorService.submit(new Callable(){
+    private static void process() {
+        Future future = executorService.submit(new Callable() {
             public Object call() throws Exception {
                 System.out.println("Asynchronous Callable " + Thread.currentThread().getName());
                 return "Callable Result";

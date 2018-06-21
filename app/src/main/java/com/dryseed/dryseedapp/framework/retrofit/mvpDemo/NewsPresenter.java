@@ -2,7 +2,7 @@ package com.dryseed.dryseedapp.framework.retrofit.mvpDemo;
 
 import android.widget.Toast;
 
-import com.dryseed.dryseedapp.frameStructure.mvp.BasePresenter;
+import com.dryseed.dryseedapp.architecture.mvp.BasePresenter;
 import com.dryseed.dryseedapp.framework.retrofit.demo2.entity.NewsEntity;
 import com.dryseed.dryseedapp.framework.retrofit.mvpDemo.api.NewsApi;
 

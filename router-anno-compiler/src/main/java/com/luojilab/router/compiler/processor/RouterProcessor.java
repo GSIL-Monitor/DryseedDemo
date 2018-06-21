@@ -130,6 +130,18 @@ public class RouterProcessor extends AbstractProcessor {
         return false;
     }
 
+    /*
+        AppRouterTable.txt
+
+            auto generated, do not change !!!!
+
+            HOST : app
+
+            butterknife
+            /butterknife
+            NAME:String
+     */
+
     /**
      * generate HostRouterTable.txt
      */
@@ -306,4 +318,22 @@ public class RouterProcessor extends AbstractProcessor {
 
         return openUriMethodSpecBuilder.build();
     }
+
+    /*
+
+        public class AppUiRouter extends BaseCompRouter {
+          @Override
+          public String getHost() {
+            return "app";
+          }
+
+          @Override
+          public void initMap() {
+            super.initMap();
+            routeMapper.put("/butterknife",TestButterKnifeActivity.class);
+            paramsMapper.put(TestButterKnifeActivity.class,new java.util.HashMap<String, Integer>(){{put("NAME", 8); }});
+          }
+        }
+
+     */
 }
