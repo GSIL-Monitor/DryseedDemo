@@ -931,6 +931,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".architecture.aac.navigation.TestNavigationActivity"
+            android:label="Architecture/AAC/navigation">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".tools.sensor.shake.ShakeSensorActivity"
             android:label="Tools/Sensor/ShakeSensorActivity">
             <intent-filter>
