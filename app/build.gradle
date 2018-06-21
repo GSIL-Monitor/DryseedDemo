@@ -108,6 +108,9 @@ android {
 
     useLibrary 'org.apache.http.legacy'
 
+    //fix error : All flavors must now belong to a named flavor dimension. Learn more at https://d.android.com/r/tools/flavorDimensions-missing-error-message.html
+    flavorDimensions "default"
+
     productFlavors {
         dev {
             //优先级 buildTypes >  productFlavors > defaultConfig
@@ -132,7 +135,7 @@ android {
 
     //修改生成的apk名字及输出文件夹
     applicationVariants.all { variant ->
-        variant.outputs.each { output ->
+        variant.outputs.all { output ->
             //新名字
             def newName
             //时间戳
@@ -159,7 +162,9 @@ android {
                     newName = APPNAME + '-' + APP_VERSION + '-' + variant.productFlavors[0].name + '-' + variant.buildType.name + '-' /*+ timeNow*/ + '.apk'
                 }
             }
-            output.outputFile = new File(outDirectory + '/'/* + timeNow*/, newName)
+            //output.outputFile = new File(outDirectory + '/'/* + timeNow*/, newName)
+            //modify by gradle plugin 3.0+
+            outputFileName = newName
         }
     }
 }
@@ -188,18 +193,26 @@ combuild {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
 
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    testCompile 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
 
-    compile 'com.android.support:appcompat-v7:' + GOOGLE_SUPPORT_VERSION
+    implementation 'com.android.support:appcompat-v7:' + GOOGLE_SUPPORT_VERSION
 
-    compile 'com.android.support:design:' + GOOGLE_SUPPORT_VERSION
+    implementation 'com.android.support:design:' + GOOGLE_SUPPORT_VERSION
 
-    compile 'com.android.support:recyclerview-v7:' + GOOGLE_SUPPORT_VERSION
+    implementation 'com.android.support:recyclerview-v7:' + GOOGLE_SUPPORT_VERSION
 
-    compile 'com.android.support:multidex:1.0.1'
+    implementation 'com.android.support:multidex:1.0.1'
+
+    // ----------------------------------------------------
+    // ########## navigation ##########
+    // https://developer.android.google.cn/topic/libraries/architecture/navigation/
+    // Codelab : https://codelabs.developers.google.com/codelabs/android-navigation/index.html#1
+    // ----------------------------------------------------
+    implementation 'android.arch.navigation:navigation-fragment:' + NAVIGATION_VERSION
+    implementation 'android.arch.navigation:navigation-ui:' + NAVIGATION_VERSION
 
     // ----------------------------------------------------
     // ########## component ##########
@@ -244,8 +257,8 @@ dependencies {
     // ########## leakcanary ##########
     // https://github.com/square/leakcanary
     // ----------------------------------------------------
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.3'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.3'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.3'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.3'
 
     // ----------------------------------------------------
     // ########## fresco ##########
