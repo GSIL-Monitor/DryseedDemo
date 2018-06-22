@@ -785,6 +785,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".tab.navigationWithViewPager.NavigationWithViewPagerActivity"
+            android:label="Tab/NavigationWithViewPagerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".canvas.canvas.TestCanvasActivity"
             android:label="Canvas/TestCanvasActivity">
             <intent-filter>

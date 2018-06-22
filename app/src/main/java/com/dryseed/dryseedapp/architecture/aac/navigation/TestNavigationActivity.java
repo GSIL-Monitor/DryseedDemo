@@ -35,7 +35,10 @@ public class TestNavigationActivity extends BaseActivity {
     @Override
     public boolean onSupportNavigateUp() {
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragment);
+
+        //另一种方式
         //return Navigation.findNavController(this, R.id.fragment).navigateUp();
+
         return NavHostFragment.findNavController(fragment).navigateUp();
     }
 }

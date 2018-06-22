@@ -19,7 +19,7 @@ import okio.Okio;
 
 public class Test {
 
-    public static void main(String[] args) {
+    //public static void main(String[] args) {
         /*// -0.5 ~ -0.7
         for(int i=0; i<15; i++){
 			NumberFormat n = NumberFormat.getInstance();
@@ -44,9 +44,9 @@ public class Test {
 
         //quickSort();
 
-        getPlaceHolderCount("我正在%1$s房间里玩，快来%2$s一起连麦嗨～");
+        //getPlaceHolderCount("我正在%1$s房间里玩，快来%2$s一起连麦嗨～");
 
-    }
+    //}
 
 
     private static int getPlaceHolderCount(String title) {
@@ -254,5 +254,61 @@ public class Test {
             }
         }
         return mInstance;
+    }
+
+
+    static class Father {
+
+        public String field;
+
+        public String getField() {
+            return field;
+        }
+
+        public String overrideGetField() {
+            return field;
+        }
+
+    }
+
+    static class Child extends Father {
+
+        public String field;
+
+        public String childGetFiled() {
+            return field;
+        }
+
+        @Override
+        public String overrideGetField() {
+            return field;
+        }
+
+    }
+
+    public static void main(String[] args) {
+        Father father = new Child();
+        Child child = (Child) father;
+
+        father.field = "FootBall";
+        System.out.println("=========================");
+        System.out.println(father.field);
+        System.out.println(father.getField());
+        System.out.println(father.overrideGetField());
+        System.out.println(child.field);
+        System.out.println(child.getField());
+        System.out.println(child.childGetFiled());
+        System.out.println(child.overrideGetField());
+        System.out.println("=========================");
+        child.field = "BaseBall";
+        System.out.println("=========================");
+        System.out.println(father.field);
+        System.out.println(father.getField());
+        System.out.println(father.overrideGetField());
+        System.out.println(child.field);
+        System.out.println(child.getField());
+        System.out.println(child.childGetFiled());
+        System.out.println(child.overrideGetField());
+        System.out.println("=========================");
     }
 }
