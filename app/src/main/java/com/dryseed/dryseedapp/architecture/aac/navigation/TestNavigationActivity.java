@@ -9,6 +9,8 @@ import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 
 import androidx.navigation.NavController;
+import androidx.navigation.NavGraph;
+import androidx.navigation.NavInflater;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
@@ -26,8 +28,14 @@ public class TestNavigationActivity extends BaseActivity {
      * 注册底导航
      */
     private void setupNavigationMenu() {
+        // manually inflate the graph
         NavHostFragment fragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
         NavController navController = fragment.getNavController();
+        NavInflater navInflater = navController.getNavInflater();
+        NavGraph navGraph = navInflater.inflate(R.navigation.mobile_navigation);
+        navGraph.setStartDestination(R.id.firstFragment);
+        navController.setGraph(navGraph);
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav_view);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
     }
