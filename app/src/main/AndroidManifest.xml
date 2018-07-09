@@ -715,7 +715,23 @@
         </activity>
         <activity
             android:name=".widget.immersionBar.ImmersionBarActivity"
-            android:label="Widget/ImmersionBar">
+            android:label="Widget/ImmersionBar/Demo1">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.immersionBar.ImmersionBar2Activity"
+            android:label="Widget/ImmersionBar/Demo2">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.immersionBar.ImmersionBarStudyActivity"
+            android:label="Widget/ImmersionBar/Study">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
