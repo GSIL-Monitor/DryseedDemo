@@ -8,7 +8,7 @@ import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.widget.immersionBar.lib.ImmersionBar;
 
 /**
- * @author CaiMinMing
+ * @author caiminming
  *
  * https://github.com/gyf-dev/ImmersionBar
  */
@@ -23,7 +23,6 @@ public class ImmersionBarActivity extends BaseActivity {
         mImmersionBar.init();
 
         mImmersionBar.statusBarView(R.id.status_bar)
-                .navigationBarColor(R.color.colorPrimary)
                 .fullScreen(true)
                 .addTag("PicAndColor")  //给上面参数打标记，以后可以通过标记恢复
                 .init();

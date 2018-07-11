@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"
-        android:src="@drawable/img_11" />
+        android:src="@drawable/qiqiu" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             app:title="图片状态栏 + 彩色导航栏"
-            app:titleTextColor="@android:color/white" />
+            app:titleTextColor="#66cccccc" />
     </LinearLayout>
 
 </FrameLayout>

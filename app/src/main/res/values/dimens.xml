@@ -6,4 +6,5 @@
     <dimen name="app_bar_height">180dp</dimen>
     <dimen name="pop_radius">7dp</dimen>
     <dimen name="bulge_size">3dp</dimen>
+    <dimen name="status_bar_height">24dp</dimen>
 </resources>
