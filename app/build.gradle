@@ -1,6 +1,6 @@
 apply plugin: 'com.dd.comgradle'
-apply plugin: 'com.antfortune.freeline'
 apply plugin: 'org.greenrobot.greendao'
+apply plugin: 'com.dryseed.timecost.gradle.dsplugin'
 
 apply from: "${project.rootDir}/taskTimeCost.gradle"
 
@@ -188,6 +188,20 @@ configurations.all {
 combuild {
     applicationName = 'com.dryseed.dryseedapp.MyApplication'
     isRegisterCompoAuto = true
+}
+
+//timecost
+timeCostConfig {
+    //this flag will decide whether the log of the time-cost plugin be printed or not, default value is true
+    isDebug = true
+    //this is a kit feature of the plugin, set it true to see the time consume of this build
+    watchTaskTimeCost = false
+    // the plugin will only inject package / class defined in whitePackageList
+    whitePackageList = ['com.dryseed.dryseedapp.practice']
+    // thp plugin will not inject package, white list has a higher priority than white list
+    blackPackageList = []
+    // the plugin will inject automatically based on whitePackageList
+    autoInject = true
 }
 
 dependencies {
@@ -412,5 +426,11 @@ dependencies {
 
     //只有xiaomi渠道包才会引入依赖
     //xiaomiCompile 'com.qihoo360.union.sdk:union:1.0'
+
+    // ----------------------------------------------------
+    // ########## DsTracker ##########
+    // https://github.com/dryseedcai/DsTracker
+    // ----------------------------------------------------
+    compile 'com.dryseed.timecost:timecostimp:1.0.0'
 }
 

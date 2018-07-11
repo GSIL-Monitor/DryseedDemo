@@ -17,7 +17,6 @@ import com.dryseed.dryseedapp.canvas.canvas.TestCanvasActivity;
 import com.dryseed.dryseedapp.utils.ToastUtil;
 import com.dryseed.dryseedapp.utils.dao.DaoManager;
 import com.dryseed.dryseedapp.widget.dialog.DsAlertDialog;
-import com.dryseed.dryseedapp.widget.dialog.DsDialogFactory;
 import com.dryseed.dryseedapp.widget.floatView.FloatViewManager;
 import com.orhanobut.logger.Logger;
 
@@ -34,7 +33,6 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
@@ -49,6 +47,7 @@ public class MainActivity extends ListActivity {
             new Comparator<Map<String, Object>>() {
                 private final Collator collator = Collator.getInstance();
 
+                @Override
                 public int compare(Map<String, Object> map1, Map<String, Object> map2) {
                     return collator.compare(map1.get("title"), map2.get("title"));
                 }
@@ -68,9 +67,6 @@ public class MainActivity extends ListActivity {
         }, 1000);
 
         Logger.init().setMethodCount(0).hideThreadInfo();
-
-        //test
-        //startActivity(new Intent(this, DispatchEventDemoActivity3.class));
 
         Intent intent = getIntent();
         String path = intent.getStringExtra("com.dryseed.dryseedapp.Path");
@@ -188,8 +184,9 @@ public class MainActivity extends ListActivity {
         PackageManager pm = getPackageManager();
         List<ResolveInfo> list = pm.queryIntentActivities(mainIntent, 0);
 
-        if (null == list)
+        if (null == list) {
             return myData;
+        }
 
         String[] prefixPath;
         String prefixWithSlash = prefix;

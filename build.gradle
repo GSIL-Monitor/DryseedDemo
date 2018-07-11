@@ -8,13 +8,16 @@ buildscript {
             url 'https://maven.google.com/'
             name 'Google'
         }
+        maven {
+            url uri('C:/repo')
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
         classpath 'com.luojilab.ddcomponent:build-gradle:1.1.0' //component
-        classpath 'com.antfortune.freeline:gradle:0.8.8'
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.dryseed.timecost.gradle:buildsrc:1.0.0"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -28,7 +31,12 @@ allprojects {
             url 'https://maven.google.com/'
             name 'Google'
         }
-        maven { url "https://jitpack.io" }
+        maven {
+            url "https://jitpack.io"
+        }
+        maven {
+            url uri('C:/repo')
+        }
         flatDir {
             //在其他模块中使用basiclib模块中提供的aar
             dirs '../basiclib/libs'

@@ -21,8 +21,8 @@
     android:orientation="vertical">
 
     <include
+        layout="@layout/item_post"
         android:layout_width="192dp"
-        android:layout_height="wrap_content"
-        layout="@layout/item_post"/>
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

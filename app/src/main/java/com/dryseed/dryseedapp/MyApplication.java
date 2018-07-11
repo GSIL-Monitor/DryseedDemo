@@ -7,10 +7,11 @@ import android.support.multidex.MultiDex;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.antfortune.freeline.FreelineCore;
 import com.blankj.utilcode.util.Utils;
 import com.dryseed.dryseedapp.practice.crash.CrashHandler;
 import com.dryseed.dryseedapp.utils.BackForegroundWatcher;
+import com.dryseed.timecost.TimeCostCanary;
+import com.dryseed.timecost.TimeCostConfig;
 import com.luojilab.component.basiclib.BaseApplication;
 import com.luojilab.component.basiclib.DPIUtil;
 import com.dryseed.dryseedapp.utils.ProcessUtil;
@@ -37,6 +38,13 @@ public class MyApplication extends BaseApplication {
      */
     private static MyApplication sInstance;
 
+    /**
+     * @return ApplicationController singleton instance
+     */
+    public static synchronized MyApplication getInstance() {
+        return sInstance;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -47,6 +55,12 @@ public class MyApplication extends BaseApplication {
         if (!TextUtils.isEmpty(processName) && processName.equals("com.dryseed.dryseedapp")) {
             init();
         }
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(base);
     }
 
     private void init() {
@@ -63,10 +77,6 @@ public class MyApplication extends BaseApplication {
         Utils.init(sInstance);
         Fresco.initialize(sInstance);
         LeakCanary.install(sInstance);
-        if (BuildConfig.DEBUG) {
-            FreelineCore.init(this);
-        }
-        FreelineCore.init(sInstance);
         initX5();
         initRxDownload();
         BackForegroundWatcher.getInstance().init(MyApplication.getInstance());
@@ -74,6 +84,7 @@ public class MyApplication extends BaseApplication {
         //initARouter();
         initCrashHandler();
         //initStrictMode();
+        initTimeCost();
     }
 
     /**
@@ -128,13 +139,6 @@ public class MyApplication extends BaseApplication {
     }
 
     /**
-     * @return ApplicationController singleton instance
-     */
-    public static synchronized MyApplication getInstance() {
-        return sInstance;
-    }
-
-    /**
      * CrashHandler初始化
      */
     private void initCrashHandler() {
@@ -181,10 +185,17 @@ public class MyApplication extends BaseApplication {
         }
     }
 
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        MultiDex.install(base);
+    /**
+     * TimeCost初始化
+     */
+    private void initTimeCost() {
+        TimeCostCanary.install(this).config(
+                new TimeCostConfig.Builder()
+                        .setMilliExceedTime(200L)
+                        .setMonitorOnlyMainThread(false)
+                        .setShowDetailUI(true)
+                        .build()
+        );
     }
 
 }
