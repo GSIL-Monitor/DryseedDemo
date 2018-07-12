@@ -142,6 +142,8 @@
         <attr name="pstsShouldExpand" format="boolean" />
         <attr name="pstsTextAllCaps" format="boolean" />
         <attr name="selectedTabTextColor" format="color" />
+        <attr name="pstsScrollToCenter" format="boolean" />
+        <attr name="pstsIndicatorWidth" format="dimension" />
     </declare-styleable>
     <declare-styleable name="CustomizedPagerSlidingTabStrip">
         <attr name="itemCount" format="integer" />

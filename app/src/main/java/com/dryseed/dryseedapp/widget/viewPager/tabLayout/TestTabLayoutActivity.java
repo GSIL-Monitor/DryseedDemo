@@ -1,6 +1,5 @@
 package com.dryseed.dryseedapp.widget.viewPager.tabLayout;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -10,7 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.widget.viewPager.pagerSlidingTabStrip.SuperAwesomeCardFragment;
+import com.dryseed.dryseedapp.widget.pagerSlidingTabStrip.official.SuperAwesomeCardFragment;
 
 import java.util.ArrayList;
 import java.util.List;

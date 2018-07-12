@@ -4,7 +4,7 @@
               android:background="#ffffffff"
               android:orientation="vertical" >
 
-    <com.dryseed.dryseedapp.widget.viewPager.customizedPagerSlidingTabStrip.CustomizedPagerSlidingTabStrip
+    <com.dryseed.dryseedapp.widget.pagerSlidingTabStrip.customized.CustomizedPagerSlidingTabStrip
         android:id="@+id/id_indicator"
         android:layout_width="match_parent"
         android:layout_height="45dp"

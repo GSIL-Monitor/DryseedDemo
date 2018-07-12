@@ -19,6 +19,7 @@
     <color name="bg_tab_unselect">#272636</color>
     <color name="bg_tab">#FFFFFF</color>
     <color name="tab_color">@android:color/white</color>
+    <color name="pager_sliding_tab_color">#000000</color>
     <color name="title_bar_bg_color">#FF2E2E30</color>
 
     <color name="viewfinder_mask">#FFEBECED</color>

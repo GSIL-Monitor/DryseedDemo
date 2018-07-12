@@ -1,47 +1,61 @@
-package com.dryseed.dryseedapp.widget.multiTypeAdapter.demo2;
+package com.dryseed.dryseedapp.widget.scrollLinearLayout;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
+import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo2.BiliBiliActivity;
+import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo2.Post;
+import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo2.PostItem;
 import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo2.lib.RecyclerListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 /**
- * Created by caiminming on 2017/12/12.
+ * @author caiminming
  */
-
-public class BiliBiliActivity extends BaseActivity {
-
-    @BindView(R.id.recyclerview)
-    RecyclerView mRecyclerView;
-
-    private static final int SPAN_COUNT = 2;
+public class TestScrollLinearLayoutActivity extends BaseActivity implements ScrollLinearLayout.IScrollControlListener {
+    private View mTitleLayout;
+    private ScrollLinearLayout mScrollLinearLayout;
+    private View mTagLayout;
+    private RecyclerView mRecyclerView;
     private RecyclerListAdapter mRecyclerListAdapter = new RecyclerListAdapter();
     private List<Object> mItems;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_scroll_linear_layout);
+        mTitleLayout = findViewById(R.id.title_layout);
+        mTagLayout = findViewById(R.id.tag_layout);
+        mRecyclerView = findViewById(R.id.recycler_view);
+        mScrollLinearLayout = findViewById(R.id.scroll_linear_layout);
 
-        setContentView(R.layout.activity_multi_type_adapter2_list);
-        ButterKnife.bind(this);
+        mScrollLinearLayout.setIScrollControlListener(this);
 
         initData();
         initView();
     }
 
-    public void initData() {
-        JsonData data = new JsonData();
+    @Override
+    public boolean shouldDispatchTouch() {
+        return true;
+    }
+
+    @Override
+    public int getScrollDistance() {
+        return mTagLayout != null ? mTagLayout.getHeight() : 0;
+    }
+
+    private void initData() {
+        BiliBiliActivity.JsonData data = new BiliBiliActivity.JsonData();
         mItems = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             //mItems.add(data.category0);
@@ -55,7 +69,7 @@ public class BiliBiliActivity extends BaseActivity {
 
     private void initView() {
         //LayoutManager
-        final GridLayoutManager layoutManager = new GridLayoutManager(this, SPAN_COUNT);
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(layoutManager);
 
         //Items
@@ -72,29 +86,5 @@ public class BiliBiliActivity extends BaseActivity {
 
         //Adapter
         mRecyclerView.setAdapter(mRecyclerListAdapter);
-    }
-
-    public static class JsonData {
-
-        private static final String PREFIX = "这是一条长长的达到两行的标题文字";
-
-        private Post post00 = new Post(R.drawable.img_00, PREFIX + "post00");
-        private Post post01 = new Post(R.drawable.img_01, PREFIX + "post01");
-        private Post post10 = new Post(R.drawable.img_10, PREFIX + "post10");
-        private Post post11 = new Post(R.drawable.img_11, PREFIX + "post11");
-
-        //Category category0 = new Category("title0");
-        public Post[] postArray = {post00, post01, post10, post11};
-
-        List<Post> postList = new ArrayList<>();
-
-        {
-            postList.add(post00);
-            postList.add(post00);
-            postList.add(post00);
-            postList.add(post00);
-            postList.add(post00);
-            postList.add(post00);
-        }
     }
 }

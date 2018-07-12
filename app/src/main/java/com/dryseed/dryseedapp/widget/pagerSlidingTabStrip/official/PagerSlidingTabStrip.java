@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-package com.dryseed.dryseedapp.widget.viewPager.pagerSlidingTabStrip;
+package com.dryseed.dryseedapp.widget.pagerSlidingTabStrip.official;
 
 import android.content.Context;
 import android.content.res.TypedArray;

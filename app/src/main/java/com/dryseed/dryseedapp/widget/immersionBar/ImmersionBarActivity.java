@@ -9,7 +9,7 @@ import com.dryseed.dryseedapp.widget.immersionBar.lib.ImmersionBar;
 
 /**
  * @author caiminming
- *
+ * <p>
  * https://github.com/gyf-dev/ImmersionBar
  */
 public class ImmersionBarActivity extends BaseActivity {

@@ -525,16 +525,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".widget.viewPager.pagerSlidingTabStrip.TestPagerSlidingTabStripActivity"
-            android:label="Widget/ViewPager/PagerSlidingTabStrip">
+            android:name=".widget.pagerSlidingTabStrip.official.TestPagerSlidingTabStripActivity"
+            android:label="Widget/PagerSlidingTabStrip/Official">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".widget.viewPager.customizedPagerSlidingTabStrip.TestCustomizedPagerSlidingTabStripActivity"
-            android:label="Widget/ViewPager/CustomizedPagerSlidingTabStrip">
+            android:name=".widget.pagerSlidingTabStrip.customized.TestCustomizedPagerSlidingTabStripActivity"
+            android:label="Widget/PagerSlidingTabStrip/Customized">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.pagerSlidingTabStrip.advanced.TestAdvancedPagerSlidingTabStripActivity"
+            android:label="Widget/PagerSlidingTabStrip/Advanced">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -732,6 +740,14 @@
         <activity
             android:name=".widget.immersionBar.ImmersionBarStudyActivity"
             android:label="Widget/ImmersionBar/Study">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.scrollLinearLayout.TestScrollLinearLayoutActivity"
+            android:label="Widget/ScrollLinearLayout">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />

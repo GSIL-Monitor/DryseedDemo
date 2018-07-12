@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.widget.viewPager.customizedPagerSlidingTabStrip;
+package com.dryseed.dryseedapp.widget.pagerSlidingTabStrip.customized;
 
 import java.util.ArrayList;
 import java.util.Arrays;
