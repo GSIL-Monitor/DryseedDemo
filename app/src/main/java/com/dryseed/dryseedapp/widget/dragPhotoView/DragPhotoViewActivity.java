@@ -12,7 +12,7 @@ import android.widget.ImageView;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo2.lib.RecyclerListAdapter;
+import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo2.lib.RecyclerListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -581,7 +581,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".widget.recyclerView.demo.TestRecyclerViewActivity"
+            android:name=".widget.recyclerView.multiTypeAdapter.demo3.TestRecyclerViewActivity"
             android:label="Widget/RecyclerView/TestRecyclerViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -1339,7 +1339,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".listui.demo.TestListUIActivity"
+            android:name=".widget.recyclerView.listui.demo.TestListUIActivity"
             android:label="ListUI/TestListUIActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -1347,7 +1347,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".widget.multiTypeAdapter.demo.BilibiliActivity"
+            android:name=".widget.recyclerView.multiTypeAdapter.demo.BilibiliActivity"
             android:label="Widget/MultiTypeAdapterDemo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -1355,7 +1355,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".widget.multiTypeAdapter.demo2.BiliBiliActivity"
+            android:name=".widget.recyclerView.multiTypeAdapter.demo2.BiliBiliActivity"
             android:label="Widget/MultiTypeAdapterDemo2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

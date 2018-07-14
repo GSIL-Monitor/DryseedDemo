@@ -2,21 +2,15 @@ package com.dryseed.dryseedapp.framework.glide;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.android.volley.Request;
@@ -34,22 +28,17 @@ import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.framework.fastjson.bean.Person;
 import com.dryseed.dryseedapp.framework.volley.JsonObjectRequest;
-import com.dryseed.dryseedapp.framework.volley.TestVolleyActivity;
 import com.luojilab.component.basiclib.DPIUtil;
 import com.dryseed.dryseedapp.utils.ToastUtil;
 import com.dryseed.dryseedapp.utils.UnitUtil;
 import com.dryseed.dryseedapp.utils.VolleyUtils;
-import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo2.lib.RecyclerListAdapter;
-import com.dryseed.dryseedapp.widget.recyclerView.itemAnimator.RecyclerViewItemAnimatorActivity;
+import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo2.lib.RecyclerListAdapter;
 import com.orhanobut.logger.Logger;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 

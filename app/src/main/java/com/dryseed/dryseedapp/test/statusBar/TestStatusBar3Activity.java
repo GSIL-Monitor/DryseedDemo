@@ -9,16 +9,15 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.luojilab.component.basiclib.DPIUtil;
-import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo.Category;
-import com.dryseed.dryseedapp.widget.multiTypeAdapter.demo.Post;
-import com.dryseed.dryseedapp.widget.recyclerView.demo.BiliMultiRecyclerAdapter;
+import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo.Category;
+import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo.Post;
+import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo3.BiliMultiRecyclerAdapter;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshRecyclerView;
 

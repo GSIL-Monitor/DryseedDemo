@@ -1,22 +1,16 @@
 package com.dryseed.dryseedapp.widget.coordinatorLayout;
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.widget.nestedScrolling.recyclerviewNestScroll.TabFragment;
-import com.dryseed.dryseedapp.widget.recyclerView.adapter.CommonAdapter;
-import com.dryseed.dryseedapp.widget.recyclerView.base.ViewHolder;
+import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo3.adapter.CommonAdapter;
+import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo3.base.ViewHolder;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class WithZhiHu extends AppCompatActivity {
 
