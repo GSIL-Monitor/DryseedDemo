@@ -7,17 +7,17 @@ import android.os.Bundle;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.tab.fragment.MainTab01;
-import com.dryseed.dryseedapp.tab.fragment.MainTab02;
+import com.dryseed.dryseedapp.widget.fragment.tab.MainTab01;
+import com.dryseed.dryseedapp.widget.fragment.tab.MainTab02;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * Created by caiminming on 2017/9/15.
- * <p>
  * Fragmen在各个情况下的生命周期
  * http://blog.csdn.net/htq__/article/details/51210306
+ *
+ * @author caiminming
  */
 
 public class TestFragmentLifeCycle extends BaseActivity {
@@ -67,7 +67,8 @@ public class TestFragmentLifeCycle extends BaseActivity {
         if (fragmentTwo == null) {
             fragmentTwo = new MainTab02();
             fragmentTransaction.replace(R.id.id_content, fragmentTwo, fragmentTwo.getClass().getName());
-            fragmentTransaction.addToBackStack(fragmentTwo.getClass().getName()); //addToBackStack
+            //addToBackStack
+            fragmentTransaction.addToBackStack(fragmentTwo.getClass().getName());
         } else {
             Fragment fragment = fragmentManager.findFragmentByTag(fragmentTwo.getClass().getName());
             fragmentTransaction.replace(R.id.id_content, fragment, fragmentTwo.getClass().getName());
@@ -87,7 +88,8 @@ public class TestFragmentLifeCycle extends BaseActivity {
         if (fragmentOne == null) {
             fragmentOne = new MainTab02();
             fragmentTransaction.replace(R.id.id_content, fragmentOne, fragmentOne.getClass().getName());
-            fragmentTransaction.addToBackStack(fragmentOne.getClass().getName()); //addToBackStack
+            //addToBackStack
+            fragmentTransaction.addToBackStack(fragmentOne.getClass().getName());
         } else {
             Fragment fragment = fragmentManager.findFragmentByTag(fragmentOne.getClass().getName());
             fragmentTransaction.replace(R.id.id_content, fragment, fragmentOne.getClass().getName());
@@ -106,7 +108,8 @@ public class TestFragmentLifeCycle extends BaseActivity {
         if (fragmentTwo == null) {
             fragmentTwo = new MainTab02();
             fragmentTransaction.add(R.id.id_content, fragmentTwo, fragmentTwo.getClass().getName());
-            fragmentTransaction.addToBackStack(fragmentTwo.getClass().getName()); //addToBackStack
+            //addToBackStack
+            fragmentTransaction.addToBackStack(fragmentTwo.getClass().getName());
         } else {
             fragmentTransaction.show(fragmentTwo);
         }

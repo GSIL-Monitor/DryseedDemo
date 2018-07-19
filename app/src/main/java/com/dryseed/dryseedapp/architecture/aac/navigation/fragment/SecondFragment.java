@@ -14,6 +14,9 @@ import com.dryseed.dryseedapp.R;
 
 import androidx.navigation.Navigation;
 
+/**
+ * @author caiminming
+ */
 public class SecondFragment extends Fragment {
 
     @Override

@@ -16,7 +16,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
 /**
- * @author dryseedcai
+ * @author caiminming
  */
 public class TestNavigationActivity extends BaseActivity {
     @Override

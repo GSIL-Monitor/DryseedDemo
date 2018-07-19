@@ -785,48 +785,48 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".tab.viewpager.TraditionalViewPagerAcvitity"
-            android:label="Tab/TraditionalViewPagerAcvitity">
+            android:name=".widget.viewPager.TraditionalViewPagerAcvitity"
+            android:label="Widget/ViewPager/TraditionalViewPagerAcvitity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".tab.lazyViewPager.LazyViewPagerActivity"
-            android:label="Tab/LazyViewPagerActivity">
+            android:name=".widget.viewPager.lazyViewPager.LazyViewPagerActivity"
+            android:label="Widget/ViewPager/LazyViewPagerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".tab.lazyViewPagerFragment.LazyViewPagerFragmentActivity"
-            android:label="Tab/LazyViewPagerFragment(setUserVisibleHint)">
+            android:name=".widget.viewPager.lazyViewPagerFragment.LazyViewPagerFragmentActivity"
+            android:label="Widget/ViewPager/LazyViewPagerFragment(setUserVisibleHint)">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".tab.fragment.FragmentMainActivity"
-            android:label="Tab/FragmentMainActivity">
+            android:name=".widget.fragment.tab.FragmentMainActivity"
+            android:label="Widget/Fragment/FragmentMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".tab.viewPagerPlusFragment.ViewPagerFragmentActivity"
-            android:label="Tab/ViewPagerFragmentActivity">
+            android:name=".widget.viewPager.viewPagerPlusFragment.ViewPagerFragmentActivity"
+            android:label="Widget/ViewPager/ViewPagerFragmentActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".tab.navigationWithViewPager.NavigationWithViewPagerActivity"
-            android:label="Tab/NavigationWithViewPagerActivity">
+            android:name=".widget.viewPager.navigationWithViewPager.NavigationWithViewPagerActivity"
+            android:label="Widget/ViewPager/NavigationWithViewPagerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -1117,6 +1117,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".tools.jobmanager.demo.TestJobManagerActivity"
+            android:label="Tools/JobManager">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".test.singleTask.TestAActivity"
             android:label="Test/SingleTask">
             <intent-filter>
@@ -1340,7 +1348,7 @@
         </activity>
         <activity
             android:name=".widget.recyclerView.listui.demo.TestListUIActivity"
-            android:label="ListUI/TestListUIActivity">
+            android:label="Widget/RecyclerView/ListUI/TestListUIActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -1348,7 +1356,7 @@
         </activity>
         <activity
             android:name=".widget.recyclerView.multiTypeAdapter.demo.BilibiliActivity"
-            android:label="Widget/MultiTypeAdapterDemo">
+            android:label="Widget/RecyclerView/MultiTypeAdapter/MultiTypeAdapterDemo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -1356,7 +1364,7 @@
         </activity>
         <activity
             android:name=".widget.recyclerView.multiTypeAdapter.demo2.BiliBiliActivity"
-            android:label="Widget/MultiTypeAdapterDemo2">
+            android:label="Widget/RecyclerView/MultiTypeAdapter/MultiTypeAdapterDemo2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />

@@ -22,6 +22,8 @@ import androidx.navigation.Navigation;
  * View.findNavController()
  * <p>
  * 对于点击监听器，您还可以使用便捷方法Navigation.createNavigateOnClickListener(@IdRes destId: int, bundle: Bundle)。
+ *
+ * @author caiminming
  */
 public class FirstFragment extends Fragment {
     @Override
