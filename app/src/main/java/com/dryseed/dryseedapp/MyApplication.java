@@ -191,8 +191,9 @@ public class MyApplication extends BaseApplication {
     private void initTimeCost() {
         TimeCostCanary.install(this).config(
                 new TimeCostConfig.Builder()
-                        .setMilliExceedTime(200L)
-                        .setMonitorOnlyMainThread(false)
+                        .setExceedMilliTime(200L)
+                        .setThreadExceedMilliTime(200L)
+                        .setMonitorOnlyMainThread(true)
                         .setShowDetailUI(true)
                         .build()
         );

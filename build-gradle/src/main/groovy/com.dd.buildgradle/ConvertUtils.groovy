@@ -33,7 +33,7 @@ class ConvertUtils {
                 def jarFile = new JarFile(it.file)
                 Enumeration<JarEntry> classes = jarFile.entries()
                 while (classes.hasMoreElements()) {
-                    JarEntry libClass = classes.nextElement()
+                    JarEntry libClass = (JarEntry) classes.nextElement()
                     String className = libClass.getName()
                     if (className.endsWith(SdkConstants.DOT_CLASS)) {
                         className = className.substring(0, className.length() - SdkConstants.DOT_CLASS.length()).replaceAll('/', '.')
