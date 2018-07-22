@@ -1,6 +1,6 @@
 apply plugin: 'com.dd.comgradle'
 apply plugin: 'org.greenrobot.greendao'
-apply plugin: 'com.dryseed.timecost.gradle.dsplugin'
+//apply plugin: 'com.dryseed.timecost.gradle.dsplugin'
 
 apply from: "${project.rootDir}/taskTimeCost.gradle"
 
@@ -191,27 +191,27 @@ combuild {
 }
 
 //timecost
-timeCostConfig {
-    //this flag will decide whether the log of the time-cost plugin be printed or not, default value is true
-    isDebug = true
-    //this is a kit feature of the plugin, set it true to see the time consume of this build
-    watchTaskTimeCost = false
-    // the plugin will only inject package / class defined in whitePackageList
-    whitePackageList = ['com.dryseed.dryseedapp', 'com.cjt2325']
-    // thp plugin will not inject package, white list has a higher priority than white list
-    blackPackageList = []
-    // the plugin will inject automatically based on whitePackageList
-    autoInject = true
-    // this flag will decide whether the plugin will inject the jars, false by default
-    jarInject = true
-    scope {
-        project true //inject app project, default true
-        projectLocalDep false //inject app libs(eg: .jar), default false
-        subProject true //inject subProject of app project(eg: module), default true
-        subProjectLocalDep false //inject subProject libs, default false
-        externalLibraries false //inject external libs(eg: .aar), default false
-    }
-}
+//timeCostConfig {
+//    //this flag will decide whether the log of the time-cost plugin be printed or not, default value is true
+//    isDebug = true
+//    //this is a kit feature of the plugin, set it true to see the time consume of this build
+//    watchTaskTimeCost = false
+//    // the plugin will only inject package / class defined in whitePackageList
+//    whitePackageList = ['com.dryseed.dryseedapp', 'com.cjt2325']
+//    // thp plugin will not inject package, white list has a higher priority than white list
+//    blackPackageList = []
+//    // the plugin will inject automatically based on whitePackageList
+//    autoInject = true
+//    // this flag will decide whether the plugin will inject the jars, false by default
+//    jarInject = true
+//    scope {
+//        project true //inject app project, default true
+//        projectLocalDep false //inject app libs(eg: .jar), default false
+//        subProject true //inject subProject of app project(eg: module), default true
+//        subProjectLocalDep false //inject subProject libs, default false
+//        externalLibraries false //inject external libs(eg: .aar), default false
+//    }
+//}
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -234,8 +234,15 @@ dependencies {
     // https://developer.android.google.cn/topic/libraries/architecture/navigation/
     // Codelab : https://codelabs.developers.google.com/codelabs/android-navigation/index.html#1
     // ----------------------------------------------------
-    implementation 'android.arch.navigation:navigation-fragment:' + NAVIGATION_VERSION
-    implementation 'android.arch.navigation:navigation-ui:' + NAVIGATION_VERSION
+    implementation 'android.arch.navigation:navigation-fragment:' + ARCHITECTURE_COMPONENTS_VERSION
+    implementation 'android.arch.navigation:navigation-ui:' + ARCHITECTURE_COMPONENTS_VERSION
+
+    // ----------------------------------------------------
+    // ########## WorkManager ##########
+    // https://developer.android.com/topic/libraries/architecture/workmanager
+    // Codelab : https://codelabs.developers.google.com/codelabs/android-workmanager/index.html
+    // ----------------------------------------------------
+    implementation "android.arch.work:work-runtime:" + ARCHITECTURE_COMPONENTS_VERSION
 
     // ----------------------------------------------------
     // ########## component ##########
@@ -437,8 +444,8 @@ dependencies {
     //xiaomiCompile 'com.qihoo360.union.sdk:union:1.0'
 
     // ----------------------------------------------------
-    // ########## DsTracker ##########
-    // https://github.com/dryseedcai/DsTracker
+    // ########## TimeCost ##########
+    // https://github.com/dryseedcai/TimeCost
     // ----------------------------------------------------
     compile 'com.dryseed.timecost:timecostimp:1.+'
 }

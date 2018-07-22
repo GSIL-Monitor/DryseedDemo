@@ -1347,6 +1347,22 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".test.jobScheduler.TestJobSchedulerActivity"
+            android:label="Test/JobScheduler">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".test.workManager.TestWorkManagerActivity"
+            android:label="Test/WorkManager">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".widget.recyclerView.listui.demo.TestListUIActivity"
             android:label="Widget/RecyclerView/ListUI/TestListUIActivity">
             <intent-filter>
@@ -1685,6 +1701,11 @@
             android:value="dcbd0b9f5ef47333002ce1d82939b7cb" />
         <!-- 定位需要的服务 -->
         <service android:name="com.amap.api.location.APSService" />
+
+        <service
+            android:name="com.dryseed.dryseedapp.test.jobScheduler.JobSchedulerService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE"></service>
     </application>
 
 </manifest>

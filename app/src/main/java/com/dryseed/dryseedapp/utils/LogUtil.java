@@ -29,5 +29,13 @@ public class LogUtil {
         Logger.i(tag, msg);
     }
 
+    public static void e(String msg) {
+        Logger.e(TAG, msg);
+    }
+
+    public static void e(String tag, String msg) {
+        Logger.e(tag, msg);
+    }
+
 
 }
