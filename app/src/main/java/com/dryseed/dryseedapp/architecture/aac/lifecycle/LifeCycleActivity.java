@@ -5,7 +5,12 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.dryseed.dryseedapp.BaseActivity;
+import com.luojilab.component.componentlib.router.Router;
+import com.luojilab.component.componentlib.router.ui.UIRouter;
+import com.luojilab.componentservice.aac.AacService;
+import com.luojilab.componentservice.pictureselector.PictureSelectorService;
 
 /**
  * LifeCycle
@@ -18,24 +23,16 @@ public class LifeCycleActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        LifeCycleTextView lifeCycleTextView = new LifeCycleTextView(this);
+        UIRouter.getInstance().openUri(this, "dryseed://aac/lifecycle", new Bundle());
+        finish();
 
-        //注册Observer
-        getLifecycle().addObserver(lifeCycleTextView);
-
-        setContentView(lifeCycleTextView);
-
-        View decorView = getWindow().getDecorView();
-        View parent = lifeCycleTextView;
-        while (parent != null) {
-            Log.d("MMM", parent.toString());
-            if (parent == decorView) {
-                Log.d("MMM", "find decorView");
-                break;
-            }
-            if (parent.getParent() instanceof View) {
-                parent = (View) parent.getParent();
-            }
-        }
+        /*Router router = Router.getInstance();
+        if (router.getService(AacService.class.getSimpleName()) != null) {
+            AacService service = (AacService) router.getService(AacService.class.getSimpleName());
+            service.openLifeCycleActivity(this);
+            finish();
+        } else {
+            ToastUtils.showShort("Please load AacComponent first");
+        }*/
     }
 }

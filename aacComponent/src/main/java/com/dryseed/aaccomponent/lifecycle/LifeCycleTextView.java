@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.architecture.aac.lifecycle;
+package com.dryseed.aaccomponent.lifecycle;
 
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleObserver;
