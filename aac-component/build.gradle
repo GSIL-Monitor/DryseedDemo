@@ -1,0 +1,59 @@
+apply plugin: 'com.dd.comgradle'
+
+android {
+    compileSdkVersion Integer.parseInt("${COMPILE_SDK_VERSION}")
+    buildToolsVersion "${BUILD_TOOLS_VERSION}"
+
+    defaultConfig {
+        minSdkVersion Integer.parseInt("${MIN_SDK_VERSION}")
+        targetSdkVersion Integer.parseInt("${TARGET_SDK_VERSION}")
+        versionCode 1
+        versionName "1.0"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [host: "aac"]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile project(':componentservice') //component
+    //annotationProcessor 'com.github.jimu:router-anno-compiler:1.0.1' //component router
+    annotationProcessor project(':router-anno-compiler') //component router
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+
+    compile 'com.android.support:appcompat-v7:' + GOOGLE_SUPPORT_VERSION
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    // ----------------------------------------------------
+    // ########## Lifecycles ##########
+    // https://developer.android.google.cn/topic/libraries/architecture/adding-components.html
+    // ----------------------------------------------------
+    compile "android.arch.lifecycle:extensions:1.1.0"
+    annotationProcessor "android.arch.lifecycle:compiler:1.1.0"
+
+    // ----------------------------------------------------
+    // ########## navigation ##########
+    // https://developer.android.google.cn/topic/libraries/architecture/navigation/
+    // Codelab : https://codelabs.developers.google.com/codelabs/android-navigation/index.html#1
+    // ----------------------------------------------------
+    implementation 'android.arch.navigation:navigation-fragment:' + ARCHITECTURE_COMPONENTS_VERSION
+    implementation 'android.arch.navigation:navigation-ui:' + ARCHITECTURE_COMPONENTS_VERSION
+}
+
+combuild {
+    applicationName = 'com.dryseed.aaccomponent.runalone.application.AacApplication'
+    isRegisterCompoAuto = true
+}

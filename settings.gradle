@@ -1,4 +1,4 @@
-include ':app', ':aacComponent',
+include ':app',
         ':camera',
 
         ':router-annotation',
@@ -14,4 +14,4 @@ include ':app', ':aacComponent',
 //        ':pictureselectorComponent',
 //        ':ucrop',
         ':wheelpickerComponent',
-        ':aacComponent'
+        ':aac-component'

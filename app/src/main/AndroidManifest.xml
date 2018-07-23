@@ -947,40 +947,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".architecture.aac.lifecycle.LifeCycleActivity"
-            android:label="Architecture/AAC/LifeCycle/BaseLifeCycle">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".architecture.aac.lifecycle.LifeCycleOwnerActivity"
-            android:label="Architecture/AAC/LifeCycle/LifeCycleOwner">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".architecture.aac.livedata.LiveDataActivity"
-            android:label="Architecture/AAC/LiveData/BaseLiveData">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".architecture.aac.demo.ui.MainActivity"
-            android:label="Architecture/AAC/demo">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".architecture.aac.navigation.TestNavigationActivity"
-            android:label="Architecture/AAC/navigation">
+            android:name=".architecture.aac.TestAacActivity"
+            android:label="Architecture/AAC">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
