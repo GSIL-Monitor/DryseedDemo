@@ -14,6 +14,7 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.dryseed.dryseedapp.canvas.canvas.TestCanvasActivity;
+import com.dryseed.dryseedapp.utils.LogUtil;
 import com.dryseed.dryseedapp.utils.ToastUtil;
 import com.dryseed.dryseedapp.utils.dao.DaoManager;
 import com.dryseed.dryseedapp.widget.dialog.DsAlertDialog;
@@ -74,6 +75,8 @@ public class MainActivity extends ListActivity {
         if (path == null) {
             path = "";
         }
+
+        LogUtil.d("app path : " + path);
 
         setListAdapter(new SimpleAdapter(this, getData(path),
                 android.R.layout.simple_list_item_1, new String[]{"title"},

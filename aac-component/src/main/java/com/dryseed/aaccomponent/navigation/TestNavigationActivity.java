@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 
 import com.dryseed.aaccomponent.R;
 import com.luojilab.component.basicres.BaseActivity;
+import com.luojilab.router.facade.annotation.RouteNode;
 
 import androidx.navigation.NavController;
 import androidx.navigation.NavGraph;
@@ -17,6 +18,7 @@ import androidx.navigation.ui.NavigationUI;
 /**
  * @author caiminming
  */
+@RouteNode(path = "/navigation", desc = "navigation")
 public class TestNavigationActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

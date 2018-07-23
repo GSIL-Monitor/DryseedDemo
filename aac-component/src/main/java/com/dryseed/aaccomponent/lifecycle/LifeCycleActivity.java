@@ -13,7 +13,7 @@ import com.luojilab.router.facade.annotation.RouteNode;
  * https://developer.android.google.cn/topic/libraries/architecture/lifecycle.html
  * 配合mvp的例子：MvpBaseActivity、BasePresenter
  */
-@RouteNode(path = "/lifecycle", desc = "lifecycle") //JimuRouter
+@RouteNode(path = "/lifecycle", desc = "lifecycle")
 public class LifeCycleActivity extends AppCompatActivity {
 
     @Override

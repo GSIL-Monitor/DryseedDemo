@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.luojilab.router.facade.annotation.RouteNode;
+
+@RouteNode(path = "/livedata", desc = "livedata")
 public class LiveDataActivity extends AppCompatActivity {
     private NameViewModel mModel;
 

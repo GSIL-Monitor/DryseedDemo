@@ -6,8 +6,9 @@ import android.widget.LinearLayout;
 
 import com.dryseed.aaccomponent.R;
 import com.luojilab.component.basicres.BaseActivity;
+import com.luojilab.router.facade.annotation.RouteNode;
 
-
+@RouteNode(path = "/demo", desc = "demo")
 public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

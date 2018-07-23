@@ -94,6 +94,7 @@ public class MyApplication extends BaseApplication {
         //App组件Router初始化
         UIRouter.getInstance().registerUI("app");
         UIRouter.getInstance().registerUI("aac");
+        UIRouter.getInstance().registerUI("wheelpicker");
 
         //如果isRegisterCompoAuto为false，则需要通过反射加载组件
         //Router.registerComponent("com.luck.picture.applike.PictureselectorAppLike");

@@ -8,52 +8,21 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         tools:replace="android:label">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity android:name=".AacMainActivity" />
+        <activity
+            android:name=".lifecycle.LifeCycleActivity">
         </activity>
         <activity
-            android:name=".lifecycle.LifeCycleActivity"
-            android:label="Architecture/AAC/LifeCycle/BaseLifeCycle">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.aac" />
-            </intent-filter>
+            android:name=".lifecycle.LifeCycleOwnerActivity">
         </activity>
         <activity
-            android:name=".lifecycle.LifeCycleOwnerActivity"
-            android:label="Architecture/AAC/LifeCycle/LifeCycleOwner">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.aac" />
-            </intent-filter>
+            android:name=".livedata.LiveDataActivity">
         </activity>
         <activity
-            android:name=".livedata.LiveDataActivity"
-            android:label="Architecture/AAC/LiveData/BaseLiveData">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.aac" />
-            </intent-filter>
+            android:name=".demo.ui.MainActivity">
         </activity>
         <activity
-            android:name=".demo.ui.MainActivity"
-            android:label="Architecture/AAC/demo">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.aac" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".navigation.TestNavigationActivity"
-            android:label="Architecture/AAC/navigation">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.aac" />
-            </intent-filter>
+            android:name=".navigation.TestNavigationActivity">
         </activity>
     </application>
 
