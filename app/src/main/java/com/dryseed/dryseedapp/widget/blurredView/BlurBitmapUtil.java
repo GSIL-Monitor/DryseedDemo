@@ -8,7 +8,7 @@ import android.support.v8.renderscript.RenderScript;
 import android.support.v8.renderscript.ScriptIntrinsicBlur;
 import android.util.Log;
 
-import com.dryseed.dryseedapp.utils.ToastUtil;
+import com.luojilab.component.basiclib.utils.ToastUtil;
 
 /**
  * @author Qiushui

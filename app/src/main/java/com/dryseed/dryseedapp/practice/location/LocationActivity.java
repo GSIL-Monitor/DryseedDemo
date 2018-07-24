@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.practice.location.lib.LocationInfo;
 import com.dryseed.dryseedapp.practice.location.lib.LocationManager;
-import com.dryseed.dryseedapp.utils.ToastUtil;
+import com.luojilab.component.basiclib.utils.ToastUtil;
 
 /**
  * Created by caiminming on 2018/1/3.

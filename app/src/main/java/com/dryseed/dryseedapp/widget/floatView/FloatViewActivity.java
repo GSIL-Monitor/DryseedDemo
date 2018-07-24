@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
-import com.luojilab.component.basiclib.DPIUtil;
+import com.luojilab.component.basiclib.utils.DPIUtil;
 
 /**
  * Created by caiminming on 2017/12/9.

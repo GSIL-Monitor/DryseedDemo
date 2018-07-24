@@ -7,7 +7,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 
-import com.luojilab.component.basiclib.DPIUtil;
+import com.luojilab.component.basiclib.utils.DPIUtil;
 
 public class UnderLineEditText extends android.support.v7.widget.AppCompatEditText {
     private Paint mPaint;

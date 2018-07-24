@@ -8,7 +8,7 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.utils.ToastUtil;
+import com.luojilab.component.basiclib.utils.ToastUtil;
 import com.dryseed.dryseedapp.widget.recyclerView.itemDecoration.TestAdapter;
 
 import java.util.ArrayList;

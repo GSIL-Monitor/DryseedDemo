@@ -9,12 +9,12 @@ import android.util.Log;
 
 import com.blankj.utilcode.util.Utils;
 import com.dryseed.dryseedapp.practice.crash.CrashHandler;
-import com.dryseed.dryseedapp.utils.BackForegroundWatcher;
+import com.luojilab.component.basiclib.utils.BackForegroundWatcher;
 import com.dryseed.timecost.TimeCostCanary;
 import com.dryseed.timecost.TimeCostConfig;
 import com.luojilab.component.basiclib.BaseApplication;
-import com.luojilab.component.basiclib.DPIUtil;
-import com.dryseed.dryseedapp.utils.ProcessUtil;
+import com.luojilab.component.basiclib.utils.DPIUtil;
+import com.luojilab.component.basiclib.utils.ProcessUtil;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.stetho.Stetho;
 import com.luojilab.component.componentlib.router.ui.UIRouter;
@@ -33,40 +33,16 @@ import zlc.season.rxdownload3.extension.ApkOpenExtension;
  * Created by caiminming on 2016/11/23.
  */
 public class MyApplication extends BaseApplication {
-    /**
-     * A singleton instance of the application class for easy access in other places
-     */
-    private static MyApplication sInstance;
-
-    /**
-     * @return ApplicationController singleton instance
-     */
-    public static synchronized MyApplication getInstance() {
-        return sInstance;
-    }
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-
-        Log.d("MMM", " MyApplication onCreate");
-
-        String processName = ProcessUtil.getProcessName(this, Process.myPid());
-        if (!TextUtils.isEmpty(processName) && processName.equals("com.dryseed.dryseedapp")) {
-            init();
-        }
-    }
-
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         MultiDex.install(base);
     }
 
-    private void init() {
+    @Override
+    protected void init() {
+        super.init();
         Log.d("MMM", " MyApplication init");
-        sInstance = this;
-
         try {
             DPIUtil.setDensity(sInstance.getResources().getDisplayMetrics().density);
         } catch (Throwable e) {

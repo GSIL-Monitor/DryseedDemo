@@ -2,7 +2,6 @@ package com.dryseed.dryseedapp.dispatchEvent;
 
 import java.util.ArrayList;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,7 +18,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.dispatchEvent.ui.HorizontalScrollViewEx;
-import com.luojilab.component.basiclib.DPIUtil;
+import com.luojilab.component.basiclib.utils.DPIUtil;
 
 /**
  * 外部拦截法：

@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.utils.ImageUtil;
+import com.luojilab.component.basiclib.utils.ImageUtil;
 
 public class BlurredView extends RelativeLayout {
 

@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.dryseed.dryseedapp.BaseActivity;
-import com.dryseed.dryseedapp.utils.LogUtil;
+import com.luojilab.component.basiclib.utils.LogUtil;
 
 import androidx.work.Constraints;
 import androidx.work.Data;

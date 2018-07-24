@@ -7,7 +7,7 @@ import android.view.View;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.utils.UIUtil;
+import com.luojilab.component.basiclib.utils.UIUtil;
 
 /**
  * Created by caiminming on 2017/12/2.

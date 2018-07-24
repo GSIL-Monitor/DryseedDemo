@@ -3,7 +3,6 @@ package com.dryseed.dryseedapp.customView.comboClickTextView;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Shader;
@@ -15,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.dryseed.dryseedapp.R;
-import com.luojilab.component.basiclib.DPIUtil;
+import com.luojilab.component.basiclib.utils.DPIUtil;
 
 /**
  * Created by User on 2017/4/1.

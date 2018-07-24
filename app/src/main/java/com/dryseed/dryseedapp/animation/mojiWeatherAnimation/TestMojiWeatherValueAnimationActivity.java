@@ -22,7 +22,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.dryseed.dryseedapp.R;
-import com.luojilab.component.basiclib.DPIUtil;
+import com.luojilab.component.basiclib.utils.DPIUtil;
 
 
 public class TestMojiWeatherValueAnimationActivity extends FragmentActivity implements

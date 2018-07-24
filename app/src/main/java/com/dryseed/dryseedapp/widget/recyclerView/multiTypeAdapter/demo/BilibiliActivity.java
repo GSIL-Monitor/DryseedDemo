@@ -25,7 +25,7 @@ import android.support.v7.widget.RecyclerView;
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo.lib.MultiTypeAdapter;
-import com.luojilab.component.basiclib.DPIUtil;
+import com.luojilab.component.basiclib.utils.DPIUtil;
 
 import java.util.ArrayList;
 import java.util.List;

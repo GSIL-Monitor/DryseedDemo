@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.animation.viewanimator.lib.ViewAnimator;
-import com.luojilab.component.basiclib.DPIUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

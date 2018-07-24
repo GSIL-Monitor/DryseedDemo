@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 import com.dryseed.dryseedapp.tools.jobmanager.monitor.JobMonitor;
-import com.dryseed.dryseedapp.utils.LogUtil;
+import com.luojilab.component.basiclib.utils.LogUtil;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ConcurrentHashMap;

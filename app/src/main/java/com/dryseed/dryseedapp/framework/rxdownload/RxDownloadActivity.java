@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.utils.StorageDirectoryUtil;
+import com.luojilab.component.basiclib.utils.StorageDirectoryUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

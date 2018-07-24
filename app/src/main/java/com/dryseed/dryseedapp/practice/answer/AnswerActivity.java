@@ -15,7 +15,7 @@ import com.dryseed.dryseedapp.practice.answer.entity.AnswerLateEntity;
 import com.dryseed.dryseedapp.practice.answer.entity.AnswerQuizTimeEntity;
 import com.dryseed.dryseedapp.practice.answer.entity.AnswerWaitBeginEntity;
 import com.dryseed.dryseedapp.practice.answer.entity.QuizChoiceEntity;
-import com.dryseed.dryseedapp.utils.ToastUtil;
+import com.luojilab.component.basiclib.utils.ToastUtil;
 
 import java.util.ArrayList;
 

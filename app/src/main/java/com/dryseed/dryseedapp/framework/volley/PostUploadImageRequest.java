@@ -6,13 +6,13 @@ import android.graphics.Matrix;
 import android.net.Uri;
 import android.provider.MediaStore;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.DefaultRetryPolicy;
-import com.android.volley.NetworkResponse;
-import com.android.volley.ParseError;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.toolbox.HttpHeaderParser;
+import com.luojilab.component.basiclib.volley.AuthFailureError;
+import com.luojilab.component.basiclib.volley.DefaultRetryPolicy;
+import com.luojilab.component.basiclib.volley.NetworkResponse;
+import com.luojilab.component.basiclib.volley.ParseError;
+import com.luojilab.component.basiclib.volley.Request;
+import com.luojilab.component.basiclib.volley.Response;
+import com.luojilab.component.basiclib.volley.toolbox.HttpHeaderParser;
 
 import org.json.JSONException;
 import org.json.JSONObject;

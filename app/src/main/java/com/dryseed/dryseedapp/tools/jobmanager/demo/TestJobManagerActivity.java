@@ -1,13 +1,12 @@
 package com.dryseed.dryseedapp.tools.jobmanager.demo;
 
 import android.os.Bundle;
-import android.os.Looper;
 import android.support.annotation.Nullable;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.tools.jobmanager.JobManagerUtils;
 import com.dryseed.dryseedapp.tools.jobmanager.Priority;
-import com.dryseed.dryseedapp.utils.LogUtil;
+import com.luojilab.component.basiclib.utils.LogUtil;
 import com.dryseed.timecost.utils.ThreadUtils;
 
 /**

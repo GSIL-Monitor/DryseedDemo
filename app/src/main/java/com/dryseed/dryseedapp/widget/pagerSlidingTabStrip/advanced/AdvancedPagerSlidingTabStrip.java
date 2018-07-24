@@ -54,7 +54,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.utils.FloatUtil;
+import com.luojilab.component.basiclib.utils.FloatUtil;
 
 @SuppressWarnings("unused")
 public class AdvancedPagerSlidingTabStrip extends HorizontalScrollView {

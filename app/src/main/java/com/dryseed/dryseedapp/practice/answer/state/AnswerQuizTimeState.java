@@ -2,7 +2,6 @@ package com.dryseed.dryseedapp.practice.answer.state;
 
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
@@ -18,7 +17,7 @@ import com.dryseed.dryseedapp.practice.answer.entity.AnswerEntity;
 import com.dryseed.dryseedapp.practice.answer.entity.AnswerQuizTimeEntity;
 import com.dryseed.dryseedapp.practice.answer.entity.QuizChoiceEntity;
 import com.dryseed.dryseedapp.practice.answer.widget.QuizStateView;
-import com.luojilab.component.basiclib.DPIUtil;
+import com.luojilab.component.basiclib.utils.DPIUtil;
 
 public class AnswerQuizTimeState implements AnswerState {
 

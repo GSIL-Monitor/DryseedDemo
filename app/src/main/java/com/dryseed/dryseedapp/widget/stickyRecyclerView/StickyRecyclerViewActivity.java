@@ -2,7 +2,6 @@ package com.dryseed.dryseedapp.widget.stickyRecyclerView;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,7 +12,7 @@ import android.widget.TextView;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
-import com.luojilab.component.basiclib.DPIUtil;
+import com.luojilab.component.basiclib.utils.DPIUtil;
 import com.dryseed.dryseedapp.widget.stickyRecyclerView.library.StickyDecoration;
 import com.dryseed.dryseedapp.widget.stickyRecyclerView.library.listener.GroupListener;
 import com.dryseed.dryseedapp.widget.stickyRecyclerView.model.City;

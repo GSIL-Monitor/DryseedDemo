@@ -6,7 +6,7 @@ import android.widget.FrameLayout;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
-import com.luojilab.component.basiclib.DPIUtil;
+import com.luojilab.component.basiclib.utils.DPIUtil;
 
 /**
  * ClipPath实现圆角功能

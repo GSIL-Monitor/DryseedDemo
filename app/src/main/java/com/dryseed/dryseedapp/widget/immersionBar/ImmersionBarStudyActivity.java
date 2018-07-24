@@ -10,7 +10,7 @@ import android.view.WindowManager;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.utils.UIUtil;
+import com.luojilab.component.basiclib.utils.UIUtil;
 import com.dryseed.dryseedapp.widget.immersionBar.lib.OSUtils;
 
 /**

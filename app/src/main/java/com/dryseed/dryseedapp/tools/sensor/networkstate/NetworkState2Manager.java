@@ -15,11 +15,9 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.utils.NetWorkUtil;
+import com.luojilab.component.basiclib.utils.NetWorkUtil;
 
 import java.lang.ref.SoftReference;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;

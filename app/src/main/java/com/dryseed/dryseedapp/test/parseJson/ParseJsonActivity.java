@@ -7,7 +7,7 @@ import android.util.Log;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.MyApplication;
-import com.dryseed.dryseedapp.utils.ToastUtil;
+import com.luojilab.component.basiclib.utils.ToastUtil;
 
 import org.json.JSONArray;
 import org.json.JSONException;

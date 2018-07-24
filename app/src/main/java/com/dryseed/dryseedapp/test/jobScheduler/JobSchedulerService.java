@@ -5,7 +5,7 @@ import android.app.job.JobService;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 
-import com.dryseed.dryseedapp.utils.LogUtil;
+import com.luojilab.component.basiclib.utils.LogUtil;
 
 /**
  * @author CaiMinMing

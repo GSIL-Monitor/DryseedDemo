@@ -2,20 +2,17 @@ package com.dryseed.dryseedapp.practice.answer.state;
 
 import android.util.Log;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.customView.comboClickTextView.CountDownTimer;
 import com.dryseed.dryseedapp.practice.answer.AnswerMachine;
-import com.dryseed.dryseedapp.practice.answer.callback.AnchorWaitBeginCallback;
 import com.dryseed.dryseedapp.practice.answer.callback.AnchorWaitNextCallback;
 import com.dryseed.dryseedapp.practice.answer.callback.AnswerCallback;
-import com.dryseed.dryseedapp.practice.answer.entity.AnchorWaitBeginEntity;
 import com.dryseed.dryseedapp.practice.answer.entity.AnchorWaitNextEntity;
 import com.dryseed.dryseedapp.practice.answer.entity.AnswerEntity;
-import com.dryseed.dryseedapp.utils.TimeUtils;
+import com.luojilab.component.basiclib.utils.TimeUtils;
 
 public class AnchorWaitNextState implements AnswerState {
 

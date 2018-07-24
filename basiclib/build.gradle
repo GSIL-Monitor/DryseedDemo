@@ -13,12 +13,16 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    useLibrary 'org.apache.http.legacy'
+
 }
 
 dependencies {
@@ -32,5 +36,23 @@ dependencies {
 
     compile project(":componentlib")
     //compile 'com.github.jimu:componentlib:1.3.1'
+
+    // ----------------------------------------------------
+    // ########## logger ##########
+    // https://github.com/orhanobut/logger
+    // ----------------------------------------------------
+    compile 'com.orhanobut:logger:1.3'
+
+    // ----------------------------------------------------
+    // ########## android-utils-code ##########
+    // https://blankj.com/2016/07/31/android-utils-code/
+    // ----------------------------------------------------
+    compile 'com.blankj:utilcode:1.12.6'
+
+    // ----------------------------------------------------
+    // ########## greendao ##########
+    // https://github.com/greenrobot/greenDAO
+    // ----------------------------------------------------
+    compile 'org.greenrobot:greendao:3.2.2'
 }
 

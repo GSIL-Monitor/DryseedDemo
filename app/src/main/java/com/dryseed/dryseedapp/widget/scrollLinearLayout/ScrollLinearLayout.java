@@ -16,8 +16,8 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.LinearLayout;
 
-import com.dryseed.dryseedapp.utils.FloatUtil;
-import com.dryseed.dryseedapp.utils.LogUtil;
+import com.luojilab.component.basiclib.utils.FloatUtil;
+import com.luojilab.component.basiclib.utils.LogUtil;
 
 /**
  * 可滑动的LinearLayout，用于顶部空间的显示和隐藏

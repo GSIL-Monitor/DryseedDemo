@@ -14,7 +14,6 @@ import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.MyApplication;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.framework.rxBus.RxBus;
-import com.dryseed.dryseedapp.utils.ToastUtil;
 
 import java.util.ArrayList;
 

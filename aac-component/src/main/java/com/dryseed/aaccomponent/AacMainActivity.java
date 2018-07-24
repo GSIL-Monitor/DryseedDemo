@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Pair;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,6 +69,7 @@ public class AacMainActivity extends BaseActivity {
         @Override
         public void onBindViewHolder(@NonNull TestHolder holder, final int position) {
             holder.mTextView.setText(mData.get(position).first);
+            holder.mTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

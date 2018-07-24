@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.utils.NetWorkUtil;
+import com.luojilab.component.basiclib.utils.NetWorkUtil;
 
 /**
  * Created by caiminming on 2017/6/7.

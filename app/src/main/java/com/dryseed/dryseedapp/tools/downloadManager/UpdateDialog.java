@@ -17,8 +17,8 @@ import android.widget.TextView;
 
 import com.dryseed.dryseedapp.MyApplication;
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.utils.StorageDirectoryUtil;
-import com.dryseed.dryseedapp.utils.ToastUtil;
+import com.luojilab.component.basiclib.utils.StorageDirectoryUtil;
+import com.luojilab.component.basiclib.utils.ToastUtil;
 
 import java.io.File;
 

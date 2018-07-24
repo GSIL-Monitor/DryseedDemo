@@ -2,11 +2,7 @@ package com.dryseed.dryseedapp.utils.dao;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.os.Handler;
 import android.util.Log;
-
-import com.dryseed.dryseedapp.widget.dialog.DsAlertDialog;
-import com.dryseed.dryseedapp.widget.dialog.DsDialogFactory;
 
 import org.greenrobot.greendao.database.Database;
 

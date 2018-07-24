@@ -1,6 +1,6 @@
 package com.dryseed.dryseedapp.test.workManager;
 
-import com.dryseed.dryseedapp.utils.LogUtil;
+import com.luojilab.component.basiclib.utils.LogUtil;
 
 import androidx.work.Data;
 import androidx.work.Worker;

@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.utils.ToastUtil;
+import com.luojilab.component.basiclib.utils.ToastUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -1,15 +1,15 @@
 package com.dryseed.dryseedapp.framework.volley;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
-import com.android.volley.Request;
-import com.android.volley.VolleyError;
+import com.luojilab.component.basiclib.volley.Request;
+import com.luojilab.component.basiclib.volley.VolleyError;
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.framework.fastjson.bean.Person;
-import com.dryseed.dryseedapp.utils.VolleyUtils;
+import com.luojilab.component.basiclib.utils.VolleyUtils;
+import com.luojilab.component.basiclib.volley.Response;
 import com.orhanobut.logger.Logger;
 
 import org.json.JSONArray;
@@ -32,7 +32,7 @@ public class TestVolleyActivity extends BaseActivity {
         jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.GET,
                 "http://gold.xitu.io/entry/579852601532bc0060eca77d/promote?utm_source=baidu&utm_medium=keyword&utm_content=restfulapi&utm_campaign=q3_search",
-                new com.android.volley.Response.Listener<JSONObject>() {
+                new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         Logger.d("MMM", response.toString());
@@ -45,7 +45,7 @@ public class TestVolleyActivity extends BaseActivity {
                         }
                     }
                 },
-                new com.android.volley.Response.ErrorListener() {
+                new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         //for test begin ================

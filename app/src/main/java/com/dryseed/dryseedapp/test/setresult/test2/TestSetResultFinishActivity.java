@@ -8,8 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.dryseed.dryseedapp.BaseActivity;
-import com.dryseed.dryseedapp.test.setresult.test1.SetResult2Activity;
-import com.dryseed.dryseedapp.utils.ToastUtil;
+import com.luojilab.component.basiclib.utils.ToastUtil;
 
 /**
  * Created by caiminming on 2017/12/28.

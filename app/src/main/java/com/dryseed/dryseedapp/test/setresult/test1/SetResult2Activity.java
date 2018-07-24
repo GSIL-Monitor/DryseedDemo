@@ -10,7 +10,7 @@ import android.widget.Button;
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.framework.eventbus.Event;
 import com.dryseed.dryseedapp.framework.rxBus.RxBus;
-import com.dryseed.dryseedapp.utils.ToastUtil;
+import com.luojilab.component.basiclib.utils.ToastUtil;
 
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;

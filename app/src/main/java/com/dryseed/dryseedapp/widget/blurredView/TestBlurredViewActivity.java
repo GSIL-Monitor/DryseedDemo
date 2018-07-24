@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.utils.ImageUtil;
+import com.luojilab.component.basiclib.utils.ImageUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

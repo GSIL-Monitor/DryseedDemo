@@ -1,13 +1,13 @@
 package com.dryseed.dryseedapp.framework.volley;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.NetworkResponse;
-import com.android.volley.ParseError;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.Response.ErrorListener;
-import com.android.volley.Response.Listener;
-import com.android.volley.toolbox.HttpHeaderParser;
+import com.luojilab.component.basiclib.volley.AuthFailureError;
+import com.luojilab.component.basiclib.volley.NetworkResponse;
+import com.luojilab.component.basiclib.volley.ParseError;
+import com.luojilab.component.basiclib.volley.Request;
+import com.luojilab.component.basiclib.volley.Response;
+import com.luojilab.component.basiclib.volley.Response.ErrorListener;
+import com.luojilab.component.basiclib.volley.Response.Listener;
+import com.luojilab.component.basiclib.volley.toolbox.HttpHeaderParser;
 
 import org.json.JSONException;
 import org.json.JSONObject;

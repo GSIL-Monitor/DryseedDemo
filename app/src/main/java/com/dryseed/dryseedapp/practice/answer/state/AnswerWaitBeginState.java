@@ -1,12 +1,10 @@
 package com.dryseed.dryseedapp.practice.answer.state;
 
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dryseed.dryseedapp.R;
@@ -17,7 +15,7 @@ import com.dryseed.dryseedapp.practice.answer.callback.AnswerCallback;
 import com.dryseed.dryseedapp.practice.answer.callback.AnswerWaitBeginCallback;
 import com.dryseed.dryseedapp.practice.answer.entity.AnswerEntity;
 import com.dryseed.dryseedapp.practice.answer.entity.AnswerWaitBeginEntity;
-import com.dryseed.dryseedapp.utils.TimeUtils;
+import com.luojilab.component.basiclib.utils.TimeUtils;
 
 public class AnswerWaitBeginState implements AnswerState {
     private AnswerMachine mMachine;

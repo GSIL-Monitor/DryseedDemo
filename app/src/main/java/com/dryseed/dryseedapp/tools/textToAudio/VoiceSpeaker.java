@@ -3,7 +3,7 @@ package com.dryseed.dryseedapp.tools.textToAudio;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 
-import com.dryseed.dryseedapp.utils.FileUtil;
+import com.luojilab.component.basiclib.utils.FileUtil;
 
 import java.io.IOException;
 import java.util.List;

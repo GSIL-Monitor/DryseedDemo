@@ -2,7 +2,7 @@ package com.dryseed.dryseedapp.tools.jobmanager.monitor;
 
 
 import com.dryseed.dryseedapp.tools.jobmanager.JobHolder;
-import com.dryseed.dryseedapp.utils.LogUtil;
+import com.luojilab.component.basiclib.utils.LogUtil;
 
 import java.util.HashMap;
 import java.util.Map;

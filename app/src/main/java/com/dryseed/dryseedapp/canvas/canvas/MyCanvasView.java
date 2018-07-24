@@ -1,22 +1,17 @@
 package com.dryseed.dryseedapp.canvas.canvas;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
-
-import com.luojilab.component.basiclib.DPIUtil;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -6,12 +6,10 @@ import android.text.TextUtils;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.cache.ExternalCacheDiskCacheFactory;
-import com.bumptech.glide.load.engine.cache.InternalCacheDiskCacheFactory;
-import com.dryseed.dryseedapp.utils.StorageDirectoryUtil;
-import com.dryseed.dryseedapp.utils.UnitUtil;
+import com.luojilab.component.basiclib.utils.StorageDirectoryUtil;
+import com.luojilab.component.basiclib.utils.UnitUtil;
 
 import java.io.File;
-import java.math.BigDecimal;
 
 
 public class GlideCacheUtil {

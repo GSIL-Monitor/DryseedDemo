@@ -2,7 +2,7 @@ package com.dryseed.dryseedapp.tools.sensor.networkstate;
 
 import android.util.Log;
 
-import com.dryseed.dryseedapp.utils.NetWorkUtil;
+import com.luojilab.component.basiclib.utils.NetWorkUtil;
 
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;

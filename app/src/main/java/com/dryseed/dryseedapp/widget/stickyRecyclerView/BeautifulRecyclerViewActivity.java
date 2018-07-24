@@ -1,7 +1,6 @@
 package com.dryseed.dryseedapp.widget.stickyRecyclerView;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -11,7 +10,7 @@ import android.widget.TextView;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
-import com.luojilab.component.basiclib.DPIUtil;
+import com.luojilab.component.basiclib.utils.DPIUtil;
 import com.dryseed.dryseedapp.widget.stickyRecyclerView.adapter.SimpleAdapter;
 import com.dryseed.dryseedapp.widget.stickyRecyclerView.library.PowerfulStickyDecoration;
 import com.dryseed.dryseedapp.widget.stickyRecyclerView.library.listener.PowerGroupListener;

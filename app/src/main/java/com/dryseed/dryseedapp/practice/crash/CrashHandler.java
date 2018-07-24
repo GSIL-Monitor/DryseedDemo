@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 
-import com.dryseed.dryseedapp.utils.AppConfig;
+import com.luojilab.component.basiclib.utils.AppConfig;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

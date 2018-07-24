@@ -10,8 +10,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.dryseed.dryseedapp.BaseActivity;
-import com.dryseed.dryseedapp.utils.LogUtil;
-import com.dryseed.timecost.utils.DebugLog;
+import com.luojilab.component.basiclib.utils.LogUtil;
 
 /**
  * @author CaiMinMing

@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.practice.checkEmulator.lib.EmuCheckUtil;
-import com.dryseed.dryseedapp.utils.ToastUtil;
+import com.luojilab.component.basiclib.utils.ToastUtil;
 
 /**
  * 参考了https://github.com/happylishang/CacheEmulatorChecker

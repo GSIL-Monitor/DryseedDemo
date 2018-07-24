@@ -14,7 +14,7 @@ import android.view.View;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.utils.ToastUtil;
+import com.luojilab.component.basiclib.utils.ToastUtil;
 
 public class FaceDetectorActivity extends BaseActivity {
     private static final String TAG = "MMM";

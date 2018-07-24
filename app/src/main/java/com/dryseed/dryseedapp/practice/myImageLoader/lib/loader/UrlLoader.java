@@ -27,7 +27,7 @@ package com.dryseed.dryseedapp.practice.myImageLoader.lib.loader;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import com.dryseed.dryseedapp.utils.IOUtil;
+import com.luojilab.component.basiclib.utils.IOUtil;
 
 import com.dryseed.dryseedapp.practice.myImageLoader.lib.request.BitmapRequest;
 

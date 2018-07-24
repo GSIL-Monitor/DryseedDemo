@@ -1,6 +1,5 @@
 package com.dryseed.dryseedapp.customView.comboClickTextView;
 
-import android.app.Activity;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +9,7 @@ import android.widget.TextView;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
-import com.luojilab.component.basiclib.DPIUtil;
+import com.luojilab.component.basiclib.utils.DPIUtil;
 
 /**
  * Created by User on 2017/4/1.

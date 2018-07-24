@@ -4,15 +4,13 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.widget.ImageView;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.utils.CompressImageUtil;
-import com.luojilab.component.basiclib.DPIUtil;
-import com.dryseed.dryseedapp.utils.StorageDirectoryUtil;
-import com.dryseed.dryseedapp.utils.UnitUtil;
+import com.luojilab.component.basiclib.utils.CompressImageUtil;
+import com.luojilab.component.basiclib.utils.DPIUtil;
+import com.luojilab.component.basiclib.utils.StorageDirectoryUtil;
 
 import java.io.File;
 

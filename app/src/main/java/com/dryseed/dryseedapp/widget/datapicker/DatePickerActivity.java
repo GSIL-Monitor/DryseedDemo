@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import com.blankj.utilcode.util.ToastUtils;
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.utils.ToastUtil;
 import com.luojilab.component.componentlib.router.Router;
 import com.luojilab.componentservice.wheelpicker.WheelPickerService;
 import com.luojilab.componentservice.wheelpicker.interfaces.IDatePicker;

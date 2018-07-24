@@ -2,7 +2,7 @@ package com.dryseed.dryseedapp.tools.jobmanager;
 
 import android.annotation.SuppressLint;
 
-import com.dryseed.dryseedapp.utils.LogUtil;
+import com.luojilab.component.basiclib.utils.LogUtil;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

@@ -11,7 +11,7 @@ import android.util.Log;
 
 
 import com.dryseed.dryseedapp.BuildConfig;
-import com.dryseed.dryseedapp.utils.AppConfig;
+import com.luojilab.component.basiclib.utils.AppConfig;
 
 import static android.util.Log.e;
 

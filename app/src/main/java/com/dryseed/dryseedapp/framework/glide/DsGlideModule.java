@@ -11,7 +11,7 @@ import com.bumptech.glide.load.engine.cache.ExternalCacheDiskCacheFactory;
 import com.bumptech.glide.load.engine.cache.LruResourceCache;
 import com.bumptech.glide.load.engine.cache.MemorySizeCalculator;
 import com.bumptech.glide.module.AppGlideModule;
-import com.dryseed.dryseedapp.utils.UnitUtil;
+import com.luojilab.component.basiclib.utils.UnitUtil;
 
 /**
  * https://muyangmin.github.io/glide-docs-cn/doc/generatedapi.html

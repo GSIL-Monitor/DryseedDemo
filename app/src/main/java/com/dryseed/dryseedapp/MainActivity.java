@@ -14,8 +14,8 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.dryseed.dryseedapp.canvas.canvas.TestCanvasActivity;
-import com.dryseed.dryseedapp.utils.LogUtil;
-import com.dryseed.dryseedapp.utils.ToastUtil;
+import com.luojilab.component.basiclib.utils.LogUtil;
+import com.luojilab.component.basiclib.utils.ToastUtil;
 import com.dryseed.dryseedapp.utils.dao.DaoManager;
 import com.dryseed.dryseedapp.widget.dialog.DsAlertDialog;
 import com.dryseed.dryseedapp.widget.floatView.FloatViewManager;

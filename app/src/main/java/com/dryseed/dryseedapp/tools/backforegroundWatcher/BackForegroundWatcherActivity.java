@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.dryseed.dryseedapp.BaseActivity;
-import com.dryseed.dryseedapp.utils.BackForegroundWatcher;
-import com.dryseed.dryseedapp.utils.ToastUtil;
+import com.luojilab.component.basiclib.utils.BackForegroundWatcher;
+import com.luojilab.component.basiclib.utils.ToastUtil;
 
 /**
  * Created by caiminming on 2017/12/23.

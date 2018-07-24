@@ -39,7 +39,7 @@ import com.dryseed.dryseedapp.image.loader.DiskLruCache;
 import com.dryseed.dryseedapp.practice.myImageLoader.lib.request.BitmapRequest;
 import com.dryseed.dryseedapp.practice.myImageLoader.lib.utils.BitmapDecoder;
 import com.dryseed.dryseedapp.practice.myImageLoader.lib.utils.Md5Helper;
-import com.dryseed.dryseedapp.utils.IOUtil;
+import com.luojilab.component.basiclib.utils.IOUtil;
 
 import java.io.BufferedOutputStream;
 import java.io.File;

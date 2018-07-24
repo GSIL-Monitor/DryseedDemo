@@ -1,6 +1,6 @@
 package com.dryseed.dryseedapp;
 
-import com.dryseed.dryseedapp.utils.TimeUtils;
+import com.luojilab.component.basiclib.utils.TimeUtils;
 
 import org.junit.After;
 import org.junit.Before;

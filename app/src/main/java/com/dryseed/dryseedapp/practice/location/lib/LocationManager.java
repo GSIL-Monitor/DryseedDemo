@@ -11,16 +11,14 @@ import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
 import com.dryseed.dryseedapp.MyApplication;
-import com.dryseed.dryseedapp.utils.AppConfig;
-import com.dryseed.dryseedapp.utils.PermissionUtil;
+import com.luojilab.component.basiclib.utils.AppConfig;
+import com.luojilab.component.basiclib.utils.PermissionUtil;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.ref.SoftReference;
