@@ -1,4 +1,4 @@
-package com.dryseed.aaccomponent.livedata;
+package com.dryseed.aaccomponent.livedata.demo1;
 
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;

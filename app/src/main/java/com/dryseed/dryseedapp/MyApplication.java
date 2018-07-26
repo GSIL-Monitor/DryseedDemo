@@ -50,7 +50,6 @@ public class MyApplication extends BaseApplication {
         }
 
         initComponent();
-        Utils.init(sInstance);
         Fresco.initialize(sInstance);
         LeakCanary.install(sInstance);
         initX5();

@@ -8,6 +8,8 @@ import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.util.Log;
 
+import com.luojilab.component.basiclib.utils.LogUtil;
+
 public class LifeCycleTextView extends AppCompatTextView implements LifecycleObserver {
 
     private StringBuffer mStringBuffer;
@@ -27,35 +29,35 @@ public class LifeCycleTextView extends AppCompatTextView implements LifecycleObs
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     public void create() {
-        Log.d("MMM", "LifeCycleTextView create");
+        LogUtil.d("LifeCycleTextView create");
         mStringBuffer.append("LifeCycleTextView create \n");
         this.setText(mStringBuffer);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     public void start() {
-        Log.d("MMM", "LifeCycleTextView start");
+        LogUtil.d("LifeCycleTextView start");
         mStringBuffer.append("LifeCycleTextView start \n");
         this.setText(mStringBuffer);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     public void resume() {
-        Log.d("MMM", "LifeCycleTextView resume");
+        LogUtil.d("LifeCycleTextView resume");
         mStringBuffer.append("LifeCycleTextView resume \n");
         this.setText(mStringBuffer);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     public void pause() {
-        Log.d("MMM", "LifeCycleTextView pause");
+        LogUtil.d("LifeCycleTextView pause");
         mStringBuffer.append("LifeCycleTextView pause \n");
         this.setText(mStringBuffer);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     public void stop() {
-        Log.d("MMM", "LifeCycleTextView stop");
+        LogUtil.d("LifeCycleTextView stop");
         mStringBuffer.append("LifeCycleTextView stop \n");
         this.setText(mStringBuffer);
     }

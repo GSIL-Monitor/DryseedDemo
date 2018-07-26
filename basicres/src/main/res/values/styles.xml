@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="commonAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -8,4 +8,10 @@
         <item name="colorAccent">@color/common_colorAccent</item>
     </style>
 
+    <style name="common_button_base">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/common_button_height</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:gravity">center</item>
+    </style>
 </resources>

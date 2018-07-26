@@ -5,7 +5,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
+import com.dryseed.aaccomponent.R;
 import com.luojilab.router.facade.annotation.RouteNode;
 
 /**
@@ -16,28 +18,33 @@ import com.luojilab.router.facade.annotation.RouteNode;
 @RouteNode(path = "/lifecycle", desc = "lifecycle")
 public class LifeCycleActivity extends AppCompatActivity {
 
+    LifeCycleTextView mLifeCycleTextView;
+    Button mBindBtn;
+    Button mUnbindBtn;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        LifeCycleTextView lifeCycleTextView = new LifeCycleTextView(this);
+        setContentView(R.layout.acitivty_lifecycle_layout);
 
-        //注册Observer
-        getLifecycle().addObserver(lifeCycleTextView);
+        mLifeCycleTextView = findViewById(R.id.lifecycle_textview);
+        mBindBtn = findViewById(R.id.bind_btn);
+        mUnbindBtn = findViewById(R.id.unbind_btn);
 
-        setContentView(lifeCycleTextView);
-
-        View decorView = getWindow().getDecorView();
-        View parent = lifeCycleTextView;
-        while (parent != null) {
-            Log.d("MMM", parent.toString());
-            if (parent == decorView) {
-                Log.d("MMM", "find decorView");
-                break;
+        mBindBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getLifecycle().addObserver(mLifeCycleTextView);
             }
-            if (parent.getParent() instanceof View) {
-                parent = (View) parent.getParent();
+        });
+
+        mUnbindBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getLifecycle().removeObserver(mLifeCycleTextView);
             }
-        }
+        });
+
     }
 }

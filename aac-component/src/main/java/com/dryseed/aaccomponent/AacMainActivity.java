@@ -46,7 +46,8 @@ public class AacMainActivity extends BaseActivity {
     private void initData() {
         mData.add(new Pair("Architecture/AAC/LifeCycle/BaseLifeCycle", "dryseed://aac/lifecycle"));
         mData.add(new Pair("Architecture/AAC/LifeCycle/LifeCycleOwner", "dryseed://aac/lifecycleowner"));
-        mData.add(new Pair("Architecture/AAC/LiveData/BaseLiveData", "dryseed://aac/livedata"));
+        mData.add(new Pair("Architecture/AAC/LiveData/LiveData/Demo1", "dryseed://aac/livedatademo1"));
+        mData.add(new Pair("Architecture/AAC/LiveData/LiveData/Demo2", "dryseed://aac/livedatademo2"));
         mData.add(new Pair("Architecture/AAC/Navigation", "dryseed://aac/navigation"));
         mData.add(new Pair("Architecture/AAC/Demo", "dryseed://aac/demo"));
     }

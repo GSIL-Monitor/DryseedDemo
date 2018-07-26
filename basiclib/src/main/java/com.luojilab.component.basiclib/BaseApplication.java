@@ -2,10 +2,10 @@ package com.luojilab.component.basiclib;
 
 import android.app.Application;
 import android.os.Process;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.blankj.utilcode.util.Utils;
 import com.luojilab.component.basiclib.utils.ProcessUtil;
 
 /**
@@ -31,6 +31,8 @@ public class BaseApplication extends Application {
 
         Log.d("MMM", " MyApplication onCreate");
 
+        sInstance = this;
+
         String processName = ProcessUtil.getProcessName(this, Process.myPid());
         if (!TextUtils.isEmpty(processName) && processName.equals("com.dryseed.dryseedapp")) {
             init();
@@ -38,6 +40,7 @@ public class BaseApplication extends Application {
     }
 
     protected void init() {
-        sInstance = this;
+        //com.blankj.utilcode.util init
+        Utils.init(sInstance);
     }
 }

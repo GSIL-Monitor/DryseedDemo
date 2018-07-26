@@ -18,21 +18,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".AacMainActivity" />
-        <activity
-            android:name=".lifecycle.LifeCycleActivity">
-        </activity>
-        <activity
-            android:name=".lifecycle.LifeCycleOwnerActivity">
-        </activity>
-        <activity
-            android:name=".livedata.LiveDataActivity">
-        </activity>
-        <activity
-            android:name=".demo.ui.MainActivity">
-        </activity>
-        <activity
-            android:name=".navigation.TestNavigationActivity">
-        </activity>
+        <activity android:name=".lifecycle.LifeCycleActivity" />
+        <activity android:name=".lifecycle.LifeCycleOwnerActivity" />
+        <activity android:name=".livedata.demo1.LiveDataActivity" />
+        <activity android:name=".livedata.demo2.LiveData2Activity" />
+        <activity android:name=".demo.ui.MainActivity" />
+        <activity android:name=".navigation.TestNavigationActivity" />
     </application>
 
 </manifest>

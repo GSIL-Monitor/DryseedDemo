@@ -1,4 +1,4 @@
-package com.dryseed.aaccomponent.livedata;
+package com.dryseed.aaccomponent.livedata.demo1;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
@@ -7,11 +7,11 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.luojilab.router.facade.annotation.RouteNode;
 
-@RouteNode(path = "/livedata", desc = "livedata")
+@RouteNode(path = "/livedatademo1", desc = "livedatademo1")
 public class LiveDataActivity extends AppCompatActivity {
     private NameViewModel mModel;
 
@@ -40,7 +40,7 @@ public class LiveDataActivity extends AppCompatActivity {
             @Override
             public void onChanged(@Nullable final String newName) {
                 // Update the UI, in this case, a TextView.
-                Toast.makeText(LiveDataActivity.this, newName, Toast.LENGTH_SHORT).show();
+                ToastUtils.showShort(newName);
             }
         };
 
