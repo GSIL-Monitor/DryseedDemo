@@ -186,7 +186,7 @@ configurations.all {
 
 //component
 combuild {
-    applicationName = 'com.dryseed.dryseedapp.MyApplication'
+    applicationName = 'com.dryseed.dryseedapp.application.MyApplication'
     isRegisterCompoAuto = true
 }
 
@@ -226,8 +226,6 @@ dependencies {
     implementation 'com.android.support:design:' + GOOGLE_SUPPORT_VERSION
 
     implementation 'com.android.support:recyclerview-v7:' + GOOGLE_SUPPORT_VERSION
-
-    implementation 'com.android.support:multidex:1.0.1'
 
     // ----------------------------------------------------
     // ########## WorkManager ##########

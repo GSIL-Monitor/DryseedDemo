@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.dryseed.dryseedapp.BaseActivity;
-import com.dryseed.dryseedapp.MyApplication;
+import com.dryseed.dryseedapp.application.MyApplication;
 import com.luojilab.component.basiclib.utils.ToastUtil;
 
 import org.json.JSONArray;

@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.dryseed.dryseedapp.BaseActivity;
-import com.dryseed.dryseedapp.MyApplication;
+import com.dryseed.dryseedapp.application.MyApplication;
 
 /**
  * SingleInstance测试

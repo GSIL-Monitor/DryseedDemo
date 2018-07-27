@@ -5,10 +5,8 @@ import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import android.widget.Toast;
 
-import com.dryseed.dryseedapp.MyApplication;
-import com.dryseed.dryseedapp.R;
+import com.dryseed.dryseedapp.application.MyApplication;
 
 import java.io.File;
 import java.io.IOException;

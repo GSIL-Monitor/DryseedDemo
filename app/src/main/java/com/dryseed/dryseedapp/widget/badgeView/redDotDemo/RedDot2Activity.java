@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 
 import com.dryseed.dryseedapp.BaseActivity;
-import com.dryseed.dryseedapp.MyApplication;
+import com.dryseed.dryseedapp.application.MyApplication;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.framework.rxBus.RxBus;
 

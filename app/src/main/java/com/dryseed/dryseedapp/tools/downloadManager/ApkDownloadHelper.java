@@ -13,7 +13,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.content.FileProvider;
 import android.util.Log;
 
-import com.dryseed.dryseedapp.MyApplication;
+import com.dryseed.dryseedapp.application.MyApplication;
 
 import java.io.File;
 import java.net.URI;

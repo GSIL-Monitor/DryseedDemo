@@ -6,7 +6,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
-import com.dryseed.dryseedapp.MyApplication;
+import com.dryseed.dryseedapp.application.MyApplication;
 
 import java.io.File;
 import java.io.FileInputStream;

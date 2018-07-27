@@ -1,15 +1,18 @@
 package com.luojilab.component.basiclib;
 
 import android.app.Application;
+import android.content.Context;
 import android.os.Process;
+import android.support.multidex.MultiDex;
 import android.text.TextUtils;
 import android.util.Log;
 
 import com.blankj.utilcode.util.Utils;
+import com.luojilab.component.basiclib.utils.DPIUtil;
 import com.luojilab.component.basiclib.utils.ProcessUtil;
 
 /**
- * Created by mrzhang on 2018/1/16.
+ * Created by caiminming on 2018/1/16.
  */
 
 public class BaseApplication extends Application {
@@ -26,21 +29,36 @@ public class BaseApplication extends Application {
     }
 
     @Override
-    public void onCreate() {
-        super.onCreate();
-
-        Log.d("MMM", " MyApplication onCreate");
-
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
         sInstance = this;
 
-        String processName = ProcessUtil.getProcessName(this, Process.myPid());
-        if (!TextUtils.isEmpty(processName) && processName.equals("com.dryseed.dryseedapp")) {
-            init();
-        }
+        onBaseContextAttached();
     }
 
-    protected void init() {
-        //com.blankj.utilcode.util init
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        init();
+    }
+
+    /**
+     * 基类Application的onCreate初始化工作
+     */
+    private void init() {
+        try {
+            DPIUtil.setDensity(sInstance.getResources().getDisplayMetrics().density);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+
         Utils.init(sInstance);
+    }
+
+    /**
+     * 基类Application的onBaseContextAttached初始化工作
+     */
+    private void onBaseContextAttached() {
+        MultiDex.install(sInstance);
     }
 }

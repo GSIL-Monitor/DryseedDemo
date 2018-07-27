@@ -15,7 +15,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
-import com.dryseed.dryseedapp.MyApplication;
+import com.dryseed.dryseedapp.application.MyApplication;
 import com.dryseed.dryseedapp.R;
 import com.luojilab.component.basiclib.utils.StorageDirectoryUtil;
 import com.luojilab.component.basiclib.utils.ToastUtil;

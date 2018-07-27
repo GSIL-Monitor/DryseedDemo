@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.dryseed.dryseedapp.BaseActivity;
-import com.dryseed.dryseedapp.MyApplication;
+import com.dryseed.dryseedapp.application.MyApplication;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.framework.rxBus.RxBus;
 

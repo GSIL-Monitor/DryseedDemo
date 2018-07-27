@@ -1,9 +1,6 @@
 package com.dryseed.dryseedapp.framework.okhttp;
 
-import android.util.Log;
-
-import com.dryseed.dryseedapp.MyApplication;
-import com.dryseed.dryseedapp.framework.okhttp.cookie.PersistentCookieStore;
+import com.dryseed.dryseedapp.application.MyApplication;
 import com.dryseed.dryseedapp.framework.okhttp.cookie.SimpleCookieJar;
 import com.dryseed.dryseedapp.framework.okhttp.listener.DisposeDataHandle;
 import com.dryseed.dryseedapp.framework.okhttp.response.CommonFileCallback;
@@ -13,8 +10,6 @@ import com.dryseed.dryseedapp.framework.okhttp.ssl.HttpsUtils;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.CookieManager;
-import java.net.CookiePolicy;
 import java.security.SecureRandom;
 import java.security.cert.CertificateException;
 import java.util.concurrent.TimeUnit;

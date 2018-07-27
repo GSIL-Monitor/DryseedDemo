@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.dryseed.dryseedapp.BaseActivity;
-import com.dryseed.dryseedapp.MyApplication;
+import com.dryseed.dryseedapp.application.MyApplication;
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.framework.okhttp.listener.DisposeDataHandle;
 import com.dryseed.dryseedapp.framework.okhttp.listener.DisposeDataListener;

@@ -1,22 +1,14 @@
-package com.dryseed.dryseedapp;
+package com.dryseed.dryseedapp.application;
 
-import android.content.Context;
-import android.os.Process;
 import android.os.StrictMode;
-import android.support.multidex.MultiDex;
-import android.text.TextUtils;
-import android.util.Log;
 
-import com.blankj.utilcode.util.Utils;
+import com.dryseed.dryseedapp.BuildConfig;
 import com.dryseed.dryseedapp.practice.crash.CrashHandler;
-import com.luojilab.component.basiclib.utils.BackForegroundWatcher;
 import com.dryseed.timecost.TimeCostCanary;
 import com.dryseed.timecost.TimeCostConfig;
-import com.luojilab.component.basiclib.BaseApplication;
-import com.luojilab.component.basiclib.utils.DPIUtil;
-import com.luojilab.component.basiclib.utils.ProcessUtil;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.stetho.Stetho;
+import com.luojilab.component.basiclib.utils.BackForegroundWatcher;
 import com.luojilab.component.componentlib.router.ui.UIRouter;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.smtt.export.external.TbsCoreSettings;
@@ -28,34 +20,21 @@ import zlc.season.rxdownload3.core.DownloadConfig;
 import zlc.season.rxdownload3.extension.ApkInstallExtension;
 import zlc.season.rxdownload3.extension.ApkOpenExtension;
 
-
 /**
- * Created by caiminming on 2016/11/23.
+ * @author caiminming
  */
-public class MyApplication extends BaseApplication {
+class MainApplication extends BaseApplicationProxy {
     @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        MultiDex.install(base);
-    }
-
-    @Override
-    protected void init() {
-        super.init();
-        Log.d("MMM", " MyApplication init");
-        try {
-            DPIUtil.setDensity(sInstance.getResources().getDisplayMetrics().density);
-        } catch (Throwable e) {
-            e.printStackTrace();
-        }
+    public void initWithoutPermission() {
+        super.initWithoutPermission();
 
         initComponent();
-        Fresco.initialize(sInstance);
-        LeakCanary.install(sInstance);
+        Fresco.initialize(mContext);
+        LeakCanary.install(mContext);
         initX5();
         initRxDownload();
         BackForegroundWatcher.getInstance().init(MyApplication.getInstance());
-        Stetho.initializeWithDefaults(sInstance);
+        Stetho.initializeWithDefaults(mContext);
         //initARouter();
         initCrashHandler();
         //initStrictMode();
@@ -97,14 +76,14 @@ public class MyApplication extends BaseApplication {
         HashMap<String, Object> map = new HashMap<String, Object>();
         map.put(TbsCoreSettings.TBS_SETTINGS_USE_PRIVATE_CLASSLOADER, true);
         QbSdk.initTbsSettings(map);
-        QbSdk.initX5Environment(getApplicationContext(), cb);
+        QbSdk.initX5Environment(mContext, cb);
     }
 
     /**
      * RxDownload初始化
      */
     private void initRxDownload() {
-        DownloadConfig.Builder builder = DownloadConfig.Builder.Companion.create(this)
+        DownloadConfig.Builder builder = DownloadConfig.Builder.Companion.create(mContext)
                 //.enableDb(true)
                 //.setDbActor(new CustomSqliteActor(this))
                 .enableService(true)
@@ -120,7 +99,7 @@ public class MyApplication extends BaseApplication {
      */
     private void initCrashHandler() {
         if (BuildConfig.DEBUG) {
-            CrashHandler.getInstance(this).init();
+            CrashHandler.getInstance(mContext).init();
         }
     }
 
@@ -166,7 +145,7 @@ public class MyApplication extends BaseApplication {
      * TimeCost初始化
      */
     private void initTimeCost() {
-        TimeCostCanary.install(this).config(
+        TimeCostCanary.install(mContext).config(
                 new TimeCostConfig.Builder()
                         .setExceedMilliTime(200L)
                         .setThreadExceedMilliTime(200L)
@@ -175,5 +154,4 @@ public class MyApplication extends BaseApplication {
                         .build()
         );
     }
-
 }

@@ -6,16 +6,13 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.dryseed.dryseedapp.MyApplication;
+import com.dryseed.dryseedapp.application.MyApplication;
 import com.dryseed.dryseedapp.framework.rxBus.RxBus;
-import com.dryseed.dryseedapp.framework.rxBus.event.MessageEvent;
 
-import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 

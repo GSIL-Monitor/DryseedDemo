@@ -10,7 +10,7 @@ import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
-import com.dryseed.dryseedapp.MyApplication;
+import com.dryseed.dryseedapp.application.MyApplication;
 import com.luojilab.component.basiclib.utils.AppConfig;
 import com.luojilab.component.basiclib.utils.PermissionUtil;
 
