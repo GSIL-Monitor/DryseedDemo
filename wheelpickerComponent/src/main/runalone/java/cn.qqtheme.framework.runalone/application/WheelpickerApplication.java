@@ -1,7 +1,6 @@
 package cn.qqtheme.framework.runalone.application;
 
 import com.luojilab.component.basiclib.BaseApplication;
-import com.luojilab.component.componentlib.router.Router;
 
 public class WheelpickerApplication extends BaseApplication {
 

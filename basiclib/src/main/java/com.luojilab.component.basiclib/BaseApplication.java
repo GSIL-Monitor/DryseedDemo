@@ -45,7 +45,7 @@ public class BaseApplication extends Application {
     /**
      * 基类Application的onCreate初始化工作
      */
-    private void init() {
+    protected void init() {
         try {
             DPIUtil.setDensity(sInstance.getResources().getDisplayMetrics().density);
         } catch (Throwable e) {
@@ -58,7 +58,7 @@ public class BaseApplication extends Application {
     /**
      * 基类Application的onBaseContextAttached初始化工作
      */
-    private void onBaseContextAttached() {
+    protected void onBaseContextAttached() {
         MultiDex.install(sInstance);
     }
 }

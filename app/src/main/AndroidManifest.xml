@@ -833,6 +833,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".widget.viewPager.ultraViewPager.UPVDemoActivity"
+            android:label="Widget/ViewPager/UltraViewPager">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".widget.viewPager.ultraViewPager.PagerActivity" />
+        <activity
             android:name=".canvas.canvas.TestCanvasActivity"
             android:label="Canvas/TestCanvasActivity">
             <intent-filter>

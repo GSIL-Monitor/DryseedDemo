@@ -409,6 +409,12 @@ dependencies {
     //xiaomiCompile 'com.qihoo360.union.sdk:union:1.0'
 
     // ----------------------------------------------------
+    // ########## UltraViewPager ##########
+    // https://github.com/alibaba/UltraViewPager
+    // ----------------------------------------------------
+    compile 'com.alibaba.android:ultraviewpager:1.0.7.7'
+
+    // ----------------------------------------------------
     // ########## TimeCost ##########
     // https://github.com/dryseedcai/TimeCost
     // ----------------------------------------------------

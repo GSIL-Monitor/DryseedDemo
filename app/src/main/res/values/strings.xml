@@ -151,4 +151,19 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string-array name="indicator_style">
+        <item>None</item>
+        <item>Circle</item>
+        <item>Icon</item>
+    </string-array>
+    <string-array name="indicator_gravity_hor">
+        <item>Left</item>
+        <item>Right</item>
+        <item>Center</item>
+    </string-array>
+    <string-array name="indicator_gravity_ver">
+        <item>Top</item>
+        <item>Bottom</item>
+        <item>Center</item>
+    </string-array>
 </resources>
