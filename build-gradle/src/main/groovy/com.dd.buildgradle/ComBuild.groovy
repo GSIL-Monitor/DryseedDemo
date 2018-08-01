@@ -15,33 +15,39 @@ class ComBuild implements Plugin<Project> {
         project.extensions.create('combuild', ComExtension)
 
         String taskNames = project.gradle.startParameter.taskNames.toString()
-        myPrintln("taskNames is " + taskNames) //[assembleDebug]
-        String module = project.path.replace(":", "") //project.path=":app"
-        myPrintln("current module is " + module) //app
+        myPrintln("taskNames is " + taskNames) //[assemble] || [assemble]
+        myPrintln("project.path : " + project.path) //:app || :aac-component
+        String module = project.path.replace(":", "")
+        myPrintln("current module is " + module) //app || aac-component
         AssembleTask assembleTask = getTaskInfo(project.gradle.startParameter.taskNames)
+        myPrintln("assembleTask [isAssemble:${assembleTask.isAssemble}][isDebug:${assembleTask.isDebug}][modules:${assembleTask.modules.get(0)}]")
+        //[isAssemble:true][isDebug:false][modules:all] || [isAssemble:true][isDebug:false][modules:all]
 
         if (assembleTask.isAssemble) {
-            fetchMainModulename(project, assembleTask)
-            myPrintln("compilemodule  is " + compilemodule) //build-gradle
+            fetchMainModulename(project, assembleTask) // set compilemodule
+            myPrintln("compilemodule  is " + compilemodule) //app || app
         }
 
         if (!project.hasProperty("isRunAlone")) {
             throw new RuntimeException("you should set isRunAlone in " + module + "'s gradle.properties")
         }
 
-        //对于isRunAlone==true的情况需要根据实际情况修改其值，
+        // 对于isRunAlone==true的情况需要根据实际情况修改其值，
         // 但如果是false，则不用修改
         boolean isRunAlone = Boolean.parseBoolean((project.properties.get("isRunAlone")))
         String mainmodulename = project.rootProject.property("mainmodulename")
         if (isRunAlone && assembleTask.isAssemble) {
             //对于要编译的组件和主项目，isRunAlone修改为true，其他组件都强制修改为false
             //这就意味着组件不能引用主项目，这在层级结构里面也是这么规定的
+            // compilemodule：编译的主项目
+            // module：当前项目
             if (module.equals(compilemodule) || module.equals(mainmodulename)) {
                 isRunAlone = true
             } else {
                 isRunAlone = false
             }
         }
+        myPrintln("isRunAlone  is ${isRunAlone}")
         project.setProperty("isRunAlone", isRunAlone)
 
         //根据配置添加各种组件依赖，并且自动化生成组件加载代码

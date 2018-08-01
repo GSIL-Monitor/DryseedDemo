@@ -14,7 +14,8 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
-        classpath 'com.luojilab.ddcomponent:build-gradle:1.1.0' //component
+        //classpath 'com.luojilab.ddcomponent:build-gradle:1.1.0' //component
+        classpath 'com.dd.buildgradle:build-gradle:1.0.0' //component
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "com.dryseed.timecost.gradle:buildsrc:1.+"
@@ -53,6 +54,7 @@ subprojects {
     apply from: "${project.rootDir}/dependencies.gradle"
 }
 
+/*
 // 278405780 gradle全局只有一个，值是固定的
 println "In DryseedDemo, gradle id is : " + gradle.hashCode()
 // C:\Users\User\.gradle\wrapper\dists\gradle-3.3-all\55gk2rcmfc6p2dg9u9ohc3hw9\gradle-3.3 ： 在哪个目录存储的gradle可执行程序
@@ -79,4 +81,4 @@ project.tasks.each {
 
 task dsTask {
     println "============ dsTask start ============"
-}
+}*/
