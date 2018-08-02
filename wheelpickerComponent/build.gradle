@@ -39,5 +39,5 @@ dependencies {
 
 combuild {
     applicationName = 'cn.qqtheme.framework.runalone.application.WheelpickerApplication'
-    isRegisterCompoAuto = true
+    //isRegisterCompoAuto = true
 }

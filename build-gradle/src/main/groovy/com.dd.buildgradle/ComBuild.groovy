@@ -15,17 +15,19 @@ class ComBuild implements Plugin<Project> {
         project.extensions.create('combuild', ComExtension)
 
         String taskNames = project.gradle.startParameter.taskNames.toString()
-        myPrintln("taskNames is " + taskNames) //[assemble] || [assemble]
-        myPrintln("project.path : " + project.path) //:app || :aac-component
+        myPrintln("taskNames is " + taskNames)
+        // [:app:assembleBaiduDebug] || [:app:assembleBaiduDebug] || [:aac-component:assembleDebug]
+        myPrintln("project.path : " + project.path) // :app || :aac-component || :aac-component
         String module = project.path.replace(":", "")
-        myPrintln("current module is " + module) //app || aac-component
+        myPrintln("current module is " + module) // app || aac-component || aac-component
         AssembleTask assembleTask = getTaskInfo(project.gradle.startParameter.taskNames)
-        myPrintln("assembleTask [isAssemble:${assembleTask.isAssemble}][isDebug:${assembleTask.isDebug}][modules:${assembleTask.modules.get(0)}]")
-        //[isAssemble:true][isDebug:false][modules:all] || [isAssemble:true][isDebug:false][modules:all]
+        myPrintln(String.format("assembleTask [isAssemble:${assembleTask.isAssemble}][isDebug:${assembleTask.isDebug}][modules:%s]",
+                (null != assembleTask.modules && !assembleTask.modules.isEmpty()) ? assembleTask.modules.get(0) : "null"))
+        //[isAssemble:true][isDebug:false][modules:app] || [isAssemble:true][isDebug:false][modules:app] || [isAssemble:true][isDebug:true][modules:aac-component]
 
         if (assembleTask.isAssemble) {
             fetchMainModulename(project, assembleTask) // set compilemodule
-            myPrintln("compilemodule  is " + compilemodule) //app || app
+            myPrintln("compilemodule  is " + compilemodule) //app || app || aac-component
         }
 
         if (!project.hasProperty("isRunAlone")) {
@@ -41,19 +43,22 @@ class ComBuild implements Plugin<Project> {
             //这就意味着组件不能引用主项目，这在层级结构里面也是这么规定的
             // compilemodule：编译的主项目
             // module：当前项目
+            // mainmodulename : project/gradle.properties 配置的mainmodulename
             if (module.equals(compilemodule) || module.equals(mainmodulename)) {
                 isRunAlone = true
             } else {
                 isRunAlone = false
             }
         }
-        myPrintln("isRunAlone  is ${isRunAlone}")
+        myPrintln("isRunAlone  is ${isRunAlone}") // true || false || true
         project.setProperty("isRunAlone", isRunAlone)
 
         //根据配置添加各种组件依赖，并且自动化生成组件加载代码
         if (isRunAlone) {
             project.apply plugin: 'com.android.application'
+            //当前项目不是主工程配置的主app，即当前项目为组件独立调试
             if (!module.equals(mainmodulename)) {
+                myPrintln("add src dirs and files")
                 project.android.sourceSets {
                     main {
                         manifest.srcFile 'src/main/runalone/AndroidManifest.xml'
@@ -65,7 +70,9 @@ class ComBuild implements Plugin<Project> {
                 }
             }
             myPrintln("apply plugin is " + 'com.android.application')
+            // 添加编译项目的组件依赖 & 注册Transform
             if (assembleTask.isAssemble && module.equals(compilemodule)) {
+                myPrintln("add components compile dependencies")
                 compileComponents(assembleTask, project)
                 project.android.registerTransform(new ComCodeTransform(project)) //注册Transform
             }
@@ -116,7 +123,7 @@ class ComBuild implements Plugin<Project> {
                     assembleTask.isDebug = true
                 }
                 assembleTask.isAssemble = true
-                String[] strs = task.split(":")
+                String[] strs = task.split(":") //:app:assembleBaiduDebug
                 assembleTask.modules.add(strs.length > 1 ? strs[strs.length - 2] : "all")
                 break
             }

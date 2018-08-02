@@ -9,6 +9,7 @@ import com.dryseed.timecost.TimeCostConfig;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.stetho.Stetho;
 import com.luojilab.component.basiclib.utils.BackForegroundWatcher;
+import com.luojilab.component.componentlib.router.Router;
 import com.luojilab.component.componentlib.router.ui.UIRouter;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.smtt.export.external.TbsCoreSettings;
@@ -51,8 +52,9 @@ class MainApplication extends BaseApplicationProxy {
         UIRouter.getInstance().registerUI("wheelpicker");
 
         //如果isRegisterCompoAuto为false，则需要通过反射加载组件
-        //Router.registerComponent("com.luck.picture.applike.PictureselectorAppLike");
-        //Router.registerComponent("cn.qqtheme.framework.applike.WheelpickerAppLike");
+        Router.registerComponent("com.luck.picture.applike.PictureselectorAppLike");
+        Router.registerComponent("cn.qqtheme.framework.applike.WheelpickerAppLike");
+        Router.registerComponent("com.dryseed.aaccomponent.runalone.application.AacApplication");
     }
 
     /**

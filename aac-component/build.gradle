@@ -1,5 +1,9 @@
 apply plugin: 'com.dd.comgradle'
 
+repositories {
+    mavenLocal() // 使用本地仓库
+}
+
 android {
     compileSdkVersion Integer.parseInt("${COMPILE_SDK_VERSION}")
     buildToolsVersion "${BUILD_TOOLS_VERSION}"
@@ -26,12 +30,12 @@ android {
 }
 
 dependencies {
-    compile project(':componentservice') //component
+    implementation project(':componentservice') //component
     //annotationProcessor 'com.github.jimu:router-anno-compiler:1.0.1' //component router
     annotationProcessor project(':router-anno-compiler') //component router
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    compile 'com.android.support:appcompat-v7:' + GOOGLE_SUPPORT_VERSION
+    implementation 'com.android.support:appcompat-v7:' + GOOGLE_SUPPORT_VERSION
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
 
     // ----------------------------------------------------
@@ -39,7 +43,7 @@ dependencies {
     // https://developer.android.google.cn/topic/libraries/architecture/adding-components.html
     // 注意：'com.android.support:appcompat-v7:27.1.1'已经默认导入了lifecycles相关的库
     // ----------------------------------------------------
-    compile "android.arch.lifecycle:extensions:1.1.0" // ViewModel and LiveData
+    implementation "android.arch.lifecycle:extensions:1.1.0" // ViewModel and LiveData
     annotationProcessor "android.arch.lifecycle:compiler:1.1.0"
 
     // ----------------------------------------------------
@@ -54,5 +58,5 @@ dependencies {
 
 combuild {
     applicationName = 'com.dryseed.aaccomponent.runalone.application.AacApplication'
-    isRegisterCompoAuto = true
+    //isRegisterCompoAuto = true
 }
