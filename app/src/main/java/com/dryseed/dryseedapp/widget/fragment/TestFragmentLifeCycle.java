@@ -22,9 +22,9 @@ import butterknife.OnClick;
 
 public class TestFragmentLifeCycle extends BaseActivity {
 
-    private FragmentManager fragmentManager;
-    Fragment fragmentOne;
-    Fragment fragmentTwo;
+    private FragmentManager mFragmentManager;
+    Fragment mFragmentOne;
+    Fragment mFragmentTwo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,24 +33,29 @@ public class TestFragmentLifeCycle extends BaseActivity {
         setContentView(R.layout.activity_fragment_life_cycle_layout);
         ButterKnife.bind(this);
 
-        fragmentManager = getFragmentManager();
+        mFragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
 
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentOne = new MainTab01();
-        fragmentTransaction.replace(R.id.id_content, fragmentOne, fragmentOne.getClass().getName());
-        fragmentTransaction.commit();
-        // FragmentOne : onAttach -> onCreate -> onCreateView -> onViewCreated -> onActivityCreated -> onStart -> onResume
+        if (null == mFragmentOne) {
+            mFragmentOne = new MainTab01();
+        }
+
+        if (!mFragmentOne.isAdded()) {
+            fragmentTransaction.replace(R.id.id_content, mFragmentOne, mFragmentOne.getClass().getName());
+            fragmentTransaction.commit();
+            // FragmentOne : onAttach -> onCreate -> onCreateView -> onViewCreated -> onActivityCreated -> onStart -> onResume
+        }
     }
 
     @OnClick(R.id.replace_b_btn)
     protected void onReplaceBBtnClick() {
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        if (fragmentTwo == null) {
-            fragmentTwo = new MainTab02();
-            fragmentTransaction.replace(R.id.id_content, fragmentTwo, fragmentTwo.getClass().getName());
+        FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+        if (mFragmentTwo == null) {
+            mFragmentTwo = new MainTab02();
+            fragmentTransaction.replace(R.id.id_content, mFragmentTwo, mFragmentTwo.getClass().getName());
         } else {
-            Fragment fragment = fragmentManager.findFragmentByTag(fragmentTwo.getClass().getName());
-            fragmentTransaction.replace(R.id.id_content, fragment, fragmentTwo.getClass().getName());
+            Fragment fragment = mFragmentManager.findFragmentByTag(mFragmentTwo.getClass().getName());
+            fragmentTransaction.replace(R.id.id_content, fragment, mFragmentTwo.getClass().getName());
         }
         fragmentTransaction.commit();
 
@@ -63,15 +68,15 @@ public class TestFragmentLifeCycle extends BaseActivity {
 
     @OnClick(R.id.replace_b_backstack_btn)
     protected void onReplaceBWithAddToBackStackBtnClick() {
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        if (fragmentTwo == null) {
-            fragmentTwo = new MainTab02();
-            fragmentTransaction.replace(R.id.id_content, fragmentTwo, fragmentTwo.getClass().getName());
+        FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+        if (mFragmentTwo == null) {
+            mFragmentTwo = new MainTab02();
+            fragmentTransaction.replace(R.id.id_content, mFragmentTwo, mFragmentTwo.getClass().getName());
             //addToBackStack
-            fragmentTransaction.addToBackStack(fragmentTwo.getClass().getName());
+            fragmentTransaction.addToBackStack(mFragmentTwo.getClass().getName());
         } else {
-            Fragment fragment = fragmentManager.findFragmentByTag(fragmentTwo.getClass().getName());
-            fragmentTransaction.replace(R.id.id_content, fragment, fragmentTwo.getClass().getName());
+            Fragment fragment = mFragmentManager.findFragmentByTag(mFragmentTwo.getClass().getName());
+            fragmentTransaction.replace(R.id.id_content, fragment, mFragmentTwo.getClass().getName());
         }
         fragmentTransaction.commit();
 
@@ -84,15 +89,15 @@ public class TestFragmentLifeCycle extends BaseActivity {
     @OnClick(R.id.replace_a_backstack_btn)
     protected void onReplaceAWithAddToBackStackBtnClick() {
         // 测试：点击replace_b_backstack_btn后，再点击replace_a_backstack_btn
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        if (fragmentOne == null) {
-            fragmentOne = new MainTab02();
-            fragmentTransaction.replace(R.id.id_content, fragmentOne, fragmentOne.getClass().getName());
+        FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+        if (mFragmentOne == null) {
+            mFragmentOne = new MainTab02();
+            fragmentTransaction.replace(R.id.id_content, mFragmentOne, mFragmentOne.getClass().getName());
             //addToBackStack
-            fragmentTransaction.addToBackStack(fragmentOne.getClass().getName());
+            fragmentTransaction.addToBackStack(mFragmentOne.getClass().getName());
         } else {
-            Fragment fragment = fragmentManager.findFragmentByTag(fragmentOne.getClass().getName());
-            fragmentTransaction.replace(R.id.id_content, fragment, fragmentOne.getClass().getName());
+            Fragment fragment = mFragmentManager.findFragmentByTag(mFragmentOne.getClass().getName());
+            fragmentTransaction.replace(R.id.id_content, fragment, mFragmentOne.getClass().getName());
         }
         fragmentTransaction.commit();
 
@@ -104,14 +109,14 @@ public class TestFragmentLifeCycle extends BaseActivity {
 
     @OnClick(R.id.add_show_a_btn)
     protected void onAddAndShowABtnClick() {
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        if (fragmentTwo == null) {
-            fragmentTwo = new MainTab02();
-            fragmentTransaction.add(R.id.id_content, fragmentTwo, fragmentTwo.getClass().getName());
+        FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+        if (mFragmentTwo == null) {
+            mFragmentTwo = new MainTab02();
+            fragmentTransaction.add(R.id.id_content, mFragmentTwo, mFragmentTwo.getClass().getName());
             //addToBackStack
-            fragmentTransaction.addToBackStack(fragmentTwo.getClass().getName());
+            fragmentTransaction.addToBackStack(mFragmentTwo.getClass().getName());
         } else {
-            fragmentTransaction.show(fragmentTwo);
+            fragmentTransaction.show(mFragmentTwo);
         }
         fragmentTransaction.commit();
 

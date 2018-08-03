@@ -17,6 +17,7 @@
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:name=".application.MyApplication"
@@ -613,8 +614,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".widget.recyclerView.itemTouchHelper.TestItemTouchHelperActivity"
-            android:label="Widget/RecyclerView/ItemTouchHelper">
+            android:name=".widget.recyclerView.itemTouchHelper.demo1.TestItemTouchHelperActivity"
+            android:label="Widget/RecyclerView/ItemTouchHelper/Demo1">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.recyclerView.itemTouchHelper.demo2.TestItemTouchHelper2Activity"
+            android:label="Widget/RecyclerView/ItemTouchHelper/Demo2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />

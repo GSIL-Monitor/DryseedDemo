@@ -1,24 +1,29 @@
-package com.dryseed.dryseedapp.widget.recyclerView.itemTouchHelper;
+package com.dryseed.dryseedapp.widget.recyclerView.itemTouchHelper.demo2;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
+import com.dryseed.dryseedapp.widget.recyclerView.itemTouchHelper.demo1.ItemTouchHelperListener;
 import com.luojilab.component.basiclib.utils.ToastUtil;
-import com.dryseed.dryseedapp.widget.recyclerView.itemDecoration.TestAdapter;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class TestItemTouchHelperActivity extends BaseActivity implements ItemTouchHelperAdapter {
+/**
+ * @author caiminming
+ */
+public class TestItemTouchHelper2Activity extends BaseActivity implements ItemTouchHelperListener, OnStartDragListener {
     RecyclerView mRecyclerView;
     List<String> mData;
-    TestAdapter mAdapter;
+    SimpleAdapter mAdapter;
+    ItemTouchHelper mItemTouchHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,38 +33,25 @@ public class TestItemTouchHelperActivity extends BaseActivity implements ItemTou
         initDatas();
         initViews();
         initItemTouchHelper();
-
-        test();
-    }
-
-    private void test() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mData.remove(3);
-                mAdapter.notifyItemRemoved(3);
-                ToastUtil.showToast("size : " + mData.size());
-            }
-        }, 2000);
     }
 
     private void initItemTouchHelper() {
         ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(this);
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(callback);
-        itemTouchHelper.attachToRecyclerView(mRecyclerView);
+        mItemTouchHelper = new ItemTouchHelper(callback);
+        mItemTouchHelper.attachToRecyclerView(mRecyclerView);
     }
 
     private void initViews() {
         mRecyclerView = findViewById(R.id.timeline_recyclerview);
-        mAdapter = new TestAdapter(mData);
+        mAdapter = new SimpleAdapter(mData, this);
         mRecyclerView.setAdapter(mAdapter);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 4);
-        mRecyclerView.setLayoutManager(gridLayoutManager);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(linearLayoutManager);
     }
 
     private void initDatas() {
         mData = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 30; i++) {
             mData.add(i + " test ");
         }
     }
@@ -77,4 +69,23 @@ public class TestItemTouchHelperActivity extends BaseActivity implements ItemTou
         mData.remove(position);
         mAdapter.notifyItemRemoved(position);
     }
+
+    @Override
+    public void onItemFinished(int position) {
+        ToastUtils.showShort("onItemFinished");
+    }
+
+    @Override
+    public void onItemStart(int position) {
+        ToastUtils.showShort("onItemStart");
+    }
+
+    @Override
+    public void onStartDrag(RecyclerView.ViewHolder viewHolder) {
+        if (viewHolder.getAdapterPosition() == 0) {
+            return;
+        }
+        mItemTouchHelper.startDrag(viewHolder);
+    }
 }
+

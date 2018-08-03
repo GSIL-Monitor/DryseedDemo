@@ -5,12 +5,37 @@
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/imageview"
-        style="@style/common_button_base" />
+        android:id="@+id/imageview1"
+        style="@style/common_button_base"
+        android:scaleType="centerInside" />
 
     <TextView
-        android:id="@+id/textview"
+        android:id="@+id/textview_1"
         style="@style/common_button_base"
-        android:text="TEST"
+        android:text="TEST ColorStateList"
         android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textview_2"
+        style="@style/common_button_base"
+        android:text="TEST GradientDrawable"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textview_3"
+        style="@style/common_button_base"
+        android:background="@drawable/quiz_choice_selected_shape"
+        android:text="TEST SetBgDrawableColor"
+        android:textSize="18sp" />
+
+    <ImageView
+        style="@style/common_button_base"
+        android:src="@drawable/t4_image"
+        android:scaleType="centerInside" />
+
+    <ImageView
+        android:id="@+id/imageview2"
+        style="@style/common_button_base"
+        android:scaleType="centerInside" />
+
 </LinearLayout>

@@ -1,5 +1,7 @@
-package com.dryseed.dryseedapp.widget.recyclerView.itemTouchHelper;
+package com.dryseed.dryseedapp.widget.recyclerView.itemTouchHelper.demo2;
 
+import android.content.Context;
+import android.os.Vibrator;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
@@ -7,13 +9,14 @@ import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
 import com.dryseed.dryseedapp.animation.viewanimator.lib.ViewAnimator;
+import com.dryseed.dryseedapp.widget.recyclerView.itemTouchHelper.demo1.ItemTouchHelperListener;
 
 public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
 
-    private ItemTouchHelperAdapter mItemTouchHelperAdapter;
+    private ItemTouchHelperListener mItemTouchHelperListener;
 
-    public SimpleItemTouchHelperCallback(ItemTouchHelperAdapter itemTouchHelperAdapter) {
-        mItemTouchHelperAdapter = itemTouchHelperAdapter;
+    public SimpleItemTouchHelperCallback(ItemTouchHelperListener itemTouchHelperListener) {
+        mItemTouchHelperListener = itemTouchHelperListener;
     }
 
     /**
@@ -33,7 +36,7 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
      */
     @Override
     public boolean isLongPressDragEnabled() {
-        return true;
+        return false;
     }
 
     /**
@@ -64,7 +67,14 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
     @Override
     public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
         Log.d("MMM", "onMove " + viewHolder.getAdapterPosition() + "|" + target.getAdapterPosition());
-        mItemTouchHelperAdapter.onItemMove(viewHolder.getAdapterPosition(), target.getAdapterPosition());
+        if (target.getAdapterPosition() == 0) {
+            return false;
+        }
+        if (null != mItemTouchHelperListener) {
+            mItemTouchHelperListener.onItemMove(viewHolder.getAdapterPosition(), target.getAdapterPosition());
+        }
+        Vibrator vibrator = (Vibrator) recyclerView.getContext().getSystemService(Context.VIBRATOR_SERVICE);
+        vibrator.vibrate(50);
         return true;
     }
 
@@ -78,7 +88,9 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
     @Override
     public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
         Log.d("MMM", "onSwiped " + viewHolder.getAdapterPosition());
-        //mItemTouchHelperAdapter.onItemDissmiss(viewHolder.getAdapterPosition());
+        if (null != mItemTouchHelperListener) {
+            mItemTouchHelperListener.onItemDissmiss(viewHolder.getAdapterPosition());
+        }
     }
 
     /**
@@ -95,6 +107,10 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
         Log.d("MMM", "onSelectedChanged " + actionState);
         if (actionState == ItemTouchHelper.ACTION_STATE_DRAG) {
             aminScaleView(viewHolder.itemView, 1.1f);
+
+            if (null != mItemTouchHelperListener) {
+                mItemTouchHelperListener.onItemStart(viewHolder.getAdapterPosition());
+            }
         }
     }
 
@@ -108,6 +124,9 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
     public void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
         super.clearView(recyclerView, viewHolder);
         aminScaleView(viewHolder.itemView, 1);
+        if (null != mItemTouchHelperListener) {
+            mItemTouchHelperListener.onItemFinished(viewHolder.getAdapterPosition());
+        }
     }
 
     private void aminScaleView(View itemView, float scale) {
