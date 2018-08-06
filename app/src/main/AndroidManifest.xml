@@ -1400,6 +1400,22 @@
         <activity android:name=".widget.stickyRecyclerView.BeautifulRecyclerViewActivity" />
         <activity android:name=".widget.stickyRecyclerView.PowerfulStickyRecyclerViewActivity" />
         <activity
+            android:name=".widget.recyclerView.simpleDemo.TestSimpleRecyclerViewActivity"
+            android:label="Widget/RecyclerView/SimpleDemo">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.recyclerView.snapHelper.TestSnapHelperActivity"
+            android:label="Widget/RecyclerView/SnapHelper">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".widget.coordinatorLayout.TestCoodinatorLayoutActivity"
             android:label="Widget/CoordinatorLayout">
             <intent-filter>
