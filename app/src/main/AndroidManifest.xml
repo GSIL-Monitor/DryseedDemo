@@ -1357,6 +1357,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".test.asyncLayoutInflater.TestAsyncLayoutInflaterActivity"
+            android:label="Test/AsyncLayoutInflater">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".widget.recyclerView.listui.demo.TestListUIActivity"
             android:label="Widget/RecyclerView/ListUI/TestListUIActivity">
             <intent-filter>

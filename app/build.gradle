@@ -55,6 +55,8 @@ android {
                 arguments = [moduleName: project.getName(), host: "app"]
             }
         }
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     signingConfigs {
@@ -164,7 +166,7 @@ android {
             }
             //output.outputFile = new File(outDirectory + '/'/* + timeNow*/, newName)
             //modify by gradle plugin 3.0+
-            outputFileName = newName
+            //outputFileName = newName // 修改apk名
         }
     }
 
@@ -172,7 +174,7 @@ android {
     gradle.taskGraph.whenReady {
         tasks.each { task ->
             if (task.name.contains("Test") || task.name.contains("Lint")) {
-                task.enabled = false
+                //task.enabled = false
             }
         }
     }
@@ -235,6 +237,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testImplementation 'junit:junit:4.12'
+    androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.2'
 
     implementation 'com.android.support:appcompat-v7:' + GOOGLE_SUPPORT_VERSION
 
