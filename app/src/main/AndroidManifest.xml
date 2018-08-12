@@ -87,8 +87,7 @@
         </activity>
         <activity
             android:name=".framework.fresco.TestFrescoActivity"
-            android:label="FrameWork/Fresco"
-            android:launchMode="singleInstance">
+            android:label="FrameWork/Fresco">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -430,6 +429,14 @@
         <activity
             android:name=".animation.viewanimator.TestViewAnimatorActivity"
             android:label="Animation/ViewAnimator">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".animation.scroll2finish.TestScroll2FinishActivity"
+            android:label="Animation/Scroll2Finish">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />

@@ -1,48 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <com.facebook.drawee.view.SimpleDraweeView
-        android:id="@+id/fresco_eg1"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/fresco_eg1"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@color/background_tab_pressed"
+            fresco:actualImageScaleType="centerCrop" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/fresco_eg2"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@color/background_tab_pressed"
+            fresco:actualImageScaleType="centerCrop"
+            fresco:roundAsCircle="true"
+            fresco:roundedCornerRadius="2dp" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/fresco_eg3"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@color/background_tab_pressed"
+            fresco:actualImageScaleType="centerCrop"
+            fresco:roundAsCircle="true"
+            fresco:roundedCornerRadius="2dp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/fresco_eg4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="5dp"
         android:background="@color/background_tab_pressed"
-        fresco:actualImageScaleType="centerCrop" />
-    <!--<com.facebook.drawee.view.SimpleDraweeView-->
-    <!--android:id="@+id/fresco_eg1"-->
-    <!--android:layout_width="50dp"-->
-    <!--android:layout_height="50dp"-->
-    <!--android:background="@color/primary_dark_material_dark"-->
-    <!--fresco:actualImageScaleType="centerCrop"-->
-    <!--fresco:roundAsCircle="true"-->
-    <!--fresco:roundedCornerRadius="2dp" />-->
+        android:scaleType="centerInside" />
 
-    <Button
-        android:id="@+id/fresco_btn"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_below="@id/fresco_eg1"
-        android:text="jump" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/fresco_download"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_below="@id/fresco_eg1"
-        android:layout_marginLeft="30dp"
-        android:layout_toRightOf="@id/fresco_btn"
-        android:text="download" />
+        <Button
+            android:id="@+id/fresco_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:text="jump" />
 
-    <Button
-        android:id="@+id/fresco_clear"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_below="@id/fresco_eg1"
-        android:layout_marginLeft="30dp"
-        android:layout_toRightOf="@id/fresco_download"
-        android:text="clear" />
+        <Button
+            android:id="@+id/fresco_download"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:text="download" />
 
+        <Button
+            android:id="@+id/fresco_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:text="clear" />
+    </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

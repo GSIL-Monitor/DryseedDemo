@@ -1,25 +1,21 @@
 package com.dryseed.dryseedapp.framework.fresco;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
 import com.facebook.common.executors.CallerThreadExecutor;
-import com.facebook.common.executors.UiThreadImmediateExecutorService;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.datasource.DataSource;
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.common.ImageDecodeOptions;
 import com.facebook.imagepipeline.core.ImagePipeline;
 import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
 import com.facebook.imagepipeline.image.CloseableImage;
@@ -32,15 +28,24 @@ import butterknife.OnClick;
 
 
 /**
- * Created by caiminming on 2016/11/24.
+ * @author caiminming
  */
 public class TestFrescoActivity extends BaseActivity {
 
-//    static String picUrl = "http://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1503309332&di=ceaee4e6be074d73b731b31a60f7f595&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201603%2F17%2F20160317123417_u5Ewc.jpeg";
-    static String picUrl = "http://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1502726140291&di=6c6009eb335bc3b6a2ccab76818899ff&imgtype=0&src=http%3A%2F%2Fwww.gtsw.com.cn%2Fpublic%2Fupload%2Fueditor%2F20161130%2F1480473407618875.gif";
+    public static final String PIC_URL = "https://www.fresco-cn.org/static/logo.png";
+    public static final String GIF_URL = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534090415959&di=e472827c00f9c8835295bc6062f1f848&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F0127c0577e00620000012e7e12da0e.gif";
 
-//    @BindView(R.id.fresco_eg1)
-//    SimpleDraweeView img1;
+    @BindView(R.id.fresco_eg1)
+    SimpleDraweeView mSimpleDraweeView1;
+
+    @BindView(R.id.fresco_eg2)
+    SimpleDraweeView mSimpleDraweeView2;
+
+    @BindView(R.id.fresco_eg3)
+    SimpleDraweeView mSimpleDraweeView3;
+
+    @BindView(R.id.fresco_eg4)
+    ImageView mImageView1;
 
     @BindView(R.id.fresco_btn)
     Button btn;
@@ -60,28 +65,40 @@ public class TestFrescoActivity extends BaseActivity {
 
         ButterKnife.bind(this);
 
-        /*SimpleDraweeView img1 = (SimpleDraweeView) findViewById(R.id.fresco_eg1);
-        img1.setVisibility(View.GONE);
-        Uri uri = Uri.parse(picUrl);
-        img1.setImageURI(uri);*/
+        demo1();
+        demo2();
+        demo3();
 
-        /*SimpleDraweeView drawview = (SimpleDraweeView) findViewById(R.id.fresco_eg2);
+    }
+
+    private void demo3() {
         DraweeController mDraweeController = Fresco.newDraweeControllerBuilder()
                 .setAutoPlayAnimations(true)
                 //加载drawable里的一张gif图
-                .setUri(Uri.parse("res://"+getPackageName()+"/"+R.drawable.test_1334_48))//设置uri
+                //.setUri(Uri.parse("res://"+getPackageName()+"/"+R.drawable.test_1334_48))//设置uri
+                .setUri(Uri.parse(GIF_URL))
                 .build();
         //设置Controller
-        drawview.setController(mDraweeController);*/
+        mSimpleDraweeView3.setController(mDraweeController);
+    }
+
+    private void demo2() {
+        Uri uri = Uri.parse(PIC_URL);
+        mSimpleDraweeView2.setImageURI(uri);
+    }
+
+    private void demo1() {
+        Uri uri = Uri.parse(PIC_URL);
+        mSimpleDraweeView1.setImageURI(uri);
     }
 
     @OnClick(R.id.fresco_btn)
-    void onBtnClick(){
+    void onBtnClick() {
         startActivity(new Intent(this, TestFresco2Activity.class));
     }
 
     @OnClick(R.id.fresco_clear)
-    void clearCaches(){
+    void clearCaches() {
         ImagePipeline imagePipeline = Fresco.getImagePipeline();
         imagePipeline.clearMemoryCaches();
         imagePipeline.clearDiskCaches();
@@ -89,18 +106,25 @@ public class TestFrescoActivity extends BaseActivity {
 
     @OnClick(R.id.fresco_download)
     public void downPic() {
-        ImageRequest imageRequest = ImageRequestBuilder.newBuilderWithSource(Uri.parse(picUrl)).setProgressiveRenderingEnabled(true).build();
+        // 不支持Gif图片，bitmap为null
+        ImageRequest imageRequest = ImageRequestBuilder.newBuilderWithSource(Uri.parse(PIC_URL)).setProgressiveRenderingEnabled(true).build();
         ImagePipeline imagePipeline = Fresco.getImagePipeline();
         DataSource<CloseableReference<CloseableImage>> dataSource = imagePipeline.fetchDecodedImage(imageRequest, this);
         dataSource.subscribe(new BaseBitmapDataSubscriber() {
             @Override
-            public void onNewResultImpl(@Nullable Bitmap bitmap) {
+            public void onNewResultImpl(@Nullable final Bitmap bitmap) {
                 //bitmap即为下载所得图片
+                mImageView1.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        mImageView1.setImageBitmap(bitmap);
+                    }
+                });
             }
 
             @Override
             public void onFailureImpl(DataSource dataSource) {
-
+                dataSource.getFailureCause().printStackTrace();
             }
         }, CallerThreadExecutor.getInstance());
     }
