@@ -29,7 +29,8 @@ public class TestFresco2Activity extends BaseActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                mMyImageView.setImage(Uri.parse(TestFrescoActivity.PIC_URL));
+                mMyImageView.setImageUri(TestFrescoActivity.GIF_URL, null);
+                //mMyImageView.setImage(Uri.parse(TestFrescoActivity.PIC_URL));
             }
         }, 1000);
     }

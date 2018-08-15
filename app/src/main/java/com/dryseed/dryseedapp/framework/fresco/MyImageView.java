@@ -1,26 +1,35 @@
 package com.dryseed.dryseedapp.framework.fresco;
 
 import android.content.Context;
-import android.graphics.Canvas;
+import android.graphics.drawable.Animatable;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.MotionEvent;
-import android.view.View;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.controller.AbstractDraweeController;
+import com.facebook.drawee.controller.BaseControllerListener;
 import com.facebook.drawee.generic.GenericDraweeHierarchy;
 import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
-import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.DraweeHolder;
+import com.facebook.imagepipeline.common.ResizeOptions;
+import com.facebook.imagepipeline.image.ImageInfo;
+import com.facebook.imagepipeline.request.ImageRequest;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import com.luojilab.component.basiclib.utils.LogUtil;
 
 /**
+ * 参考：https://www.programcreek.com/java-api-examples/?code=iflove/gank-examples/gank-examples-master/app/src/main/java/com/lazy/gank/widget/MyPhotoView.java
  * @author caiminming
  */
-public class MyImageView extends View {
-    DraweeHolder mDraweeHolder;
+public class MyImageView extends android.support.v7.widget.AppCompatRadioButton {
+    private DraweeHolder mDraweeHolder;
+    private int mImageWidth;
+    private int mImageHeight;
 
     public MyImageView(Context context) {
         this(context, null);
@@ -32,32 +41,53 @@ public class MyImageView extends View {
 
     public MyImageView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context);
+        init();
     }
 
-    private void init(Context context) {
-        GenericDraweeHierarchy hierarchy = new GenericDraweeHierarchyBuilder(getResources())
+    private void init() {
+        if (mDraweeHolder == null) {
+            final GenericDraweeHierarchy hierarchy = new GenericDraweeHierarchyBuilder(getResources()).build();
+            mDraweeHolder = DraweeHolder.create(hierarchy, getContext());
+        }
+    }
+
+    public void setImageUri(String uri, ResizeOptions options) {
+        final ImageRequest imageRequest = ImageRequestBuilder.newBuilderWithSource(Uri.parse(uri))
+                .setResizeOptions(options)
+                .setAutoRotateEnabled(true)
                 .build();
-        mDraweeHolder = DraweeHolder.create(hierarchy, context);
-    }
-
-    public void setImage(Uri uri) {
-        LogUtil.d("setImage");
-        DraweeController controller = Fresco.newDraweeControllerBuilder()
-                .setUri(uri)
+        final AbstractDraweeController controller = Fresco.newDraweeControllerBuilder()
                 .setOldController(mDraweeHolder.getController())
-                .build();
-        mDraweeHolder.setController(controller);
-        invalidate();
-    }
+                .setAutoPlayAnimations(true)
+                .setImageRequest(imageRequest)
+                .setControllerListener(new BaseControllerListener<ImageInfo>() {
+                    @Override
+                    public void onFinalImageSet(String id, ImageInfo imageInfo, Animatable animatable) {
+                        super.onFinalImageSet(id, imageInfo, animatable);
 
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        LogUtil.d("onDraw");
-        Drawable drawable = mDraweeHolder.getTopLevelDrawable();
-        //drawable.setBounds(...);
-        drawable.draw(canvas);
+                        mImageWidth = imageInfo.getWidth();
+                        mImageHeight = imageInfo.getHeight();
+                        LogUtil.d(String.format("[mImageWidth:%d][mImageHeight:%d]", mImageWidth, mImageHeight));
+
+                        setButtonDrawable(new ColorDrawable());
+                        setText("dryseed");
+                        setGravity(Gravity.CENTER);
+                        setLines(1);
+                        setIncludeFontPadding(false);
+                        setBackgroundColor(0xffcccccc);
+
+                        Drawable drawable = mDraweeHolder.getTopLevelDrawable();
+                        int stripHeight = getHeight();
+                        int scaledWidth = stripHeight * mImageWidth / mImageHeight;
+                        drawable.setBounds(0, 0, scaledWidth, stripHeight);
+                        setCompoundDrawables(drawable, null, null, null);
+                    }
+                })
+                .build();
+        LogUtil.d("setController");
+        mDraweeHolder.setController(controller);
+        //setBackgroundDrawable(mDraweeHolder.getTopLevelDrawable());
+        //setImageDrawable(mDraweeHolder.getTopLevelDrawable());
     }
 
     @Override
@@ -87,5 +117,11 @@ public class MyImageView extends View {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         return mDraweeHolder.onTouchEvent(event) || super.onTouchEvent(event);
+    }
+
+    @Override
+    protected boolean verifyDrawable(Drawable dr) {
+        super.verifyDrawable(dr);
+        return dr == mDraweeHolder.getHierarchy().getTopLevelDrawable();
     }
 }

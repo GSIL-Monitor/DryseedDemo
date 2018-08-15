@@ -24,5 +24,4 @@
         android:id="@+id/animation_view2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
-
 </LinearLayout>
