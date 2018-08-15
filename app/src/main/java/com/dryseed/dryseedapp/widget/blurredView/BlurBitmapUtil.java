@@ -2,12 +2,19 @@ package com.dryseed.dryseedapp.widget.blurredView;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.support.v8.renderscript.Allocation;
 import android.support.v8.renderscript.Element;
 import android.support.v8.renderscript.RenderScript;
 import android.support.v8.renderscript.ScriptIntrinsicBlur;
 import android.util.Log;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.controller.AbstractDraweeController;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.postprocessors.IterativeBoxBlurPostProcessor;
+import com.facebook.imagepipeline.request.ImageRequest;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import com.luojilab.component.basiclib.utils.ToastUtil;
 
 /**
@@ -17,6 +24,29 @@ import com.luojilab.component.basiclib.utils.ToastUtil;
  */
 public class BlurBitmapUtil {
     private static final float BITMAP_SCALE = 0.125f; //图片缩放比例
+
+    /**
+     * 高斯模糊显示。
+     * @param draweeView View。
+     * @param url        url.
+     * @param iterations 迭代次数，越大越魔化。
+     * @param blurRadius 模糊图半径，必须大于0，越大越模糊。
+     */
+    public static void showUrlBlur(SimpleDraweeView draweeView, String url, int iterations, int blurRadius) {
+        try {
+            Uri uri = Uri.parse(url);
+            ImageRequest request = ImageRequestBuilder.newBuilderWithSource(uri)
+                    .setPostprocessor(new IterativeBoxBlurPostProcessor(iterations, blurRadius))
+                    .build();
+            AbstractDraweeController controller = Fresco.newDraweeControllerBuilder()
+                    .setOldController(draweeView.getController())
+                    .setImageRequest(request)
+                    .build();
+            draweeView.setController(controller);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * 模糊图片的具体方法

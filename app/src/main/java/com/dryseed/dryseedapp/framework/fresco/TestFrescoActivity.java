@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
+import com.dryseed.dryseedapp.widget.blurredView.BlurBitmapUtil;
 import com.facebook.common.executors.CallerThreadExecutor;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.datasource.DataSource;
@@ -45,6 +46,9 @@ public class TestFrescoActivity extends BaseActivity {
     SimpleDraweeView mSimpleDraweeView3;
 
     @BindView(R.id.fresco_eg4)
+    SimpleDraweeView mSimpleDraweeView4;
+
+    @BindView(R.id.fresco_eg5)
     ImageView mImageView1;
 
     @BindView(R.id.fresco_btn)
@@ -68,7 +72,12 @@ public class TestFrescoActivity extends BaseActivity {
         demo1();
         demo2();
         demo3();
+        demo4();
 
+    }
+
+    private void demo4() {
+        BlurBitmapUtil.showUrlBlur(mSimpleDraweeView4, PIC_URL, 4, 20);
     }
 
     private void demo3() {
