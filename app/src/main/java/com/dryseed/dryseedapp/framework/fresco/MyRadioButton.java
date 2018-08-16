@@ -24,22 +24,23 @@ import com.luojilab.component.basiclib.utils.LogUtil;
 
 /**
  * 参考：https://www.programcreek.com/java-api-examples/?code=iflove/gank-examples/gank-examples-master/app/src/main/java/com/lazy/gank/widget/MyPhotoView.java
+ *
  * @author caiminming
  */
-public class MyImageView extends android.support.v7.widget.AppCompatRadioButton {
+public class MyRadioButton extends android.support.v7.widget.AppCompatRadioButton {
     private DraweeHolder mDraweeHolder;
     private int mImageWidth;
     private int mImageHeight;
 
-    public MyImageView(Context context) {
+    public MyRadioButton(Context context) {
         this(context, null);
     }
 
-    public MyImageView(Context context, @Nullable AttributeSet attrs) {
+    public MyRadioButton(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public MyImageView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public MyRadioButton(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
@@ -80,7 +81,8 @@ public class MyImageView extends android.support.v7.widget.AppCompatRadioButton 
                         int stripHeight = getHeight();
                         int scaledWidth = stripHeight * mImageWidth / mImageHeight;
                         drawable.setBounds(0, 0, scaledWidth, stripHeight);
-                        setCompoundDrawables(drawable, null, null, null);
+                        //setCompoundDrawables(drawable, null, null, null);
+                        setBackground(drawable);
                     }
                 })
                 .build();

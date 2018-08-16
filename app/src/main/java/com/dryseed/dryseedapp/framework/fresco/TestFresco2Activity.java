@@ -1,6 +1,5 @@
 package com.dryseed.dryseedapp.framework.fresco;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -17,7 +16,7 @@ import butterknife.ButterKnife;
 public class TestFresco2Activity extends BaseActivity {
 
     @BindView(R.id.my_image_view)
-    MyImageView mMyImageView;
+    MyRadioButton mMyImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
