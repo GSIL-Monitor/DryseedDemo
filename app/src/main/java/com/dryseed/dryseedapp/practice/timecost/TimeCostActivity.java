@@ -27,10 +27,10 @@ public class TimeCostActivity extends AppCompatActivity {
 
     @TimeCost(name = "myMethod2")
     public void myMethod2(View view) {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        long j = 10000L;
+        String a = "a";
+        for (int n = 0; n < j; n++) {
+            a += n;
         }
     }
 

@@ -11,7 +11,6 @@ import android.widget.LinearLayout;
 
 import com.dryseed.dryseedapp.R;
 import com.luojilab.component.basiclib.utils.DPIUtil;
-import com.nineoldandroids.view.ViewHelper;
 import com.orhanobut.logger.Logger;
 
 /**
@@ -190,18 +189,16 @@ public class SlidingMenu extends HorizontalScrollView {
         float leftScale = 1 - 0.3f * scale;
         float rightScale = 0.8f + scale * 0.2f;
 
-        ViewHelper.setScaleX(mMenu, leftScale);
-        ViewHelper.setScaleY(mMenu, leftScale);
-        ViewHelper.setAlpha(mMenu, 0.6f + 0.4f * (1 - scale));
+        mMenu.animate()
+                .scaleX(leftScale)
+                .scaleY(leftScale)
+                .alpha(0.6f + 0.4f * (1 - scale)) //菜单的x方向偏移量。mMenuWidth * scale表示未显示的menu宽度，设置为TranslationX 表示 menu总是显示在未显示的右侧，即刚好全部显示
+                .translationX(mMenuWidth * scale * 0.7f); //菜单的x方向偏移量
         Logger.d("MMM", "setTranslationX : " + mMenuWidth * scale);
-//        ViewHelper.setTranslationX(mMenu, mMenuWidth * scale); //菜单的x方向偏移量。mMenuWidth * scale表示未显示的menu宽度，设置为TranslationX 表示 menu总是显示在未显示的右侧，即刚好全部显示
-        ViewHelper.setTranslationX(mMenu, mMenuWidth * scale * 0.7f); //菜单的x方向偏移量
 
-        ViewHelper.setPivotX(mContent, 0);
-        ViewHelper.setPivotY(mContent, mContent.getHeight() / 2);
-        ViewHelper.setScaleX(mContent, rightScale);
-        ViewHelper.setScaleY(mContent, rightScale);
-
+        mContent.setPivotX(0);
+        mContent.setPivotY(mContent.getHeight() / 2);
+        mContent.animate().scaleX(rightScale).scaleY(rightScale);
     }
 
 }

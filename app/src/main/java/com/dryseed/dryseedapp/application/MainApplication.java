@@ -39,6 +39,8 @@ class MainApplication extends BaseApplicationProxy {
         //initARouter();
         initCrashHandler();
         //initStrictMode();
+
+        //TimeCost耗时统计
         initTimeCost();
     }
 

@@ -1,6 +1,9 @@
 apply plugin: 'com.dd.comgradle'
 apply plugin: 'org.greenrobot.greendao'
-//apply plugin: 'com.dryseed.timecost.gradle.dsplugin'
+//TimeCost linked{project/build.gradle classpath "com.dryseed.timecost.gradle:buildsrc:1.+"}
+if("timecost_enable".prop(project) == 'true'){
+    apply plugin: 'com.dryseed.timecost.gradle.dsplugin'
+}
 
 apply from: "${project.rootDir}/taskTimeCost.gradle"
 
@@ -201,34 +204,37 @@ configurations.all {
     resolutionStrategy.force 'com.android.support:support-annotations:25.3.1'
 }
 
-//component
+//Component
 combuild {
     applicationName = 'com.dryseed.dryseedapp.application.MyApplication'
     isRegisterCompoAuto = true
 }
 
-//timecost
-//timeCostConfig {
-//    //this flag will decide whether the log of the time-cost plugin be printed or not, default value is true
-//    isDebug = true
-//    //this is a kit feature of the plugin, set it true to see the time consume of this build
-//    watchTaskTimeCost = false
-//    // the plugin will only inject package / class defined in whitePackageList
-//    whitePackageList = ['com.dryseed.dryseedapp', 'com.cjt2325']
-//    // thp plugin will not inject package, white list has a higher priority than white list
-//    blackPackageList = []
-//    // the plugin will inject automatically based on whitePackageList
-//    autoInject = true
-//    // this flag will decide whether the plugin will inject the jars, false by default
-//    jarInject = true
-//    scope {
-//        project true //inject app project, default true
-//        projectLocalDep false //inject app libs(eg: .jar), default false
-//        subProject true //inject subProject of app project(eg: module), default true
-//        subProjectLocalDep false //inject subProject libs, default false
-//        externalLibraries false //inject external libs(eg: .aar), default false
-//    }
-//}
+//TimeCost
+if("timecost_enable".prop(project) == 'true'){
+    timeCostConfig {
+        //this flag will decide whether the log of the time-cost plugin be printed or not, default value is true
+        isDebug = true
+        //this is a kit feature of the plugin, set it true to see the time consume of this build
+        watchTaskTimeCost = false
+        // the plugin will only inject package / class defined in whitePackageList
+        whitePackageList = ['com.dryseed.dryseedapp', 'com.cjt2325']
+        // thp plugin will not inject package, white list has a higher priority than white list
+        blackPackageList = []
+        // the plugin will inject automatically based on whitePackageList
+        autoInject = true
+        // this flag will decide whether the plugin will inject the jars, false by default
+        jarInject = false
+        scope {
+            project true //inject app project, default true
+            projectLocalDep false //inject app libs(eg: .jar), default false
+            subProject true //inject subProject of app project(eg: module), default true
+            subProjectLocalDep false //inject subProject libs, default false
+            externalLibraries false //inject external libs(eg: .aar), default false
+        }
+    }
+}
+
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -441,6 +447,11 @@ dependencies {
     // ########## TimeCost ##########
     // https://github.com/dryseedcai/TimeCost
     // ----------------------------------------------------
-    implementation 'com.dryseed.timecost:timecostimp:1.+'
+    if ("timecost_enable".prop(project) == 'true') {
+        implementation 'com.dryseed.timecost:timecostimp:1.+'
+    } else {
+        implementation 'com.dryseed.timecost:timecostimp-no-op:1.+'
+    }
+
 }
 

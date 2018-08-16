@@ -1,6 +1,7 @@
 package com.dd.buildgradle
 
 import com.android.SdkConstants
+import com.android.build.api.transform.JarInput
 import com.android.build.api.transform.TransformInput
 import javassist.ClassPool
 import javassist.CtClass
@@ -28,20 +29,26 @@ class ConvertUtils {
                 }
             }
 
-            it.jarInputs.each {
-                classPool.insertClassPath(it.file.absolutePath)
-                def jarFile = new JarFile(it.file)
-                Enumeration<JarEntry> classes = jarFile.entries()
-                while (classes.hasMoreElements()) {
-                    JarEntry libClass = (JarEntry) classes.nextElement()
-                    String className = libClass.getName()
-                    if (className.endsWith(SdkConstants.DOT_CLASS)) {
-                        className = className.substring(0, className.length() - SdkConstants.DOT_CLASS.length()).replaceAll('/', '.')
-                        if (classNames.contains(className)) {
-                            throw new RuntimeException("You have duplicate classes with the same name : " + className + " please remove duplicate classes ")
+            for (JarInput jarInput : transformInput.getJarInputs()) {
+                try {
+                    File input = jarInput.getFile()
+                    classPool.insertClassPath(input.absolutePath)
+                    def jarFile = new JarFile(input)
+                    Enumeration classes = jarFile.entries()
+                    while (classes.hasMoreElements()) {
+                        JarEntry libClass = (JarEntry) classes.nextElement()
+                        String className = libClass.getName()
+                        if (className.endsWith(SdkConstants.DOT_CLASS)) {
+                            className = className.substring(0, className.length() - SdkConstants.DOT_CLASS.length()).replaceAll('/', '.')
+                            if (classNames.contains(className)) {
+                                throw new RuntimeException("TimeCost : You have duplicate classes with the same name : " + className + " please remove duplicate classes ")
+                            }
+                            classNames.add(className)
                         }
-                        classNames.add(className)
                     }
+                } catch (Exception e) {
+                    e.printStackTrace()
+                    continue
                 }
             }
         }
@@ -49,7 +56,7 @@ class ConvertUtils {
             try {
                 allClass.add(classPool.get(it))
             } catch (javassist.NotFoundException e) {
-                println "class not found exception class name:  $it "
+                println "TimeCost : class not found exception class name:  $it "
             }
         }
         return allClass

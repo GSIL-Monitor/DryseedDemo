@@ -7,7 +7,6 @@ import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.tools.jobmanager.JobManagerUtils;
 import com.dryseed.dryseedapp.tools.jobmanager.Priority;
 import com.luojilab.component.basiclib.utils.LogUtil;
-import com.dryseed.timecost.utils.ThreadUtils;
 
 /**
  * @author CaiMinMing
@@ -37,7 +36,6 @@ public class TestJobManagerActivity extends BaseActivity {
             @Override
             public Object onRun(Object[] objects) throws Throwable {
                 LogUtil.d("addJob onRun " + Thread.currentThread().getName());
-                LogUtil.d("isMainThread : " + ThreadUtils.isMainThread());
                 return null;
             }
         });

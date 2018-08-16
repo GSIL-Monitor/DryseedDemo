@@ -2,14 +2,10 @@ package com.luojilab.component.basiclib;
 
 import android.app.Application;
 import android.content.Context;
-import android.os.Process;
 import android.support.multidex.MultiDex;
-import android.text.TextUtils;
-import android.util.Log;
 
 import com.blankj.utilcode.util.Utils;
 import com.luojilab.component.basiclib.utils.DPIUtil;
-import com.luojilab.component.basiclib.utils.ProcessUtil;
 
 /**
  * Created by caiminming on 2018/1/16.

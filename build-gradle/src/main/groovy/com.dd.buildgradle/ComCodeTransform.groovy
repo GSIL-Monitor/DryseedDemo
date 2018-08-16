@@ -19,10 +19,6 @@ class ComCodeTransform extends Transform {
 
     @Override
     void transform(TransformInvocation transformInvocation) throws TransformException, InterruptedException, IOException {
-        if (!transformInvocation.incremental) {
-            outputProvider.deleteAll()
-        }
-
         getRealApplicationName(transformInvocation.getInputs())
         classPool = new ClassPool()
         project.android.bootClasspath.each {

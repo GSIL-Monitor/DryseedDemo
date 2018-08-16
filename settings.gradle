@@ -1,17 +1,21 @@
-include ':app',
-        ':camera',
+include ':app'
+include ':camera'
 
-        ':router-annotation',
-        ':router-anno-compiler',
+//Component Core Module
+include ':router-annotation'
+include ':router-anno-compiler'
 
-        ':componentlib',
-        ':componentservice',
-        ':build-gradle',
+include ':componentlib'
+include ':componentservice'
+include ':build-gradle'
 
-        ':basiclib',
-        ':basicres',
+include ':basiclib'
+include ':basicres'
 
-//        ':pictureselectorComponent',
-//        ':ucrop',
-        ':wheelpickerComponent',
-        ':aac-component'
+//Biz Component
+include ':wheelpickerComponent'
+include ':aac-component'
+//include ':pictureselectorComponent'
+//include ':ucrop'
+
+apply from: "$rootDir/gradle/inject-string.gradle"

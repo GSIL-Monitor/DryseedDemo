@@ -5,12 +5,10 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.DrawerLayout.DrawerListener;
 import android.view.Gravity;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 
 import com.dryseed.dryseedapp.R;
-import com.nineoldandroids.view.ViewHelper;
 
 public class DrawerLayoutActivity extends FragmentActivity {
 
@@ -56,27 +54,18 @@ public class DrawerLayoutActivity extends FragmentActivity {
                 if (drawerView.getTag().equals("LEFT")) {
 
                     float leftScale = 1 - 0.3f * scale;
-
-                    ViewHelper.setScaleX(mMenu, leftScale);
-                    ViewHelper.setScaleY(mMenu, leftScale);
-                    ViewHelper.setAlpha(mMenu, 0.6f + 0.4f * (1 - scale));
-                    ViewHelper.setTranslationX(mContent,
-                            mMenu.getMeasuredWidth() * (1 - scale));
-                    ViewHelper.setPivotX(mContent, 0);
-                    ViewHelper.setPivotY(mContent,
-                            mContent.getMeasuredHeight() / 2);
+                    mMenu.setPivotX(0);
+                    mMenu.setPivotY(mContent.getMeasuredHeight() / 2);
+                    mMenu.animate().scaleX(leftScale).scaleY(leftScale).alpha(0.6f + 0.4f * (1 - scale))
+                            .translationX(mMenu.getMeasuredWidth() * (1 - scale));
                     mContent.invalidate();
-                    ViewHelper.setScaleX(mContent, rightScale);
-                    ViewHelper.setScaleY(mContent, rightScale);
+                    mContent.animate().scaleX(rightScale).scaleY(rightScale);
                 } else {
-                    ViewHelper.setTranslationX(mContent,
-                            -mMenu.getMeasuredWidth() * slideOffset);
-                    ViewHelper.setPivotX(mContent, mContent.getMeasuredWidth());
-                    ViewHelper.setPivotY(mContent,
-                            mContent.getMeasuredHeight() / 2);
+                    mContent.setPivotX(mContent.getMeasuredWidth());
+                    mContent.setPivotY(mContent.getMeasuredHeight() / 2);
+                    mContent.animate().translationX(-mMenu.getMeasuredWidth() * slideOffset);
                     mContent.invalidate();
-                    ViewHelper.setScaleX(mContent, rightScale);
-                    ViewHelper.setScaleY(mContent, rightScale);
+                    mContent.animate().scaleX(rightScale).scaleY(rightScale);
                 }
 
             }
