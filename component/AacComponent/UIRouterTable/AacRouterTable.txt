@@ -1,0 +1,25 @@
+auto generated, do not change !!!! 
+
+HOST : aac
+
+main
+/main
+
+demo
+/demo
+
+lifecycle
+/lifecycle
+
+lifecycleowner
+/lifecycleowner
+
+livedatademo1
+/livedatademo1
+
+livedatademo2
+/livedatademo2
+
+navigation
+/navigation
+

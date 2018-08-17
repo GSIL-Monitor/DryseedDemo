@@ -29,7 +29,7 @@ class ConvertUtils {
                 }
             }
 
-            for (JarInput jarInput : transformInput.getJarInputs()) {
+            for (JarInput jarInput : it.getJarInputs()) {
                 try {
                     File input = jarInput.getFile()
                     classPool.insertClassPath(input.absolutePath)
@@ -46,7 +46,7 @@ class ConvertUtils {
                             classNames.add(className)
                         }
                     }
-                } catch (Exception e) {
+                } catch (Throwable e) {
                     e.printStackTrace()
                     continue
                 }

@@ -13,9 +13,12 @@ include ':basiclib'
 include ':basicres'
 
 //Biz Component
-include ':wheelpickerComponent'
-include ':aac-component'
-//include ':pictureselectorComponent'
+include ':WheelpickerComponent'
+project(':WheelpickerComponent').projectDir = new File(rootDir, 'component/WheelpickerComponent')
+include ':AacComponent'
+project(':AacComponent').projectDir = new File(rootDir, 'component/AacComponent')
+//include ':PictureselectorComponent'
+//project(':PictureselectorComponent').projectDir = new File(rootDir, 'component/PictureselectorComponent')
 //include ':ucrop'
 
 apply from: "$rootDir/gradle/inject-string.gradle"
