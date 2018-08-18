@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.luojilab.component.basicres.BaseActivity;
+import com.luojilab.component.basiclib.BaseActivity;
 import com.luojilab.component.componentlib.router.ui.UIRouter;
 import com.luojilab.router.facade.annotation.RouteNode;
 

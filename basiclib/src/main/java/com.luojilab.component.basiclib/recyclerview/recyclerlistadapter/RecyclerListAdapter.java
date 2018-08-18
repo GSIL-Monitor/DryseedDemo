@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo2.lib;
+package com.luojilab.component.basiclib.recyclerview.recyclerlistadapter;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 
 import java.util.HashMap;
 
+/**
+ * @author caiminming
+ */
 public class RecyclerListAdapter<T, VH extends RecyclerListAdapter.ViewHolder<T>> extends BaseRecyclerListAdapter<T, VH> {
     public static final int UNKNOWN_VIEW_TYPE = Integer.MIN_VALUE;
 

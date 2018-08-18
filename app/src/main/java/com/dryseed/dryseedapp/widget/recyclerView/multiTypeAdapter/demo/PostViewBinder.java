@@ -25,7 +25,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo.lib.ItemViewBinder;
+import com.luojilab.component.basiclib.recyclerview.multitypeadapter.ItemViewBinder;
 
 
 /**

@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo.lib;
+package com.luojilab.component.basiclib.recyclerview.multitypeadapter;
 
 import android.support.annotation.NonNull;
 
 /**
  * @author drakeet
  */
-final class DefaultLinker<T> implements Linker<T> {
+class BinderNotFoundException extends RuntimeException {
 
-    @Override
-    public int index(@NonNull T t) {
-        return 0;
+    BinderNotFoundException(@NonNull Class<?> clazz) {
+        super("Do you have registered the binder for {className}.class in the adapter/pool?"
+            .replace("{className}", clazz.getSimpleName()));
     }
 }

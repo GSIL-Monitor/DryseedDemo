@@ -1,18 +1,19 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '27.0.1'
+    compileSdkVersion Integer.parseInt("${COMPILE_SDK_VERSION}")
+    buildToolsVersion "${BUILD_TOOLS_VERSION}"
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 14
+        minSdkVersion Integer.parseInt("${MIN_SDK_VERSION}")
+        targetSdkVersion Integer.parseInt("${TARGET_SDK_VERSION}")
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
+
     buildTypes {
         release {
             minifyEnabled false

@@ -33,7 +33,7 @@ import com.luojilab.component.basiclib.utils.DPIUtil;
 import com.luojilab.component.basiclib.utils.ToastUtil;
 import com.luojilab.component.basiclib.utils.UnitUtil;
 import com.luojilab.component.basiclib.utils.VolleyUtils;
-import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo2.lib.RecyclerListAdapter;
+import com.luojilab.component.basiclib.recyclerview.recyclerlistadapter.RecyclerListAdapter;
 import com.orhanobut.logger.Logger;
 
 import org.json.JSONArray;

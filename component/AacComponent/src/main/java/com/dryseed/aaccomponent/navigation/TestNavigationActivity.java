@@ -6,7 +6,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 
 import com.dryseed.aaccomponent.R;
-import com.luojilab.component.basicres.BaseActivity;
+import com.luojilab.component.basiclib.BaseActivity;
 import com.luojilab.router.facade.annotation.RouteNode;
 
 import androidx.navigation.NavController;

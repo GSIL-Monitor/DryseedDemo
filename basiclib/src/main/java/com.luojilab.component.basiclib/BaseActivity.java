@@ -1,4 +1,4 @@
-package com.luojilab.component.basicres;
+package com.luojilab.component.basiclib;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

@@ -20,7 +20,7 @@ import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo.Horizont
 import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo.Post;
 import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo.PostList;
 import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo.PostViewBinder;
-import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo.lib.MultiTypeAdapter;
+import com.luojilab.component.basiclib.recyclerview.multitypeadapter.MultiTypeAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

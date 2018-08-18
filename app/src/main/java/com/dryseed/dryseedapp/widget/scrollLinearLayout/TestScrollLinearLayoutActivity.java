@@ -12,7 +12,7 @@ import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo2.BiliBiliActivity;
 import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo2.Post;
 import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo2.PostItem;
-import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo2.lib.RecyclerListAdapter;
+import com.luojilab.component.basiclib.recyclerview.recyclerlistadapter.RecyclerListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

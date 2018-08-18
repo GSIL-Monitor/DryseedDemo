@@ -14,24 +14,26 @@
  * limitations under the License.
  */
 
-package com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo.lib;
+package com.luojilab.component.basiclib.recyclerview.multitypeadapter;
 
+import android.support.annotation.CheckResult;
 import android.support.annotation.NonNull;
 
 /**
- * An interface to link the items and binders by the classes of binders.
+ * Process and flow operators for one-to-many.
  *
  * @author drakeet
  */
-public interface ClassLinker<T> {
+public interface OneToManyFlow<T> {
 
     /**
-     * Returns the class of your registered binders for your item.
+     * Sets some item view binders to the item type.
      *
-     * @param t Your item data
-     * @return The index of your registered binders
-     * @see OneToManyEndpoint#withClassLinker(ClassLinker)
+     * @param binders the item view binders
+     * @return end flow operator
      */
     @NonNull
-    Class<? extends ItemViewBinder<T, ?>> index(@NonNull T t);
+    @CheckResult
+    @SuppressWarnings("unchecked")
+    OneToManyEndpoint<T> to(@NonNull ItemViewBinder<T, ?>... binders);
 }

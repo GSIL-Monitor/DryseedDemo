@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import android.widget.LinearLayout;
 
 import com.dryseed.aaccomponent.R;
-import com.luojilab.component.basicres.BaseActivity;
+import com.luojilab.component.basiclib.BaseActivity;
 import com.luojilab.router.facade.annotation.RouteNode;
 
 @RouteNode(path = "/demo", desc = "demo")

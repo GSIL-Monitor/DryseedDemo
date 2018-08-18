@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo.lib;
+package com.luojilab.component.basiclib.recyclerview.multitypeadapter;
 
 import android.support.annotation.CheckResult;
 import android.support.annotation.NonNull;

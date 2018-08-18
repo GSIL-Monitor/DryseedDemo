@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo2.lib;
+package com.luojilab.component.basiclib.recyclerview.recyclerlistadapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +8,9 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * @author caiminming
+ */
 public abstract class BaseRecyclerListAdapter<T, VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
     protected List<T> mItemList = new ArrayList<>();
 
