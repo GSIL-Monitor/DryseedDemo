@@ -59,7 +59,7 @@ android {
             }
         }
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.dryseed.dryseedapp.MyJunitRunner"
     }
 
     signingConfigs {
