@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.MotionEvent;
+import android.widget.RadioButton;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.controller.AbstractDraweeController;
@@ -27,7 +28,7 @@ import com.luojilab.component.basiclib.utils.LogUtil;
  *
  * @author caiminming
  */
-public class MyRadioButton extends android.support.v7.widget.AppCompatRadioButton {
+public class MyRadioButton extends RadioButton {
     private DraweeHolder mDraweeHolder;
     private int mImageWidth;
     private int mImageHeight;
@@ -70,26 +71,17 @@ public class MyRadioButton extends android.support.v7.widget.AppCompatRadioButto
                         mImageHeight = imageInfo.getHeight();
                         LogUtil.d(String.format("[mImageWidth:%d][mImageHeight:%d]", mImageWidth, mImageHeight));
 
-                        setButtonDrawable(new ColorDrawable());
-                        setText("dryseed");
-                        setGravity(Gravity.CENTER);
-                        setLines(1);
-                        setIncludeFontPadding(false);
-                        setBackgroundColor(0xffcccccc);
-
                         Drawable drawable = mDraweeHolder.getTopLevelDrawable();
                         int stripHeight = getHeight();
                         int scaledWidth = stripHeight * mImageWidth / mImageHeight;
                         drawable.setBounds(0, 0, scaledWidth, stripHeight);
-                        //setCompoundDrawables(drawable, null, null, null);
-                        setBackground(drawable);
+                        setCompoundDrawables(null, null, drawable, null);
+                        //setBackground(drawable);
                     }
                 })
                 .build();
         LogUtil.d("setController");
         mDraweeHolder.setController(controller);
-        //setBackgroundDrawable(mDraweeHolder.getTopLevelDrawable());
-        //setImageDrawable(mDraweeHolder.getTopLevelDrawable());
     }
 
     @Override

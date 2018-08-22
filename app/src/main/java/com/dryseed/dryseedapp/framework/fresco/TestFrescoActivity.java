@@ -34,7 +34,10 @@ import butterknife.OnClick;
 public class TestFrescoActivity extends BaseActivity {
 
     public static final String PIC_URL = "http://www.iqiyipic.com/common/fix/site-v4/sprite-headLogo-index.png";
+    public static final String ICO_PIC_URL = "http://static.iqiyi.com/ext/common/ffb4f4483feb4c78b9cb74b7eee8d5d3.ico";
+    public static final String SMALL_PIC_URL = "http://pic2.iqiyipic.com/common/20180816/20ed11d28b2843219d09ee54cd13a62d.png";
     public static final String GIF_URL = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534090415959&di=e472827c00f9c8835295bc6062f1f848&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F0127c0577e00620000012e7e12da0e.gif";
+
 
     @BindView(R.id.fresco_eg1)
     SimpleDraweeView mSimpleDraweeView1;
