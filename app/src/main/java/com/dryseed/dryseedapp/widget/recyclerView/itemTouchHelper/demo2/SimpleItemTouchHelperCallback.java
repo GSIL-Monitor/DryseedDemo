@@ -1,7 +1,9 @@
 package com.dryseed.dryseedapp.widget.recyclerView.itemTouchHelper.demo2;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Vibrator;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
@@ -10,6 +12,7 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 
 import com.dryseed.dryseedapp.animation.viewanimator.lib.ViewAnimator;
 import com.dryseed.dryseedapp.widget.recyclerView.itemTouchHelper.demo1.ItemTouchHelperListener;
+import com.luojilab.component.basiclib.utils.DPIUtil;
 
 public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
 
@@ -51,7 +54,7 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
     public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
         Log.d("MMM", "getMovementFlags " + viewHolder.getAdapterPosition());
         return makeMovementFlags(
-                (ItemTouchHelper.UP | ItemTouchHelper.DOWN | ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT),
+                (ItemTouchHelper.UP | ItemTouchHelper.DOWN),
                 ItemTouchHelper.START | ItemTouchHelper.END);
     }
 
@@ -106,7 +109,9 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
         super.onSelectedChanged(viewHolder, actionState);
         Log.d("MMM", "onSelectedChanged " + actionState);
         if (actionState == ItemTouchHelper.ACTION_STATE_DRAG) {
-            aminScaleView(viewHolder.itemView, 1.1f);
+            //aminScaleView(viewHolder.itemView, 1.1f);
+
+            ViewCompat.setTranslationZ(viewHolder.itemView, DPIUtil.dip2px(3));
 
             if (null != mItemTouchHelperListener) {
                 mItemTouchHelperListener.onItemStart(viewHolder.getAdapterPosition());
@@ -123,7 +128,11 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
     @Override
     public void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
         super.clearView(recyclerView, viewHolder);
-        aminScaleView(viewHolder.itemView, 1);
+
+        //aminScaleView(viewHolder.itemView, 1);
+
+        //ViewCompat.setTranslationZ(viewHolder.itemView, 0);
+
         if (null != mItemTouchHelperListener) {
             mItemTouchHelperListener.onItemFinished(viewHolder.getAdapterPosition());
         }

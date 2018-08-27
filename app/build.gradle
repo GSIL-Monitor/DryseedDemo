@@ -449,10 +449,10 @@ dependencies {
     // ----------------------------------------------------
     if ("timecost_enable".prop(project) == 'true') {
         //implementation 'com.dryseed.timecost:timecostimp:1.+'
-        implementation 'com.iqiyi.video:timecostimp:0.0.+'
+        implementation 'com.iqiyi.video:timecostimp:1.0.+'
     } else {
         //implementation 'com.dryseed.timecost:timecostimp-no-op:1.+'
-        implementation 'com.iqiyi.video:timecostimp-no-op:0.0.+'
+        implementation 'com.iqiyi.video:timecostimp-no-op:1.0.+'
     }
 
 }
