@@ -15,6 +15,10 @@ import android.widget.LinearLayout;
 
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.tools.sensor.networkstate.NetworkStateReceiver;
+import com.dryseed.dryseedapp.widget.viewPager.fragment4test.SupportMainTab01;
+import com.dryseed.dryseedapp.widget.viewPager.fragment4test.SupportMainTab02;
+import com.dryseed.dryseedapp.widget.viewPager.fragment4test.SupportMainTab03;
+import com.dryseed.dryseedapp.widget.viewPager.fragment4test.SupportMainTab04;
 
 /**
  * 评价：实现效果和第一种效果一模一样，每个Fragment独自处理自己内部的逻辑，代码整洁很多，并且支持左右滑动。感觉是viewpager和fragment的结合版本。
@@ -159,10 +163,10 @@ public class ViewPagerFragmentActivity extends FragmentActivity {
             }
         });
 
-        MainTab01 tab01 = new MainTab01();
-        MainTab02 tab02 = new MainTab02();
-        MainTab03 tab03 = new MainTab03();
-        MainTab04 tab04 = new MainTab04();
+        SupportMainTab01 tab01 = new SupportMainTab01();
+        SupportMainTab02 tab02 = new SupportMainTab02();
+        SupportMainTab03 tab03 = new SupportMainTab03();
+        SupportMainTab04 tab04 = new SupportMainTab04();
         mFragments.add(tab01);
         mFragments.add(tab02);
         mFragments.add(tab03);

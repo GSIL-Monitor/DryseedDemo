@@ -6,9 +6,9 @@
     android:background="#fcfcfc"
     android:orientation="vertical">
 
-    <com.dryseed.dryseedapp.tools.sensor.networkstate.NetworkStateView
+    <!--<com.dryseed.dryseedapp.tools.sensor.networkstate.NetworkStateView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content" />-->
 
     <include layout="@layout/activity_tab_viewpager_title_bar" />
 

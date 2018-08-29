@@ -1,6 +1,5 @@
 package com.dryseed.dryseedapp.widget.fragment.tab;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
@@ -13,7 +12,6 @@ import android.widget.TextView;
 
 import com.dryseed.dryseedapp.R;
 
-@SuppressLint("NewApi")
 public class MainTab01 extends Fragment {
     private static final String TAG = "MMM";
 

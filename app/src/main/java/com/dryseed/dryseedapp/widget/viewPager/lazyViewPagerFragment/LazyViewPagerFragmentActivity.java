@@ -150,10 +150,10 @@ public class LazyViewPagerFragmentActivity extends FragmentActivity {
             }
         });
 
-        MainTab01 tab01 = new MainTab01();
-        MainTab02 tab02 = new MainTab02();
-        MainTab03 tab03 = new MainTab03();
-        MainTab04 tab04 = new MainTab04();
+        LazyMainTab01 tab01 = new LazyMainTab01();
+        LazyMainTab02 tab02 = new LazyMainTab02();
+        LazyMainTab03 tab03 = new LazyMainTab03();
+        LazyMainTab04 tab04 = new LazyMainTab04();
         mFragments.add(tab01);
         mFragments.add(tab02);
         mFragments.add(tab03);

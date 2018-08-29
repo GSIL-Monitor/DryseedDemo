@@ -532,14 +532,6 @@
         </activity>
         <activity android:name=".widget.clipZoomImage.ShowImageActivity" />
         <activity
-            android:name=".widget.viewPager.viewpagerTransformer.ViewPagerTransformerActivity"
-            android:label="Widget/ViewPager/ViewPagerTransformerActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".widget.pagerSlidingTabStrip.official.TestPagerSlidingTabStripActivity"
             android:label="Widget/PagerSlidingTabStrip/Official">
             <intent-filter>
@@ -558,14 +550,6 @@
         <activity
             android:name=".widget.pagerSlidingTabStrip.advanced.TestAdvancedPagerSlidingTabStripActivity"
             android:label="Widget/PagerSlidingTabStrip/Advanced">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".widget.viewPager.tabLayout.TestTabLayoutActivity"
-            android:label="Widget/ViewPager/TabLayout">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -808,6 +792,22 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".widget.viewPager.tabLayout.TestTabLayoutActivity"
+            android:label="Widget/ViewPager/TabLayout">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.viewPager.viewpagerTransformer.ViewPagerTransformerActivity"
+            android:label="Widget/ViewPager/ViewPagerTransformerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".widget.viewPager.TraditionalViewPagerAcvitity"
             android:label="Widget/ViewPager/TraditionalViewPagerAcvitity">
             <intent-filter>
@@ -826,14 +826,6 @@
         <activity
             android:name=".widget.viewPager.lazyViewPagerFragment.LazyViewPagerFragmentActivity"
             android:label="Widget/ViewPager/LazyViewPagerFragment(setUserVisibleHint)">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".widget.fragment.tab.FragmentMainActivity"
-            android:label="Widget/Fragment/FragmentMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -864,6 +856,22 @@
             </intent-filter>
         </activity>
         <activity android:name=".widget.viewPager.ultraViewPager.PagerActivity" />
+        <activity
+            android:name=".widget.viewPager.fragmentStatePagerAdapter.FragmentStatePagerAdapterActivity"
+            android:label="Widget/ViewPager/FragmentStatePagerAdapter/FragmentStatePagerAdapter">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.viewPager.fragmentStatePagerAdapter.FragmentPagerAdapterActivity"
+            android:label="Widget/ViewPager/FragmentStatePagerAdapter/FragmentPagerAdapter">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".widget.shortcut.ShortCutActivity"
             android:label="Widget/ShortCut">
@@ -1469,6 +1477,14 @@
         <activity
             android:name=".widget.fragment.TestFragmentLifeCycle"
             android:label="Widget/FragmentLifeCycle">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.fragment.tab.FragmentMainActivity"
+            android:label="Widget/Fragment/FragmentMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
