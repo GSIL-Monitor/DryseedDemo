@@ -5,6 +5,8 @@ import android.content.Context;
 import android.os.Process;
 import android.os.RemoteException;
 
+import com.luojilab.component.basiclib.utils.LogUtil;
+
 /**
  * @author caiminming
  */
@@ -22,6 +24,8 @@ public class RemoteService extends IRemoteService.Stub {
 
     @Override
     public MyProcess getProcess(MyProcess clientProcess) throws RemoteException {
+        // 在远程进程中
+        LogUtil.d("RemoteService getProcess : " + Process.myPid()); // RemoteService getProcess : 25053
         MyProcess process = new MyProcess(Process.myPid(), getCurProcessName(mContext));
         return process;
     }

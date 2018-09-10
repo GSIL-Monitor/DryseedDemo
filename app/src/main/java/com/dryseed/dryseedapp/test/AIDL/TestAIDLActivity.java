@@ -13,10 +13,11 @@ import android.widget.Toast;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
+import com.luojilab.component.basiclib.utils.LogUtil;
 
 /**
  * Created by caiminming on 2017/9/18.
- *
+ * <p>
  * https://github.com/goeasyway/AIDL_Test
  * http://www.jianshu.com/p/467016b4487c
  */
@@ -29,7 +30,7 @@ public class TestAIDLActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        LogUtil.d("TestAIDLActivity onCreate : " + Process.myPid()); //  TestAIDLActivity onCreate : 24877
         Intent intent = new Intent();
         intent.setClass(this, AIDLRemoteService.class);
         bindService(intent, connection, Service.BIND_AUTO_CREATE); // 绑定服务
@@ -61,9 +62,12 @@ public class TestAIDLActivity extends BaseActivity {
 
     private ServiceConnection connection = new ServiceConnection() {
         public void onServiceConnected(ComponentName className, IBinder service) {
+            // 在当前进程中
             remoteService = IRemoteService.Stub.asInterface(service); //获取AIDL的接口实现引用
             try {
+                LogUtil.d("ServiceConnection onServiceConnected : " + Process.myPid()); // ServiceConnection onServiceConnected : 24877
                 MyProcess clientProcess = new MyProcess(Process.myPid(), TestAIDLActivity.this.getPackageName());
+                // 获取远程服务的processId : 25053
                 MyProcess myProcess = remoteService.getProcess(clientProcess);
 
                 String s = String.format("RemoeteService pName = %s \n RemoteService pid= %s", myProcess.name, myProcess.pid);

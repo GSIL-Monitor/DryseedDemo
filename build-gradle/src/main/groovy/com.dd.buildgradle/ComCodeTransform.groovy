@@ -6,6 +6,7 @@ import javassist.*
 import org.apache.commons.codec.digest.DigestUtils
 import org.apache.commons.io.FileUtils
 import org.gradle.api.Project
+import org.gradle.internal.hash.HashUtil
 
 class ComCodeTransform extends Transform {
 
@@ -19,6 +20,10 @@ class ComCodeTransform extends Transform {
 
     @Override
     void transform(TransformInvocation transformInvocation) throws TransformException, InterruptedException, IOException {
+        if (!transformInvocation.incremental) {
+            transformInvocation.outputProvider.deleteAll()
+        }
+
         getRealApplicationName(transformInvocation.getInputs())
         classPool = new ClassPool()
         project.android.bootClasspath.each {
@@ -52,13 +57,10 @@ class ComCodeTransform extends Transform {
             input.jarInputs.each { JarInput jarInput ->
                 //jar文件一般是第三方依赖库jar文件
                 // 重命名输出文件（同目录copyFile会冲突）
-                def jarName = jarInput.name
-                def md5Name = DigestUtils.md5Hex(jarInput.file.getAbsolutePath())
-                if (jarName.endsWith(".jar")) {
-                    jarName = jarName.substring(0, jarName.length() - 4)
-                }
+                String name = HashUtil.createHash(input, "MD5").asHexString
+
                 //生成输出路径
-                def dest = transformInvocation.outputProvider.getContentLocation(jarName + md5Name,
+                def dest = transformInvocation.outputProvider.getContentLocation(name,
                         jarInput.contentTypes, jarInput.scopes, Format.JAR)
                 //将输入内容复制到输出
                 FileUtils.copyFile(jarInput.file, dest)

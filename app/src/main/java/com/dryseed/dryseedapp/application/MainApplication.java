@@ -9,8 +9,14 @@ import com.dryseed.timecost.TimeCostConfig;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.stetho.Stetho;
 import com.luojilab.component.basiclib.utils.BackForegroundWatcher;
+import com.luojilab.component.basiclib.utils.CustomLogCatStrategy;
+import com.luojilab.component.basiclib.utils.LogUtil;
 import com.luojilab.component.componentlib.router.Router;
 import com.luojilab.component.componentlib.router.ui.UIRouter;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.FormatStrategy;
+import com.orhanobut.logger.Logger;
+import com.orhanobut.logger.PrettyFormatStrategy;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.smtt.export.external.TbsCoreSettings;
 import com.tencent.smtt.sdk.QbSdk;
@@ -42,6 +48,21 @@ class MainApplication extends BaseApplicationProxy {
 
         //TimeCost耗时统计
         initTimeCost();
+
+        //Logger初始化
+        initLogger();
+    }
+
+    private void initLogger() {
+        FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
+                .showThreadInfo(false)  // (Optional) Whether to show thread info or not. Default true
+                .methodCount(0)         // (Optional) How many method line to show. Default 2
+                .methodOffset(5)        // (Optional) Hides internal method calls up to offset. Default 5
+                .logStrategy(new CustomLogCatStrategy()) // (Optional) Changes the log strategy to print out. Default LogCat
+                .tag(LogUtil.TAG)   // (Optional) Global tag for every log. Default PRETTY_LOGGER
+                .build();
+
+        Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy));
     }
 
     /**

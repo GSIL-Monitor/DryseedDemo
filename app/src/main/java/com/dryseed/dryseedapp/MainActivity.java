@@ -68,8 +68,6 @@ public class MainActivity extends ListActivity {
             }
         }, 1000);
 
-        Logger.init().setMethodCount(0).hideThreadInfo();
-
         Intent intent = getIntent();
         String path = intent.getStringExtra("com.dryseed.dryseedapp.Path");
 
@@ -273,7 +271,7 @@ public class MainActivity extends ListActivity {
             FloatViewManager.getInstance().showFloatView(this);
         }
 
-        ActivityUtil.printTaskInfo(this);
+        //ActivityUtil.printTaskInfo(this);
     }
 
     @Override

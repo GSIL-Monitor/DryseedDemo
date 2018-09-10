@@ -10,8 +10,15 @@ import com.dryseed.dryseedapp.tools.jobmanager.Params;
  */
 public abstract class PlayerJob extends Job {
 
+    private ICallback mICallback;
+
     protected PlayerJob(int priority) {
         super(new Params(priority), Object.class);
+    }
+
+    protected PlayerJob(int priority, ICallback callback) {
+        super(new Params(priority), Object.class);
+        mICallback = callback;
     }
 
     protected PlayerJob(int priority, long delayInMs) {
@@ -31,5 +38,9 @@ public abstract class PlayerJob extends Job {
     @Override
     protected boolean shouldReRunOnThrowable(Throwable throwable) {
         return false;
+    }
+
+    public interface ICallback<T> {
+        void onSuccess(T data);
     }
 }

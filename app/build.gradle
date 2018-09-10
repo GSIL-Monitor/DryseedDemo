@@ -202,7 +202,7 @@ configurations.all {
 //Component
 combuild {
     applicationName = 'com.dryseed.dryseedapp.application.MyApplication'
-    isRegisterCompoAuto = true
+    isRegisterCompoAuto = false
 }
 
 //TimeCost
@@ -257,7 +257,7 @@ dependencies {
     // ########## component ##########
     // https://github.com/mqzhangw/JIMU
     // ----------------------------------------------------
-    implementation project(':componentservice')
+    compile project(':componentservice')
     //annotationProcessor 'com.github.jimu:router-anno-compiler:1.0.1'
     annotationProcessor project(':router-anno-compiler')
 

@@ -30,7 +30,7 @@ android {
 }
 
 dependencies {
-    implementation project(':componentservice') //component
+    compile project(':componentservice') //component
     //annotationProcessor 'com.github.jimu:router-anno-compiler:1.0.1' //component router
     annotationProcessor project(':router-anno-compiler') //component router
     implementation fileTree(include: ['*.jar'], dir: 'libs')
