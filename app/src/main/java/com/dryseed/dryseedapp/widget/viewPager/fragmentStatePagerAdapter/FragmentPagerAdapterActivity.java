@@ -24,20 +24,36 @@ import com.dryseed.dryseedapp.widget.viewPager.fragment4test.RecyclerViewFragmen
  * -- ViewPager getItem 0
  * -- ViewPager instantiateItem 1
  * -- ViewPager getItem 1
- * -- RecyclerViewFragment onCreateView 0
- * -- RecyclerViewFragment onCreateView 1
+ * -- RecyclerViewFragment 0 onAttach
+ * -- RecyclerViewFragment 0 onCreate
+ * -- RecyclerViewFragment 1 onAttach
+ * -- RecyclerViewFragment 1 onCreate
+ * -- RecyclerViewFragment 0 onCreateView
+ * -- RecyclerViewFragment 1 onCreateView
  * <p>
  * -- Page 2
  * -- ViewPager instantiateItem 2
  * -- ViewPager getItem 2
- * -- RecyclerViewFragment onCreateView 2
+ * -- RecyclerViewFragment 2 onAttach
+ * -- RecyclerViewFragment 2 onCreate
+ * -- RecyclerViewFragment 2 onCreateView
  * <p>
  * -- Page 3
  * -- ViewPager destroyItem 0
  * -- ViewPager instantiateItem 3
  * -- ViewPager getItem 3
- * -- RecyclerViewFragment onDestroyView 0
- * -- RecyclerViewFragment onCreateView 3
+ * -- RecyclerViewFragment 3 onAttach
+ * -- RecyclerViewFragment 3 onCreate
+ * -- RecyclerViewFragment 0 onDestroyView
+ * -- RecyclerViewFragment 3 onCreateView
+ * <p>
+ * -- Page 1
+ * -- ViewPager instantiateItem 0
+ * -- RecyclerViewFragment 0 onCreateView
+ * -- ViewPager destroyItem 2
+ * -- ViewPager destroyItem 3
+ * -- RecyclerViewFragment 2 onDestroyView
+ * -- RecyclerViewFragment 3 onDestroyView
  */
 public class FragmentPagerAdapterActivity extends BaseActivity {
 

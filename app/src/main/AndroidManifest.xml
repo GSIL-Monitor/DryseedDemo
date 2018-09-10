@@ -25,6 +25,8 @@
     <uses-permission android:name="com.android.launcher2.permission.READ_SETTINGS" />
     <uses-permission android:name="com.android.launcher3.permission.READ_SETTINGS" />
     <uses-permission android:name="com.meizu.flyme.launcher.permission.READ_SETTINGS" />
+    <!-- 允许程序获取当前或最近运行的应用 -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
 
     <application
         android:name=".application.MyApplication"
@@ -1395,6 +1397,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".test.contentProvider.TestContentProviderActivity"
+            android:label="Test/ContentProvider">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".widget.recyclerView.listui.demo.TestListUIActivity"
             android:label="Widget/RecyclerView/ListUI/TestListUIActivity">
             <intent-filter>
@@ -1762,6 +1773,11 @@
             android:name="com.dryseed.dryseedapp.test.jobScheduler.JobSchedulerService"
             android:exported="false"
             android:permission="android.permission.BIND_JOB_SERVICE"></service>
+
+        <provider
+            android:name=".test.contentProvider.MyContentProvider"
+            android:authorities="${applicationId}.myprovider"
+            android:exported="false" />
     </application>
 
 </manifest>

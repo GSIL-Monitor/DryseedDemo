@@ -1,6 +1,7 @@
 package com.dryseed.dryseedapp.widget.shortcut;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -22,8 +23,12 @@ public class ShortCutActivity extends BaseActivity {
     }
 
     public void installShortCut(View view) {
-        Intent launchIntent = new Intent(this, ShortCutActivity.class);
-        launchIntent.setClassName(this, this.getClass().getName());
+        //Intent launchIntent = new Intent(this, ShortCutActivity.class);
+        //launchIntent.setClassName(this, this.getClass().getName());
+
+        Intent launchIntent = new Intent();
+        String data = "dryseed://jump?name=canvas";
+        launchIntent.setData(Uri.parse(data));
 
         ShortCutUtils.installShortCut(this, SHORT_CUT_NAME, R.drawable.city3, launchIntent);
     }

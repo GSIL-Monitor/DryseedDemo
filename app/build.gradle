@@ -38,17 +38,12 @@ android {
         buildConfigField "String", "TENCENT_ID", "\"" + TENCENT_ID + "\""
         buildConfigField "boolean", "AUTO_UPDATES", "true"
         manifestPlaceholders = [TENCENT_ID_WITH_NAME: "tencent" + TENCENT_ID]
+        //语言支持
+        resConfigs 'zh', 'zh_CN', 'zh_HK', 'zh_MO', 'zh_TW', 'en'
 
-        // Specifies the ABI configurations of your native
-        // libraries Gradle should build and package with your APK.
         ndk {
-            //指定ndk需要兼容的架构，把除了v7a以外的兼容包都过滤掉，只剩下一个v7a的文件夹。
-            //abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
-            /*
-                由于arm平台的so在其他平台上面能够以兼容模式运行的，虽然会损失性能，但是可以极大地减少函数库占用的空间。
-                因此，可以选择只保留armeabi-v7a和x86两个平台的 .so 文件，直接删除无用的 .so 文件，
-                或者通过工程的build.gradle文件中增加 ndk abi 过滤，语句如下
-             */
+            //由于arm平台的so在其他平台上面能够以兼容模式运行的，虽然会损失性能，但是可以极大地减少函数库占用的空间。
+            //abiFilters "armeabi"
             abiFilters "armeabi-v7a", "x86"
         }
 

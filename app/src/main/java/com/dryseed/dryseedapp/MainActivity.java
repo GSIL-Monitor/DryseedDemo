@@ -14,6 +14,7 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.dryseed.dryseedapp.canvas.canvas.TestCanvasActivity;
+import com.luojilab.component.basiclib.utils.ActivityUtil;
 import com.luojilab.component.basiclib.utils.LogUtil;
 import com.luojilab.component.basiclib.utils.ToastUtil;
 import com.dryseed.dryseedapp.utils.dao.DaoManager;
@@ -271,6 +272,8 @@ public class MainActivity extends ListActivity {
         if (showFloatView()) {
             FloatViewManager.getInstance().showFloatView(this);
         }
+
+        ActivityUtil.printTaskInfo(this);
     }
 
     @Override

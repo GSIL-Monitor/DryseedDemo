@@ -9,4 +9,11 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:background="#cccccc" />
+
+    <com.dryseed.dryseedapp.framework.fresco.MyRadioButton
+        android:id="@+id/my_image_view_2"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="推荐"
+        android:background="#cccccc" />
 </LinearLayout>

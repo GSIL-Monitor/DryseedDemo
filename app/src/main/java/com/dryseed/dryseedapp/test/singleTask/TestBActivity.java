@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 
+import com.blankj.utilcode.util.ActivityUtils;
 import com.dryseed.dryseedapp.BaseActivity;
 
 import java.util.List;

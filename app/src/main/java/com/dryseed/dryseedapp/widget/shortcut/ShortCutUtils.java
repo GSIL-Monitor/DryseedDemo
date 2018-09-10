@@ -1,6 +1,5 @@
 package com.dryseed.dryseedapp.widget.shortcut;
 
-import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;

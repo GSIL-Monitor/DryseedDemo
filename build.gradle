@@ -17,14 +17,20 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
-        //classpath 'com.luojilab.ddcomponent:build-gradle:1.1.0' //component
-        classpath 'com.dd.buildgradle:build-gradle:1.0.0' //component localMaven
+
+        //Component
+        //classpath 'com.luojilab.ddcomponent:build-gradle:1.1.0' //remoteMaven
+        classpath 'com.dd.buildgradle:build-gradle:1.0.0' //localMaven
+
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
+
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
         //TimeCost Gradle Plugin
         if ("timecost_enable".prop(project) == 'true') {
             classpath "com.dryseed.timecost.gradle:buildsrc:1.+"
         }
+
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

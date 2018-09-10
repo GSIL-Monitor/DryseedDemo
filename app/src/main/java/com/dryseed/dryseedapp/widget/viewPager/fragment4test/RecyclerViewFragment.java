@@ -1,5 +1,6 @@
 package com.dryseed.dryseedapp.widget.viewPager.fragment4test;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -43,6 +44,19 @@ public class RecyclerViewFragment extends Fragment {
         return f;
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mPosition = getArguments().getInt(ARG_POSITION);
+        Log.d("MMM", String.format("RecyclerViewFragment %d onAttach ", mPosition));
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Log.d("MMM", String.format("RecyclerViewFragment %d onCreate ", mPosition));
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -54,8 +68,7 @@ public class RecyclerViewFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mPosition = getArguments().getInt(ARG_POSITION);
-        Log.d("MMM", "RecyclerViewFragment onCreateView " + mPosition);
+        Log.d("MMM", String.format("RecyclerViewFragment %d onCreateView ", mPosition));
 
         initData();
         initViews();
@@ -64,19 +77,19 @@ public class RecyclerViewFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        Log.d("MMM", "RecyclerViewFragment onDestroyView " + mPosition);
+        Log.d("MMM", String.format("RecyclerViewFragment %d onDestroyView ", mPosition));
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d("MMM", "RecyclerViewFragment onDestroy " + mPosition);
+        Log.d("MMM", String.format("RecyclerViewFragment %d onDestroy ", mPosition));
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        Log.d("MMM", "RecyclerViewFragment onDetach " + mPosition);
+        Log.d("MMM", String.format("RecyclerViewFragment %d onDetach ", mPosition));
     }
 
     public void initData() {

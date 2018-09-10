@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.widget.RadioButton;
@@ -77,6 +78,9 @@ public class MyRadioButton extends RadioButton {
                         drawable.setBounds(0, 0, scaledWidth, stripHeight);
                         setCompoundDrawables(null, null, drawable, null);
                         //setBackground(drawable);
+
+                        float txtWidth = getPaint().measureText(getText().toString());
+                        Log.d("MMM", String.format("[textWidth:%f][viewWidth:%d]", txtWidth, getWidth()));
                     }
                 })
                 .build();
