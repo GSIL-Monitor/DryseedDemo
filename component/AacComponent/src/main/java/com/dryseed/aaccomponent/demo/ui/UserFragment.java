@@ -9,10 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.dryseed.aaccomponent.demo.entity.UserEntity;
 import com.dryseed.aaccomponent.demo.viewmodel.UserViewModel;
+import com.luojilab.component.basiclib.utils.ToastUtil;
 
 public class UserFragment extends android.support.v4.app.Fragment {
     private static final String UID_KEY = "uid";
@@ -38,21 +38,20 @@ public class UserFragment extends android.support.v4.app.Fragment {
         super.onActivityCreated(savedInstanceState);
         //通过Arguments获取uid
         String userId = getArguments().getString(UID_KEY);
-        //创建ViewModel，不必太在意ViewModel的创建形式，这个之后会做详细的分析。现在只需要明白是在哪里生成的就行。
+
+        //创建ViewModel
         viewModel = ViewModelProviders.of(this).get(UserViewModel.class);
         viewModel.init(userId);
 
         viewModel.getUser().observe(this, new Observer<UserEntity>() {
             @Override
             public void onChanged(@Nullable UserEntity user) {
-                //update UI
                 if (null != user) {
-                    Toast.makeText(getActivity(), user.getName(), Toast.LENGTH_SHORT).show();
+                    ToastUtil.showToast(user.getName());
                 }
             }
         });
 
-        //test
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

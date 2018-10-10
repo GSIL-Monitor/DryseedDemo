@@ -20,6 +20,19 @@ public class DataViewModel extends ViewModel {
     private Handler mWorkHandler;
 
     /**
+     * 获取数据的监控者。
+     *
+     * @return 监控者。
+     */
+    public MutableLiveData<List<String>> getWatcher() {
+        LogUtil.d("Call getWatcher");
+        if (mWatcher == null) {
+            mWatcher = new MutableLiveData<>();
+        }
+        return mWatcher;
+    }
+
+    /**
      * 加载数据，在实际当中，加载数据的操作要放在 Repository 中进行，而不要放在 Model 中，
      * 它只是负责数据和 UI 的交互过程。
      */
@@ -44,19 +57,6 @@ public class DataViewModel extends ViewModel {
             }
 
         });
-    }
-
-    /**
-     * 获取数据的监控者。
-     *
-     * @return 监控者。
-     */
-    public MutableLiveData<List<String>> getWatcher() {
-        LogUtil.d("Call getWatcher");
-        if (mWatcher == null) {
-            mWatcher = new MutableLiveData<>();
-        }
-        return mWatcher;
     }
 
     /**

@@ -1,5 +1,6 @@
 package com.dryseed.aaccomponent;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.dryseed.aaccomponent.paging.TestPagingActivity;
 import com.luojilab.component.basiclib.BaseActivity;
 import com.luojilab.component.componentlib.router.ui.UIRouter;
 import com.luojilab.router.facade.annotation.RouteNode;
@@ -46,9 +48,11 @@ public class AacMainActivity extends BaseActivity {
     private void initData() {
         mData.add(new Pair("Architecture/AAC/LifeCycle/BaseLifeCycle", "dryseed://aac/lifecycle"));
         mData.add(new Pair("Architecture/AAC/LifeCycle/LifeCycleOwner", "dryseed://aac/lifecycleowner"));
+        mData.add(new Pair("Architecture/AAC/LiveData/LiveData/Demo0", "dryseed://aac/livedatademo0"));
         mData.add(new Pair("Architecture/AAC/LiveData/LiveData/Demo1", "dryseed://aac/livedatademo1"));
         mData.add(new Pair("Architecture/AAC/LiveData/LiveData/Demo2", "dryseed://aac/livedatademo2"));
         mData.add(new Pair("Architecture/AAC/Navigation", "dryseed://aac/navigation"));
+        mData.add(new Pair("Architecture/AAC/Paging", "dryseed://aac/paging"));
         mData.add(new Pair("Architecture/AAC/Demo", "dryseed://aac/demo"));
     }
 
@@ -74,7 +78,12 @@ public class AacMainActivity extends BaseActivity {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    UIRouter.getInstance().openUri(AacMainActivity.this, mData.get(position).second, new Bundle());
+                    //LogUtil.d(String.format("onClick [position:%d][url:%s]", position, mData.get(position).second));
+                    if (mData.get(position).second.equals("dryseed://aac/demo")) {
+                        startActivity(new Intent(AacMainActivity.this, TestPagingActivity.class));
+                    } else {
+                        UIRouter.getInstance().openUri(AacMainActivity.this, mData.get(position).second, new Bundle());
+                    }
                 }
             });
         }

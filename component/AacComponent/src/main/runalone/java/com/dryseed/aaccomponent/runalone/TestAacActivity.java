@@ -17,5 +17,6 @@ public class TestAacActivity extends Activity {
         Intent intent = new Intent(this, AacMainActivity.class);
         intent.putExtra("com.dryseed.dryseedapp.Path", "Architecture/AAC");
         startActivity(intent);
+        finish();
     }
 }

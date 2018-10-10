@@ -13,6 +13,8 @@ import com.luojilab.router.facade.annotation.RouteNode;
  * doc : https://developer.android.google.cn/topic/libraries/architecture/lifecycle
  * Fragments and Activities in Support Library 26.1.0 and later already implement the LifecycleOwner interface.
  * If you have a custom class that you would like to make a LifecycleOwner, you can use the LifecycleRegistry class, but you need to forward events into that class
+ * <p>
+ * 可以参考：android.support.v4.app.SupportActivity
  */
 @RouteNode(path = "/lifecycleowner", desc = "lifecycleowner")
 public class LifeCycleOwnerActivity extends Activity implements LifecycleOwner {

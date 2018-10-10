@@ -1,7 +1,6 @@
 package com.luck.picture.runalone.application;
 
 import com.luojilab.component.basicres.BaseApplication;
-import com.luojilab.component.componentlib.router.Router;
 
 public class PictureselectorApplication extends BaseApplication {
 

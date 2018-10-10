@@ -20,10 +20,12 @@
         <activity android:name=".AacMainActivity" />
         <activity android:name=".lifecycle.LifeCycleActivity" />
         <activity android:name=".lifecycle.LifeCycleOwnerActivity" />
+        <activity android:name=".livedata.demo0.LiveDataActivity" />
         <activity android:name=".livedata.demo1.LiveDataActivity" />
         <activity android:name=".livedata.demo2.LiveData2Activity" />
         <activity android:name=".demo.ui.MainActivity" />
         <activity android:name=".navigation.TestNavigationActivity" />
+        <activity android:name=".paging.TestPagingActivity" />
     </application>
 
 </manifest>

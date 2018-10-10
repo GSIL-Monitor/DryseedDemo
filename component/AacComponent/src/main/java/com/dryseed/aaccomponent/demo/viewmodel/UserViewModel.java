@@ -11,7 +11,6 @@ public class UserViewModel extends ViewModel {
     private MyLiveData<UserEntity> mUser;
     private UserRepository mUserRepository;
 
-    //初始化传递uid进来
     public void init(String userId) {
         this.mUserId = userId;
         mUser = new MyLiveData<>();

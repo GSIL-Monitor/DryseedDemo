@@ -17,12 +17,12 @@ import java.util.List;
 
 /**
  * LiveData + ViewModel
- *
+ * <p>
  * 在界面inactive的状态下发生了数据的改变，不会立即通知观察者，而是要等到界面重新active之后，才会调用observer的onChanged()方法。
- *
+ * <p>
  * # 使用 ViewModel 存储数据，并处理屏幕旋转
  * 旋转屏幕时，并不需要做什么序列化的操作，也不需要进行手动的赋值操作，ViewModel已经为我们处理好了。
- *
+ * <p>
  * # 在 Fragment 之间共享数据
  * 当我们希望在Fragment之间进行交互或者共享数据的时候，通常都是通过在它们共同的宿主Activity声明接口，再由Activity找到目标Fragment去通知它。
  * 当使用ViewModel后，这一交互过程将会很简单。只需要让两个Fragment都共享同一个ViewModel（也就是说，ViewModelProvider.of(x)传入的是它们共同的宿主Activity），
@@ -51,7 +51,7 @@ public class LiveData2Activity extends AppCompatActivity {
 
             @Override
             public void onChanged(@Nullable List<String> strings) {
-                LogUtil.d("observe vonChanged");
+                LogUtil.d("observe onChanged");
                 String tvDisplay = "";
                 for (String result : strings) {
                     tvDisplay += (result + "\n");
