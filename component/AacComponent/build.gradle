@@ -1,4 +1,13 @@
 apply plugin: 'com.dd.comgradle'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+kapt {
+    arguments {
+        arg("host", "aac")
+    }
+}
 
 repositories {
     mavenLocal() // 使用本地仓库
@@ -14,11 +23,11 @@ android {
         versionCode 1
         versionName "1.0"
 
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [host: "aac"]
-            }
-        }
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = [host: "aac"]
+//            }
+//        }
     }
 
     buildTypes {
@@ -32,7 +41,9 @@ android {
 dependencies {
     compile project(':componentservice') //component
     //annotationProcessor 'com.github.jimu:router-anno-compiler:1.0.1' //component router
-    annotationProcessor project(':router-anno-compiler') //component router
+    //annotationProcessor project(':router-anno-compiler') //component router
+    kapt 'com.luojilab.ddcomponent:router-anno-compiler:1.0.0'
+
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     implementation 'com.android.support:appcompat-v7:' + GOOGLE_SUPPORT_VERSION

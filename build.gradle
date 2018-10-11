@@ -19,8 +19,8 @@ buildscript {
         classpath 'com.android.tools.build:gradle:3.0.1'
 
         //Component
-        //classpath 'com.luojilab.ddcomponent:build-gradle:1.1.0' //remoteMaven
-        classpath 'com.dd.buildgradle:build-gradle:1.0.0' //localMaven
+        classpath 'com.luojilab.ddcomponent:build-gradle:1.2.0' //remoteMaven
+        //classpath 'com.dd.buildgradle:build-gradle:1.0.0' //localMaven
 
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
 
