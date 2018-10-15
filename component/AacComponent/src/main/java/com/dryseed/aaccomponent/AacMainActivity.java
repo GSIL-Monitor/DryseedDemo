@@ -12,7 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.luojilab.component.basiclib.BaseActivity;
+import com.luojilab.component.basiclib.utils.ToastUtil;
 import com.luojilab.component.componentlib.router.ui.UIRouter;
 import com.luojilab.router.facade.annotation.RouteNode;
 
@@ -35,6 +37,14 @@ public class AacMainActivity extends BaseActivity {
         setContentView(R.layout.activity_aac_main_layout);
 
         initData();
+
+        View view = findViewById(R.id.recycler_view);
+        if (view instanceof RecyclerView) {
+            ToastUtils.showShort("RecyclerView");
+        } else {
+            ToastUtil.showToast("View");
+        }
+
         mRecyclerView = findViewById(R.id.recycler_view);
         mTestAdapter = new TestAdapter(mData);
         mRecyclerView.setAdapter(mTestAdapter);

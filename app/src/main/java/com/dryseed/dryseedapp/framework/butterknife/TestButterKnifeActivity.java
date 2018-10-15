@@ -16,14 +16,14 @@ import com.luojilab.component.componentlib.service.AutowiredService;
 import com.luojilab.router.facade.annotation.Autowired;
 import com.luojilab.router.facade.annotation.RouteNode;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemClick;
 import butterknife.OnLongClick;
-
-import java.util.List;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
@@ -96,7 +96,7 @@ public class TestButterKnifeActivity extends BaseActivity {
     }
 
     private void showJimuRouterInfo() {
-        AutowiredService.Factory.getSingletonImpl().autowire(this);
+        AutowiredService.Factory.getInstance().create().autowire(this);
         ToastUtils.showShort("name" + name);
     }
 }

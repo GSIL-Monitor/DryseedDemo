@@ -43,8 +43,11 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testImplementation 'junit:junit:4.12'
-    compile project(':router-annotation')
-    //compile 'com.github.jimu:router-annotation:1.0.1'
+
+    //Component
+    //compile project(':router-annotation')
+    compile 'com.github.jimu:router-annotation:1.0.0'
+
     compile 'com.google.code.gson:gson:2.8.2'
 
 }

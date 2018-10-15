@@ -36,6 +36,11 @@ dependencies {
 
     implementation 'com.android.support:recyclerview-v7:' + GOOGLE_SUPPORT_VERSION
 
+    // ----------------------------------------------------
+    // ########## Component ##########
+    // https://github.com/mqzhangw/JIMU
+    // https://github.com/luojilab/DDComponentForAndroid
+    // ----------------------------------------------------
     //compile project(":componentlib")
     compile('com.luojilab.ddcomponent:componentlib:1.3.0') {
         exclude group: "com.android.support"

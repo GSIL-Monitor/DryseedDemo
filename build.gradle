@@ -18,7 +18,11 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
 
-        //Component
+        // ----------------------------------------------------
+        // ########## Component ##########
+        // https://github.com/mqzhangw/JIMU
+        // https://github.com/luojilab/DDComponentForAndroid
+        // ----------------------------------------------------
         classpath 'com.luojilab.ddcomponent:build-gradle:1.2.0' //remoteMaven
         //classpath 'com.dd.buildgradle:build-gradle:1.0.0' //localMaven
 

@@ -32,9 +32,14 @@ ext {
 }
 
 dependencies {
-    compile project(':componentservice') //component
-    //annotationProcessor 'com.github.jimu:router-anno-compiler:1.0.1' //component router
-    annotationProcessor project(':router-anno-compiler') //component router
+    // ----------------------------------------------------
+    // ########## Component ##########
+    // https://github.com/mqzhangw/JIMU
+    // https://github.com/luojilab/DDComponentForAndroid
+    // ----------------------------------------------------
+    compile project(':componentservice')
+    //annotationProcessor project(':router-anno-compiler')
+    annotationProcessor 'com.luojilab.ddcomponent:router-anno-compiler:1.0.0'
 }
 
 combuild {

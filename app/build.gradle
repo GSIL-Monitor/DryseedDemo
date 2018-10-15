@@ -247,19 +247,28 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:' + GOOGLE_SUPPORT_VERSION
 
     // ----------------------------------------------------
+    // ########## Component ##########
+    // https://github.com/mqzhangw/JIMU
+    // https://github.com/luojilab/DDComponentForAndroid
+    // ----------------------------------------------------
+    compile project(':componentservice')
+    //annotationProcessor project(':router-anno-compiler')
+    annotationProcessor 'com.luojilab.ddcomponent:router-anno-compiler:1.0.0'
+
+    // ----------------------------------------------------
+    // ########## Lifecycles ##########
+    // https://developer.android.google.cn/topic/libraries/architecture/adding-components.html
+    // 注意：'com.android.support:appcompat-v7:27.1.1'已经默认导入了lifecycles相关的库
+    // ----------------------------------------------------
+    implementation "android.arch.lifecycle:extensions:1.1.1" // ViewModel and LiveData
+    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
+
+    // ----------------------------------------------------
     // ########## WorkManager ##########
     // https://developer.android.com/topic/libraries/architecture/workmanager
     // Codelab : https://codelabs.developers.google.com/codelabs/android-workmanager/index.html
     // ----------------------------------------------------
     implementation "android.arch.work:work-runtime:" + ARCHITECTURE_COMPONENTS_VERSION
-
-    // ----------------------------------------------------
-    // ########## component ##########
-    // https://github.com/mqzhangw/JIMU
-    // ----------------------------------------------------
-    compile project(':componentservice')
-    //annotationProcessor 'com.github.jimu:router-anno-compiler:1.0.1'
-    annotationProcessor project(':router-anno-compiler')
 
     // ----------------------------------------------------
     // ########## eventbus ##########
