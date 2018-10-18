@@ -70,6 +70,9 @@
             android:name="com.tencent.connect.common.AssistActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+
+        <!-- FrameWork Part Begin -->
         <activity
             android:name=".framework.volley.TestVolleyActivity"
             android:label="FrameWork/Volley">
@@ -233,6 +236,36 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <!-- FrameWork Part End -->
+
+
+        <activity
+            android:name=".dispatchEvent.DispatchEventDemoActivity1"
+            android:label="DispatchEvent/DispatchEventDemo 外部拦截法">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".dispatchEvent.DispatchEventDemoActivity2"
+            android:label="DispatchEvent/DispatchEventDemo 内部拦截法">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".dispatchEvent.testDemo.DispatchEventDemoActivity3"
+            android:label="DispatchEvent/DispatchEventDemo 事件传递">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+
+        <!-- CustomView Part Begin-->
         <activity
             android:name=".customView.customView01.TestCustomView01Activity"
             android:label="CustomView/CustomView01">
@@ -276,30 +309,6 @@
         <activity
             android:name=".customView.comboClickTextView.TestComboClickTextViewActivity"
             android:label="CustomView/ComboClickTextView">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".dispatchEvent.DispatchEventDemoActivity1"
-            android:label="DispatchEvent/DispatchEventDemo 外部拦截法">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".dispatchEvent.DispatchEventDemoActivity2"
-            android:label="DispatchEvent/DispatchEventDemo 内部拦截法">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".dispatchEvent.testDemo.DispatchEventDemoActivity3"
-            android:label="DispatchEvent/DispatchEventDemo 事件传递">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -354,6 +363,32 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".customView.foldingLayout.sample.TestFoldingLayoutActivity"
+            android:label="CustomView/FoldingLayoutActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".customView.foldingLayout.sample.MatrixPolyToPolyActivity" />
+        <activity android:name=".customView.foldingLayout.sample.MatrixPolyToPolyWithShadowActivity" />
+        <activity android:name=".customView.foldingLayout.sample.SimpleUseActivity" />
+        <activity android:name=".customView.foldingLayout.sample.FoldLayoutActivity" />
+        <activity android:name=".customView.foldingLayout.sample.DrawerLayoutSampleActivity" />
+        <activity android:name=".customView.foldingLayout.sample.SlidingPanelLayoutSampleActivity" />
+        <activity
+            android:name=".customView.guaguaka.GuaGuaKaActivity"
+            android:label="CustomView/GuaGuaKaActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <!-- CustomView Part End-->
+
+
+        <!-- Animation Part Begin-->
         <activity
             android:name=".animation.propertyAnimation.ObjectAnimatorActivity"
             android:label="Animation/PropertyAnimation/ObjectAnimator">
@@ -451,7 +486,10 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <!-- Animation Part End-->
 
+
+        <!-- Widget Part Begin-->
         <activity
             android:name=".widget.slideMenu.SlideMenu01.SlideMenu01Activity"
             android:label="Widget/SlideMenu/01.自定义侧滑控件">
@@ -762,37 +800,6 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".customView.foldingLayout.sample.TestFoldingLayoutActivity"
-            android:label="CustomView/FoldingLayoutActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".customView.foldingLayout.sample.MatrixPolyToPolyActivity" />
-        <activity android:name=".customView.foldingLayout.sample.MatrixPolyToPolyWithShadowActivity" />
-        <activity android:name=".customView.foldingLayout.sample.SimpleUseActivity" />
-        <activity android:name=".customView.foldingLayout.sample.FoldLayoutActivity" />
-        <activity android:name=".customView.foldingLayout.sample.DrawerLayoutSampleActivity" />
-        <activity android:name=".customView.foldingLayout.sample.SlidingPanelLayoutSampleActivity" />
-        <activity
-            android:name=".customView.guaguaka.GuaGuaKaActivity"
-            android:label="CustomView/GuaGuaKaActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".image.TestImageActivity"
-            android:label="Image/TestImageActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".widget.viewPager.tabLayout.TestTabLayoutActivity"
             android:label="Widget/ViewPager/TabLayout">
@@ -882,6 +889,208 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".widget.recyclerView.listui.demo.TestListUIActivity"
+            android:label="Widget/RecyclerView/ListUI/TestListUIActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.recyclerView.multiTypeAdapter.demo.BilibiliActivity"
+            android:label="Widget/RecyclerView/MultiTypeAdapter/MultiTypeAdapterDemo">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.recyclerView.multiTypeAdapter.demo2.BiliBiliActivity"
+            android:label="Widget/RecyclerView/MultiTypeAdapter/MultiTypeAdapterDemo2">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.pullToRefresh.TestPullToRefreshRecyclerViewActivity"
+            android:label="Widget/PullToRefresh">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.stickyRecyclerView.TestStickyRecyclerViewActivity"
+            android:label="Widget/StickyRecyclerView">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".widget.stickyRecyclerView.StickyRecyclerViewActivity" />
+        <activity android:name=".widget.stickyRecyclerView.BeautifulRecyclerViewActivity" />
+        <activity android:name=".widget.stickyRecyclerView.PowerfulStickyRecyclerViewActivity" />
+        <activity
+            android:name=".widget.recyclerView.simpleDemo.TestSimpleRecyclerViewActivity"
+            android:label="Widget/RecyclerView/SimpleDemo">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.recyclerView.snapHelper.TestSnapHelperActivity"
+            android:label="Widget/RecyclerView/SnapHelper">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.coordinatorLayout.TestCoodinatorLayoutActivity"
+            android:label="Widget/CoordinatorLayout">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".widget.coordinatorLayout.WithFloatingActionButton" />
+        <activity android:name=".widget.coordinatorLayout.WithAppBarLayout" />
+        <activity android:name=".widget.coordinatorLayout.WithCollapsingToolbar" />
+        <activity android:name=".widget.coordinatorLayout.WithViewPager" />
+        <activity android:name=".widget.coordinatorLayout.WithZhiHu" />
+        <activity
+            android:name=".widget.rotate3dAnimation.TestRotate3dAnimationActivity"
+            android:label="Widget/Rotate3dAnimation">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.fragment.TestFragmentLifeCycle"
+            android:label="Widget/FragmentLifeCycle">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.fragment.tab.FragmentMainActivity"
+            android:label="Widget/Fragment/FragmentMainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.toast.TestToastActivity"
+            android:label="Widget/Toast">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.dialog.TestDialogActivity"
+            android:label="Widget/Dialog">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.floatWindow.FloatWindowActivity"
+            android:label="Widget/FloatWindow">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.datapicker.DatePickerActivity"
+            android:label="Widget/DatePicker">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.blurredView.TestBlurredViewActivity"
+            android:label="Widget/BlurredView">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".widget.blurredView.TestDynamicBlurredViewActivity" />
+        <activity
+            android:name=".widget.viewStub.ViewStubActivity"
+            android:label="Widget/ViewStub">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.merge.TestMergeActivity"
+            android:label="Widget/Merge">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.textView.TestSpannableActivity"
+            android:label="Widget/TextView/Spannable">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.textView.TestTextViewHtmlActivity"
+            android:label="Widget/TextView/Html.fromHtml">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.dragPhotoView.DragPhotoViewActivity"
+            android:label="Widget/DragPhotoView">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.dragPhotoView.ImageShowActivity"
+            android:theme="@style/transparent" />
+        <activity
+            android:name=".widget.timeline.TimeLineActivity"
+            android:label="Widget/TimeLine">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <!-- Widget Part End-->
+
+
+        <activity
+            android:name=".image.TestImageActivity"
+            android:label="Image/TestImageActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+
+
+        <!-- Canvas Part Begin -->
         <activity
             android:name=".canvas.canvas.TestCanvasActivity"
             android:label="Canvas/TestCanvasActivity">
@@ -979,7 +1188,10 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <!-- Canvas Part End -->
 
+
+        <!-- Architecture Part Begin -->
         <activity
             android:name=".architecture.mvp.UserLoginActivity"
             android:label="Architecture/Mvp/UserLoginActivity">
@@ -1012,6 +1224,10 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <!-- Architecture Part End -->
+
+
+        <!-- Tools Part Begin -->
         <activity
             android:name=".tools.sensor.shake.ShakeSensorActivity"
             android:label="Tools/Sensor/ShakeSensorActivity">
@@ -1150,6 +1366,10 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <!-- Tools Part End -->
+
+
+        <!-- Test Part Begin -->
         <activity
             android:name=".test.singleTask.TestAActivity"
             android:label="Test/SingleTask">
@@ -1289,14 +1509,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".test.viewStub.ViewStubActivity"
-            android:label="Test/ViewStub">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".test.setresult.test1.TestSetResultActivity"
             android:label="Test/SetResult">
             <intent-filter>
@@ -1404,144 +1616,10 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <!-- Test Part End -->
 
-        <activity
-            android:name=".widget.recyclerView.listui.demo.TestListUIActivity"
-            android:label="Widget/RecyclerView/ListUI/TestListUIActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".widget.recyclerView.multiTypeAdapter.demo.BilibiliActivity"
-            android:label="Widget/RecyclerView/MultiTypeAdapter/MultiTypeAdapterDemo">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".widget.recyclerView.multiTypeAdapter.demo2.BiliBiliActivity"
-            android:label="Widget/RecyclerView/MultiTypeAdapter/MultiTypeAdapterDemo2">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".widget.pullToRefresh.TestPullToRefreshRecyclerViewActivity"
-            android:label="Widget/PullToRefresh">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".widget.stickyRecyclerView.TestStickyRecyclerViewActivity"
-            android:label="Widget/StickyRecyclerView">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".widget.stickyRecyclerView.StickyRecyclerViewActivity" />
-        <activity android:name=".widget.stickyRecyclerView.BeautifulRecyclerViewActivity" />
-        <activity android:name=".widget.stickyRecyclerView.PowerfulStickyRecyclerViewActivity" />
-        <activity
-            android:name=".widget.recyclerView.simpleDemo.TestSimpleRecyclerViewActivity"
-            android:label="Widget/RecyclerView/SimpleDemo">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".widget.recyclerView.snapHelper.TestSnapHelperActivity"
-            android:label="Widget/RecyclerView/SnapHelper">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".widget.coordinatorLayout.TestCoodinatorLayoutActivity"
-            android:label="Widget/CoordinatorLayout">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".widget.coordinatorLayout.WithFloatingActionButton" />
-        <activity android:name=".widget.coordinatorLayout.WithAppBarLayout" />
-        <activity android:name=".widget.coordinatorLayout.WithCollapsingToolbar" />
-        <activity android:name=".widget.coordinatorLayout.WithViewPager" />
-        <activity android:name=".widget.coordinatorLayout.WithZhiHu" />
-        <activity
-            android:name=".widget.rotate3dAnimation.TestRotate3dAnimationActivity"
-            android:label="Widget/Rotate3dAnimation">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".widget.fragment.TestFragmentLifeCycle"
-            android:label="Widget/FragmentLifeCycle">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".widget.fragment.tab.FragmentMainActivity"
-            android:label="Widget/Fragment/FragmentMainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".widget.toast.TestToastActivity"
-            android:label="Widget/Toast">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".widget.dialog.TestDialogActivity"
-            android:label="Widget/Dialog">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".widget.floatWindow.FloatWindowActivity"
-            android:label="Widget/FloatWindow">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".widget.datapicker.DatePickerActivity"
-            android:label="Widget/DatePicker">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".widget.blurredView.TestBlurredViewActivity"
-            android:label="Widget/BlurredView">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".widget.blurredView.TestDynamicBlurredViewActivity" />
+
+        <!-- Practice Part Begin -->
         <activity
             android:name=".practice.anrWatchDog.demo.TestAnrWatchDogActivity"
             android:label="Practice/AnrWatchDog">
@@ -1575,14 +1653,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".lib.zxing.client.android.CaptureActivity"
-            android:label="Practice/CaptureActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".practice.myNetUtil.MyNetUtilActivity"
             android:label="Practice/MyNetUtil">
             <intent-filter>
@@ -1606,37 +1676,52 @@
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".practice.daynight.DayNightActivity"
+            android:label="Practice/DayNight">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".practice.localMusic.LocalMusicActivity"
+            android:label="Practice/LocalMusic">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".practice.location.LocationActivity"
+            android:label="Practice/Location">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".practice.checkEmulator.CheckEmulatorActivity"
+            android:label="Practice/CheckEmulator">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".practice.crash.CrashActivity"
+            android:label="Practice/Crash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <!-- Practice Part End -->
+
 
         <activity
-            android:name=".widget.textView.TestSpannableActivity"
-            android:label="Widget/TextView/Spannable">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".widget.textView.TestTextViewHtmlActivity"
-            android:label="Widget/TextView/Html.fromHtml">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".widget.dragPhotoView.DragPhotoViewActivity"
-            android:label="Widget/DragPhotoView">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".widget.dragPhotoView.ImageShowActivity"
-            android:theme="@style/transparent" />
-        <activity
-            android:name=".widget.timeline.TimeLineActivity"
-            android:label="Widget/TimeLine">
+            android:name=".lib.zxing.client.android.CaptureActivity"
+            android:label="Practice/CaptureActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
@@ -1692,47 +1777,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".plugin.interceptActivity.StubActivity" />
-
-        <activity
-            android:name=".practice.daynight.DayNightActivity"
-            android:label="Practice/DayNight">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".practice.localMusic.LocalMusicActivity"
-            android:label="Practice/LocalMusic">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".practice.location.LocationActivity"
-            android:label="Practice/Location">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".practice.checkEmulator.CheckEmulatorActivity"
-            android:label="Practice/CheckEmulator">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".practice.crash.CrashActivity"
-            android:label="Practice/Crash">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
 
         <service
             android:name=".test.service.intentService.UploadImgService"

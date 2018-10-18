@@ -1,4 +1,4 @@
-package com.dryseed.dryseedapp.test.viewStub;
+package com.dryseed.dryseedapp.widget.viewStub;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
