@@ -1,4 +1,4 @@
-include ':app'
+include ':app', ':BlurComponent'
 include ':camera'
 
 //Component Core Module
@@ -17,6 +17,8 @@ include ':WheelpickerComponent'
 project(':WheelpickerComponent').projectDir = new File(rootDir, 'component/WheelpickerComponent')
 include ':AacComponent'
 project(':AacComponent').projectDir = new File(rootDir, 'component/AacComponent')
+include ':BlurComponent'
+project(':BlurComponent').projectDir = new File(rootDir, 'component/BlurComponent')
 //include ':PictureselectorComponent'
 //project(':PictureselectorComponent').projectDir = new File(rootDir, 'component/PictureselectorComponent')
 //include ':ucrop'

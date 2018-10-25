@@ -5,7 +5,6 @@ import com.luojilab.component.componentlib.applicationlike.IApplicationLike;
 import com.luojilab.component.componentlib.router.Router;
 import com.luojilab.component.componentlib.router.ui.UIRouter;
 import com.luojilab.componentservice.aac.AacService;
-import com.luojilab.componentservice.pictureselector.PictureSelectorService;
 
 public class AacComponentAppLike implements IApplicationLike {
 
@@ -21,6 +20,6 @@ public class AacComponentAppLike implements IApplicationLike {
     @Override
     public void onStop() {
         uiRouter.unregisterUI("aac");
-        router.removeService(PictureSelectorService.class.getSimpleName());
+        router.removeService(AacService.class.getSimpleName());
     }
 }

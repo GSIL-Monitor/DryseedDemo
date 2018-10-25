@@ -73,11 +73,13 @@ class MainApplication extends BaseApplicationProxy {
         UIRouter.getInstance().registerUI("app");
         UIRouter.getInstance().registerUI("aac");
         UIRouter.getInstance().registerUI("wheelpicker");
+        UIRouter.getInstance().registerUI("blur");
 
         //如果isRegisterCompoAuto为false，则需要通过反射加载组件
         Router.registerComponent("com.luck.picture.applike.PictureselectorAppLike");
         Router.registerComponent("cn.qqtheme.framework.applike.WheelpickerAppLike");
-        Router.registerComponent("com.dryseed.aaccomponent.runalone.application.AacApplication");
+        Router.registerComponent("com.dryseed.aaccomponent.applike.AacComponentAppLike");
+        Router.registerComponent("com.dryseed.blurcomponent.applike.BlurComponentAppLike");
     }
 
     /**

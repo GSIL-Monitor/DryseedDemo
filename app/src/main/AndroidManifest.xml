@@ -1019,7 +1019,15 @@
         </activity>
         <activity
             android:name=".widget.blurredView.TestBlurredViewActivity"
-            android:label="Widget/BlurredView">
+            android:label="Widget/Blur/BlurredView">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.blurredView.TestBlurComponentActivity"
+            android:label="Widget/Blur/BlurComponent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
