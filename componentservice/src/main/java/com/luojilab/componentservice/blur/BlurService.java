@@ -1,11 +1,12 @@
 package com.luojilab.componentservice.blur;
 
-import android.app.Activity;
+import android.content.Context;
+import android.view.View;
 
 /**
  * export module services
  */
 
 public interface BlurService {
-    boolean doBlur(Activity activity);
+    void doBlur(Context context, int resId, View targetView);
 }

@@ -68,5 +68,11 @@ dependencies {
     // https://github.com/greenrobot/greenDAO
     // ----------------------------------------------------
     compile 'org.greenrobot:greendao:3.2.2'
+
+    // ----------------------------------------------------
+    // ########## renderscript ##########
+    // used in blur
+    // ----------------------------------------------------
+    compile files('src/main/libs/renderscript-v8.jar')
 }
 

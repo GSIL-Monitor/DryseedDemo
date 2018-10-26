@@ -32,8 +32,8 @@ android {
         versionCode 1
         versionName "1.0.0"
         //RenderScript support 用于高斯模糊
-        renderscriptTargetApi 19
-        renderscriptSupportModeEnabled true
+        //renderscriptTargetApi 19
+        //renderscriptSupportModeEnabled true
         multiDexEnabled true
         buildConfigField "String", "TENCENT_ID", "\"" + TENCENT_ID + "\""
         buildConfigField "boolean", "AUTO_UPDATES", "true"
