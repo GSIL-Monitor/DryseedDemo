@@ -282,12 +282,6 @@ dependencies {
     implementation 'org.greenrobot:eventbus:3.1.1'
 
     // ----------------------------------------------------
-    // ########## gson ##########
-    // https://github.com/google/gson
-    // ----------------------------------------------------
-    implementation 'com.google.code.gson:gson:2.7'
-
-    // ----------------------------------------------------
     // ########## fastjson ##########
     // https://github.com/alibaba/fastjson
     // ----------------------------------------------------
@@ -440,10 +434,10 @@ dependencies {
     // ----------------------------------------------------
     if ("timecost_enable".prop(project) == 'true') {
         //implementation 'com.dryseed.timecost:timecostimp:1.+'
-        implementation 'com.iqiyi.video:timecostimp:1.0.+'
+        //implementation 'com.iqiyi.video:timecostimp:1.0.+'
     } else {
         //implementation 'com.dryseed.timecost:timecostimp-no-op:1.+'
-        implementation 'com.iqiyi.video:timecostimp-no-op:1.0.+'
+        //implementation 'com.iqiyi.video:timecostimp-no-op:1.0.+'
     }
 
 }

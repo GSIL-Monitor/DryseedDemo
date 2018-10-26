@@ -1,0 +1,100 @@
+package com.dryseed.dryseedapp.framework.volley.dsvolley.entity;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * @author caiminming
+ */
+public class WanAndroidEntity implements Serializable {
+    private List<String> children;
+    private int courseId;
+    private int id;
+    private String name;
+    private long order;
+    private int parentChapterId;
+    private boolean userControlSetTop;
+    private int visible;
+
+    @Override
+    public String toString() {
+        return "WanAndroid{" +
+                "children=" + children +
+                ", courseId=" + courseId +
+                ", id=" + id +
+                ", name='" + name + '\'' +
+                ", order=" + order +
+                ", parentChapterId=" + parentChapterId +
+                ", userControlSetTop=" + userControlSetTop +
+                ", visible=" + visible +
+                '}';
+    }
+
+    public List<String> getChildren() {
+        if (children == null) {
+            return new ArrayList<>();
+        }
+        return children;
+    }
+
+    public void setChildren(List<String> children) {
+        this.children = children;
+    }
+
+    public int getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name == null ? "" : name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public long getOrder() {
+        return order;
+    }
+
+    public void setOrder(long order) {
+        this.order = order;
+    }
+
+    public int getParentChapterId() {
+        return parentChapterId;
+    }
+
+    public void setParentChapterId(int parentChapterId) {
+        this.parentChapterId = parentChapterId;
+    }
+
+    public boolean isUserControlSetTop() {
+        return userControlSetTop;
+    }
+
+    public void setUserControlSetTop(boolean userControlSetTop) {
+        this.userControlSetTop = userControlSetTop;
+    }
+
+    public int getVisible() {
+        return visible;
+    }
+
+    public void setVisible(int visible) {
+        this.visible = visible;
+    }
+}

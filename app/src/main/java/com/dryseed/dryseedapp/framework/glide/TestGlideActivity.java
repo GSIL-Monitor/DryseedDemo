@@ -13,9 +13,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.alibaba.fastjson.JSON;
-import com.luojilab.component.basiclib.volley.Request;
-import com.luojilab.component.basiclib.volley.Response;
-import com.luojilab.component.basiclib.volley.VolleyError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.DataSource;
@@ -28,11 +28,11 @@ import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.framework.volley.JsonObjectRequest;
+import com.dryseed.dryseedapp.framework.volley.simple.request.JsonObjectRequest;
 import com.luojilab.component.basiclib.utils.DPIUtil;
 import com.luojilab.component.basiclib.utils.ToastUtil;
 import com.luojilab.component.basiclib.utils.UnitUtil;
-import com.luojilab.component.basiclib.utils.VolleyUtils;
+import com.luojilab.component.basiclib.dsvolley.VolleyUtils;
 import com.luojilab.component.basiclib.recyclerview.recyclerlistadapter.RecyclerListAdapter;
 import com.orhanobut.logger.Logger;
 

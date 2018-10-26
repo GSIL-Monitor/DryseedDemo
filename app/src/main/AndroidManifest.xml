@@ -74,8 +74,16 @@
 
         <!-- FrameWork Part Begin -->
         <activity
-            android:name=".framework.volley.TestVolleyActivity"
-            android:label="FrameWork/Volley">
+            android:name=".framework.volley.simple.TestVolleyActivity"
+            android:label="FrameWork/Volley/Simple">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".framework.volley.dsvolley.TestDsVolleyActivity"
+            android:label="FrameWork/Volley/DsVolley">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />

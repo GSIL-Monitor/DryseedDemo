@@ -9,7 +9,7 @@ import android.widget.ImageView;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.framework.fresco.lib.DFresco;
+import com.luojilab.component.basiclib.dsfresco.DsFresco;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.datasource.DataSource;
 import com.facebook.drawee.drawable.ScalingUtils;
@@ -31,14 +31,14 @@ public class TestDsFrescoActivity extends BaseActivity {
     }
 
     private void loadImage() {
-        DFresco.source(this, R.drawable.city2)
+        DsFresco.source(this, R.drawable.city2)
                 .enterImageConfig()
                 .asCircle()
                 .finishImageConfig()
                 .intoTarget((SimpleDraweeView) findViewById(R.id.fresco_eg1));
 
         //加载磁盘中的图片，手动设置分辨率的压缩，并获取 bitmap 对象，监听回调，手动显示到 ImageView 控件上
-        DFresco.source("https://upload-images.jianshu.io/upload_images/1924341-9e528ee638e837a5.png")
+        DsFresco.source("https://upload-images.jianshu.io/upload_images/1924341-9e528ee638e837a5.png")
                 //.source(new File("/mnt/sdcard/weixin.jpg"))
                 .resize(500, 500)
                 .intoTarget(new BaseBitmapDataSubscriber() {
@@ -59,7 +59,7 @@ public class TestDsFrescoActivity extends BaseActivity {
                 });
 
         //加载网络图片，进行各种配置，如缩放方式，占位图，圆形，圆角，动画时长等等，最后自动显示到 SimpleDraweeView 控件上
-        DFresco.source("https://upload-images.jianshu.io/upload_images/1924341-9e528ee638e837a5.png")
+        DsFresco.source("https://upload-images.jianshu.io/upload_images/1924341-9e528ee638e837a5.png")
                 .enterImageConfig() //进入配置步骤
                 .allFitXY()  //所有图片，包括占位图等等的拉伸方式
                 .animFade(3000) //淡入淡出动画时长

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/fresco_eg1"
+        style="@style/common_imgage_base" />
+
+    <Button
+        android:id="@+id/button1"
+        style="@style/common_button_base"
+        android:text="btn1" />
+
+    <Button
+        android:id="@+id/button2"
+        style="@style/common_button_base"
+        android:text="btn2" />
+
+    <Button
+        android:id="@+id/button3"
+        style="@style/common_button_base"
+        android:text="btn3" />
+
+    <Button
+        android:id="@+id/button4"
+        style="@style/common_button_base"
+        android:text="btn4" />
+</LinearLayout>

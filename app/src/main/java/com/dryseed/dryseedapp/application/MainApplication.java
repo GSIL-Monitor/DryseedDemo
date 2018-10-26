@@ -3,10 +3,8 @@ package com.dryseed.dryseedapp.application;
 import android.os.StrictMode;
 
 import com.dryseed.dryseedapp.BuildConfig;
-import com.dryseed.dryseedapp.framework.fresco.lib.DFresco;
+import com.luojilab.component.basiclib.dsfresco.DsFresco;
 import com.dryseed.dryseedapp.practice.crash.CrashHandler;
-import com.dryseed.timecost.TimeCostCanary;
-import com.dryseed.timecost.TimeCostConfig;
 import com.facebook.stetho.Stetho;
 import com.luojilab.component.basiclib.utils.BackForegroundWatcher;
 import com.luojilab.component.basiclib.utils.CustomLogCatStrategy;
@@ -57,7 +55,7 @@ class MainApplication extends BaseApplicationProxy {
 
     private void initFresco() {
         //Fresco.initialize(mContext);
-        DFresco.init(mContext);
+        DsFresco.init(mContext);
     }
 
     private void initLogger() {
@@ -179,13 +177,13 @@ class MainApplication extends BaseApplicationProxy {
      * TimeCost初始化
      */
     private void initTimeCost() {
-        TimeCostCanary.install(mContext).config(
+        /*TimeCostCanary.install(mContext).config(
                 new TimeCostConfig.Builder()
                         .setExceedMilliTime(200L)
                         .setThreadExceedMilliTime(200L)
                         .setMonitorOnlyMainThread(true)
                         .setShowDetailUI(true)
                         .build()
-        );
+        );*/
     }
 }
