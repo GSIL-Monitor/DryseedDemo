@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/fresco_eg1"
+        style="@style/common_imgage_base" />
+
+    <ImageView
+        android:id="@+id/imageview1"
+        style="@style/common_imgage_base" />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/fresco_eg2"
+        style="@style/common_imgage_base" />
+</LinearLayout>

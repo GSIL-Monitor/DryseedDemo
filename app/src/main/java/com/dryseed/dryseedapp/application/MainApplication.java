@@ -3,10 +3,10 @@ package com.dryseed.dryseedapp.application;
 import android.os.StrictMode;
 
 import com.dryseed.dryseedapp.BuildConfig;
+import com.dryseed.dryseedapp.framework.fresco.lib.DFresco;
 import com.dryseed.dryseedapp.practice.crash.CrashHandler;
 import com.dryseed.timecost.TimeCostCanary;
 import com.dryseed.timecost.TimeCostConfig;
-import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.stetho.Stetho;
 import com.luojilab.component.basiclib.utils.BackForegroundWatcher;
 import com.luojilab.component.basiclib.utils.CustomLogCatStrategy;
@@ -36,7 +36,6 @@ class MainApplication extends BaseApplicationProxy {
         super.initWithoutPermission();
 
         initComponent();
-        Fresco.initialize(mContext);
         LeakCanary.install(mContext);
         initX5();
         initRxDownload();
@@ -51,6 +50,14 @@ class MainApplication extends BaseApplicationProxy {
 
         //Logger初始化
         initLogger();
+
+        //Fresco初始化
+        initFresco();
+    }
+
+    private void initFresco() {
+        //Fresco.initialize(mContext);
+        DFresco.init(mContext);
     }
 
     private void initLogger() {

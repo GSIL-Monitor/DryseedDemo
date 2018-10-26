@@ -8,14 +8,18 @@ import com.dryseed.blurcomponent.R;
 import com.dryseed.blurcomponent.blur.DBlur;
 import com.luojilab.component.basiclib.BaseActivity;
 
+import butterknife.ButterKnife;
+
 /**
  * @author caiminming
  */
 public class TestBlurActivity extends BaseActivity {
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blur_layout);
+        ButterKnife.bind(this);
 
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override

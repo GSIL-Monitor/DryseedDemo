@@ -98,8 +98,16 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".framework.fresco.TestDsFrescoActivity"
+            android:label="FrameWork/Fresco/DsFresco">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".framework.fresco.TestFrescoActivity"
-            android:label="FrameWork/Fresco">
+            android:label="FrameWork/Fresco/Simple">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />

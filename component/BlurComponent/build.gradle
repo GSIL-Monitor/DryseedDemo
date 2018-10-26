@@ -2,7 +2,7 @@ apply plugin: 'com.dd.comgradle'
 
 android {
     compileSdkVersion Integer.parseInt("${COMPILE_SDK_VERSION}")
-    buildToolsVersion "${BUILD_TOOLS_VERSION}"
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         minSdkVersion Integer.parseInt("${MIN_SDK_VERSION}")
@@ -37,7 +37,7 @@ dependencies {
     // https://github.com/mqzhangw/JIMU
     // https://github.com/luojilab/DDComponentForAndroid
     // ----------------------------------------------------
-    compile project(':componentservice')
+    api project(':componentservice')
     //annotationProcessor project(':router-anno-compiler')
     annotationProcessor 'com.luojilab.ddcomponent:router-anno-compiler:1.0.0'
 

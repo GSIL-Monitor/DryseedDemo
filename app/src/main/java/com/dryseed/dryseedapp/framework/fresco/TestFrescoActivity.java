@@ -44,7 +44,6 @@ public class TestFrescoActivity extends BaseActivity {
     public static final String SMALL_PIC_URL = "http://pic2.iqiyipic.com/common/20180816/20ed11d28b2843219d09ee54cd13a62d.png";
     public static final String GIF_URL = "https://upload-images.jianshu.io/upload_images/4123333-1a063bfe0c8dbc12.gif?imageMogr2/auto-orient/strip";
 
-
     @BindView(R.id.fresco_eg1)
     SimpleDraweeView mSimpleDraweeView1;
 
@@ -73,7 +72,6 @@ public class TestFrescoActivity extends BaseActivity {
     Button clear;
 
     private boolean isGifStart = false;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

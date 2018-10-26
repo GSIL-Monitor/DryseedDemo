@@ -31,19 +31,19 @@ dependencies {
     // https://github.com/mqzhangw/JIMU
     // https://github.com/luojilab/DDComponentForAndroid
     // ----------------------------------------------------
-    compile project(':componentservice')
+    api project(':componentservice')
     //annotationProcessor project(':router-anno-compiler') //component router
     annotationProcessor 'com.luojilab.ddcomponent:router-anno-compiler:1.0.0'
 
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':ucrop')
-    compile 'com.android.support:appcompat-v7:' + GOOGLE_SUPPORT_VERSION
-    compile 'com.android.support:recyclerview-v7:' + GOOGLE_SUPPORT_VERSION
-    compile('com.github.bumptech.glide:glide:4.2.0') {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    api project(':ucrop')
+    api 'com.android.support:appcompat-v7:' + GOOGLE_SUPPORT_VERSION
+    api 'com.android.support:recyclerview-v7:' + GOOGLE_SUPPORT_VERSION
+    api('com.github.bumptech.glide:glide:4.2.0') {
         exclude group: "com.android.support"
     }
-    compile 'io.reactivex.rxjava2:rxjava:2.0.1'
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    api 'io.reactivex.rxjava2:rxjava:2.0.1'
+    api 'io.reactivex.rxjava2:rxandroid:2.0.1'
 }
 
 combuild {
