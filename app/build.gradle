@@ -261,6 +261,15 @@ dependencies {
     androidTestImplementation 'com.android.support:multidex-instrumentation:1.0.3'
 
     // ----------------------------------------------------
+    // ########## butterknife ##########
+    // https://github.com/JakeWharton/butterknife
+    // ----------------------------------------------------
+    implementation('com.jakewharton:butterknife:9.0.0-rc1') {
+        exclude group: "com.android.support"
+    }
+    annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc1'
+
+    // ----------------------------------------------------
     // ########## Lifecycles ##########
     // https://developer.android.google.cn/topic/libraries/architecture/adding-components.html
     // 注意：'com.android.support:appcompat-v7:27.1.1'已经默认导入了lifecycles相关的库

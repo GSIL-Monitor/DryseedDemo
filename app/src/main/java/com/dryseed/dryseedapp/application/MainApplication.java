@@ -3,8 +3,8 @@ package com.dryseed.dryseedapp.application;
 import android.os.StrictMode;
 
 import com.dryseed.dryseedapp.BuildConfig;
+import com.dryseed.dryseedapp.practice.crash.DsCrashHandler;
 import com.luojilab.component.basiclib.dsfresco.DsFresco;
-import com.dryseed.dryseedapp.practice.crash.CrashHandler;
 import com.facebook.stetho.Stetho;
 import com.luojilab.component.basiclib.utils.BackForegroundWatcher;
 import com.luojilab.component.basiclib.utils.CustomLogCatStrategy;
@@ -131,7 +131,8 @@ class MainApplication extends BaseApplicationProxy {
      */
     private void initCrashHandler() {
         if (BuildConfig.DEBUG) {
-            CrashHandler.getInstance(mContext).init();
+            //CrashHandler.getInstance(mContext).init();
+            DsCrashHandler.getInstance().init(mContext);
         }
     }
 

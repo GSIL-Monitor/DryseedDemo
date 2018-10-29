@@ -1533,6 +1533,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".test.path.TestPathActivity"
+            android:label="Test/DsPathUtils">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".test.setresult.test1.TestSetResultActivity"
             android:label="Test/SetResult">
             <intent-filter>
@@ -1733,13 +1741,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".practice.crash.CrashActivity"
+            android:name=".practice.crash.TestCrashActivity"
             android:label="Practice/Crash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
             </intent-filter>
         </activity>
+        <activity android:name=".practice.crash.CrashActivity" />
         <!-- Practice Part End -->
 
 

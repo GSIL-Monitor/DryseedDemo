@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/button1"
+        style="@style/common_button_base"
+        android:text="getInternalAppDataPath" />
+
+    <Button
+        android:id="@+id/button2"
+        style="@style/common_button_base"
+        android:text="getInternalAppCachePath" />
+
+    <Button
+        android:id="@+id/button3"
+        style="@style/common_button_base"
+        android:text="getInternalAppFilesPath" />
+
+    <Button
+        android:id="@+id/button4"
+        style="@style/common_button_base"
+        android:text="getExternalAppDataPath" />
+
+    <Button
+        android:id="@+id/button5"
+        style="@style/common_button_base"
+        android:text="getExternalAppCachePath" />
+
+    <Button
+        android:id="@+id/button6"
+        style="@style/common_button_base"
+        android:text="getExternalAppFilesPath" />
+
+    <Button
+        android:id="@+id/button7"
+        style="@style/common_button_base"
+        android:text="getExternalStoragePath" />
+
+    <TextView
+        android:id="@+id/textview"
+        style="@style/common_text_base"
+        tools:text="123" />
+</LinearLayout>

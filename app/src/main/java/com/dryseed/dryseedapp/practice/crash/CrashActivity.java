@@ -7,14 +7,16 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
-
 
 import com.dryseed.dryseedapp.BuildConfig;
 import com.luojilab.component.basiclib.utils.AppConfig;
+import com.luojilab.router.facade.annotation.RouteNode;
 
 import static android.util.Log.e;
 
+@RouteNode(path = "/crash", desc = "crash")
 public class CrashActivity extends Activity {
     private static final String TAG = "CrashActivity";
     private static final boolean DEBUG = AppConfig.DEBUG;
@@ -39,6 +41,9 @@ public class CrashActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         crashMessage = getIntent().getStringExtra("crash");
+        if (TextUtils.isEmpty(crashMessage) && getIntent().getExtras() != null) {
+            crashMessage = getIntent().getExtras().getString("crash");
+        }
         if (DEBUG) {
             Log.e(TAG, "onCreate() called with: exception = [" + crashMessage + "]");
         } else {

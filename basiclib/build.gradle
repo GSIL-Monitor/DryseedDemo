@@ -60,9 +60,9 @@ dependencies {
 
     // ----------------------------------------------------
     // ########## android-utils-code ##########
-    // https://blankj.com/2016/07/31/android-utils-code/
+    // https://github.com/Blankj/AndroidUtilCode
     // ----------------------------------------------------
-    api 'com.blankj:utilcode:1.12.6'
+    api 'com.blankj:utilcode:1.21.2'
 
     // ----------------------------------------------------
     // ########## greendao ##########
@@ -86,15 +86,6 @@ dependencies {
     // 支持 WebP （静态图+动图），需要添加
     api 'com.facebook.fresco:animated-webp:' + FRESCO_VERSION
     api 'com.facebook.fresco:webpsupport:' + FRESCO_VERSION
-
-    // ----------------------------------------------------
-    // ########## butterknife ##########
-    // https://github.com/JakeWharton/butterknife
-    // ----------------------------------------------------
-    api('com.jakewharton:butterknife:9.0.0-rc1') {
-        exclude group: "com.android.support"
-    }
-    annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc1'
 
     // ----------------------------------------------------
     // ########## Volley ##########
