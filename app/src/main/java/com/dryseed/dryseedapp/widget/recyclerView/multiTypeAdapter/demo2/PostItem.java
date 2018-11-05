@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dryseed.dryseedapp.R;
+import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.bean.Post;
 import com.luojilab.component.basiclib.recyclerview.recyclerlistadapter.RecyclerListAdapter;
 
 /**

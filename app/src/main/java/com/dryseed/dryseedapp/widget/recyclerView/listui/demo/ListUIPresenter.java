@@ -4,8 +4,8 @@ import android.os.Handler;
 
 import com.dryseed.dryseedapp.R;
 import com.dryseed.dryseedapp.widget.recyclerView.listui.Observable;
-import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo.Category;
-import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo.Post;
+import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.bean.Category;
+import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.bean.Post;
 
 import java.util.ArrayList;
 import java.util.List;

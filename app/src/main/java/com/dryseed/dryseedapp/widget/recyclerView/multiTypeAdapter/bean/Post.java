@@ -14,27 +14,26 @@
  * limitations under the License.
  */
 
-package com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo2;
+package com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.bean;
 
 import android.support.annotation.NonNull;
-
-import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo.Bean;
-import com.dryseed.dryseedapp.widget.suspensionRecyclerView.ISuspensionInterface;
 
 /**
  * @author drakeet
  */
-public class Post extends Bean implements ISuspensionInterface{
+public class Post extends Bean {
 
     public int coverResId;
     public
     @NonNull
     String title;
+    String tag;
 
 
     public Post(int coverResId, @NonNull final String title) {
         this.coverResId = coverResId;
         this.title = title;
+        this.tag = title;
     }
 
     public int getCoverResId() {
@@ -54,13 +53,11 @@ public class Post extends Bean implements ISuspensionInterface{
         this.title = title;
     }
 
-    @Override
-    public boolean isShowSuspension() {
-        return true;
+    public String getTag() {
+        return tag;
     }
 
-    @Override
-    public String getSuspensionTag() {
-        return this.title;
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 }

@@ -24,10 +24,13 @@ import android.support.v7.widget.RecyclerView;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
+import com.dryseed.dryseedapp.utils.data.JsonDataGenerator;
+import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.bean.Category;
+import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.bean.Post;
+import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.bean.PostList;
 import com.luojilab.component.basiclib.recyclerview.multitypeadapter.MultiTypeAdapter;
 import com.luojilab.component.basiclib.utils.DPIUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -41,32 +44,6 @@ public class BilibiliActivity extends BaseActivity {
     List<Object> items;
     @VisibleForTesting
     MultiTypeAdapter adapter;
-
-
-    private static class JsonData {
-
-        private static final String PREFIX = "这是一条长长的达到两行的标题文字";
-
-        private Post post00 = new Post(R.drawable.img_00, PREFIX + "post00");
-        private Post post01 = new Post(R.drawable.img_01, PREFIX + "post01");
-        private Post post10 = new Post(R.drawable.img_10, PREFIX + "post10");
-        private Post post11 = new Post(R.drawable.img_11, PREFIX + "post11");
-
-        Category category0 = new Category("title0");
-        Post[] postArray = {post00, post01, post10, post11};
-
-        List<Post> postList = new ArrayList<>();
-
-        {
-            postList.add(post00);
-            postList.add(post00);
-            postList.add(post00);
-            postList.add(post00);
-            postList.add(post00);
-            postList.add(post00);
-        }
-    }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,19 +72,7 @@ public class BilibiliActivity extends BaseActivity {
 
         recyclerView.setAdapter(adapter);
 
-        JsonData data = new JsonData();
-        items = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            /* You also could use Category as your CategoryItemContent directly */
-            items.add(data.category0);
-            items.add(data.postArray[0]);
-            items.add(data.postArray[1]);
-            items.add(data.postArray[2]);
-            items.add(data.postArray[3]);
-            items.add(data.postArray[0]);
-            items.add(data.postArray[1]);
-            items.add(new PostList(data.postList));
-        }
+        items = JsonDataGenerator.generateListDataWithTitle();
         adapter.setItems(items);
         adapter.notifyDataSetChanged();
     }

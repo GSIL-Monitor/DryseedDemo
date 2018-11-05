@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo2.Post;
+import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.bean.Post;
 import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo2.PostItem;
 import com.luojilab.component.basiclib.recyclerview.recyclerlistadapter.RecyclerListAdapter;
 
@@ -17,7 +17,7 @@ import java.util.List;
 
 /**
  * Created by caiminming on 2017/12/29.
- *
+ * <p>
  * 参考：http://blog.csdn.net/zxt0601/article/details/52355199
  */
 
@@ -56,7 +56,7 @@ public class SuspensionRecyclerViewActivity extends BaseActivity {
         Post post01 = new Post(R.drawable.img_01, "post01");
         Post post10 = new Post(R.drawable.img_10, "post10");
         Post post11 = new Post(R.drawable.img_11, "post11");
-        List<Post> postList = new ArrayList<>();
+        List postList = new ArrayList<>();
         postList.add(post00);
         postList.add(post01);
         postList.add(post10);

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo;
+package com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.bean;
 
 import android.support.annotation.NonNull;
 
@@ -26,8 +26,10 @@ import java.util.List;
 public class PostList {
 
     @NonNull
-    final List<Post> posts;
+    public final List<Post> posts;
 
 
-    public PostList(@NonNull List<Post> posts) { this.posts = posts; }
+    public PostList(@NonNull List<Post> posts) {
+        this.posts = posts;
+    }
 }

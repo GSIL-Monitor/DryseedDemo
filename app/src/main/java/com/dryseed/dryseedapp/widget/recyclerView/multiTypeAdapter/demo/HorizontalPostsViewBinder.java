@@ -24,6 +24,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.dryseed.dryseedapp.R;
+import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.bean.Post;
+import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.bean.PostList;
 import com.luojilab.component.basiclib.recyclerview.multitypeadapter.ItemViewBinder;
 
 import java.util.List;

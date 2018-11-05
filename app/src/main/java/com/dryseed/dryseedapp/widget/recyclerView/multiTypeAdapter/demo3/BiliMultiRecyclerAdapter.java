@@ -2,7 +2,7 @@ package com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo3;
 
 import android.content.Context;
 
-import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo.Bean;
+import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.bean.Bean;
 import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo3.adapter.MultiItemTypeAdapter;
 
 import java.util.List;

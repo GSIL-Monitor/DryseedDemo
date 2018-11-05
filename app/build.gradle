@@ -449,5 +449,11 @@ dependencies {
         //implementation 'com.iqiyi.video:timecostimp-no-op:1.0.+'
     }
 
+    // ----------------------------------------------------
+    // ########## android-Ultra-Pull-To-Refresh ##########
+    // https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh
+    // ----------------------------------------------------
+    implementation 'in.srain.cube:ultra-ptr:1.0.11'
+
 }
 

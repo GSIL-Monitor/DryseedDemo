@@ -1,8 +1,8 @@
 package com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo3;
 
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo.Bean;
-import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo.Post;
+import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.bean.Bean;
+import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.bean.Post;
 import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo3.base.ItemViewDelegate;
 import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo3.base.ViewHolder;
 

@@ -13,8 +13,8 @@ import android.widget.TextView;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo.Category;
-import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo.Post;
+import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.bean.Category;
+import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.bean.Post;
 import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo3.wrapper.HeaderAndFooterWrapper;
 import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo3.wrapper.LoadMoreWrapper;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;

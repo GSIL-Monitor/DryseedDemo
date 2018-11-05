@@ -14,11 +14,11 @@ import com.dryseed.dryseedapp.widget.recyclerView.listui.BaseUIRecyleView;
 import com.dryseed.dryseedapp.widget.recyclerView.listui.ILoadMore;
 import com.dryseed.dryseedapp.widget.recyclerView.listui.IRefresh;
 import com.dryseed.dryseedapp.widget.recyclerView.listui.Observable;
-import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo.Category;
+import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.bean.Category;
 import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo.CategoryItemViewBinder;
 import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo.HorizontalPostsViewBinder;
-import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo.Post;
-import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo.PostList;
+import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.bean.Post;
+import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.bean.PostList;
 import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo.PostViewBinder;
 import com.luojilab.component.basiclib.recyclerview.multitypeadapter.MultiTypeAdapter;
 

@@ -9,12 +9,11 @@ import android.view.ViewGroup;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
-import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo2.BiliBiliActivity;
-import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo2.Post;
+import com.dryseed.dryseedapp.utils.data.JsonDataGenerator;
+import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.bean.Post;
 import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo2.PostItem;
 import com.luojilab.component.basiclib.recyclerview.recyclerlistadapter.RecyclerListAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -54,16 +53,7 @@ public class TestScrollLinearLayoutActivity extends BaseActivity implements Scro
     }
 
     private void initData() {
-        BiliBiliActivity.JsonData data = new BiliBiliActivity.JsonData();
-        mItems = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            //mItems.add(data.category0);
-            mItems.add(data.postArray[0]);
-            mItems.add(data.postArray[1]);
-            mItems.add(data.postArray[2]);
-            mItems.add(data.postArray[3]);
-            //mItems.add(new PostList(data.postList));
-        }
+        mItems.addAll(JsonDataGenerator.generateListData());
     }
 
     private void initView() {
