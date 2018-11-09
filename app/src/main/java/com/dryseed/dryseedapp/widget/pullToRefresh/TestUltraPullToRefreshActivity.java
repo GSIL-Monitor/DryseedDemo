@@ -21,7 +21,7 @@ import java.util.List;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.PtrHandler;
-import in.srain.cube.views.ptr.header.StoreHouseHeader;
+import in.srain.cube.views.ptr.header.MaterialHeader;
 
 /**
  * @author caiminming
@@ -29,6 +29,8 @@ import in.srain.cube.views.ptr.header.StoreHouseHeader;
 public class TestUltraPullToRefreshActivity extends BaseActivity {
 
     private static final int SPAN_COUNT = 2;
+
+    private PtrFrameLayout mPtrFrameLayout;
     private RecyclerView mRecyclerView;
     private RecyclerListAdapter mRecyclerListAdapter = new RecyclerListAdapter();
     private List<Object> mItems = new ArrayList<>();
@@ -48,14 +50,57 @@ public class TestUltraPullToRefreshActivity extends BaseActivity {
     }
 
     private void initView() {
-        final PtrFrameLayout ptrFrameLayout = findViewById(R.id.fragment_ptr_home_ptr_frame);
-        StoreHouseHeader header = new StoreHouseHeader(this);
-        header.setPadding(0, DPIUtil.dip2px(20), 0, DPIUtil.dip2px(20));
-        header.initWithString("Ultra PTR");
-        ptrFrameLayout.setDurationToCloseHeader(1500);
-        ptrFrameLayout.setHeaderView(header);
-        ptrFrameLayout.addPtrUIHandler(header);
-        ptrFrameLayout.setPtrHandler(new PtrHandler() {
+        mPtrFrameLayout = findViewById(R.id.fragment_ptr_home_ptr_frame);
+
+        /**
+         * 经典 风格的头部实现
+         */
+        //final PtrClassicDefaultHeader header = new PtrClassicDefaultHeader(this);
+        //header.setPadding(0, DPIUtil.dip2px(15), 0, 0);
+
+        /**
+         * Material Design风格的头部实现
+         */
+        final MaterialHeader header = new MaterialHeader(this);
+        header.setPadding(0, DPIUtil.dip2px(15), 0, 0);
+
+//        StoreHouseHeader header = new StoreHouseHeader(this);
+//        header.setPadding(0, DPIUtil.dip2px(15), 0, 0);
+//        header.initWithString("Ultra PTR");
+
+        mPtrFrameLayout.setHeaderView(header);
+        mPtrFrameLayout.addPtrUIHandler(header);
+
+        /**
+         * 阻尼系数 默认: 1.7f，越大，感觉下拉时越吃力。
+         */
+        mPtrFrameLayout.setResistance(1.7f);
+        /**
+         * 触发刷新时移动的位置比例 默认，1.2f，移动达到头部高度1.2倍时可触发刷新操作。
+         */
+        mPtrFrameLayout.setRatioOfHeaderHeightToRefresh(1.2f);
+        /**
+         * 回弹时间 默认 200ms，回弹到刷新高度所用时间
+         */
+        mPtrFrameLayout.setDurationToClose(200);
+        /**
+         * 头部回弹时间 默认1000ms
+         */
+        mPtrFrameLayout.setDurationToCloseHeader(500);
+        /**
+         * 下拉刷新 or 释放刷新，默认为释放刷新
+         */
+        mPtrFrameLayout.setPullToRefresh(false);
+        /**
+         * 刷新时保持头部 默认值true
+         */
+        mPtrFrameLayout.setKeepHeaderWhenRefresh(true);
+        /**
+         * 刷新时，保持内容不动，仅头部下移，默认值false
+         */
+        mPtrFrameLayout.setPinContent(true);
+
+        mPtrFrameLayout.setPtrHandler(new PtrHandler() {
             @Override
             public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {
                 return PtrDefaultHandler.checkContentCanBePulledDown(frame, content, header);
@@ -63,10 +108,10 @@ public class TestUltraPullToRefreshActivity extends BaseActivity {
 
             @Override
             public void onRefreshBegin(PtrFrameLayout frame) {
-                ptrFrameLayout.postDelayed(new Runnable() {
+                mPtrFrameLayout.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        ptrFrameLayout.refreshComplete();
+                        mPtrFrameLayout.refreshComplete();
                     }
                 }, 1500);
             }

@@ -1,10 +1,9 @@
-include ':app', ':BlurComponent'
+include ':app'
 include ':camera'
 
 //Component Core Module
 //include ':router-annotation'
 //include ':router-anno-compiler'
-
 //include ':componentlib'
 include ':componentservice'
 include ':build-gradle'
