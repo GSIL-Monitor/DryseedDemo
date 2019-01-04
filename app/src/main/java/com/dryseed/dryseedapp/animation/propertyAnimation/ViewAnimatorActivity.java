@@ -44,18 +44,18 @@ public class ViewAnimatorActivity extends BaseActivity {
                         }
                         // need API 16
                     }).withEndAction(new Runnable() {
-                        @Override
-                        public void run() {
-                            Log.e(TAG, "END");
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    mBlueBall.setY(0);
-                                    mBlueBall.setAlpha(1.0f);
-                                }
-                            });
-                        }
-                    }
+                                         @Override
+                                         public void run() {
+                                             Log.e(TAG, "END");
+                                             runOnUiThread(new Runnable() {
+                                                 @Override
+                                                 public void run() {
+                                                     mBlueBall.setY(0);
+                                                     mBlueBall.setAlpha(1.0f);
+                                                 }
+                                             });
+                                         }
+                                     }
             ).start();
         }
     }

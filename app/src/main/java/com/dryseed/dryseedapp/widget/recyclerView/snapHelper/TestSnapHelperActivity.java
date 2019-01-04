@@ -42,9 +42,9 @@ public class TestSnapHelperActivity extends BaseActivity {
         };
         mRecyclerView.setAdapter(mAdapter);
 
-        LinearLayoutManager layoutmanager = new LinearLayoutManager(this);
-        layoutmanager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        mRecyclerView.setLayoutManager(layoutmanager);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mRecyclerView.setLayoutManager(linearLayoutManager);
 
         // important
         LinearSnapHelper snapHelper = new LinearSnapHelper();

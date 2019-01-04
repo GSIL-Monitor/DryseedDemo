@@ -1,6 +1,7 @@
 package com.dryseed.dryseedapp.widget.pullToRefresh;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,11 +10,13 @@ import android.view.ViewGroup;
 
 import com.dryseed.dryseedapp.BaseActivity;
 import com.dryseed.dryseedapp.R;
+import com.dryseed.dryseedapp.utils.RecyclerViewUtils;
 import com.dryseed.dryseedapp.utils.data.JsonDataGenerator;
 import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.bean.Post;
 import com.dryseed.dryseedapp.widget.recyclerView.multiTypeAdapter.demo2.PostItem;
 import com.luojilab.component.basiclib.recyclerview.recyclerlistadapter.RecyclerListAdapter;
 import com.luojilab.component.basiclib.utils.DPIUtil;
+import com.luojilab.component.basiclib.utils.LogUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +36,7 @@ public class TestUltraPullToRefreshActivity extends BaseActivity {
     private PtrFrameLayout mPtrFrameLayout;
     private RecyclerView mRecyclerView;
     private RecyclerListAdapter mRecyclerListAdapter = new RecyclerListAdapter();
+    private GridLayoutManager mGridLayoutManager;
     private List<Object> mItems = new ArrayList<>();
 
     @Override
@@ -42,6 +46,26 @@ public class TestUltraPullToRefreshActivity extends BaseActivity {
 
         initData();
         initView();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                int firstItem = RecyclerViewUtils.getFirstVisiblePosition(mRecyclerView);
+                int lastItem = RecyclerViewUtils.getLastVisiblePosition(mRecyclerView);
+                LogUtil.d("[firstItem:%d][lastItem:%d]", firstItem, lastItem);
+
+                int targetScrollIndex = 6;
+                if (targetScrollIndex <= firstItem) {
+                    mGridLayoutManager.scrollToPositionWithOffset(targetScrollIndex, 0);
+                } else if (targetScrollIndex <= lastItem) {
+                    mGridLayoutManager.scrollToPositionWithOffset(targetScrollIndex, 0);
+                } else {
+                    if (mRecyclerView != null) {
+                        mRecyclerView.smoothScrollToPosition(targetScrollIndex);
+                    }
+                }
+            }
+        }, 2000);
     }
 
     public void initData() {
@@ -120,8 +144,8 @@ public class TestUltraPullToRefreshActivity extends BaseActivity {
         mRecyclerView = findViewById(R.id.recycler_view);
 
         //LayoutManager
-        final GridLayoutManager layoutManager = new GridLayoutManager(this, SPAN_COUNT);
-        mRecyclerView.setLayoutManager(layoutManager);
+        mGridLayoutManager = new GridLayoutManager(TestUltraPullToRefreshActivity.this, SPAN_COUNT);
+        mRecyclerView.setLayoutManager(mGridLayoutManager);
 
         //Items
         mRecyclerListAdapter.setItemList(mItems);

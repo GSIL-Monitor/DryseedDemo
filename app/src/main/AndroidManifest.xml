@@ -973,6 +973,22 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".widget.recyclerView.orientationHelper.TestOrientationHelperActivity"
+            android:label="Widget/RecyclerView/OrientationHelper">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.recyclerView.scroll.TestRecyclerViewScrollActivity"
+            android:label="Widget/RecyclerView/RecyclerViewScrollUtils">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".widget.coordinatorLayout.TestCoodinatorLayoutActivity"
             android:label="Widget/CoordinatorLayout">
             <intent-filter>
@@ -1215,6 +1231,14 @@
         <activity
             android:name=".canvas.drawable.TestDrawableActivity"
             android:label="Canvas/Drawable">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dryseed.dryseedapp.TEST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".canvas.bezier.TestBezierActivity"
+            android:label="Canvas/Bezier">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />

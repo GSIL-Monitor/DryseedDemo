@@ -15,17 +15,19 @@ import java.util.List;
  */
 public abstract class SimpleRecyclerViewAdapter extends RecyclerView.Adapter<SimpleRecyclerViewAdapter.SimpleViewHolder> {
 
-    List<String> data;
+    List<String> mData;
+
+    IItemClickListener mItemClickListener;
 
     public SimpleRecyclerViewAdapter() {
     }
 
     public SimpleRecyclerViewAdapter(List<String> data) {
-        this.data = data;
+        this.mData = data;
     }
 
     public void setData(List<String> data) {
-        this.data = data;
+        this.mData = data;
         notifyDataSetChanged();
     }
 
@@ -39,17 +41,26 @@ public abstract class SimpleRecyclerViewAdapter extends RecyclerView.Adapter<Sim
     }
 
     @Override
-    public void onBindViewHolder(SimpleViewHolder holder, int position) {
-        if (data != null && data.size() > 0) {
-            String text = data.get(position);
-            holder.textView.setText(text);
+    public void onBindViewHolder(final SimpleViewHolder holder, final int position) {
+        if (mData == null || mData.size() <= 0) {
+            return;
         }
+        String text = mData.get(position);
+        holder.textView.setText(text);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mItemClickListener != null) {
+                    mItemClickListener.onItemClickListener(holder.itemView, position);
+                }
+            }
+        });
     }
 
 
     @Override
     public int getItemCount() {
-        return data == null ? 0 : data.size();
+        return mData == null ? 0 : mData.size();
     }
 
     static class SimpleViewHolder extends RecyclerView.ViewHolder {
@@ -61,5 +72,13 @@ public abstract class SimpleRecyclerViewAdapter extends RecyclerView.Adapter<Sim
             textView.setTextSize(38.0f);
         }
 
+    }
+
+    public void setItemClickListener(IItemClickListener itemClickListener) {
+        mItemClickListener = itemClickListener;
+    }
+
+    public interface IItemClickListener {
+        void onItemClickListener(View view, int position);
     }
 }
