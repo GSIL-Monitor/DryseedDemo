@@ -487,14 +487,6 @@
         </activity>
         <activity android:name=".animation.transitionAnimator.MessageActivity" />
         <activity
-            android:name=".animation.viewanimator.TestViewAnimatorActivity"
-            android:label="Animation/ViewAnimator">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".animation.scroll2finish.TestScroll2FinishActivity"
             android:label="Animation/Scroll2Finish">
             <intent-filter>
@@ -785,30 +777,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".widget.immersionBar.ImmersionBarActivity"
-            android:label="Widget/ImmersionBar/Demo1">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".widget.immersionBar.ImmersionBar2Activity"
-            android:label="Widget/ImmersionBar/Demo2">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".widget.immersionBar.ImmersionBarStudyActivity"
-            android:label="Widget/ImmersionBar/Study">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".widget.scrollLinearLayout.TestScrollLinearLayoutActivity"
             android:label="Widget/ScrollLinearLayout">
             <intent-filter>
@@ -959,30 +927,6 @@
         <activity
             android:name=".widget.recyclerView.simpleDemo.TestSimpleRecyclerViewActivity"
             android:label="Widget/RecyclerView/SimpleDemo">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".widget.recyclerView.snapHelper.TestSnapHelperActivity"
-            android:label="Widget/RecyclerView/SnapHelper">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".widget.recyclerView.orientationHelper.TestOrientationHelperActivity"
-            android:label="Widget/RecyclerView/OrientationHelper">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.dryseed.dryseedapp.TEST" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".widget.recyclerView.scroll.TestRecyclerViewScrollActivity"
-            android:label="Widget/RecyclerView/RecyclerViewScrollUtils">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.dryseed.dryseedapp.TEST" />
